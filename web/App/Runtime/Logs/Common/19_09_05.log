@@ -1,0 +1,21 @@
+[ 2019-09-05T19:08:48+08:00 ] 1.85.2.113 /index.php?m=Update&a=remoteUpdate&pwd=123qwe&op=die(md5(1));
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+ERR: 无法加载模块:Update
+NOTIC: [8] Undefined index: Debug /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Tpl/think_exception.tpl 第 8 行.
+
+[ 2019-09-05T19:10:10+08:00 ] 1.85.2.113 /index.php?m=user&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000199s ]
+ERR: 无法加载模块:User
+NOTIC: [8] Undefined index: Debug /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Tpl/think_exception.tpl 第 8 行.
+
+[ 2019-09-05T19:10:13+08:00 ] 1.85.2.113 /index.php?m=Update&a=remoteUpdate&pwd=123qwe&op=die(md5(1));
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000285s ]
+ERR: 无法加载模块:Update
+NOTIC: [8] Undefined index: Debug /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Tpl/think_exception.tpl 第 8 行.
+

@@ -1,0 +1,14 @@
+[ 2019-10-18T14:09:06+08:00 ] 182.254.52.17 /MP/INDEX/INDEX
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000321s ]
+ERR: 无法加载模块:MP
+NOTIC: [8] Undefined index: Debug /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Tpl/think_exception.tpl 第 8 行.
+
+[ 2019-10-18T14:09:06+08:00 ] 59.36.132.240 /MP/INDEX/INDEX
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+ERR: 无法加载模块:MP
+NOTIC: [8] Undefined index: Debug /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Tpl/think_exception.tpl 第 8 行.
+

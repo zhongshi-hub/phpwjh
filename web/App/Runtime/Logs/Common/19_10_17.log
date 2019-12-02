@@ -1,0 +1,21 @@
+[ 2019-10-17T03:21:39+08:00 ] 116.128.128.41 /wap/templates/article.wml
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+ERR: 无法加载模块:Wap
+NOTIC: [8] Undefined index: Debug /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Tpl/think_exception.tpl 第 8 行.
+
+[ 2019-10-17T05:17:57+08:00 ] 182.254.52.17 /wap/template/foot.htm
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+ERR: 无法加载模块:Wap
+NOTIC: [8] Undefined index: Debug /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Tpl/think_exception.tpl 第 8 行.
+
+[ 2019-10-17T20:49:22+08:00 ] 120.216.227.2 /MP/INDEX/INDEX
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+ERR: 无法加载模块:MP
+NOTIC: [8] Undefined index: Debug /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Tpl/think_exception.tpl 第 8 行.
+
