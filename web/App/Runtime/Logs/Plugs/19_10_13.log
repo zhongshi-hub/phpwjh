@@ -1,0 +1,12 @@
+[ 2019-10-13T16:08:38+08:00 ] 115.60.150.3 /Plugs/UpdateSys/sql
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000468s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000528s ]
+NOTIC: [2] file_get_contents(update.sql): failed to open stream: No such file or directory /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Plugs/Controller/UpdateSysController.class.php 第 26 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000381s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000429s ]
+

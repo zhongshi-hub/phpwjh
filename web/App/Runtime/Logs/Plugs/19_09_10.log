@@ -1,0 +1,47 @@
+[ 2019-09-10T23:16:28+08:00 ] 223.88.35.108 /Plugs/UpdateSys/sql
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000244s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000305s ]
+ERR: 1060:Duplicate column name 'miniprogram'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_system_ad` ADD COLUMN `miniprogram` varchar(150) CHARACTER SET utf8 DEFAULT NULL COMMENT '小程序附件数据' after `pagepath`;
+ERR: 1061:Duplicate key name 'mid'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_orders` ADD INDEX `mid` USING BTREE (`mid`) comment '';
+ERR: 1061:Duplicate key name 'store_id'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_orders` ADD INDEX `store_id` USING BTREE (`store_id`) comment '';
+ERR: 1061:Duplicate key name 'mch_id'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_orders` ADD INDEX `mch_id` USING BTREE (`mch_id`) comment '';
+ERR: 1061:Duplicate key name 'service'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_orders` ADD INDEX `service` USING BTREE (`service`) comment '';
+ERR: 1061:Duplicate key name 'trade_type'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_orders` ADD INDEX `trade_type` USING BTREE (`trade_type`) comment '';
+ERR: 1170:BLOB/TEXT column 'sub_openid' used in key specification without a key length
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_orders` ADD INDEX `sub_openid` USING BTREE (`sub_openid`) comment '';
+ERR: 1061:Duplicate key name 'createtime'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_orders` ADD INDEX `createtime` USING BTREE (`createtime`) comment '';
+ERR: 1061:Duplicate key name 'out_transaction_id'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_orders` ADD INDEX `out_transaction_id` USING BTREE (`out_transaction_id`) comment '';
+ERR: 1061:Duplicate key name 'mch_rate'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_orders` ADD INDEX `mch_rate` USING BTREE (`mch_rate`) comment '';
+ERR: 1061:Duplicate key name 'alleys'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_orders` ADD INDEX `alleys` USING BTREE (`alleys`) comment '';
+ERR: 1065:Query was empty
+ [ SQL语句 ] : 
+;
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000329s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000363s ]
+

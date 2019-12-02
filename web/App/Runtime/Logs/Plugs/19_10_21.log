@@ -1,0 +1,728 @@
+[ 2019-10-21T08:58:19+08:00 ] 125.40.24.152 /Plugs/UpdateSys/sql
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000616s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+NOTIC: [2] file_get_contents(update.sql): failed to open stream: No such file or directory /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Plugs/Controller/UpdateSysController.class.php 第 26 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000424s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000477s ]
+
+[ 2019-10-21T08:58:57+08:00 ] 125.40.24.152 /Plugs/UpdateSys/sql
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000244s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000404s ]
+ERR: 1050:Table 'wbs_face_device' already exists
+ [ SQL语句 ] : CREATE TABLE `wbs_face_device` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`type` varchar(10) NOT NULL COMMENT '设备类型 wx微信  ali支付宝',
+	`status` tinyint(1) DEFAULT NULL,
+	`device_number` varchar(255) NOT NULL COMMENT '设备型号',
+	`device_sn` varchar(255) NOT NULL COMMENT '设备序列号',
+	`aid` int(11) DEFAULT NULL COMMENT '所属代理ID',
+	`mid` int(11) DEFAULT NULL COMMENT '商户ID',
+	`store_id` int(11) DEFAULT NULL COMMENT '门店ID',
+	`info` varchar(255) DEFAULT NULL COMMENT '备注',
+	`ad_year` varchar(50) DEFAULT NULL COMMENT '按年收费金额',
+	`ad_month` varchar(50) DEFAULT NULL COMMENT '按月收费金额',
+	`create_time` varchar(20) DEFAULT NULL COMMENT '创建时间',
+	`update_time` varchar(20) DEFAULT NULL COMMENT '更新时间',
+	`domain_auth` varchar(50) NOT NULL COMMENT '所属',
+	PRIMARY KEY (`id`),
+	INDEX `status` USING BTREE (`status`) comment '',
+	INDEX `type` USING BTREE (`type`) comment '',
+	INDEX `device_number` USING BTREE (`device_number`) comment '',
+	INDEX `device_sn` USING BTREE (`device_sn`) comment '',
+	INDEX `mid` USING BTREE (`mid`) comment '',
+	INDEX `store_id` USING BTREE (`store_id`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=5 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_befit_count' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_befit_count` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`aid` int(11) NOT NULL,
+	`code` varchar(10) NOT NULL,
+	`name` varchar(100) DEFAULT NULL,
+	`phone` varchar(15) DEFAULT NULL,
+	`grade` tinyint(2) DEFAULT NULL,
+	`grade_name` varchar(10) DEFAULT NULL,
+	`zt_1` varchar(20) DEFAULT NULL,
+	`zt_2` varchar(20) DEFAULT NULL,
+	`zt_3` varchar(20) DEFAULT NULL,
+	`zt_4` varchar(20) DEFAULT NULL,
+	`jt_1` varchar(20) DEFAULT NULL,
+	`jt_2` varchar(20) DEFAULT NULL,
+	`jt_3` varchar(20) DEFAULT NULL,
+	`jt_4` varchar(20) DEFAULT NULL,
+	`total` decimal(10,2) DEFAULT NULL,
+	`create_time` datetime DEFAULT NULL,
+	`domain_auth` varchar(20) NOT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `aid` USING BTREE (`aid`) comment '',
+	INDEX `code` USING BTREE (`code`) comment '',
+	INDEX `total` USING BTREE (`total`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=3 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_code' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_code` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`code` varchar(10) NOT NULL,
+	`pid` int(11) DEFAULT NULL COMMENT '所属代理或系统',
+	`create_time` varchar(25) NOT NULL,
+	`status` tinyint(1) DEFAULT 1 COMMENT '状态 1启用 0禁用',
+	`domain_auth` varchar(50) NOT NULL COMMENT '所属品牌',
+	PRIMARY KEY (`id`),
+	INDEX `code` USING BTREE (`code`) comment '',
+	INDEX `pid` USING BTREE (`pid`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=691 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_draw_list' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_draw_list` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`aid` int(11) NOT NULL,
+	`total` decimal(10,2) NOT NULL COMMENT '清算金额',
+	`info` varchar(255) DEFAULT NULL,
+	`create_time` varchar(30) NOT NULL COMMENT '清算时间',
+	`domain_auth` varchar(50) NOT NULL,
+	PRIMARY KEY (`id`)) ENGINE=`InnoDB` AUTO_INCREMENT=8 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='结算记录' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_pay_order' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_pay_order` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`aid` int(11) NOT NULL COMMENT '代理ID',
+	`grade` tinyint(2) NOT NULL COMMENT '付费的等级',
+	`total` decimal(10,2) NOT NULL COMMENT '支付金额',
+	`type` varchar(5) NOT NULL DEFAULT '' COMMENT 'wx ali',
+	`out_trade_no` varchar(50) NOT NULL COMMENT '订单号',
+	`status` tinyint(1) DEFAULT 0 COMMENT '支付结果',
+	`create_time` varchar(30) NOT NULL COMMENT '订单创建时间',
+	`transaction_id` varchar(50) DEFAULT NULL COMMENT '官方订单号',
+	`update_time` varchar(30) DEFAULT NULL COMMENT '更新时间',
+	`openid` varchar(255) DEFAULT NULL COMMENT '支付者标识',
+	`pay_mid` int(11) NOT NULL COMMENT '收单商户使用id',
+	`domain_auth` varchar(20) NOT NULL COMMENT '系统标识',
+	PRIMARY KEY (`id`),
+	INDEX `aid` USING BTREE (`aid`) comment '',
+	INDEX `out_trade_no` USING BTREE (`out_trade_no`) comment '',
+	INDEX `total` USING BTREE (`total`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '',
+	INDEX `grade` USING BTREE (`grade`) comment '',
+	INDEX `transaction_id` USING BTREE (`transaction_id`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=20 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_setting' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_setting` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`data` text NOT NULL,
+	`update_time` varchar(30) DEFAULT NULL COMMENT '更新时间',
+	`domain_auth` varchar(30) NOT NULL COMMENT '所属',
+	PRIMARY KEY (`id`),
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=2 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1060:Duplicate column name 'pay_status'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_agent` ADD COLUMN `pay_status` tinyint(1) DEFAULT 0 COMMENT '是否付费开通' after `ad4`;
+ERR: 1060:Duplicate column name 'invite_code'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_agent` ADD COLUMN `invite_code` varchar(10) CHARACTER SET utf8 DEFAULT '' COMMENT '所属邀请人推荐码' after `pay_status`;
+ERR: 1060:Duplicate column name 'grade'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_agent` ADD COLUMN `grade` tinyint(2) DEFAULT NULL COMMENT '等级 1服务商 2省代 3市代 4区代' after `invite_code`;
+ERR: 1060:Duplicate column name 'sms_member'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_alisms_config` ADD COLUMN `sms_member` varchar(50) CHARACTER SET utf8 DEFAULT NULL COMMENT '会员卡验证码' after `sms_quick_pay`;
+ERR: 1051:Unknown table 'wbs_mch_industry_copy'
+ [ SQL语句 ] : 
+DROP TABLE `wbs_mch_industry_copy`;
+ERR: 1050:Table 'wbs_mch_member_activity' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_mch_member_activity` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`mid` int(11) NOT NULL COMMENT '所属商户',
+	`type` varchar(100) NOT NULL COMMENT '活动类型  cz充值送 xf消费返 jh激活送 tj推荐送',
+	`name` varchar(255) NOT NULL COMMENT '活动名称',
+	`store_id` varchar(255) DEFAULT NULL COMMENT '所属门店',
+	`data` text NOT NULL COMMENT '活动规则',
+	`status` tinyint(1) DEFAULT NULL COMMENT '状态  1启用 0禁用',
+	`create_time` varchar(50) DEFAULT NULL COMMENT '创建时间',
+	PRIMARY KEY (`id`),
+	INDEX `mid` USING BTREE (`mid`) comment '',
+	INDEX `store_id` USING BTREE (`store_id`) comment '',
+	INDEX `type` USING BTREE (`type`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '',
+	INDEX `data` USING BTREE (`data`(255)) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=38 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_mch_member_order' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_mch_member_order` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`out_trade_no` varchar(30) DEFAULT NULL COMMENT '交易号',
+	`user_id` int(11) NOT NULL COMMENT '会员ID',
+	`total` decimal(10,2) DEFAULT NULL COMMENT '交易金额',
+	`sxf` varchar(255) DEFAULT NULL COMMENT '手续费',
+	`money` decimal(10,2) DEFAULT NULL COMMENT '实收',
+	`type` varchar(20) NOT NULL COMMENT '交易类型',
+	`desc` varchar(100) DEFAULT NULL COMMENT '交易简述',
+	`mid` int(11) DEFAULT NULL COMMENT '交易商户',
+	`store_id` int(11) DEFAULT NULL COMMENT '交易门店',
+	`total_type` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 增加 2 扣款',
+	`pay_type` varchar(50) DEFAULT NULL COMMENT '消费或充值入口位置 wx 微信 ali 支付宝',
+	`create_time` varchar(30) NOT NULL COMMENT '交易时间',
+	`domain_auth` varchar(30) NOT NULL COMMENT '所属品牌',
+	`status` tinyint(1) DEFAULT 1 COMMENT '状态 1有效 其它无效',
+	`czr` varchar(255) DEFAULT NULL COMMENT ' 充值类型 操作人手机号',
+	PRIMARY KEY (`id`)) ENGINE=`InnoDB` AUTO_INCREMENT=352 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_mch_member_temp' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_mch_member_temp` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`mid` int(11) NOT NULL COMMENT '所属商户',
+	`name` varchar(20) NOT NULL COMMENT '会员卡名称',
+	`xc` varchar(20) NOT NULL COMMENT '宣传语',
+	`bg` varchar(20) DEFAULT NULL COMMENT '背景标识',
+	`number` int(11) DEFAULT NULL COMMENT '数量',
+	`phone` varchar(15) DEFAULT NULL COMMENT '联系电话',
+	`help` varchar(255) DEFAULT NULL COMMENT '会员卡使用说明',
+	`status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否启用 1启用 其它禁用',
+	`domain_auth` varchar(50) NOT NULL COMMENT '品牌授权码',
+	`pay_store` int(11) DEFAULT NULL COMMENT '充值门店ID',
+	PRIMARY KEY (`id`),
+	INDEX `mid` USING BTREE (`mid`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=5 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_mch_member_user' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_mch_member_user` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`num` varchar(30) NOT NULL COMMENT '会员卡号',
+	`st_num` varchar(30) DEFAULT NULL COMMENT '实体会员卡号',
+	`mid` int(11) NOT NULL COMMENT '商户ID',
+	`store_id` int(11) DEFAULT NULL COMMENT '门店ID',
+	`phone` varchar(12) NOT NULL COMMENT '用户手机号',
+	`name` varchar(20) DEFAULT NULL COMMENT '用户姓名',
+	`birthday` varchar(10) DEFAULT NULL COMMENT '生日',
+	`wx_id` varchar(255) DEFAULT NULL COMMENT '用户微信标识OPENID',
+	`ali_id` varchar(50) DEFAULT NULL COMMENT '支付宝用户标识ID',
+	`create_time` varchar(30) NOT NULL COMMENT '创建时间',
+	`tjr` varchar(12) DEFAULT NULL COMMENT '推荐人手机号',
+	`domain_auth` varchar(20) NOT NULL COMMENT '所属品牌',
+	PRIMARY KEY (`id`),
+	INDEX `wx_id` USING BTREE (`wx_id`) comment '',
+	INDEX `mid` USING BTREE (`mid`) comment '',
+	INDEX `ali_id` USING BTREE (`ali_id`) comment '',
+	INDEX `store_id` USING BTREE (`store_id`) comment '',
+	INDEX `phone` USING BTREE (`phone`) comment '',
+	INDEX `num` USING BTREE (`num`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=25 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='用户会员信息表' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_notice_list' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_notice_list` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`type` tinyint(2) NOT NULL COMMENT '公共类型',
+	`title` varchar(30) NOT NULL COMMENT '公共标题',
+	`info` varchar(255) NOT NULL COMMENT '公共内容',
+	`uid` int(11) NOT NULL,
+	`status` tinyint(1) DEFAULT NULL,
+	`sort` int(11) DEFAULT NULL COMMENT '排序',
+	`create_time` datetime NOT NULL,
+	`domain_auth` varchar(30) NOT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `type` USING BTREE (`type`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=4 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1065:Query was empty
+ [ SQL语句 ] : 
+
+
+;
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000495s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000545s ]
+
+[ 2019-10-21T08:58:57+08:00 ] 125.40.24.152 /Plugs/UpdateSys/sql
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+ERR: 1050:Table 'wbs_face_device' already exists
+ [ SQL语句 ] : CREATE TABLE `wbs_face_device` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`type` varchar(10) NOT NULL COMMENT '设备类型 wx微信  ali支付宝',
+	`status` tinyint(1) DEFAULT NULL,
+	`device_number` varchar(255) NOT NULL COMMENT '设备型号',
+	`device_sn` varchar(255) NOT NULL COMMENT '设备序列号',
+	`aid` int(11) DEFAULT NULL COMMENT '所属代理ID',
+	`mid` int(11) DEFAULT NULL COMMENT '商户ID',
+	`store_id` int(11) DEFAULT NULL COMMENT '门店ID',
+	`info` varchar(255) DEFAULT NULL COMMENT '备注',
+	`ad_year` varchar(50) DEFAULT NULL COMMENT '按年收费金额',
+	`ad_month` varchar(50) DEFAULT NULL COMMENT '按月收费金额',
+	`create_time` varchar(20) DEFAULT NULL COMMENT '创建时间',
+	`update_time` varchar(20) DEFAULT NULL COMMENT '更新时间',
+	`domain_auth` varchar(50) NOT NULL COMMENT '所属',
+	PRIMARY KEY (`id`),
+	INDEX `status` USING BTREE (`status`) comment '',
+	INDEX `type` USING BTREE (`type`) comment '',
+	INDEX `device_number` USING BTREE (`device_number`) comment '',
+	INDEX `device_sn` USING BTREE (`device_sn`) comment '',
+	INDEX `mid` USING BTREE (`mid`) comment '',
+	INDEX `store_id` USING BTREE (`store_id`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=5 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_befit_count' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_befit_count` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`aid` int(11) NOT NULL,
+	`code` varchar(10) NOT NULL,
+	`name` varchar(100) DEFAULT NULL,
+	`phone` varchar(15) DEFAULT NULL,
+	`grade` tinyint(2) DEFAULT NULL,
+	`grade_name` varchar(10) DEFAULT NULL,
+	`zt_1` varchar(20) DEFAULT NULL,
+	`zt_2` varchar(20) DEFAULT NULL,
+	`zt_3` varchar(20) DEFAULT NULL,
+	`zt_4` varchar(20) DEFAULT NULL,
+	`jt_1` varchar(20) DEFAULT NULL,
+	`jt_2` varchar(20) DEFAULT NULL,
+	`jt_3` varchar(20) DEFAULT NULL,
+	`jt_4` varchar(20) DEFAULT NULL,
+	`total` decimal(10,2) DEFAULT NULL,
+	`create_time` datetime DEFAULT NULL,
+	`domain_auth` varchar(20) NOT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `aid` USING BTREE (`aid`) comment '',
+	INDEX `code` USING BTREE (`code`) comment '',
+	INDEX `total` USING BTREE (`total`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=3 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_code' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_code` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`code` varchar(10) NOT NULL,
+	`pid` int(11) DEFAULT NULL COMMENT '所属代理或系统',
+	`create_time` varchar(25) NOT NULL,
+	`status` tinyint(1) DEFAULT 1 COMMENT '状态 1启用 0禁用',
+	`domain_auth` varchar(50) NOT NULL COMMENT '所属品牌',
+	PRIMARY KEY (`id`),
+	INDEX `code` USING BTREE (`code`) comment '',
+	INDEX `pid` USING BTREE (`pid`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=691 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_draw_list' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_draw_list` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`aid` int(11) NOT NULL,
+	`total` decimal(10,2) NOT NULL COMMENT '清算金额',
+	`info` varchar(255) DEFAULT NULL,
+	`create_time` varchar(30) NOT NULL COMMENT '清算时间',
+	`domain_auth` varchar(50) NOT NULL,
+	PRIMARY KEY (`id`)) ENGINE=`InnoDB` AUTO_INCREMENT=8 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='结算记录' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_pay_order' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_pay_order` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`aid` int(11) NOT NULL COMMENT '代理ID',
+	`grade` tinyint(2) NOT NULL COMMENT '付费的等级',
+	`total` decimal(10,2) NOT NULL COMMENT '支付金额',
+	`type` varchar(5) NOT NULL DEFAULT '' COMMENT 'wx ali',
+	`out_trade_no` varchar(50) NOT NULL COMMENT '订单号',
+	`status` tinyint(1) DEFAULT 0 COMMENT '支付结果',
+	`create_time` varchar(30) NOT NULL COMMENT '订单创建时间',
+	`transaction_id` varchar(50) DEFAULT NULL COMMENT '官方订单号',
+	`update_time` varchar(30) DEFAULT NULL COMMENT '更新时间',
+	`openid` varchar(255) DEFAULT NULL COMMENT '支付者标识',
+	`pay_mid` int(11) NOT NULL COMMENT '收单商户使用id',
+	`domain_auth` varchar(20) NOT NULL COMMENT '系统标识',
+	PRIMARY KEY (`id`),
+	INDEX `aid` USING BTREE (`aid`) comment '',
+	INDEX `out_trade_no` USING BTREE (`out_trade_no`) comment '',
+	INDEX `total` USING BTREE (`total`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '',
+	INDEX `grade` USING BTREE (`grade`) comment '',
+	INDEX `transaction_id` USING BTREE (`transaction_id`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=20 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_setting' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_setting` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`data` text NOT NULL,
+	`update_time` varchar(30) DEFAULT NULL COMMENT '更新时间',
+	`domain_auth` varchar(30) NOT NULL COMMENT '所属',
+	PRIMARY KEY (`id`),
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=2 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1060:Duplicate column name 'pay_status'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_agent` ADD COLUMN `pay_status` tinyint(1) DEFAULT 0 COMMENT '是否付费开通' after `ad4`;
+ERR: 1060:Duplicate column name 'invite_code'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_agent` ADD COLUMN `invite_code` varchar(10) CHARACTER SET utf8 DEFAULT '' COMMENT '所属邀请人推荐码' after `pay_status`;
+ERR: 1060:Duplicate column name 'grade'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_agent` ADD COLUMN `grade` tinyint(2) DEFAULT NULL COMMENT '等级 1服务商 2省代 3市代 4区代' after `invite_code`;
+ERR: 1060:Duplicate column name 'sms_member'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_alisms_config` ADD COLUMN `sms_member` varchar(50) CHARACTER SET utf8 DEFAULT NULL COMMENT '会员卡验证码' after `sms_quick_pay`;
+ERR: 1051:Unknown table 'wbs_mch_industry_copy'
+ [ SQL语句 ] : 
+DROP TABLE `wbs_mch_industry_copy`;
+ERR: 1050:Table 'wbs_mch_member_activity' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_mch_member_activity` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`mid` int(11) NOT NULL COMMENT '所属商户',
+	`type` varchar(100) NOT NULL COMMENT '活动类型  cz充值送 xf消费返 jh激活送 tj推荐送',
+	`name` varchar(255) NOT NULL COMMENT '活动名称',
+	`store_id` varchar(255) DEFAULT NULL COMMENT '所属门店',
+	`data` text NOT NULL COMMENT '活动规则',
+	`status` tinyint(1) DEFAULT NULL COMMENT '状态  1启用 0禁用',
+	`create_time` varchar(50) DEFAULT NULL COMMENT '创建时间',
+	PRIMARY KEY (`id`),
+	INDEX `mid` USING BTREE (`mid`) comment '',
+	INDEX `store_id` USING BTREE (`store_id`) comment '',
+	INDEX `type` USING BTREE (`type`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '',
+	INDEX `data` USING BTREE (`data`(255)) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=38 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_mch_member_order' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_mch_member_order` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`out_trade_no` varchar(30) DEFAULT NULL COMMENT '交易号',
+	`user_id` int(11) NOT NULL COMMENT '会员ID',
+	`total` decimal(10,2) DEFAULT NULL COMMENT '交易金额',
+	`sxf` varchar(255) DEFAULT NULL COMMENT '手续费',
+	`money` decimal(10,2) DEFAULT NULL COMMENT '实收',
+	`type` varchar(20) NOT NULL COMMENT '交易类型',
+	`desc` varchar(100) DEFAULT NULL COMMENT '交易简述',
+	`mid` int(11) DEFAULT NULL COMMENT '交易商户',
+	`store_id` int(11) DEFAULT NULL COMMENT '交易门店',
+	`total_type` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 增加 2 扣款',
+	`pay_type` varchar(50) DEFAULT NULL COMMENT '消费或充值入口位置 wx 微信 ali 支付宝',
+	`create_time` varchar(30) NOT NULL COMMENT '交易时间',
+	`domain_auth` varchar(30) NOT NULL COMMENT '所属品牌',
+	`status` tinyint(1) DEFAULT 1 COMMENT '状态 1有效 其它无效',
+	`czr` varchar(255) DEFAULT NULL COMMENT ' 充值类型 操作人手机号',
+	PRIMARY KEY (`id`)) ENGINE=`InnoDB` AUTO_INCREMENT=352 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_mch_member_temp' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_mch_member_temp` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`mid` int(11) NOT NULL COMMENT '所属商户',
+	`name` varchar(20) NOT NULL COMMENT '会员卡名称',
+	`xc` varchar(20) NOT NULL COMMENT '宣传语',
+	`bg` varchar(20) DEFAULT NULL COMMENT '背景标识',
+	`number` int(11) DEFAULT NULL COMMENT '数量',
+	`phone` varchar(15) DEFAULT NULL COMMENT '联系电话',
+	`help` varchar(255) DEFAULT NULL COMMENT '会员卡使用说明',
+	`status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否启用 1启用 其它禁用',
+	`domain_auth` varchar(50) NOT NULL COMMENT '品牌授权码',
+	`pay_store` int(11) DEFAULT NULL COMMENT '充值门店ID',
+	PRIMARY KEY (`id`),
+	INDEX `mid` USING BTREE (`mid`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=5 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_mch_member_user' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_mch_member_user` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`num` varchar(30) NOT NULL COMMENT '会员卡号',
+	`st_num` varchar(30) DEFAULT NULL COMMENT '实体会员卡号',
+	`mid` int(11) NOT NULL COMMENT '商户ID',
+	`store_id` int(11) DEFAULT NULL COMMENT '门店ID',
+	`phone` varchar(12) NOT NULL COMMENT '用户手机号',
+	`name` varchar(20) DEFAULT NULL COMMENT '用户姓名',
+	`birthday` varchar(10) DEFAULT NULL COMMENT '生日',
+	`wx_id` varchar(255) DEFAULT NULL COMMENT '用户微信标识OPENID',
+	`ali_id` varchar(50) DEFAULT NULL COMMENT '支付宝用户标识ID',
+	`create_time` varchar(30) NOT NULL COMMENT '创建时间',
+	`tjr` varchar(12) DEFAULT NULL COMMENT '推荐人手机号',
+	`domain_auth` varchar(20) NOT NULL COMMENT '所属品牌',
+	PRIMARY KEY (`id`),
+	INDEX `wx_id` USING BTREE (`wx_id`) comment '',
+	INDEX `mid` USING BTREE (`mid`) comment '',
+	INDEX `ali_id` USING BTREE (`ali_id`) comment '',
+	INDEX `store_id` USING BTREE (`store_id`) comment '',
+	INDEX `phone` USING BTREE (`phone`) comment '',
+	INDEX `num` USING BTREE (`num`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=25 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='用户会员信息表' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_notice_list' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_notice_list` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`type` tinyint(2) NOT NULL COMMENT '公共类型',
+	`title` varchar(30) NOT NULL COMMENT '公共标题',
+	`info` varchar(255) NOT NULL COMMENT '公共内容',
+	`uid` int(11) NOT NULL,
+	`status` tinyint(1) DEFAULT NULL,
+	`sort` int(11) DEFAULT NULL COMMENT '排序',
+	`create_time` datetime NOT NULL,
+	`domain_auth` varchar(30) NOT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `type` USING BTREE (`type`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=4 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1065:Query was empty
+ [ SQL语句 ] : 
+
+
+;
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000486s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000537s ]
+
+[ 2019-10-21T08:58:58+08:00 ] 125.40.24.152 /Plugs/UpdateSys/sql
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000319s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000348s ]
+ERR: 1050:Table 'wbs_face_device' already exists
+ [ SQL语句 ] : CREATE TABLE `wbs_face_device` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`type` varchar(10) NOT NULL COMMENT '设备类型 wx微信  ali支付宝',
+	`status` tinyint(1) DEFAULT NULL,
+	`device_number` varchar(255) NOT NULL COMMENT '设备型号',
+	`device_sn` varchar(255) NOT NULL COMMENT '设备序列号',
+	`aid` int(11) DEFAULT NULL COMMENT '所属代理ID',
+	`mid` int(11) DEFAULT NULL COMMENT '商户ID',
+	`store_id` int(11) DEFAULT NULL COMMENT '门店ID',
+	`info` varchar(255) DEFAULT NULL COMMENT '备注',
+	`ad_year` varchar(50) DEFAULT NULL COMMENT '按年收费金额',
+	`ad_month` varchar(50) DEFAULT NULL COMMENT '按月收费金额',
+	`create_time` varchar(20) DEFAULT NULL COMMENT '创建时间',
+	`update_time` varchar(20) DEFAULT NULL COMMENT '更新时间',
+	`domain_auth` varchar(50) NOT NULL COMMENT '所属',
+	PRIMARY KEY (`id`),
+	INDEX `status` USING BTREE (`status`) comment '',
+	INDEX `type` USING BTREE (`type`) comment '',
+	INDEX `device_number` USING BTREE (`device_number`) comment '',
+	INDEX `device_sn` USING BTREE (`device_sn`) comment '',
+	INDEX `mid` USING BTREE (`mid`) comment '',
+	INDEX `store_id` USING BTREE (`store_id`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=5 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_befit_count' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_befit_count` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`aid` int(11) NOT NULL,
+	`code` varchar(10) NOT NULL,
+	`name` varchar(100) DEFAULT NULL,
+	`phone` varchar(15) DEFAULT NULL,
+	`grade` tinyint(2) DEFAULT NULL,
+	`grade_name` varchar(10) DEFAULT NULL,
+	`zt_1` varchar(20) DEFAULT NULL,
+	`zt_2` varchar(20) DEFAULT NULL,
+	`zt_3` varchar(20) DEFAULT NULL,
+	`zt_4` varchar(20) DEFAULT NULL,
+	`jt_1` varchar(20) DEFAULT NULL,
+	`jt_2` varchar(20) DEFAULT NULL,
+	`jt_3` varchar(20) DEFAULT NULL,
+	`jt_4` varchar(20) DEFAULT NULL,
+	`total` decimal(10,2) DEFAULT NULL,
+	`create_time` datetime DEFAULT NULL,
+	`domain_auth` varchar(20) NOT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `aid` USING BTREE (`aid`) comment '',
+	INDEX `code` USING BTREE (`code`) comment '',
+	INDEX `total` USING BTREE (`total`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=3 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_code' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_code` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`code` varchar(10) NOT NULL,
+	`pid` int(11) DEFAULT NULL COMMENT '所属代理或系统',
+	`create_time` varchar(25) NOT NULL,
+	`status` tinyint(1) DEFAULT 1 COMMENT '状态 1启用 0禁用',
+	`domain_auth` varchar(50) NOT NULL COMMENT '所属品牌',
+	PRIMARY KEY (`id`),
+	INDEX `code` USING BTREE (`code`) comment '',
+	INDEX `pid` USING BTREE (`pid`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=691 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_draw_list' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_draw_list` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`aid` int(11) NOT NULL,
+	`total` decimal(10,2) NOT NULL COMMENT '清算金额',
+	`info` varchar(255) DEFAULT NULL,
+	`create_time` varchar(30) NOT NULL COMMENT '清算时间',
+	`domain_auth` varchar(50) NOT NULL,
+	PRIMARY KEY (`id`)) ENGINE=`InnoDB` AUTO_INCREMENT=8 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='结算记录' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_pay_order' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_pay_order` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`aid` int(11) NOT NULL COMMENT '代理ID',
+	`grade` tinyint(2) NOT NULL COMMENT '付费的等级',
+	`total` decimal(10,2) NOT NULL COMMENT '支付金额',
+	`type` varchar(5) NOT NULL DEFAULT '' COMMENT 'wx ali',
+	`out_trade_no` varchar(50) NOT NULL COMMENT '订单号',
+	`status` tinyint(1) DEFAULT 0 COMMENT '支付结果',
+	`create_time` varchar(30) NOT NULL COMMENT '订单创建时间',
+	`transaction_id` varchar(50) DEFAULT NULL COMMENT '官方订单号',
+	`update_time` varchar(30) DEFAULT NULL COMMENT '更新时间',
+	`openid` varchar(255) DEFAULT NULL COMMENT '支付者标识',
+	`pay_mid` int(11) NOT NULL COMMENT '收单商户使用id',
+	`domain_auth` varchar(20) NOT NULL COMMENT '系统标识',
+	PRIMARY KEY (`id`),
+	INDEX `aid` USING BTREE (`aid`) comment '',
+	INDEX `out_trade_no` USING BTREE (`out_trade_no`) comment '',
+	INDEX `total` USING BTREE (`total`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '',
+	INDEX `grade` USING BTREE (`grade`) comment '',
+	INDEX `transaction_id` USING BTREE (`transaction_id`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=20 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_invite_setting' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_invite_setting` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`data` text NOT NULL,
+	`update_time` varchar(30) DEFAULT NULL COMMENT '更新时间',
+	`domain_auth` varchar(30) NOT NULL COMMENT '所属',
+	PRIMARY KEY (`id`),
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=2 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1060:Duplicate column name 'pay_status'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_agent` ADD COLUMN `pay_status` tinyint(1) DEFAULT 0 COMMENT '是否付费开通' after `ad4`;
+ERR: 1060:Duplicate column name 'invite_code'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_agent` ADD COLUMN `invite_code` varchar(10) CHARACTER SET utf8 DEFAULT '' COMMENT '所属邀请人推荐码' after `pay_status`;
+ERR: 1060:Duplicate column name 'grade'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_agent` ADD COLUMN `grade` tinyint(2) DEFAULT NULL COMMENT '等级 1服务商 2省代 3市代 4区代' after `invite_code`;
+ERR: 1060:Duplicate column name 'sms_member'
+ [ SQL语句 ] : 
+ALTER TABLE `wbs_mch_alisms_config` ADD COLUMN `sms_member` varchar(50) CHARACTER SET utf8 DEFAULT NULL COMMENT '会员卡验证码' after `sms_quick_pay`;
+ERR: 1051:Unknown table 'wbs_mch_industry_copy'
+ [ SQL语句 ] : 
+DROP TABLE `wbs_mch_industry_copy`;
+ERR: 1050:Table 'wbs_mch_member_activity' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_mch_member_activity` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`mid` int(11) NOT NULL COMMENT '所属商户',
+	`type` varchar(100) NOT NULL COMMENT '活动类型  cz充值送 xf消费返 jh激活送 tj推荐送',
+	`name` varchar(255) NOT NULL COMMENT '活动名称',
+	`store_id` varchar(255) DEFAULT NULL COMMENT '所属门店',
+	`data` text NOT NULL COMMENT '活动规则',
+	`status` tinyint(1) DEFAULT NULL COMMENT '状态  1启用 0禁用',
+	`create_time` varchar(50) DEFAULT NULL COMMENT '创建时间',
+	PRIMARY KEY (`id`),
+	INDEX `mid` USING BTREE (`mid`) comment '',
+	INDEX `store_id` USING BTREE (`store_id`) comment '',
+	INDEX `type` USING BTREE (`type`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '',
+	INDEX `data` USING BTREE (`data`(255)) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=38 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_mch_member_order' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_mch_member_order` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`out_trade_no` varchar(30) DEFAULT NULL COMMENT '交易号',
+	`user_id` int(11) NOT NULL COMMENT '会员ID',
+	`total` decimal(10,2) DEFAULT NULL COMMENT '交易金额',
+	`sxf` varchar(255) DEFAULT NULL COMMENT '手续费',
+	`money` decimal(10,2) DEFAULT NULL COMMENT '实收',
+	`type` varchar(20) NOT NULL COMMENT '交易类型',
+	`desc` varchar(100) DEFAULT NULL COMMENT '交易简述',
+	`mid` int(11) DEFAULT NULL COMMENT '交易商户',
+	`store_id` int(11) DEFAULT NULL COMMENT '交易门店',
+	`total_type` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 增加 2 扣款',
+	`pay_type` varchar(50) DEFAULT NULL COMMENT '消费或充值入口位置 wx 微信 ali 支付宝',
+	`create_time` varchar(30) NOT NULL COMMENT '交易时间',
+	`domain_auth` varchar(30) NOT NULL COMMENT '所属品牌',
+	`status` tinyint(1) DEFAULT 1 COMMENT '状态 1有效 其它无效',
+	`czr` varchar(255) DEFAULT NULL COMMENT ' 充值类型 操作人手机号',
+	PRIMARY KEY (`id`)) ENGINE=`InnoDB` AUTO_INCREMENT=352 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_mch_member_temp' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_mch_member_temp` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`mid` int(11) NOT NULL COMMENT '所属商户',
+	`name` varchar(20) NOT NULL COMMENT '会员卡名称',
+	`xc` varchar(20) NOT NULL COMMENT '宣传语',
+	`bg` varchar(20) DEFAULT NULL COMMENT '背景标识',
+	`number` int(11) DEFAULT NULL COMMENT '数量',
+	`phone` varchar(15) DEFAULT NULL COMMENT '联系电话',
+	`help` varchar(255) DEFAULT NULL COMMENT '会员卡使用说明',
+	`status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否启用 1启用 其它禁用',
+	`domain_auth` varchar(50) NOT NULL COMMENT '品牌授权码',
+	`pay_store` int(11) DEFAULT NULL COMMENT '充值门店ID',
+	PRIMARY KEY (`id`),
+	INDEX `mid` USING BTREE (`mid`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=5 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_mch_member_user' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_mch_member_user` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`num` varchar(30) NOT NULL COMMENT '会员卡号',
+	`st_num` varchar(30) DEFAULT NULL COMMENT '实体会员卡号',
+	`mid` int(11) NOT NULL COMMENT '商户ID',
+	`store_id` int(11) DEFAULT NULL COMMENT '门店ID',
+	`phone` varchar(12) NOT NULL COMMENT '用户手机号',
+	`name` varchar(20) DEFAULT NULL COMMENT '用户姓名',
+	`birthday` varchar(10) DEFAULT NULL COMMENT '生日',
+	`wx_id` varchar(255) DEFAULT NULL COMMENT '用户微信标识OPENID',
+	`ali_id` varchar(50) DEFAULT NULL COMMENT '支付宝用户标识ID',
+	`create_time` varchar(30) NOT NULL COMMENT '创建时间',
+	`tjr` varchar(12) DEFAULT NULL COMMENT '推荐人手机号',
+	`domain_auth` varchar(20) NOT NULL COMMENT '所属品牌',
+	PRIMARY KEY (`id`),
+	INDEX `wx_id` USING BTREE (`wx_id`) comment '',
+	INDEX `mid` USING BTREE (`mid`) comment '',
+	INDEX `ali_id` USING BTREE (`ali_id`) comment '',
+	INDEX `store_id` USING BTREE (`store_id`) comment '',
+	INDEX `phone` USING BTREE (`phone`) comment '',
+	INDEX `num` USING BTREE (`num`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=25 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='用户会员信息表' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1050:Table 'wbs_notice_list' already exists
+ [ SQL语句 ] : 
+CREATE TABLE `wbs_notice_list` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`type` tinyint(2) NOT NULL COMMENT '公共类型',
+	`title` varchar(30) NOT NULL COMMENT '公共标题',
+	`info` varchar(255) NOT NULL COMMENT '公共内容',
+	`uid` int(11) NOT NULL,
+	`status` tinyint(1) DEFAULT NULL,
+	`sort` int(11) DEFAULT NULL COMMENT '排序',
+	`create_time` datetime NOT NULL,
+	`domain_auth` varchar(30) NOT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `type` USING BTREE (`type`) comment '',
+	INDEX `domain_auth` USING BTREE (`domain_auth`) comment '',
+	INDEX `status` USING BTREE (`status`) comment '') ENGINE=`InnoDB` AUTO_INCREMENT=4 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ROW_FORMAT=COMPACT COMMENT='' CHECKSUM=0 DELAY_KEY_WRITE=0;
+ERR: 1065:Query was empty
+ [ SQL语句 ] : 
+
+
+;
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000434s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000483s ]
+
+[ 2019-10-21T13:28:33+08:00 ] 101.68.68.234 /Plugs/Upload/index/Mod/Admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000065s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000125s ]
+NOTIC: [8] Undefined index: width /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Plugs/65ee80ac8c16545a77780774b55a2b41.php 第 40 行.
+NOTIC: [8] Undefined index: height /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Plugs/65ee80ac8c16545a77780774b55a2b41.php 第 41 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009161s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009228s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000139s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000283s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000470s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000428s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000480s ]
+

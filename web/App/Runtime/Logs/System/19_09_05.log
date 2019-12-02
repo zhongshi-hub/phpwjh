@@ -1,0 +1,647 @@
+[ 2019-09-05T16:54:53+08:00 ] 223.88.35.72 /System?t=chinaPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000333s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000368s ]
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000059s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000126s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005783s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005812s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000117s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000207s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000371s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000331s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000371s ]
+
+[ 2019-09-05T16:54:53+08:00 ] 223.88.35.72 /manage/Login/load_verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000201s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Use of undefined constant FA - assumed 'FA' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/System/Controller/LoginController.class.php 第 74 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000295s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000341s ]
+
+[ 2019-09-05T16:55:01+08:00 ] 223.88.35.72 /System?t=chinaPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000376s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000414s ]
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+
+[ 2019-09-05T16:55:04+08:00 ] 223.88.35.72 /manage/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000276s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000326s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000361s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000103s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000147s ]
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015792s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015828s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000117s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000360s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000517s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000284s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000316s ]
+
+[ 2019-09-05T16:55:08+08:00 ] 223.88.35.72 /manage/Alleys/lists
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000298s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000371s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000411s ]
+NOTIC: [8] Undefined variable: map /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/System/Controller/AlleysController.class.php 第 34 行.
+NOTIC: [8] Undefined variable: map /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/System/Controller/AlleysController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000082s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000118s ]
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/15c587cad424a6c7e0a0d2fdcaf1689c.php 第 152 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014560s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014594s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000094s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000365s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000516s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000373s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000407s ]
+
+[ 2019-09-05T16:55:11+08:00 ] 223.88.35.72 /manage/Extend/brand
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000197s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000382s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000422s ]
+NOTIC: [8] Undefined variable: map /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/System/Controller/ExtendController.class.php 第 111 行.
+NOTIC: [8] Undefined variable: map /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/System/Controller/ExtendController.class.php 第 114 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000156s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000196s ]
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018101s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018138s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000104s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000407s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000576s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000415s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000455s ]
+
+[ 2019-09-05T16:57:09+08:00 ] 223.88.35.72 /manage/Extend/edit_brand
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000318s ]
+
+[ 2019-09-05T16:57:10+08:00 ] 223.88.35.72 /manage/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000134s ]
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/f78edd0f26ea20fdaa80e27a451df494.php 第 152 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014303s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014338s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000092s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000362s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000493s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000396s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000430s ]
+
+[ 2019-09-05T17:00:46+08:00 ] 223.88.35.72 /manage/Extend/brand
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000331s ]
+NOTIC: [8] Undefined variable: map /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/System/Controller/ExtendController.class.php 第 111 行.
+NOTIC: [8] Undefined variable: map /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/System/Controller/ExtendController.class.php 第 114 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000155s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000199s ]
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/61c1f59a688b74834e6b8249fbac4563.php 第 152 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021118s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021170s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000126s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000369s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000537s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000321s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000348s ]
+
+[ 2019-09-05T17:00:47+08:00 ] 223.88.35.72 /manage/Extend/api/id/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000199s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000082s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000123s ]
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013496s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013542s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000126s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000344s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000511s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000287s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000313s ]
+
+[ 2019-09-05T17:00:50+08:00 ] 223.88.35.72 /manage/Extend/add_alleys
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000199s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000290s ]
+
+[ 2019-09-05T17:00:53+08:00 ] 223.88.35.72 /manage/Extend/api/id/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000336s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000376s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000087s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000133s ]
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015269s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015309s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000112s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000316s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000367s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000400s ]
+
+[ 2019-09-05T17:00:58+08:00 ] 223.88.35.72 /manage/Extend/add_alleys
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000250s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000278s ]
+
+[ 2019-09-05T17:01:01+08:00 ] 223.88.35.72 /manage/Extend/api/id/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000338s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000407s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000448s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000089s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000138s ]
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [2] Illegal string offset '_data' /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/System/abfab9dca25c02e55bf30f23b010808b.php 第 152 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014035s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014078s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000134s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000344s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000520s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000364s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000398s ]
+
+[ 2019-09-05T19:08:59+08:00 ] 1.85.2.113 /manage.asp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000276s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000411s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000052s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000107s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020270s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020313s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000112s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000297s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000464s ]
+
+[ 2019-09-05T19:08:59+08:00 ] 1.85.2.113 /manage.jsp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000410s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000101s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006366s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006454s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000104s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000235s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000402s ]
+
+[ 2019-09-05T19:08:59+08:00 ] 1.85.2.113 /manage.aspx
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000276s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000400s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000057s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000118s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006403s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006471s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000106s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000259s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000420s ]
+
+[ 2019-09-05T19:08:59+08:00 ] 1.85.2.113 /manage.asp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000366s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000407s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000038s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000074s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012881s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012925s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000092s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000163s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000291s ]
+
+[ 2019-09-05T19:08:59+08:00 ] 1.85.2.113 /manage.jsp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000351s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000393s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000058s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000112s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006458s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006512s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.005502s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000260s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005825s ]
+
+[ 2019-09-05T19:09:00+08:00 ] 1.85.2.113 /manage.aspx
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000291s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000408s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000057s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000114s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006272s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006324s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000104s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000250s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000410s ]
+
+[ 2019-09-05T19:09:03+08:00 ] 1.85.2.113 /manage/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000377s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000420s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000060s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000126s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017757s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017802s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000107s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000245s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000404s ]
+
+[ 2019-09-05T19:09:03+08:00 ] 1.85.2.113 /manage/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000305s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000423s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000056s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000116s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016834s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016880s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000108s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000235s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000400s ]
+
+[ 2019-09-05T19:09:05+08:00 ] 1.85.2.113 /manage/login.asp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000382s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000423s ]
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+
+[ 2019-09-05T19:09:37+08:00 ] 1.85.2.113 /Manage/Login.aspx
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000202s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000306s ]
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+NOTIC: [8] Undefined index: system /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/SystemBaseController.class.php 第 61 行.
+
+[ 2019-09-05T19:10:07+08:00 ] 1.85.2.113 /manage/collect/MasterPage_Site.master
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000197s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000300s ]
+ERR: 无法加载控制器:Collect
+NOTIC: [8] Undefined index: Debug /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Tpl/think_exception.tpl 第 8 行.
+
