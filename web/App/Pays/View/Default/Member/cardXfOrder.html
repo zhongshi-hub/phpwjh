@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>会员卡消费</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/hui/css/hui.css" />
+    <link rel="stylesheet" href="__PUBLIC__/mescroll/mescroll.min.css">
+    <script src="__PUBLIC__/mescroll/mescroll.min.js" charset="utf-8"></script>
+    <style>
+        body{background-color: #f7f7f7}
+        .card_list img{width: 90%;margin: 5px;}
+        .hui-media-list .hui-media-list-img {width: 15%;}
+        .hui-media-content {margin-left:10px;width: 50%;padding-top: 5px}
+        .hui-media-content p{margin-top: 5px}
+        .card_total{width: 30%;text-align: right;font-size: 18px;padding-top: 10px;padding-right: 5px}
+        .hui-media-list li{border-radius: 5px}
+        .card_total p{color: #e26954;font-size: 13px}
+        .card_total p img{width: 16px;margin-bottom: -2px;margin-right: 0;}
+    </style>
+</head>
+<body>
+<div id="mescroll" class="mescroll">
+    <div class="hui-media-list card_list" style="padding:10px;">
+        <ul id="dataList"></ul>
+    </div>
+</div>
+<script  src="__PUBLIC__/hui/js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script  src="__PUBLIC__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="application/javascript">
+    $(function(){
+
+        var mescroll = new MeScroll("mescroll", {
+            up: {
+                callback: getListData,
+                isBounce: false,
+                clearEmptyId: "dataList",
+                toTop:{
+                    src : "__PUBLIC__/mescroll/mescroll-totop.png",
+                    offset : 500
+                },
+                lazyLoad: {
+                    use: true
+                },
+                htmlNodata: '<p class="upwarp-nodata">-- 没有更多的数据了--</p>',
+                empty: {
+                    warpId:null,
+                    icon: "__PUBLIC__/mescroll/mescroll-empty.png",
+                    tip: "暂无相关数据~",
+                    btntext: "返回",
+                    btnClick: function(){
+                        window.location.href="{:U('pays/member/card')}";
+                    },
+                    supportTap: false
+                }
+            }
+
+        });
+        function getListData(page){
+            getListDataFromNet(page.num, page.size, function(curPageData){
+                mescroll.endByPage(curPageData.data.length, curPageData.count);
+                setListData(curPageData);
+            }, function(){
+                mescroll.endErr();
+            });
+        }
+
+        function setListData(curPageData){
+            var listDom=document.getElementById("dataList");
+            for (var i = 0; i < curPageData.data.length; i++) {
+                var pd=curPageData.data[i];
+                var str='<a href="{:U(\'payResult\')}/id/'+pd.id+'"  data-id="'+pd.id+'">\n' +
+                    '                    <div class="hui-media-list-img"><img src="__PUBLIC__/amp/member/m_xf_logo.png"/></div>\n' +
+                    '                    <div class="hui-media-content">\n' +
+                    '                        <h1>'+pd.store_id+'</h1>\n' +
+                    '                        <p>'+pd.create_time+'</p>\n' +
+                    '                    </div>\n' +
+                    '                    <div class="card_total">\n' +
+                    '                        '+pd.total+'\n' +
+             
+                    '                    </div>\n' +
+                    '                </a>';
+                var liDom=document.createElement("li");
+                liDom.innerHTML=str;
+                listDom.appendChild(liDom);
+            }
+        }
+
+        function getListDataFromNet(pageNum,pageSize,successCallback,errorCallback) {
+            $.ajax({
+                type: 'POST',
+                url: '{:U("getOrderList")}',
+                data:{page:pageNum,size:pageSize,type:2},
+                dataType: 'json',
+                success: function(data){
+                    successCallback(data);
+                },
+                error: errorCallback
+            });
+        }
+
+    });
+</script>
+</body>
+</html>

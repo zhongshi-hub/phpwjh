@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <title>结算信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
+    <link rel="stylesheet" href="__PUBLIC__/f7/css/framework7.ios.css">
+    <link rel="stylesheet" href="__PUBLIC__/f7/css/framework7.ios.colors.css">
+    <link rel="stylesheet" href="__PUBLIC__/f7/css/framework7-icons.css">
+    <link rel="stylesheet" href="__PUBLIC__/f7/css/my-app.css">
+    <script type="text/javascript" src="__PUBLIC__/f7/js/framework7.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/fancybox/jquery.fancybox.css">
+    <script type="text/javascript" src="__PUBLIC__/fancybox/jquery.fancybox.js"></script>
+
+</head>
+<body>
+<div class="views">
+    <div class="view view-main">
+        <div class="pages navbar-through">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="right xun-menu" style="margin-left: 10px;"><span><i class="f7-icons">data</i></span></div>
+                    <div class="left"><a href="{:U('index')}" class="link external"><i class="f7-icons">chevron_left</i><span>上一步</span></a></div>
+                </div>
+            </div>
+
+            <div class="page">
+                <div class="page-content" style="padding-top: 30px;">
+                    <form id="form-{$_SESSION['Reg']['codes']}-2" class="list-block store-data ajax-submit" method="post" action="">
+                        <div class="content-block-title">身份信息</div>
+                        <div class="list-block ">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">营业性质</div>
+                                            <div class="item-input">
+                                                <input type="text" name="bus_type" placeholder="请选择营业性质"
+                                                       readonly="readonly"
+                                                       style="color: #007aff" id="picker-bus-type"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="content-block-title" id="JS">结算账户</div>
+                        <div class="list-block" id="JS_Data">
+                            <ul>
+                                <li id="Bus">
+                                    <a id="smart_select" href="#" data-back-on-select="true" data-back-text="返回"
+                                       data-open-in="popup" data-navbar-theme="red" class="item-link smart-select">
+                                        <select name="bank_type" id="bank_type">
+                                            <option value="个人账户">个人账户</option>
+                                            <option value="企业账户">企业账户</option>
+                                        </select>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">账户类型</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <!--无营业执照都是个人账户-->
+                                <li id="Per">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">账户类型</div>
+                                            <div class="item-input">
+                                                <input type="text" placeholder="个人账户" value="个人账户" disabled/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li id="qy">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">银行卡号</div>
+                                            <div class="item-input">
+                                                <input type="text" name="qy_bank_cid" placeholder="请输入开户结算卡号"/>
+                                                <input type="hidden" name="img-bank"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li id="pe">
+                                    <div class="ks-card-header-pic" style="font-size:14px;">
+                                        <div class="card-header color-white no-border">
+                                            <img style="height: 200px;width: 100%;overflow: hidden;" src="__PUBLIC__/Image/pays/k.png" id="img-bank">
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="card-content-inner">
+                                                <p class="color-gray">银行卡号</p>
+                                                <div class="list-block">
+                                                    <ul style="padding-left:0px">
+                                                        <li>
+                                                            <div class="item-content">
+                                                                <div class="item-inner">
+                                                                    <div class="item-input">
+                                                                        <input name="bank_cid" placeholder="请输入银行卡号" class="" type="text">
+                                                                        <!--<input name="bank_cid" placeholder="上传银行卡后自动识别卡号" class="" type="text" readonly>-->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-footer"><a href="#" class="link" onclick="UpBank()">上传银行卡照片</a><a
+                                                href="#" class="link" onclick="GIVE_Image('bank')">预览</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-block-title">结算信息</div>
+                        <div class="list-block ">
+                            <ul>
+                                <li>
+                                    <a href="#" data-searchbar="true" data-back-text="返回" data-searchbar-cancel="取消"
+                                       data-searchbar-placeholder="请输入关键字" data-back-on-select="true"
+                                       data-open-in="popup"
+                                       class="item-link smart-select">
+                                        <select name="bank_list" id="selectBnk">
+                                            <option value="">请选择开户银行</option>
+                                            <volist name="bank_list" id="v">
+                                                <option value="{$v.bnkcd}">{$v.bnknm}</option>
+                                            </volist>
+                                        </select>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">开户银行</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label" id="per_bank_name">开户姓名</div>
+                                            <div class="item-input">
+                                                <input type="text" name="bank_name" value="" placeholder="请输入开户姓名"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li id="per_tel">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">手机号码</div>
+                                            <div class="item-input">
+                                                <input type="text" name="bank_tel" value="" placeholder="请输入银行卡预留手机号"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">开户地区</div>
+                                            <div class="item-input">
+                                                <input type="text" name="bank_city" placeholder="请选择开户城市"
+                                                       readonly="readonly"
+                                                       style="color: #007aff" id="picker-bank-city"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"  id="depositLBnk" data-back-on-select="true" data-back-text="返回"
+                                       data-open-in="popup" data-navbar-theme="red" class="item-link smart-select" data-searchbar-placeholder="搜索"
+                                       data-searchbar-cancel="取消" data-searchbar="true">
+                                        <select name="linkBnk" id="selectLBnk">
+                                        </select>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title" id="lBnk">开户支行</div>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+
+
+
+                    </form>
+                    <div class="content-block">
+                        <p>
+                           <a  style="width: 100%;text-align: center;color: #007aff" class="next-3 external button  button-big" onclick="check_val()">下一步 (2/3) </a>
+                        </p>
+                       
+                    </div>
+                    <div class="content-block xun_footer">
+                        {$_domain['web_name']}&copy;版权所有
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--可使用银行提示-->
+<div class="popup banks-popup">
+    <div class="view navbar-fixed">
+        <div class="pages">
+            <div class="page">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="center">仅支持以下银行结算卡</div>
+                        <div class="right"><a href="#" class="link close-popup">关闭</a></div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="content-block">
+                        <div class="content-block-inner">
+                            <volist name="bank_list" id="vo" mod="2">
+                                <div class="chip" style="margin:5px;background-color: #0cba33;">
+                                    <div class="chip-label">{$vo.bnknm}</div>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <div class="content-block-inner">
+                            <div class="card-content-inner" style="color: red;"><p>结算卡不支持信用卡结算!请悉知!</p>
+                                <p>请确认您的结算银行卡为借记卡(储蓄卡)</p></div>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <p>
+                            <!--<a href="#" class="button button-big button-fill color-red ripple-red"
+                               onclick="IMG_UPLOAD('bank','bank_card');">我已了解! 开始拍照上传</a>-->
+                            <a href="#" class="button button-big button-fill color-red ripple-red"
+                               onclick="IMG_UPLOAD('bank');">我已了解! 开始拍照上传</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<style>
+    .picker-item{font-size: 20px!important;}
+</style>
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+    wx.config({$options|json_encode});
+    var myApp = new Framework7({
+        modalTitle: '提示',
+        modalButtonOk: '确定',
+        modalButtonCancel: '取消',
+        modalPreloaderTitle: '加载中...请稍等...',
+        animateNavBackIcon: true,
+        materialRipple: true
+    });
+    var $$ = Dom7;
+    var mainView = myApp.addView('.view-main', {
+        dynamicNavbar: true
+    });
+
+    $$(document).on('ajaxStart', function (e) {
+        myApp.showIndicator();
+    });
+    $$(document).on('ajaxComplete', function (e) {
+        myApp.hideIndicator();
+    });
+    
+
+
+
+    $(function () {
+        $('a').click(function () {
+            setForm();
+        });
+        /*初始化*/
+        $('#JS,#JS_Data,#Per,#Bus,#Bus_title,#qy,#pe').hide();
+        $$('#picker-bus-type').change(BUS_TYPE);
+        $$('#bank_type').change(BANK_TYPE);
+        $$('#selectBnk').change(bankChange); //监听银行信息变动
+        $$('#picker-bank-city').change(bankChange); //监听省份信息变动
+        BUS_TYPE();
+        BANK_TYPE();
+        bankChange();
+        UpImage_Val();
+    });
+
+    function UpBank() {
+        myApp.popup('.banks-popup');
+    }
+    /*初始化已上传图片*/
+    function UpImage_Val() {
+        var array = ['bank'];
+        for (var k = 0, length = array.length; k < length; k++) {
+            src = $("[name='img-" + array[k] + "']").val();
+            if (src != null && src != "" && typeof(src) != 'undefined') {
+                $("#img-" + array[k]).attr('src', src);
+            }
+        }
+    }
+
+    /*身份信息验证*/
+    function BUS_TYPE() {
+        BANK_TYPE();
+        var BUS_TYPES = $('#picker-bus-type').val();
+        //alert(BUS_TYPES);
+        if (BUS_TYPES == '有营业执照') {
+            $('#JS,#JS_Data,#Bus').show();
+            $('#Per').hide();
+            $("#img-sqh").attr('src', '../styles/center/img/sqh.png');
+        } else {
+            $('#Bus,#YDF_yyzz').hide();
+            $('#JS,#JS_Data,#Per').show();
+            $('#qy').hide();
+            $('#pe').show();
+        }
+
+    }
+
+    /*账户类型*/
+    function BANK_TYPE() {
+        var BANK_TYPES = $('#bank_type option:selected').val();
+        var BUS_TYPES = $('#picker-bus-type').val();
+        //只有营业执照才可以判断 无营业执照无需判断
+        if (BUS_TYPES == '有营业执照') {
+            if (BANK_TYPES == '企业账户') {
+               $('#qy').show();
+               $('#per_tel,#pe').hide();
+                $('#per_bank_name').html('开户公司');
+                $("[name='bank_name']").attr("placeholder", "请输入开户公司名称");
+            } else {
+                $('#qy').hide();
+                $('#per_tel,#pe').show();
+                $('#per_bank_name').html('开户姓名');
+                $("[name='bank_name']").attr("placeholder", "请输入开户姓名");
+            }
+        }
+
+    }
+    $$('.xun-menu').on('click', function () {
+        var xun_my = [
+            {
+                text: '清除本页缓存',
+                onClick: function () {
+                    myApp.confirm('缓存清空后需要重新填写!您确定要清空本页缓存数据吗?', function () {
+                        myApp.formDeleteData("form-{$_SESSION['Reg']['codes']}-2");
+                        window.location.reload();
+                    });
+                }
+            },
+            {
+                text: '清除所有缓存',
+                onClick: function () {
+                    myApp.confirm('缓存清空后需要重新填写!您确定要清空所有页面缓存数据吗?', function () {
+                        myApp.formDeleteData("form-{$_SESSION['Reg']['codes']}-1");
+                        myApp.formDeleteData("form-{$_SESSION['Reg']['codes']}-2");
+                        myApp.formDeleteData("form-{$_SESSION['Reg']['codes']}-end");
+                        window.location.reload();
+                    });
+                }
+            }
+
+        ];
+        var xun_colse = [
+            {
+                text: '关闭',
+                color: 'red'
+            }
+        ];
+
+        var groups = [xun_my,xun_colse];
+        myApp.actions(groups);
+    });
+
+    myApp.picker({
+        input: '#picker-bus-type',
+        rotateEffect: true,
+        toolbarCloseText: '关闭',
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['无营业执照', '有营业执照']
+            }
+        ]
+    });
+    var  pro={$pro};
+    myApp.picker({
+        input: '#picker-bank-city',
+        toolbarCloseText: '关闭',
+        rotateEffect: false,
+        momentumRatio:2,
+        cols: [
+            {
+                textAlign: 'left',
+                values: pro,
+                width: 160,
+                onChange: function (picker, country) {
+
+                    if (picker.cols[1].replaceValues) {
+                        $.ajax({
+                            url: "/Pays/Reg/area_city",
+                            type: "POST",
+                            dataType: "json",
+                            data: 'name=' + country,
+                            success: function (data) {
+                                picker.cols[1].replaceValues(data);
+                            }
+                        });
+
+                    }
+                }
+            },
+            {
+                textAlign: 'right',
+                values: ["请选择"], //默认
+                width: 160
+            }
+
+        ]
+    });
+    function bankChange() {
+        var cityId = $('#selectBnk option:selected').val();
+        var Bank_city = $('#picker-bank-city').val();
+        var _city = Bank_city.split(' ');
+        var city = _city[1];
+        if (city != null && city != "" && typeof(city) != 'undefined' && city != '请选择' && cityId != null && cityId != "" && typeof(cityId) != 'undefined') {
+            setLBnk(cityId, city);
+        }
+    }
+
+    //当开户市改变且开户行已选择时， 选择开户支行
+    function setLBnk(cityId, city) {
+        var params = {city: city, cityId: cityId};
+        var linkBnkStr = "<option value=''>请选择支行</option>";
+        $.ajax({
+            data: params,
+            url: "{:U('bnkLink')}",
+            type: "POST",
+            dataType: "json",
+            success: function (data) {
+                if (data.list != '' && data.list != null) {
+                    for (var i = 0; i < data.list.length; i++) {
+                        linkBnkStr += "<option value='" + data.list[i].banking + "'>" + data.list[i].address + "</option>";
+                    }
+                } else {
+
+                    linkBnkStr = "<option value=''>未找到分行信息</option>";
+                }
+                $("#selectLBnk").find("option").remove();
+                myApp.smartSelectAddOption('#depositLBnk select', linkBnkStr);
+
+            }
+        });
+    }
+
+    function IMG_UPLOAD(ids,mod) {
+        myApp.closeModal('.banks-popup');
+        wx.chooseImage({
+            count: 1,
+            sizeType: ['compressed'],
+            sourceType: ['album', 'camera'],
+            success: function (res) {
+                //SDK 上传图片
+                if (res.localIds.length == 0) {
+                    myApp.alert('请先使用 chooseImage 接口选择图片');
+                    return;
+                }
+                wx.uploadImage({
+                    localId: '' + res.localIds,
+                    isShowProgressTips: 1,
+                    success: function (res) {
+                        myApp.showIndicator();
+                        if(mod=='bank_card'){
+                            $.ajax({
+                                url: '{:U("upload_disc")}',
+                                data: {
+                                    media_id: res.serverId,
+                                    type: 'AliScan',
+                                    api:'bank_card'
+                                },
+                                type: "POST",
+                                dataType: "json",
+                                success: function (res) {
+                                    myApp.hideIndicator();
+                                    if (res.status == 1) {
+                                        var New_data = res.number;
+                                        value = New_data.replace(/\s/g, ' ').replace(/(\d{4})(?=\d)/g, "$1 ");
+                                        $('[name="bank_cid"]').val(value).removeAttr("readonly");
+                                        $("#img-" + ids).attr('src', res.img_url);
+                                        $("[name='img-" + ids + "']").val(res.img_url);
+                                        myApp.alert('银行卡信息识别成功!请仔细核对是否正确!如不正确 请手动修改卡号!');
+                                    } else {
+                                        myApp.alert(res.info);
+                                    }
+                                },
+                                beforeSend: function (XMLHttpRequest) {
+                                    myApp.showIndicator();
+                                },
+                                error: function (res) {
+                                    myApp.alert(res.info);
+                                }
+                            })
+                        }else {
+                            $.ajax({
+                                url: '{:U("upload_disc")}',
+                                data: {
+                                    media_id: res.serverId,
+                                    type: 'Images'
+                                },
+                                type: "POST",
+                                dataType: "json",
+                                success: function (res) {
+                                    myApp.hideIndicator();
+                                    if (res.status == 1) {
+                                        $("#img-" + ids).attr('src', res.url);
+                                        $("[name='img-" + ids + "']").val(res.url);
+                                        myApp.alert('上传成功');
+                                    } else {
+                                        myApp.alert(res.info);
+                                    }
+                                },
+                                beforeSend: function (XMLHttpRequest) {
+                                    myApp.showIndicator();
+                                },
+                                error: function (res) {
+                                    myApp.alert(res.info);
+                                }
+                            })
+                        }
+
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        myApp.showIndicator();
+                    },
+                    fail: function (res) {
+                        myApp.alert(JSON.stringify(res));
+                    }
+                })
+
+            }
+        });
+    }
+
+    /*预览图片*/
+    function GIVE_Image(ids) {
+        var IMG_URL = $("#img-" + ids)[0].src;
+        $.fancybox.open(IMG_URL);
+    }
+
+    function setForm() {
+        var Data = myApp.formGetData("form-{$_SESSION['Reg']['codes']}-2");
+        var imgbank=$("[name='img-bank']").val();
+        var bank_cid=$("[name='bank_cid']").val();
+        var formData = {'bus_type':Data['bus_type'],'bank_tel':Data['bank_tel'],'bank_city':Data['bank_city'],'linkBnk':Data['linkBnk'],'bank_type':Data['bank_type'],'qy_bank_cid':Data['qy_bank_cid'],'bank_list':Data['bank_list'],'bank_name':Data['bank_name'],'img-bank': imgbank,'bank_cid':bank_cid,};
+        myApp.formStoreData("form-{$_SESSION['Reg']['codes']}-2",formData);
+    }
+
+
+    function check_val() {
+        var Data = myApp.formGetData("form-{$_SESSION['Reg']['codes']}-2");
+        if(!Data){myApp.alert('请输入对应信息后点击下一步');return false;}
+        //alert(JSON.stringify(Data));
+        if(!Data['bus_type']){myApp.alert('请选择营业性质');return false;}
+        if(!Data['bank_list']){myApp.alert('请选择开户银行');return false;}
+        if(!Data['bank_name']){myApp.alert('请输入开户姓名');return false;}
+        if(!Data['bank_city']){myApp.alert('请选择开户地区');return false;}
+        city=Data['bank_city'].split(" ");
+        if(city[0]=='请选择'){myApp.alert('开户地区-省不能为空');return false;}
+        if(city[1]=='请选择'){myApp.alert('开户地区-市不能为空');return false;}
+        if(!Data['linkBnk']){myApp.alert('请选择开户支行');return false;}
+        if(Data['bus_type']=='有营业执照'){
+            if(Data['bank_type']=='企业账户'){
+                if(!Data['qy_bank_cid']){myApp.alert('请输入企业账户结算卡号');return false;}
+            }else{
+                if(!Data['bank_tel']){myApp.alert('请输入开户预留手机号');return false;}
+                if(!Data['img-bank']){myApp.alert('请上传银行卡照片');return false;}
+                if(!Data['bank_cid']){myApp.alert('请输入结算银行卡号!');return false;}
+            }
+        }else{
+            if(!Data['bank_tel']){myApp.alert('请输入开户预留手机号');return false;}
+            if(!Data['img-bank']){myApp.alert('请上传银行卡照片');return false;}
+            if(!Data['bank_cid']){myApp.alert('请输入结算银行卡号!');return false;}
+        }
+
+        window.location.href="{:U('index3')}";
+    }
+
+
+
+
+
+
+</script>

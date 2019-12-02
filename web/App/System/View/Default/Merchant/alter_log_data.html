@@ -1,0 +1,184 @@
+<include file="Public/sheader"/>
+<div id="content-container" style="padding-top: 0px!important;padding-bottom: 0px!important;">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-body">
+                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">基本信息</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">商户名称</label>
+                            <input class="form-control" type="text" value="<php>$seller=Get_Seller($res['cid']); echo $seller['mch_name'];</php>" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">变更结果</label>
+                            <div class="form-control" style="border:none;padding: 0;cursor: pointer">
+                                <if condition="$res['status'] eq 1">
+                                    <span class="label label-danger" style="font-size:12px;font-weight:1;border-radius: 5px;">变更成功</span>
+                                    <else/>
+                                    <span class="label label-default" style="font-size:12px;font-weight:1;border-radius: 5px;">变更失败</span>
+                                </if>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <if condition="$_GET['type'] eq 'rate'">
+
+                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;color: red" >变更前信息</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">CT1费率</label>
+                            <input class="form-control" type="text" value="{$old_data.rate}‰" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">CD0费率</label>
+                            <input class="form-control" type="email" value="{$old_data.rates}‰" readonly>
+                        </div>
+                    </div>
+                </div>
+                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;color: red">变更后信息</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">CT1费率</label>
+                            <input class="form-control" type="text" value="{$new_data.rate}‰" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">CD0费率</label>
+                            <input class="form-control" type="email" value="{$new_data.rates}‰" readonly>
+                        </div>
+                    </div>
+                </div>
+               <else/>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;color: red">变更前信息</p>
+                    <div class="row">
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户银行</label>
+                                <input class="form-control" type="text" value="{$old_data.mch_bank_list}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户支行</label>
+                                <input class="form-control" type="email" value="{$old_data.mch_linkbnk|reload_banks}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">联行号</label>
+                                <input class="form-control" type="email" value="{$old_data.mch_linkbnk}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户人姓名</label>
+                                <input class="form-control" type="text" value="{$old_data.mch_bank_name}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">所属省份</label>
+                                <input class="form-control" type="text" value="{$old_data.mch_bank_provice}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">所属城市</label>
+                                <input class="form-control" type="email" value="{$old_data.mch_bank_citys}" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">结算卡号</label>
+                                <input class="form-control" type="email" value="{$old_data.mch_bank_cid}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">预留手机号</label>
+                                <input class="form-control" type="email" value="{$old_data.mch_bank_tel}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;color: red">变更后信息</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户银行</label>
+                                <input class="form-control" type="text" value="{$new_data.mch_bank_list}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户支行</label>
+                                <input class="form-control" type="email" value="{$new_data.mch_linkbnk|reload_banks}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">联行号</label>
+                                <input class="form-control" type="email" value="{$new_data.mch_linkbnk}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户人姓名</label>
+                                <input class="form-control" type="text" value="{$new_data.mch_bank_name}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">所属省份</label>
+                                <input class="form-control" type="text" value="{$new_data.mch_bank_provice}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">所属城市</label>
+                                <input class="form-control" type="email" value="{$new_data.mch_bank_citys}" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">结算卡号</label>
+                                <input class="form-control" type="email" value="{$new_data.mch_bank_cid}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">预留手机号</label>
+                                <input class="form-control" type="email" value="{$new_data.mch_bank_tel}" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+
+               </if>
+                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;color: red">变更返回结果</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <textarea style="resize:none" class="form-control" disabled="">{$res.rel}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <META HTTP-EQUIV="Expires" CONTENT="0">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0"/>
+    <title>向商家付款</title>
+    <script type="text/javascript" src="http://y.yeahka.com/wap/js/pagehead2.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/pay_ui.css?v=3">
+</head>
+<body class="pay_page">
+<input type="hidden" name="session_id" id="session_id" value=""/>
+<!-- 头部信息 -->
+<div class="head">
+    <ul class="merchant_info">
+        <li><img src="./images/merchantLogo.png"></li>
+        <li id="merchantName"></li>
+    </ul>
+    <div class="amount_box">
+        <div class="amount_input">
+            <span class="fl">支付金额：</span><span class="amount fr " id="amount" style="position: relative;"></span>
+        </div>
+    </div>
+</div>
+<div class="border_line"></div>
+
+<!-- 支付方式 -->
+<div class="pay_method">
+    <div class="pxline"></div>
+    <!-- default -->
+    <ul id="defaultPay" class="method" method='default'>
+        <li class="wx"></li>
+        <li class="method_tip">
+            <div>
+                微信支付<br><span>小额支付点这里</span>
+            </div>
+        </li>
+        <li class="select_box selected"></li>
+    </ul>
+
+    <!-- 快捷 -->
+    <ul id="quickPay" class="method" method='quick'>
+        <li class="qucik"></li>
+        <li class="method_tip">
+            <div>
+                快捷支付<br><span>免扫码，额度高，秒到</span>
+            </div>
+        </li>
+        <li class="select_box"></li>
+    </ul>
+
+    <!-- 更多 -->
+    <div class="more_method hide">
+        <ul>
+            <li>选择更多支付方式</li>
+            <li></li>
+        </ul>
+    </div>
+
+</div>
+<div class="pay_btn " id="pay" method="default">立即支付</div>
+
+<div class="tips hide">
+    <p>温馨提示</p>
+    <p class="tipsList"><span>1.</span><span>立即到账时间为9:00至22:00；</span></p>
+    <p class="tipsList"><span>2.</span><span>单笔3000元（含）以上请使用支付宝或大额支付进行支付；</span></p>
+    <p class="tipsList realNameTip"><span>3.</span><span>大额信用卡支付可以使用“大额支付”；</span></p>
+</div>
+
+<p class="showTips"><span class="time_tip">立即到账时间为7:00至22:30</span> <br>由乐刷提供微信支付服务</p>
+
+
+<div id="fullbg"></div>
+
+
+<!--  键盘  -->
+<table id="keyboard">
+    <tr>
+        <td class="num">1</td>
+        <td class="num">2</td>
+        <td class="num">3</td>
+        <td rowspan="2" class="del"></td>
+    </tr>
+    <tr>
+        <td class="num">4</td>
+        <td class="num">5</td>
+        <td class="num">6</td>
+    </tr>
+    <tr>
+        <td class="num">7</td>
+        <td class="num">8</td>
+        <td class="num">9</td>
+        <td rowspan="2" class="complete">完成</td>
+    </tr>
+    <tr>
+        <td class="num dot">.</td>
+        <td class="num">0</td>
+        <td class="key"></td>
+    </tr>
+</table>
+<script type="text/javascript" src='/Source/Css/new_pay/js/jquery-1.10.2.min.js'></script>
+<script type="text/javascript" src="/Source/Css/new_pay/js/dialogJs.js"></script>
+<script type="text/javascript" src="http://pic1.yeahka.com/js/layer.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        var dataParam = [];
+// 控制loading
+        var index;
+// 0 - 线下 1线上商户
+        var online = 0;
+        var merLevel;
+        /*********************************init*******************************/
+
+
+        // 获取基础信息
+        showBaseInfo();
+        $("#keyboard td").on("touchstart", keyboardInput);
+        // 选择支付方式
+        $(".method").on('click', choicePayMethod);
+        // 弹窗关闭
+        $("#close_dialog").on("click", quit_dialog);
+        // 支付
+        $("#pay").on("click", toPay);
+        //双按钮弹窗关闭
+        $(".revise").on("click", quit_tip_dialog);
+        //直接跳转快捷支付
+        $(".quickPayBtn").on("click", function () {
+            quit_tip_dialog();
+            quickPay();
+        });
+
+        /********************************超额弹窗********************************/
+        function quotaDialog() {
+            var openFastpay = getUrlParam("isOpenFastPay");
+            if (openFastpay == '1') {
+                $(".tip_detail").html("扫码额度超限，推荐使用快捷支付，大额，秒到，有积分")
+                show_tip_dialog();
+                $(".pay_btn").addClass("on_click");
+                return;
+            } else {
+                $(".dialog_detail").html("单笔交易额度限制");
+                show_reward_rule();
+                $(".pay_btn").addClass("on_click");
+                return;
+            }
+        }
+
+
+        /*******************************showBaseInfo*********************************/
+        // 显示基础信息
+        function showBaseInfo() {
+            var amount = getUrlParam("amount");
+            if (amount && amount != 'null' && amount != '0') {
+                $("#amount").text(amount / 100).addClass("rmb_icon");
+            } else {
+                $("#amount").text("询问商家后输入").on("click", callKeyboard);
+            }
+            if (platform === "alipay") {
+                $('.wx').addClass('zfb').siblings('.method_tip').children('div').html("支付宝<br><span>小额支付点这里</span>");
+            }
+            var merchantName = getUrlParam("merchantName") || '';
+            $("#merchantName").text(decodeURIComponent(escape(merchantName)));
+
+            //是否开通快捷支付
+            var isOpenFastPay = getUrlParam("isOpenFastPay");
+            if (isOpenFastPay == 1) {
+                $("#quickPay").removeClass('hide');
+            }
+            changeColor();
+            showYinlianPay();
+
+
+        } //end showBaseInfo fn
+
+        // 唤起键盘
+        function callKeyboard() {
+            if ($("#trink").length == 0) {
+                var temp = $("#amount").html();
+                var hstr = '<span id="trink">|</span>';
+                if (temp.indexOf("询问商家后输入") != -1) {
+                    $(this).html(hstr).addClass("rmb_icon")
+                } else {
+                    $(this).html(temp + hstr);
+                }
+                $("#keyboard").slideDown("fast");
+            }
+        }
+
+        // 判断是否开通银联支付
+        function showYinlianPay() {
+            $("#yinlianPay").removeClass('hide');
+        }
+
+
+        /*********************************keyboardInput*******************************/
+        // 支付键盘
+        function keyboardInput(e) {
+            e.preventDefault(); //阻止浏览器默认行为
+            var temp2 = $("#amount").text();//文字或金额
+            if (temp2.indexOf('|') != -1) {
+                temp2 = temp2.substring(0, temp2.length - 1);
+            }
+            var hstr = '<span id="trink">|</span>';
+            var addnum = $(this).html();
+
+            if ($(this).hasClass("del")) {
+                //按退格删除键
+                if (temp2 != "") {
+                    var new_num = temp2.slice(0, temp2.length - 1);
+                    $("#amount").html(new_num + hstr);
+                }
+            } else if ($(this).hasClass("complete") || $(this).hasClass("key")) {
+                //按下完成或者键盘图标键
+                $("#keyboard").slideUp();
+                $('#trink').remove();
+                if (temp2 == "" || temp2 == 0) {
+                    $("#amount").removeClass("rmb_icon").text("请询问商家后输入");
+                }
+            } else if ($(this).hasClass("dot")) {
+                //按下小数点
+                if (temp2 == "") {
+                    $("#amount").html("0" + addnum + hstr);
+                } else if (temp2.indexOf(".") != "-1") {
+                    //已有小数点
+                } else {
+                    $("#amount").html(temp2 + addnum + hstr);
+                }
+            } else {//数字键
+                if (temp2 > 100000) {
+                    alert("支付超限");
+                    return;
+                }
+                if (temp2.indexOf(".") != "-1") {
+                    //如果有2位小数
+                    var s = temp2.split(".");
+                    if (s[1].length >= 2) {
+                        console.log(s[1]);
+                        return;
+                    }
+                }
+                if (temp2[0] == 0 && temp2[1] != ".") {
+                    addnum = '';
+                }
+                if ((temp2 + addnum) > 100000) {
+                    return;
+                }
+                $("#amount").html(temp2 + addnum + hstr);
+            }
+            //changeColor();
+        }
+
+
+        // 根据输入内容改变style
+        function changeColor() {
+            var temp = $("#amount").text();
+            if (temp.indexOf("|") != -1) {
+                temp = temp.substring(0, temp.length - 1)
+            }
+            if (temp.indexOf("询问商家后输入") == -1 && temp > 0) {
+                $(".complete").addClass("input");
+                $(".pay_btn").addClass("on_click");
+            } else {
+                $(".complete").removeClass("input");
+                $(".pay_btn").removeClass("on_click");
+            }
+        }
+
+
+        /*******************************getPayId*********************************/
+
+        function getPayIdError() {
+            $(".dialog_detail").html("请求超时,请稍后重试");
+            show_reward_rule();
+        }
+
+
+        /********************************choicePayMethod********************************/
+        // 选择支付方式
+        function choicePayMethod() {
+            var flag = $(this).children(".select_box").hasClass('selected');
+            var method = $(this).attr('method');
+            if (!flag) {
+                if (method == 'realName') {
+                    return;
+                }
+                $(this).children(".select_box").addClass('selected').parent().siblings('.method').children('.select_box').removeClass('selected');
+                $("#pay").attr('method', method);
+            }
+        }
+
+
+        /*********************************toPay*******************************/
+        // 支付。。。
+        function toPay() {
+            var merchantId = getUrlParam("merchantId");
+            var temp = $("#amount").text();
+            if (temp.indexOf('|') != -1) {
+                $('#trink').remove();
+            }
+            if (!$(this).hasClass("on_click")) {
+                $(".dialog_detail").html("请先输入金额再点击付款哦!");
+                show_reward_rule();
+                return;
+            } else if (merchantId == null || merchantId == '') {
+                $(".dialog_detail").html("无法获取商户信息");
+                show_reward_rule();
+                return;
+            } else {
+                var method = $(this).attr("method");
+                judgePayMethod(method);
+            }
+        }
+
+        // 判断支付方式
+        function judgePayMethod(method) {
+            switch (method) {
+                case "default":
+                    defaultPay();
+                    break;
+                case "qq":
+                    qqPay();
+                    break;
+                case "quick":
+                    quickPay();
+                    break;
+                case "yinlian":
+                    yinlianPay();
+                    break;
+                case "realName":
+                    realNamePay();
+                    break;
+            }
+        }
+
+
+        /********************************payMethod********************************/
+// 支付方式
+// 默认支付方式 wx / zfb
+        function defaultPay() {
+
+            var temp = $("#amount").html();
+            if (parseFloat(temp) < 1) {
+                $(".dialog_detail").html("支付金额不少于1元");
+                show_reward_rule();
+                return;
+            }
+            $(".pay_btn").removeClass("on_click");
+            getPayStatusEnter();
+            if (dataParam.value === "true") {
+                t0 = 0;
+            }
+            if (dataParam.code === 0 && dataParam.value === "true") {
+                $(".dialog_detail").html("今日立即到帐服务已经停止，春节期间的交易将统一在2月3号结算");
+                show_reward_rule();
+                $(".apply_btn_2").click(function () {
+                    quit_dialog();
+                    index = layer.load(1, {
+                        shade: [0.1, '#fff']
+                    });
+                    if (platform == "weixinpay") {
+                        var payWay = getWXPayWay()
+                        if (payWay == 'wxb31eecbf4caf46fc') {
+                            wxPayCode();
+                        } else {
+                            wxPay();
+                        }
+                    } else if (platform == "qq") {
+                        qqPay();
+                    } else {
+                        aliPay();
+                    }
+                });
+            } else {
+                index = layer.load(1, {
+                    shade: [0.1, '#fff']
+                });
+                if (platform == "weixinpay") {
+                    var payWay = getWXPayWay()
+                    if (payWay == 'wxb31eecbf4caf46fc') {
+                        wxPayCode();
+                    } else {
+                        wxPay();
+                    }
+                } else if (platform == "qq") {
+                    qqPay();
+                } else {
+                    aliPay();
+                }
+            }
+        }
+
+// 支付结算状态
+        function getPayStatusEnter() {
+            var amount = $("#amount").html();
+            $.ajax({
+                type: "POST",
+                dataType: "json",//wx.yeahka.com/pay/createPayOrder.do?merchantId=xxx&merChantName=xxx&t0=x&amount=xxx
+                async: false,
+                url: "/pay/getPayT0ThresholdStatus.do?amount=" + amount,
+                success: function (rs) {
+                    var code = rs.code;
+                    var value = rs.value;
+                    dataParam.code = code;
+                    dataParam.value = value;
+                },
+                error: function () {
+                    $(".pay_btn").addClass("on_click");
+                }
+            });
+        }
+
+
+        /********************************yinlianPay********************************/
+// 银联支付
+// 银联支付
+        function yinlianPay() {
+            var amount = $("#amount").html();
+            if (parseFloat(amount) < 5) {
+                $(".dialog_detail").html("银联支付金额不少于5元");
+                show_reward_rule();
+                return;
+            }
+            $(".pay_btn").removeClass("on_click");
+            index = layer.load(1, {
+                shade: [0.1, '#fff']
+            });
+            var num = parseInt(Math.random() * 9999 + 1);
+            var orderId = (new Date()).getTime() + num
+            var data = {
+                "amount": parseInt($("#amount").text() * 100),
+                "third_order_id": orderId,
+                'merchant_id': getUrlParam("merchantId")
+            }
+            $.ajax({
+                url: "/unionscan/order",
+                dataType: "jsonp",
+                data: data,
+                success: function (res) {
+                    layer.close(index);
+                    if (res.result == 0) {
+                        var url = './yinglianQRCode.html',
+                                merchantName = $("#merchantName").text(),
+                                merchantId = getUrlParam('merchantId'),
+                                amount = $("#amount").text(),
+                                tdcode = res.tdcode,
+                                leshuaOrder = res.leshua_order_id;
+                        sessionStorage.setItem('merchantId', merchantId);
+                        sessionStorage.setItem('tdcode', tdcode);
+                        sessionStorage.setItem('amount', amount);
+                        sessionStorage.setItem('leshuaOrder', leshuaOrder);
+                        sessionStorage.setItem('orderId', orderId);
+                        sessionStorage.setItem('merchantName', merchantName)
+                        sessionStorage.setItem('domain', 'formal');
+                        window.location.href = url;
+                    } else {
+                        if (!res.error_msg || res.error_msg == '') {
+                            $(".dialog_detail").text("下单失败,请稍后重试");
+                        } else {
+                            $(".dialog_detail").text(res.error_msg);
+                        }
+                        show_reward_rule();
+                    }
+                    $(".pay_btn").addClass("on_click");
+                },
+                error: function () {
+                    layer.close(index);
+                    $(".dialog_detail").text("请求失败,请稍后重试");
+                    show_reward_rule();
+                    $(".pay_btn").addClass("on_click");
+                }
+            })
+        }
+
+
+        /********************************realNamePay********************************/
+// 实名支付
+        function realNamePay() {
+            var temp = $("#amount").html();
+            if (parseFloat(temp) < 1) {
+                $(".dialog_detail").html("支付金额不少于1元");
+                show_reward_rule();
+            } else {
+                var oldurl = window.location.href;
+                oldurl = oldurl.split("?")[1];
+                var url = "https://www.yeahka.com/saopay/add_card.html";
+                var session_id = $("#session_id").val();
+                var payurl = encodeURI(encodeURI(url + "?account=" + $("#amount").html() + "&session_id=" + session_id + "&")) + oldurl;
+                window.location.href = payurl;
+            }
+        }
+
+
+        /********************************wxPay********************************/
+// wx支付方式
+// wx直接支付
+        function wxPay() {
+            var required = dataParam.required;
+            if (required === 1) {
+                $(".pay_btn").addClass('on_click');
+                layer.close(index);
+                if (latitude == 0 && longitude == 0 || latitude == undefined && longitude == undefined) {
+                    layer.msg("请允许GPS进行定位才能正常支付交易");
+                    return false;
+                }
+            }
+            $.ajax({
+                type: "POST",
+                dataType: "text",
+                url: "/pay/createWeiXinOrder.do?merchantId=" + getUrlParam("merchantId") + "&username=" + getUrlParam("username") + "&t0=" + getUrlParam("t0") + "&amount=" + $("#amount").html() + "&openId=" + getUrlParam("openId") + "&latitude=" + latitude + "&longitude=" + longitude,//"/pay/get_wxpay_data.do",
+                success: function (rs) {
+                    layer.close(index);
+                    var dataObj = JSON.parse(rs);
+                    wxPayData = dataObj["weixin_pay_data"];
+                    orderId = dataObj["leshua_order_id"];
+                    code = dataObj["code"];
+                    message = dataObj["message"];
+                    if (code == 1) {
+                        jsapi_pay_url = dataObj["jsapi_pay_url"];
+                        window.location.href = jsapi_pay_url;
+                    } else if (code != 0) {
+                        if (message.indexOf("额") != -1 && merLevel && merLevel != "出错" && merLevel.indexOf("企业") == -1) {
+                            quotaDialog();
+                        } else {
+                            $(".dialog_detail").html(message);
+                            show_reward_rule();
+                            $(".zroeFees").hide();
+                        }
+                        $(".pay_btn").addClass('on_click');
+                    } else {
+                        callpay();
+                    }
+                },
+                error: function () {
+                    layer.close(index);
+                    $(".pay_btn").addClass('on_click');
+                }
+            });
+        } //end wxPay fn
+
+// 唤起支付
+        function callpay() {
+            if (typeof WeixinJSBridge == "undefined") {
+                if (document.addEventListener) {
+                    document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                } else if (document.attachEvent) {
+                    document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                    document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                }
+            } else {
+                jsApiCall();
+            }
+        }
+
+// 支付回调
+        function jsApiCall() {
+            $(".pay_btn").addClass('on_click');
+            var json = eval('(' + wxPayData + ')');
+            WeixinJSBridge.invoke(
+                    'getBrandWCPayRequest',
+                    json,
+                    function (res) {
+                        WeixinJSBridge.log(res.err_msg);
+                        if (res.err_msg == "get_brand_wcpay_request:ok") {
+                            var url = "http://www.yeahka.com/download_qr_comment_guide.html";
+                            if (online == 1) {
+                                url = 'http://www.yeahka.com/wap/help/download_qr_comment_guide.html?merchant_id=' + getUrlParam("merchantId");
+                            }
+                            window.location.href = url;
+
+                        } else if (res.err_msg == "get_brand_wcpay_request:fail") {
+                            $(".dialog_detail").html(res.err_desc);
+                            show_reward_rule();
+                        } else {
+                            WeixinJSBridge.log(res.err_msg);
+                        }
+                    }
+            );
+        } // end jsApiCall fn
+
+
+        /********************************wxPayCode********************************/
+// wx 支付 一付一码
+        function wxPayCode() {
+            var required = dataParam.required;
+            if (required === 1) {
+                $(".pay_btn").addClass('on_click');
+                layer.close(index);
+                if (latitude == 0 && longitude == 0 || latitude == undefined && longitude == undefined) {
+                    layer.msg("请允许GPS进行定位才能正常支付交易");
+                    return false;
+                }
+            }
+            $.ajax({
+                type: "POST",
+                dataType: "text",
+                url: "/pay/createWeixinPrePayOrder.do?merchantId=" + getUrlParam("merchantId") + "&username=" + getUrlParam("username") + "&t0=" + getUrlParam("t0") + "&amount=" + $("#amount").html() + "&openId=" + getUrlParam("openId") + "&latitude=" + latitude + "&longitude=" + longitude,
+                success: function (rs) {
+                    layer.close(index);
+                    $(".pay_btn").addClass('on_click');
+                    var dataObj = JSON.parse(rs);
+                    wxPayData = dataObj["weixin_pay_data"];
+                    orderId = dataObj["leshua_order_id"];
+                    code = dataObj["code"];
+                    message = dataObj["message"];
+                    if (code != 0) {
+                        if (message.indexOf("额") != -1 && merLevel && merLevel != "出错" && merLevel.indexOf("企业") == -1) {
+                            quotaDialog();
+                        } else {
+                            $(".dialog_detail").html(message);
+                            show_reward_rule();
+                            $(".zroeFees").hide();
+                        }
+                    } else {
+                        var tdcode = dataObj["tdcode"];
+                        var merchantName = dataObj["merchantName"];
+                        if (merchantName == undefined) {
+                            merchantName = $("#userName").html();
+                        }
+                        var url = './wxPayCode.html';
+                        url = encodeURI(encodeURI(url + "?tdcode=" + tdcode + "&merchantName=" + merchantName + ""));
+                        window.location.href = url;
+                    }
+                },
+                error: function () {
+                    layer.close(index);
+                    $(".pay_btn").addClass('on_click');
+                }
+            });
+        }// end wxPayCode fn
+
+
+        /********************************aliPay********************************/
+// 支付宝支付
+        function aliPay() {
+            var required = dataParam.required;
+            if (required === 1) {
+                $(".pay_btn").addClass('on_click');
+                layer.close(index);
+                if (latitude == 0 && longitude == 0 || latitude == undefined && longitude == undefined) {
+                    layer.msg("请允许GPS进行定位才能正常支付交易");
+                    return false;
+                }
+            }
+            $.ajax({
+                type: "POST",
+                dataType: "text",
+                url: "/pay/createAlipayOrder.do?merchantId=" + getUrlParam("merchantId") + "&username=" + getUrlParam("username") + "&user_id=" + getUrlParam("userId") + "&t0=" + getUrlParam("t0") + "&amount=" + $("#amount").html() + "&latitude=" + latitude + "&longitude=" + longitude,
+                success: function (rs) {
+                    layer.close(index);
+                    $(".pay_btn").addClass('on_click');
+                    var dataObj = JSON.parse(rs);
+                    orderId = dataObj["leshua_order_id"];
+                    code = dataObj["code"];
+                    tdcode = dataObj["tdcode"];
+                    message = dataObj["message"];
+                    if (code != 0) {
+                        if (message.indexOf("额") != -1 && merLevel && merLevel != "出错" && merLevel.indexOf("企业") == -1) {
+                            quotaDialog();
+                        } else {
+                            $(".dialog_detail").html(message);
+                            show_reward_rule();
+                            $(".zroeFees").hide();
+                        }
+                    } else {
+                        window.location.href = tdcode;
+                    }
+                },
+                error: function () {
+                    layer.close(index);
+                    $(".pay_btn").addClass('on_click');
+                }
+            });
+        }  //end alipay fn
+
+        /********************************qqPay********************************/
+// qq支付
+        function qqPay() {
+            var required = dataParam.required;
+            if (required === 1) {
+                $(".pay_btn").addClass('on_click');
+                layer.close(index);
+                if (latitude == 0 && longitude == 0 || latitude == undefined && longitude == undefined) {
+                    layer.msg("请允许GPS进行定位才能正常支付交易");
+                    return false;
+                }
+            }
+            $.ajax({
+                type: "POST",
+                dataType: "text",
+                url: "/pay/createQQPrePayOrder.do?merchantId=" + getUrlParam("merchantId") + "&username=" + getUrlParam("username") + "&user_id=" + getUrlParam("userId") + "&t0=" + getUrlParam("t0") + "&amount=" + $("#amount").html() + "&latitude=" + latitude + "&longitude=" + longitude,
+                success: function (rs) {
+                    layer.close(index);
+                    $(".pay_btn").addClass('on_click');
+                    var dataObj = JSON.parse(rs);
+                    orderId = dataObj["leshua_order_id"];
+                    code = dataObj["code"];
+                    tdcode = dataObj["tdcode"];
+                    message = dataObj["message"];
+                    if (code != 0) {
+                        $(".dialog_detail").html(message);
+                        show_reward_rule();
+                    } else {
+                        window.location.href = tdcode;
+                    }
+                },
+                error: function () {
+                    layer.close(index);
+                    $(".pay_btn").addClass('on_click');
+                }
+            });
+        }  //end qqPay fn
+
+        /*********************************common*******************************/
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null)
+                return unescape(r[2]);
+            return null; //返回参数值
+        }
+
+    }); //end read fn
+
+
+</script>
+</body>
+</html>

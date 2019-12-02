@@ -1,0 +1,138 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="" ajax="n">
+                        <div class="panel-body">
+                            <div class="row ">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">所属品牌</label>
+                                        <select class="form-control" name="domain_auth" id="domain_auths" style="width: 300px;">
+                                            <option value="">--请选择--</option>
+                                            <volist name=":DomainAuthList()" id="v">
+                                                <option value="{$v.web_authcode}">{$v.web_name}</option>
+                                            </volist>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">详细信息</label>
+                                        <input class="form-control" type="text" placeholder="支持 门店名称/门店联系人/联系人电话筛选" name="search_val" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">变更结果</label>
+                                        <select  class="form-control" name="status" >
+                                            <option value="">所有状态</option>
+                                            <option value="1">变更成功</option>
+                                            <option value="0">变更失败</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button style="float: right" class="btn btn-success" type="submit">搜索</button>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+            <div class="panel-body">
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">所属品牌</th>
+                        <th class="text-center">所属商户</th>
+                        <th class="text-center">所属通道</th>
+                        <th class="text-center">变更类型</th>
+                        <th class="text-center">变更时间</th>
+                        <th class="text-center">变更结果</th>
+                        <th class="text-center">详细信息</th>
+                        <th class="text-center">操作者</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center">{$v.domain_auth|DomainName}</td>
+                            <td class="text-center"><php>$seller=Get_Seller($v['cid']); echo $seller['mch_name'];</php></td>
+                            <td class="text-center">
+                                <if condition="$v['alleys'] eq 'Wlbpays'">
+                                    (CT1|CD0)通道
+                                    <else/>
+                                    {$v.alleys|alleys_name}
+                                </if>
+                            </td>
+                            <td class="text-center">
+                                <if condition="$v['type'] eq 'rate'">
+                                    <span class="label label-danger" style="font-size:12px;font-weight:1;border-radius: 5px;">费率信息变更</span>
+                                    <else/>
+                                    <span class="label label-mint" style="font-size:12px;font-weight:1;border-radius: 5px;">结算信息变更</span>
+                                </if>
+                            </td>
+                            <td class="text-center">{$v['time'|date='Y-m-d H:i:s',###]}</td>
+                            <td class="text-center">
+                                <if condition="$v['status'] eq 1">
+                                    <span class="label label-danger" style="font-size:12px;font-weight:1;border-radius: 5px;">变更成功</span>
+                                    <else/>
+                                    <span class="label label-default" style="font-size:12px;font-weight:1;border-radius: 5px;">变更失败</span>
+                                </if>
+                            </td>
+                            <td class="text-center">
+                                <span class="label label-info" onclick="detail('{$v['type']}',{$v.id})" style="cursor:pointer;font-size:12px;font-weight:1;border-radius: 5px;">点击查看</span>
+                            </td>
+                            <td class="text-center">
+                                <php>echo sys_op_id($v['opid'],$v['system']);</php>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function detail(type,id) {
+        if(type=='rate') {
+            layer.open({
+                type: 2,
+                title: '详细费率变更信息',
+                area: ['790px', '80%'],
+                fixed: false, //不固定
+                maxmin: false,
+                content: "{:U('alter_log_data')}/type/" + type + "/id/" + id + "?Debug=1"
+            });
+        }else{
+            layer.open({
+                type: 2,
+                title: '详细结算变更信息',
+                area: ['1200px', '80%'],
+                fixed: false, //不固定
+                maxmin: false,
+                content: "{:U('alter_log_data')}/type/" + type + "/id/" + id + "?Debug=1"
+            });
+        }
+    }
+</script>
+
+
+<include file="Public/footer"/>

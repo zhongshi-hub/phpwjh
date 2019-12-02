@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <title>商户注册</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
+    <link rel="stylesheet" href="__PUBLIC__/f7/css/framework7.ios.css">
+    <link rel="stylesheet" href="__PUBLIC__/f7/css/framework7.ios.colors.css">
+    <link rel="stylesheet" href="__PUBLIC__/f7/css/framework7-icons.css">
+    <link rel="stylesheet" href="__PUBLIC__/f7/css/my-app.css">
+    <script type="text/javascript" src="__PUBLIC__/f7/js/framework7.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="views">
+    <div class="view view-main">
+        <div class="pages navbar-through">
+            <div class="navbar ">
+                <div class="navbar-inner">
+                    <div class="right xun-menu" style="margin-left: 10px;"><span><i class="f7-icons">data</i></span></div>
+                    <!--<div class="right"><a href="#" class="link"><i class="f7-icons">arrow_right_fill</i><span>下一步 (1/3)</span></a></div>-->
+                </div>
+            </div>
+
+            <div class="page">
+                <div class="page-content" style="padding-top: 30px;">
+                    <form id="form-{$_SESSION['Reg']['codes']}-1" class="list-block store-data ajax-submit" method="post" action="">
+                        <input type="hidden" name="codes"  value="{$_SESSION['Reg']['codes']}" />
+                        <input type="hidden" name="wx_headimgurl"  value="{$_SESSION['Reg']['user_info']['headimgurl']}" />
+                        <input type="hidden" name="wx_nickname"  value="{$_SESSION['Reg']['user_info']['nickname']}" />
+                        <input type="hidden" name="wx_openid"  value="{$_SESSION['Reg']['user_info']['openid']}" />
+                        <div class="card" style="margin: 0px;">
+                            <div class="card-content">
+                                <div class="list-block">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media"><img src="{$_SESSION['Reg']['user_info']['headimgurl']}" width="80"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">{$_SESSION['Reg']['user_info']['nickname']}</div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-footer"> <span>{$_SESSION['Reg']['user_info']['province']}   {$_SESSION['Reg']['user_info']['city']}</span><span>码ID:{$_SESSION['Reg']['codes']}</span></div>
+                        </div>
+
+                        <div class="content-block-title">商户验证</div>
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">联系电话</div>
+                                            <div class="item-input">
+                                                <input type="text" name="telNo" value="" placeholder="请输入手机号"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">验证码</div>
+                                            <div class="item-input">
+                                                <input type="text" name="verify" placeholder="请输入验证码"
+                                                       style="width: 50%;float:left;"/>
+                                                <button type="button" id="validBtn" class="button"
+                                                        style="width: 45%;float:right;margin-top: 7px;"
+                                                        onclick="toGetValiNum();">获取验证码
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-block-title">商户信息</div>
+                        <div class="list-block ">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">商户名称</div>
+                                            <div class="item-input">
+                                                <input type="text" name="MchName" placeholder="请输入商户名称"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#" data-searchbar="true" data-back-text="返回" data-searchbar-cancel="取消"
+                                       data-searchbar-placeholder="请输入关键字" data-back-on-select="true"
+                                       data-open-in="popup"
+                                       data-virtual-list="true"
+                                       class="item-link smart-select">
+                                        <select name="industry">
+                                            <option value="">请选择行业</option>
+                                            <volist name="industry" id="vo">
+                                                <option value="{$vo['pid']}">{$vo['name']}</option>
+                                            </volist>
+                                        </select>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">所属行业</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">所属城市</div>
+                                            <div class="item-input">
+                                                <input type="text" name="citys" placeholder="请选择所属城市"
+                                                       readonly="readonly"
+                                                       style="color: #007aff" id="picker-city"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">详细地址</div>
+                                            <div class="item-input">
+                                                <input type="text" name="address" placeholder="请输入详细地址"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </form>
+                    <div class="content-block">
+                        <p>
+                            <a  style="width: 100%;text-align: center;color: #007aff" class="external button  button-big" onclick="check_val()">下一步 (1/3)
+                            </a>
+                        </p>
+                    </div>
+                    <div class="content-block xun_footer">
+                        {$_domain['web_name']}&copy;版权所有
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<style>
+    .picker-item{font-size: 16px!important;}
+</style>
+<script>
+    var myApp = new Framework7({
+        modalTitle: '提示',
+        modalButtonOk: '确定',
+        modalButtonCancel: '取消',
+        modalPreloaderTitle: '加载中...请稍等...',
+        animateNavBackIcon: true,
+        materialRipple: true
+    });
+    var $$ = Dom7;
+    var mainView = myApp.addView('.view-main', {
+        dynamicNavbar: true
+    });
+
+    $$(document).on('ajaxStart', function (e) {
+        myApp.showIndicator();
+    });
+    $$(document).on('ajaxComplete', function (e) {
+        myApp.hideIndicator();
+    });
+
+    //获取验证码
+    var countdown = 60;
+    function toGetValiNum() {
+        $("#validBtn").attr("disabled", "disabled");
+        var telNo = $('[name="telNo"]').val();
+        var Codes = "{$_SESSION['Reg']['codes']}";
+        if (telNo == "") {
+            myApp.alert('请输入手机号');
+            $("#validBtn").removeAttr("disabled");
+            return;
+        }
+        if (Codes == "") {
+            myApp.alert('请输入或扫描收款码ID');
+            $("#validBtn").removeAttr("disabled");
+            return;
+        }
+        var telReg = !!telNo.match(/^1[3|4|5|7|8][0-9]{9}$/);
+
+        if (telReg == false) {
+            myApp.alert('请输入正确的手机号');
+            $("#validBtn").removeAttr("disabled");
+            return;
+        }
+        //调用获取验证码接口
+        $.ajax({
+            data: {tel: telNo, cardSn: Codes},
+            url: "/Pays/Reg/sms_check",
+            type: "POST",
+            dataType: "json",
+            success: function (data) {
+                if (data.status == 1) {
+                    settime();
+                } else {
+                    myApp.alert(data.info);
+                    $("#validBtn").removeAttr("disabled");
+                    return;
+                }
+            },
+            error: function (data) {
+                myApp.alert('获取验证码失败!');
+                $("#validBtn").removeAttr("disabled");
+            }
+        });
+
+    }
+    //获取验证码60秒倒计时
+    function settime() {
+        if (countdown == 0) {
+            $("#validBtn").removeAttr("disabled");
+            $("#validBtn").text("获取验证码");
+            countdown = 60;
+            return;
+        } else {
+            $("#validBtn").attr("disabled", "disabled");
+            $("#validBtn").text(countdown + "s");
+            countdown--;
+        }
+        setTimeout(function () {
+            settime()
+        }, 1000)
+    }
+    var  pro={$pro};
+    myApp.picker({
+        input: '#picker-city',
+        toolbarCloseText: '关闭',
+        rotateEffect: false,
+        momentumRatio:2,
+        cols: [
+            {
+                textAlign: 'left',
+                values: pro,
+                width: 160,
+                onChange: function (picker, country) {
+
+                    if (picker.cols[1].replaceValues) {
+                        $.ajax({
+                            url: "/Pays/Reg/area_city",
+                            type: "POST",
+                            dataType: "json",
+                            data: 'name=' + country,
+                            success: function (data) {
+                                picker.cols[1].replaceValues(data);
+                                picker.cols[2].replaceValues(["请选择"]);
+                            }
+                        });
+
+                    }
+                }
+            },
+            {
+                textAlign: 'center',
+                values: ["请选择"], //默认
+                width: 160,
+                onChange: function (picker, country) {
+                    if (picker.cols[2].replaceValues) {
+                        $.ajax({
+                            url: "/Pays/Reg/area_disc",
+                            type: "POST",
+                            dataType: "json",
+                            data: 'name=' + country,
+                            success: function (data) {
+                                picker.cols[2].replaceValues(data);
+                            }
+                        });
+
+                    }
+                }
+            },
+            {
+                textAlign: 'right',
+                values: ["请选择"], //默认
+                width: 160
+            }
+
+        ]
+    });
+
+    $$('.xun-menu').on('click', function () {
+        var xun_my = [
+            {
+                text: '清除本页缓存',
+                onClick: function () {
+                    myApp.confirm('缓存清空后需要重新填写!您确定要清空本页缓存数据吗?', function () {
+                        myApp.formDeleteData("form-{$_SESSION['Reg']['codes']}-1");
+                        window.location.reload();
+                    });
+                }
+            },
+            {
+                text: '清除所有缓存',
+                onClick: function () {
+                    myApp.confirm('缓存清空后需要重新填写!您确定要清空所有页面缓存数据吗?', function () {
+                        myApp.formDeleteData("form-{$_SESSION['Reg']['codes']}-1");
+                        myApp.formDeleteData("form-{$_SESSION['Reg']['codes']}-2");
+                        myApp.formDeleteData("form-{$_SESSION['Reg']['codes']}-3");
+                        window.location.reload();
+                    });
+                }
+            }
+
+        ];
+        var xun_colse = [
+            {
+                text: '关闭',
+                color: 'red'
+            }
+        ];
+
+        var groups = [xun_my,xun_colse];
+        myApp.actions(groups);
+    });
+
+    function check_val() {
+        var Data = myApp.formGetData("form-{$_SESSION['Reg']['codes']}-1");
+        if(!Data){myApp.alert('请输入对应信息后点击下一步');return false;}
+        //alert(JSON.stringify(Data));
+        if(!Data['telNo']){myApp.alert('联系电话不能为空');return false;}
+        if(!Data['verify']){myApp.alert('验证码不能为空');return false;}
+        if(!Data['MchName']){myApp.alert('商户名称不能为空');return false;}
+        if(!Data['industry']){myApp.alert('所属行业不能为空');return false;}
+        if(!Data['industry']){myApp.alert('所属行业不能为空');return false;}
+        if(!Data['citys']){myApp.alert('所属城市不能为空');return false;}
+        if(!Data['address']){myApp.alert('详细地址不能为空');return false;}
+        city=Data['citys'].split(" ");
+        if(city[0]=='请选择'){myApp.alert('所属城市-省不能为空');return false;}
+        if(city[1]=='请选择'){myApp.alert('所属城市-市不能为空');return false;}
+        if(city[2]=='请选择'){myApp.alert('所属城市-区不能为空');return false;}
+        //效验验证码
+        $.ajax({
+            data: {tel: Data['telNo'], cardSn: Data['codes'],verify:Data['verify']},
+            url: "/Pays/Reg/verify_check",
+            type: "POST",
+            dataType: "json",
+            success: function (data) {
+                if (data.status == 1) {
+                    window.location.href="{:U('index2')}";
+                    return true;
+                }else{
+                    $("#validBtn").removeAttr("disabled");
+                    myApp.alert(data.info);
+                    return false;
+                }
+            },
+            error: function (data) {
+                $("#validBtn").removeAttr("disabled");
+                myApp.alert('获取验证码失败!');
+                return false;
+
+            }
+        });
+    }
+
+
+
+
+</script>

@@ -1,0 +1,94 @@
+<include file="Public/header"/>
+<style>
+    .form-control{width: 300px !important;}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">修改信息</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-inline" method="post">
+                    <input type="hidden" name="id" value="{$user_data['id']}">
+                    <table class="table table-vcenter">
+                        <tr>
+                            <th width="150px">管理组</th>
+                            <td>
+                                <select data-placeholder="请选择..." id="demo-chosen-select" tabindex="2" name="group_ids[]" style="width: 300px;">
+                                    <foreach name="data" item="v">
+                                        <option value="{$v['id']}" <in name="v['id']" value="$group_data"> selected="selected"</in>>{$v['title']}</option>
+                                    </foreach>
+                                </select>
+                            </td>
+                        </tr>
+
+
+                        <!--<tr>
+                            <th>头像</th>
+                            <td>
+                                <div class="input-group mar-btm" style="margin-bottom: 0px;">
+                                    <input placeholder="请上传..." class="form-control image-preview-filename" type="text" id="pic">
+                                    <span class="input-group-btn">
+					                <button class="btn btn-mint" type="button" style="border-radius: 0px !important;" onclick="upload_modal('pic')">上传</button>
+                                    <button class="btn btn-danger upload_view" type="button" style="border-radius: 0px !important;" onclick="upload_view('pic')">预览</button>
+					                </span>
+                                </div>
+                            </td>
+                        </tr>-->
+                        <tr>
+                            <th>账户</th>
+                            <td>
+                                <input class="form-control" type="text" name="username" value="{$user_data['username']}" required="required" placeholder="登录账号">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>姓名</th>
+                            <td>
+                                <input class="form-control" type="text" name="name" value="{$user_data['name']}" required="required" placeholder="备注 可以中文">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>手机号</th>
+                            <td>
+                                <input class="form-control" type="text" name="phone" value="{$user_data['phone']}" required="required">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>邮箱</th>
+                            <td>
+                                <input class="form-control" type="text" name="email" value="{$user_data['email']}" required="required">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>初始密码</th>
+                            <td>
+                                <input class="form-control" type="text" name="password" placeholder="登录密码 如不改密码；留空即可">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>状态</th>
+                            <td>
+                                <span class="inputword">允许登录</span>
+                                <input style="width: 50px!important;" class="xb-icheck" type="radio" name="status" value="1" <eq name="user_data['status']" value="1"> checked="checked" </eq> >
+                                &emsp;
+                                <span class="inputword">禁止登录</span>
+                                <input style="width: 50px!important;" class="xb-icheck" type="radio" name="status" value="0" <eq name="user_data['status']" value="0"> checked="checked" </eq> >
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input class="btn btn-success" type="submit" value="修改">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<include file="Public/footer"/>
+
+

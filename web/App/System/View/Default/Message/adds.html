@@ -1,0 +1,122 @@
+<include file="Public/header"/>
+<taglib name="html"/>
+
+<!--Summernote [ OPTIONAL ]-->
+<link href="__PUBLIC__/statics/plugins/summernote/summernote.min.css" rel="stylesheet">
+<script src="__PUBLIC__/statics/plugins/summernote/summernote.min.js"></script>
+ <div id="content-container">
+            <div id="page-content">
+                <div class="fixed-fluid">
+                    <div class="fluid">
+                        <div class="panel panel-default panel-left">
+                            <div class="panel-body">
+                                <div class="mar-btm pad-btm clearfix">
+                                    <h2 class="page-header text-overflow">
+                                        {$title}
+                                    </h2>
+                                </div>
+                                <form role="form" class="form-horizontal" method="post" action="">
+                                    <input type="hidden" name="id" value="{$data.id}">
+                                    <input type="hidden" name="data" value="">
+                                    <div class="form-group">
+                                        <label class="col-lg-1 control-label text-left" >消息类别</label>
+                                        <div class="col-lg-11">
+                                            <input type="text" name="type" class="form-control" value="{$data.type}" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-1 control-label text-left">消息标题</label>
+                                        <div class="col-lg-11">
+                                            <input type="text" name="title" class="form-control"  value="{$data.title}" required>
+                                        </div>
+                                    </div>
+                                    <div  class="form-group">
+                                        <label class="col-lg-1 control-label text-left" >是否推荐</label>
+                                        <div class="col-lg-11">
+                                            <select data-placeholder="请选择..." tabindex="2" class="form-control" name="is_xing"
+                                                    required="required" style="width: 300px;">
+                                                <option value="1"
+                                                <eq name="data.is_xing" value="1">selected</eq>
+                                                >推荐星标</option>
+                                                <option value="0"
+                                                <eq name="data.is_xing" value="0">selected</eq>
+                                                >不推荐星标</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-1 control-label text-left" >指定品牌</label>
+                                        <div class="col-lg-11">
+                                            <select class="form-control" name="domain_auth" id="domain_auths" style="width: 300px;">
+                                                <option value="">--请选择--</option>
+                                                <volist name=":DomainAuthList()" id="v">
+                                                    <option value="{$v.web_authcode}">{$v.web_name}</option>
+                                                </volist>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-1 control-label text-left">消息状态</label>
+                                        <div class="col-lg-11">
+                                        <select data-placeholder="请选择..." tabindex="2" class="form-control" name="status"
+                                                required="required" style="width: 300px;">
+                                            <option value="1"
+                                            <eq name="data.status" value="1">selected</eq>
+                                            >开启</option>
+                                            <option value="0"
+                                            <eq name="data.status" value="0">selected</eq>
+                                            >关闭</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <!--<div class="form-group">
+                                        <label class="col-lg-1 control-label text-left">消息内容</label>
+                                        <div class="col-lg-11">
+                                        <html:editor id="data" name="data" type="UEDITOR" style="height:300px;">
+                                            {$data.data}
+                                        </html:editor>
+                                        </div>
+                                    </div>-->
+
+                                    <div id="demo-mail-compose"></div>
+
+
+                                <div class="pad-ver">
+                                    <!--Send button-->
+                                    <button type="submit" class="btn btn-primary right">
+                                        <i class="demo-psi-mail-send icon-lg icon-fw"></i> 确定保存
+                                    </button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!--===================================================-->
+                        <!-- END COMPOSE EMAIL -->
+                    </div>
+                </div>
+
+
+            </div>
+            <!--===================================================-->
+            <!--End page content-->
+        </div>
+<script>
+var domain='{$data.domain_auth}';
+if(domain){
+    $("#domain_auths").find("option[value='"+domain+"']").attr("selected",true);
+}
+var data='{$data.data}';
+
+$('#demo-mail-compose').summernote({
+    placeholder: '请输入消息内容',
+    tabsize: 2,
+    height: 300
+});
+$('#demo-mail-compose').summernote('code',data);
+$("form").submit(function (e) {
+    $('[name="data"]').val($('#demo-mail-compose').summernote('code'));
+});
+
+
+</script>
+<include file="Public/footer"/>

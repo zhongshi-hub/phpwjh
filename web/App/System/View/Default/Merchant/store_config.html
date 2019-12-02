@@ -1,0 +1,90 @@
+<include file="Public/header"/>
+<style>
+    .form-control{width: 300px !important;}
+    .imgborder{width: 300px;border: solid 1px #E4E4E4;height: 220px;padding: 5px;}
+    .imgborder img { width:100%; display:block;height: 100%;}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <form method="post" action="{:U('print_save')}">
+                <div class="panel-body">
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">打印机配置-<span style="color: red"><php>$seller=Get_Seller($_GET['id']); echo $seller['mch_name'];</php>--<php>$store=Get_Store($_GET['store_id']); echo $store['name'];</php></span></p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">打印机状态</label>
+                                <select   data-placeholder="请选择..."  tabindex="2"  class="form-control" name="print_status" required="required">
+                                    <option value="1" <eq name="data.status" value="1">selected</eq> >开启打印</option>
+                                    <option value="0" <eq name="data.status" value="0">selected</eq> >关闭打印</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">用户ID</label>
+                                <input class="form-control" type="text" name="print_id" value="{$data.print_id}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">API秘钥</label>
+                                <input class="form-control" type="text"  name="print_api" value="{$data.print_api}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">打印机秘钥</label>
+                                <input class="form-control" type="text"  name="print_key" value="{$data.print_key}"  required>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">打印机终端号</label>
+                                <input class="form-control" type="text" name="print_zd" value="{$data.print_zd}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">门头信息</label>
+                                <input class="form-control" type="text" name="print_top" value="{$data.print_top}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">商户名称</label>
+                                <input class="form-control" type="text" name="print_mchname" value="{$data.print_mchname}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">底部信息</label>
+                                <input class="form-control" type="text" name="print_footer" value="{$data.print_footer}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">打印联数</label>
+                                <input class="form-control" type="number" name="print_num" value="{$data.print_num}" min="1" max="10" placeholder="如 2 份 填写 2" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-justify">
+                    <a class="btn btn-warning" href="{:U('store',array('id'=>$_GET['id']))}">返回门店列表</a>
+                    <input type="hidden" name="sid" value="{$_GET['id']}">
+                    <input type="hidden" name="store_id" value="{$_GET['store_id']}">
+                    <button type="submit" class="btn btn-danger" >更新配置信息</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<include file="Public/footer"/>

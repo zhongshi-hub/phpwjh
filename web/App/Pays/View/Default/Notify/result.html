@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>支付结果</title>
+    <link rel="stylesheet" href="/Ext?g=pay_result">
+</head>
+<body>
+<div id="success">
+    <div class="space">
+        <div class="{$data_status}"></div>
+        <div class="text">{$data_info}</div>
+    </div>
+    <div class="group">
+        <div class="left">付款金额</div>
+        <div class="right" style="color: red">{$total}元</div>
+    </div>
+    <div class="group">
+        <div class="left">交易流水号</div>
+        <div class="right">{$out_trade_no}</div>
+    </div>
+    <!--<a href="" class="ad">
+        <img src="" alt="">
+    </a>-->
+</div>
+</body>
+</html>

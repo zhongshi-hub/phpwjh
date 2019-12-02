@@ -1,0 +1,273 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+                                <button id="QrAdd" class="btn btn-purple"><i class="demo-pli-plus"></i>生成云码</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                            <button id="CrateAdd" class="btn btn-success"><i class="demo-pli-plus"></i>自定义生成</button>
+                        </div>
+                    </div>
+                </div>
+                <table id="demo-custom-toolbar"
+                       class="table table-bordered table-hover toggle-circle table-vcenter demo-add-niftycheck"
+                       data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">选择</th>
+                        <th class="text-center">所属品牌</th>
+                        <th>收款码ID</th>
+                        <th class="text-center">所属代理</th>
+                        <th class="text-center">所属商户</th>
+                        <th class="text-center">所属门店</th>
+                        <th class="text-center">收款二维码</th>
+                        <th class="text-center">创建时间</th>
+                        <th class="text-center">状态</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="list" item="v">
+                        <tr>
+                            <td class="text-center"><input value="{$v.codes}" type="checkbox" name="check1"
+                                                           id="exp_codes"></td>
+                            <td class="text-center">{$v.domain_auth|DomainName}</td>
+                            <td>{$v['codes']}</td>
+                            <td class="text-center"><span class="label label-mint"
+                                                          style="font-size:12px;font-weight:1;border-radius: 5px;"><notempty
+                                    name="v.aid">{$v['aid']|agent_name} <else/> 未分配</notempty> </span>
+                            </td>
+                            <td class="text-center"><span class="label label-success"
+                                                          style="font-size:12px;font-weight:1;border-radius: 5px;"> <php>$seller=Get_Seller($v['mch_id']);if($seller['mch_name']){ echo $seller['mch_name'];}else{ echo '未绑定';}</php></span>
+                            </td>
+                            <td class="text-center"><span class="label label-info"
+                                                          style="font-size:12px;font-weight:1;border-radius: 5px;"><php>$store=Get_Store($v['store_id']);if($store['name']){ echo $store['name'];}else{ echo '未绑定';}</php></span>
+                            </td>
+
+                            <td class="text-center"><img src="{$v.code_url}" title="点击放大查看" width="30" height="30"
+                                                         onclick="IMG('{$v.code_url}')" style="cursor:pointer"></td>
+                            <td class="text-center">{$v['ctime'|date='Y-m-d H:i:s',###]}</td>
+                            <td class="text-center">
+                                <if condition="$v['status'] eq 1">
+                                    <span class="label label-danger"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">已开启</span>
+                                    <else/>
+                                    <span class="label label-default"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">未开启</span>
+                                </if>
+                            </td>
+                            <td class="text-center">
+                                <a href="" class="btn btn-danger btn-rounded btn-sm">按钮</a>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="QR-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    云码生成
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('adds')}" method="post">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">所属品牌</label>
+                                    <select data-placeholder="请选择..." id="demo-chosen-select" tabindex="10"
+                                            class="form-control" name="auth_code">
+                                        <foreach name="QrList" item="v">
+                                            <option value="{$v['web_authcode']}">{$v['web_name']}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">所属代理</label>
+                                    <select  class="form-control" id="agent_datas" name="aid" required="required">
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">云码数量</label>
+                                    <input class="form-control" type="text" name="count" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-footer text-right">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="QR-CrateAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    自定义云码生成
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('System/Merchant/CodeCrate')}" method="post">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">所属品牌</label>
+                                    <select data-placeholder="请选择..." id="demo-chosen-select1" tabindex="10"
+                                            class="form-control" name="domain_auth">
+                                        <foreach name="QrList" item="v">
+                                            <option value="{$v['web_authcode']}">{$v['web_name']}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">所属代理</label>
+                                    <select  class="form-control" id="agent_data" name="agent_id" required="required">
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">云码信息</label>
+                                    <textarea name="codes" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-footer text-right">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+
+<script>
+    $(function() {
+        $('#demo-chosen-select1').change(selectagent1);
+        $('#demo-chosen-select').change(selectagent);
+        selectagent();
+        selectagent1();
+    });
+    function selectagent() {
+        var data= $('#demo-chosen-select option:selected').val();
+        var data_list = "<option value=''>请选择</option>";
+        $.ajax({
+            url:"{:U('agent_data')}",
+            data:'data='+data,
+            type:"POST",
+            dataType:"json",
+            async: false,
+            cache: false,
+            success:function(data){
+                for(var i=0; i<data.length; i++){
+                    data_list += "<option value='"+data[i].id+"'>"+data[i].user_name+"</option>";
+
+                }
+                $("#agent_datas").find("option").remove();
+                $("#agent_datas").append(data_list);
+                $('#agent_datas').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+                $("#agent_datas").trigger("chosen:updated");
+                $("#agent_datas").trigger("liszt:updated");
+            }
+        });
+    }
+
+    function selectagent1() {
+        var data= $('#demo-chosen-select1 option:selected').val();
+        var data_list = "<option value=''>请选择</option>";
+        $.ajax({
+            url:"{:U('agent_data')}",
+            data:'data='+data,
+            type:"POST",
+            dataType:"json",
+            async: false,
+            cache: false,
+            success:function(data){
+                for(var i=0; i<data.length; i++){
+                    data_list += "<option value='"+data[i].id+"'>"+data[i].user_name+"</option>";
+
+                }
+                $("#agent_data").find("option").remove();
+                $("#agent_data").append(data_list);
+                $('#agent_data').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+                $("#agent_data").trigger("chosen:updated");
+                $("#agent_data").trigger("liszt:updated");
+            }
+        });
+    }
+
+    $('#QrAdd').click(function () {
+        $('.chosen-container').css('width', '250px');
+        $('#QR-add').modal('show');
+    });
+
+    $('#CrateAdd').click(function () {
+        $('.chosen-container').css('width', '250px');
+        $('#QR-CrateAdd').modal('show');
+    });
+
+
+
+    function IMG(url) {
+        $.fancybox.open(url);
+    }
+
+
+</script>
+<include file="Public/footer"/>

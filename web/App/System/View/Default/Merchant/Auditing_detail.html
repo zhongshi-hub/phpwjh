@@ -1,0 +1,466 @@
+<include file="Public/header"/>
+<style>
+    .form-control {
+        width: 300px !important;
+    }
+
+    .imgborder {
+        width: 300px;
+        border: solid 1px #E4E4E4;
+        height: 220px;
+        padding: 5px;
+    }
+
+    .imgborder img {
+        width: 100%;
+        display: block;
+        height: 100%;
+    }
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">商户详情 --(商户名称:{$data.mch_name})</h3>
+            </div>
+            <div class="panel-body">
+                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">基本信息</p>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">收款码ID</label>
+                            <input class="form-control" type="text" value="{$data.codes}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">所属代理</label>
+                            <input class="form-control" type="text" value="{$data.agent_id|agent_name}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">商户名称</label>
+                            <input class="form-control" type="text" value="{$data.mch_name}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">商户类型</label>
+                            <input class="form-control" type="text" value="{$data.mch_bus_type}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">行业类别</label>
+                            <input class="form-control" type="text" value="{$data.mch_industry|Industrid}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">省份</label>
+                            <input class="form-control" type="email" value="{$data.mch_provice}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">城市</label>
+                            <input class="form-control" type="text" value="{$data.mch_citys}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">区县</label>
+                            <input class="form-control" type="text" value="{$data.mch_district}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">地址</label>
+                            <input class="form-control" type="text" value="{$data.mch_address}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">电话</label>
+                            <input class="form-control" type="text" value="{$data.mch_tel}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">负责人</label>
+                            <input class="form-control" type="text" value="{$data.mch_card_name}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">负责人身份证</label>
+                            <input class="form-control" type="text" value="{$data.mch_card_id}" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">申请时间</label>
+                            <input class="form-control" type="text" value="{$data.ctime|date='Y-m-d H:i:s',###}"
+                                   readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">微信OpenId</label>
+                            <input class="form-control" type="text" value="{$data.mch_wx_openid}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">微信名称</label>
+                            <input class="form-control" type="text" value="{$data.mch_wx_name}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <img src="{$data.mch_wx_img}" style="width: 50px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <notempty name="data.qy_name">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">企业名称</label>
+                                <input class="form-control" type="text" value="{$data.qy_name}"
+                                       readonly>
+                            </div>
+                        </div>
+                    </notempty>
+                    <notempty name="data.qy_cid">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">工商注册号</label>
+                                <input class="form-control" type="text" value="{$data.qy_cid}" readonly>
+                            </div>
+                        </div>
+                    </notempty>
+                    <notempty name="data.qy_fr_name">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">法人姓名</label>
+                                <input class="form-control" type="text" value="{$data.qy_fr_name}"
+                                       readonly>
+                            </div>
+                        </div>
+                    </notempty>
+                    <notempty name="data.qy_fr_cid">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">法人身份证号</label>
+                                <input class="form-control" type="text" value="{$data.qy_fr_cid}" readonly>
+                            </div>
+                        </div>
+                    </notempty>
+                </div>
+                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">结算信息</p>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">开户银行</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_list|reload_bank}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">银行卡号</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_cid}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">开户名称</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_name}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">帐户类型</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_type}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">开户省份</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_provice}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group" id="depositCity">
+                            <label class="control-label">开户城市</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_citys}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group" id="depositLBnk">
+                            <label class="control-label">开户支行</label>
+                            <input class="form-control" type="text" value="{$data.mch_linkbnk|reload_banks}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">联行号</label>
+                            <input class="form-control" type="text" value="{$data.mch_linkbnk}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">预留手机号码</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_tel}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">证件信息</p>
+                <div class="row">
+
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label"><span
+                                    style="color: red">身份证正面(Size:{$data.mch_img_z|img_size})</span></label>
+                            <div class="imgborder">
+                                <img class="image-responsive" id="S1" src="{$data.mch_img_z}" onclick="view_img('S1')">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label"><span
+                                    style="color: red">身份证反面(Size:{$data.mch_img_p|img_size})</span></label>
+                            <div class="imgborder">
+                                <img class="image-responsive" id="S2" src="{$data.mch_img_p}" onclick="view_img('S2')">
+                            </div>
+                        </div>
+                    </div>
+                    <notempty name="data.mch_img_bank">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span
+                                        style="color: red">结算银行卡(Size:{$data.mch_img_bank|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S6" src="{$data.mch_img_bank}" onclick="view_img('S6')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+                    <notempty name="data.mch_img_s">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span
+                                        style="color: red">手持照(Size:{$data.mch_img_s|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S3" src="{$data.mch_img_s}" onclick="view_img('S3')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+                    <if condition="$data.mch_bus_type neq '个人'">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">营业执照(Size:{$data.mch_img_yyzz|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S4" src="{$data.mch_img_yyzz}"
+                                         onclick="view_img('S4')">
+                                </div>
+                            </div>
+                        </div>
+                    </if>
+                    <notempty name="data.mch_img_sqh">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">收款人授权函(Size:{$data.mch_img_sqh|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S5" src="{$data.mch_img_sqh}"
+                                         onclick="view_img('S5')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+                    <notempty name="data.mch_img_auth_z">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">身份证正面(授权人)(Size:{$data.mch_img_auth_z|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="mch_img_auth_z" src="{$data.mch_img_auth_z}"
+                                         onclick="view_img('mch_img_auth_z')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+                    <notempty name="data.mch_img_auth_p">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">身份证反面(授权人)(Size:{$data.mch_img_auth_p|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="mch_img_auth_p" src="{$data.mch_img_auth_p}"
+                                         onclick="view_img('mch_img_auth_p')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+
+                    <notempty name="data.mch_img_m1">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span
+                                        style="color: red">门头照片(Size:{$data.mch_img_m1|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S7" src="{$data.mch_img_m1}" onclick="view_img('S7')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+                    <notempty name="data.mch_img_m2">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span
+                                        style="color: red">门店内景(Size:{$data.mch_img_m2|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S8" src="{$data.mch_img_m2}" onclick="view_img('S8')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+                    <notempty name="data.mch_img_m3">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span
+                                        style="color: red">附加照片1(Size:{$data.mch_img_m3|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S9" src="{$data.mch_img_m3}" onclick="view_img('S9')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+                    <notempty name="data.mch_img_m4">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span
+                                        style="color: red">附加照片2(Size:{$data.mch_img_m4|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S10" src="{$data.mch_img_m4}" onclick="view_img('S10')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+
+                </div>
+            </div>
+            <div class="panel-footer text-justify">
+                <a class="btn btn-default" href="{:U('Auditing')}">返回审核列表</a>
+                <a class="btn btn-info shenhe" data-id="{$data.id}">审核结果</a>
+                <a class="btn btn-warning" href="{:U('Auditing_edits',array('id'=>$data['id']))}">编辑资料</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="ShenHe-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 370px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    审核商户结果
+                </h4>
+            </div>
+            <form action="{:U('Auditing_status')}" method="post">
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">审核状态</label>
+                                    <select class="form-control" name="status" required>
+                                        <option value="0">待审核</option>
+                                        <option value="1">审核通过</option>
+                                        <option value="2">审核拒绝</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">状态信息</label>
+                                    <textarea class="form-control" name="info" placeholder="审核拒绝原因 如开启模板消息 将会发送给商户 或扫码显示拒绝原因..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox pad-btm text-left">
+                                    <input id="demo-form-checkbox" class="magic-checkbox" type="checkbox">
+                                    <label for="demo-form-checkbox">发送审核结果模板消息给商户</label>
+                                </div>
+                            </div>
+                        </div>-->
+
+
+                        <!--<div class="panel-footer text-right">
+                            <input type="hidden" name="id" value="{$data.id}">
+                            <button class="btn btn-success" type="submit">提交</button>
+                        </div>-->
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="id" value="{$data.id}">
+                    <button class="btn btn-success">提交</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+<script>
+    $('.shenhe').click(function () {
+        $('#ShenHe-add').modal('show');
+    });
+    $(function() {
+        $('[name="status"]').change(mch_status);
+        mch_status();
+    });
+    function mch_status() {
+        var  type= $('[name="status"] option:selected').val();
+        var  status=$('[name="info"]');
+        if(type==2){
+            status.attr("disabled",false);
+            status.attr("required",true);
+            status.val('');
+        }else{
+            status.attr("disabled",true);
+            status.attr("required",false);
+            if(type==1){
+                status.val('信息正确,审核通过');
+            }else{
+                status.val('待审核');
+            }
+        }
+    }
+</script>
+
+<include file="Public/footer"/>

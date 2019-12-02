@@ -1,0 +1,196 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    {:$title}
+                </h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="" ajax="n">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">所属通道</label>
+                                        <select class="form-control" name="alleys"  style="width: 300px;">
+                                            <option value="">--请选择--</option>
+                                            <volist name=":AlleysList()" id="v">
+                                                <option value="{$v.type}">{$v.name}</option>
+                                            </volist>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">交易单号</label>
+                                        <input type="text" class="form-control"  name="out_trade_no" value="{$data.out_trade_no}" placeholder="填写支付交易订单号"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-right">
+                                <input type="hidden" name="pid"
+                                       value="<present name='Think.get.pid'>{$Think.get.pid}<else/> 0</present>">
+                                <button class="btn btn-success" type="submit">搜索</button>
+                                <button class="btn btn-default" value="ccl" name="export" type="submit"> <i class="fa fa-download"></i>导出</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+
+
+            <div class="panel-body">
+                <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle" data-page-size="7">
+                    <thead>
+                    <tr>
+
+                        <th class="text-center" width="100">所属通道</th>
+                        <th class="text-center">支付订单号</th>
+                        <th class="text-center">提现订单号</th>
+                        <th class="text-center">提现金额</th>
+                        <th class="text-center">手续费</th>
+                        <th class="text-center">提现状态</th>
+                        <th class="text-center">提现时间</th>
+                        <th class="text-center">所属品牌</th>
+                        <th class="text-center">其他信息</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="list" item="v">
+                        <tr>
+
+                            <td class="text-center">{$v.alleys|alleys_name}</td>
+                            <td class="text-center">{$v.out_trade_no}</td>
+                            <td class="text-center">{$v.tx_order}</td>
+                            <td class="text-center">{$v.tx_total}</td>
+                            <td class="text-center">{$v.tx_amt}</td>
+                            <td class="text-center">{$v.status}</td>
+                            <td class="text-center">{$v.ctime}</td>
+                            <td class="text-center">{$v.domain_auth|DomainName}</td>
+                            <td class="text-center">
+                                <button onclick="tx_swing({$v.id})" class="btn btn-info btn-rounded btn-sm">详细信息</button>
+                                <button onclick="tx_order_rel('{$v.tx_order}')" class="btn btn-success btn-rounded btn-sm" <eq name="v.status" value="1">disabled</eq>>查询结果</button>
+                                <button onclick="tx_rel('{$v.out_trade_no}')" class="btn btn-danger btn-rounded btn-sm" <neq name="v.status" value="404">disabled</neq>>重新出款</button>
+                                <input type="hidden" id="{$v.id}_ye" value='{$v.tx_ye}'>
+                                <input type="hidden" id="{$v.id}_fee" value='{$v.tx_fee}'>
+                                <input type="hidden" id="{$v.id}_data" value='{$v.tx_data}'>
+                                <input type="hidden" id="{$v.id}_rel" value='{$v.tx_rel}'>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="20">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__/statics/plugins/bootbox/bootbox.min.js"></script>
+<style>
+    .modal-dialog{width: 1000px!important;}
+</style>
+<script>
+    function tx_swing(id) {
+        var ye=$('#'+id+'_ye').val();
+        var data=$('#'+id+'_data').val();
+        var rel=$('#'+id+'_rel').val();
+        var fee=$('#'+id+'_fee').val();
+        bootbox.alert({
+            message : "<p class='text-semibold text-main'>数据详细信息</p><p>余额数据</p><p><textarea style='width: 100%;height: 80px;resize:none'>"+ye+"</textarea></p><p>提交数据</p><p><textarea style='width: 100%;height: 150px;resize:none'>"+data+"</textarea></p><p>返回数据</p><p><textarea style='width: 100%;height: 150px;resize:none'>"+rel+"</textarea></p><p>异步数据</p><p><textarea style='width: 100%;height: 150px;resize:none'>"+fee+"</textarea></p>",
+            animateIn: 'swing',
+            animateOut : 'hinge'
+        });
+    }
+    //查询结果
+    function tx_order_rel(order) {
+        $.ajax({
+            url:"{:U('Pays/CardNotify/q_tx_order_rel')}/alley/Q1/order_id/"+order,
+            type:"GET",
+            dataType:"json",
+            async: false,
+            cache: false,
+            success:function(data){
+                if(data.code==1){
+                    $.niftyNoty({
+                        type: 'success',
+                        message : '<strong>'+data.msg+'</strong> 3秒后自动刷新!',
+                        container : 'floating',
+                        timer : 3000
+                    });
+                    setTimeout(function(){
+                        window.location.reload();
+                    }, 3000);
+                }else{
+                    $.niftyNoty({
+                        type: 'danger',
+                        message : '<strong>'+data.msg+'</strong>',
+                        container : 'floating',
+                        timer : 5000
+                    });
+                }
+            }
+        });
+    }
+
+    //重新出款
+    function tx_rel(order) {
+        layer.alert('请确定当前订单为失效订单(去前海亿联平台查询当前订单状态是否是失效)!如果是失效!才点击当前确定重新出款,否则出款错误、错误金额操作人承担! <p>通道平台地址:<a href="http://t.cn/R8vCSO7" target="_blank">http://t.cn/R8vCSO7</a></p><p>账户:***************</p><p>密码:********</p>用力刮屏幕就可以看到密码了 ( ^_^ )', {
+            title:'重新出款说明',
+            skin: 'layui-layer-molv'
+            ,closeBtn: 1
+            ,anim: 6 //动画类型
+        },function(){
+            layer.closeAll();
+            var myDate = new Date(),tid;
+            var my_date_order=myDate.getDate();
+            var date_order=order.substring(6, 8);
+            if(my_date_order==date_order){
+                tid='0203';
+            }else{
+                tid='0201';
+            }
+            $.ajax({
+                url:"{:U('Pays/CardNotify/q_xun_rel_tx')}/alley/Q1/order_id/"+order+'/tid/'+tid,
+                type:"GET",
+                dataType:"json",
+                async: false,
+                cache: false,
+                success:function(data){
+                    if(data.status==1){
+                        $.niftyNoty({
+                            type: 'success',
+                            message : '<strong>'+data.info+'</strong> 3秒后自动刷新!',
+                            container : 'floating',
+                            timer : 3000
+                        });
+                        setTimeout(function(){
+                            window.location.reload();
+                        }, 3000);
+                    }else{
+                        $.niftyNoty({
+                            type: 'danger',
+                            message : '<strong>'+data.info+'</strong>',
+                            container : 'floating',
+                            timer : 5000
+                        });
+                    }
+                }
+            });
+        });
+    }
+</script>
+<include file="Public/footer"/>

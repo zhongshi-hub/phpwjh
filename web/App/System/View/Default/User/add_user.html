@@ -1,0 +1,76 @@
+<include file="Public/header"/>
+<style>
+     .form-control{width: 300px !important;}
+</style>
+            <div id="content-container">
+                <div id="page-content">
+                   <div class="panel">
+                     <div class="panel-heading">
+                         <h3 class="panel-title">添加成员</h3>
+                     </div>
+                    <div class="panel-body">
+                        <form class="form-inline" method="post">
+                            <table class="table table-vcenter">
+                                <tr>
+                                    <th width="150px">管理组</th>
+                                    <td>
+                                        <select data-placeholder="请选择..." id="demo-chosen-select" tabindex="2" name="group_ids[]" style="width: 300px;">
+                                            <foreach name="data" item="v">
+                                              <option value="{$v['id']}">{$v['title']}</option>
+                                            </foreach>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>账户</th>
+                                    <td>
+                                        <input class="form-control" type="text" name="username" required="required">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>姓名</th>
+                                    <td>
+                                        <input class="form-control" type="text" name="name" required="required" placeholder="备注 可以中文">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>手机号</th>
+                                    <td>
+                                        <input class="form-control" type="text" name="phone" required="required">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>邮箱</th>
+                                    <td>
+                                        <input class="form-control" type="text" name="email" required="required">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>初始密码</th>
+                                    <td>
+                                        <input class="form-control" type="text" name="password" required="required">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>状态</th>
+                                    <td>
+                                        <span class="inputword">允许登录</span>
+                                        <input style="width: 50px!important;" class="xb-icheck" type="radio" name="status" value="1" checked="checked">
+                                        &emsp;
+                                        <span class="inputword">禁止登录</span>
+                                        <input style="width: 50px!important;" class="xb-icheck" type="radio" name="status" value="0">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td>
+                                        <input class="btn btn-success" type="submit" value="添加">
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                   </div>
+                </div>
+            </div>
+<include file="Public/footer"/>

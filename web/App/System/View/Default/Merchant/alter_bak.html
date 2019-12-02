@@ -1,0 +1,417 @@
+<include file="Public/sheader"/>
+<style>
+    .form-control{width: 300px !important;}
+    .imgborder{width: 300px;border: solid 1px #E4E4E4;height: 220px;padding: 5px;}
+    .imgborder img { width:100%; display:block;height: 100%;}
+</style>
+<div id="content-container" style="padding-top: 0px!important;padding-bottom: 0px!important;">
+    <div id="page-content">
+        <div class="panel">
+            <form method="post" action="{:U('mdata_save')}">
+                <div class="panel-body">
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">当前基本信息</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">当前通道</label>
+                                <input class="form-control" type="text" value="{$data.alleys_type|alleys_name}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">所属代理</label>
+                                <input class="form-control" type="text"  value="{$data.agent_id|agent_name}" readonly>
+                                <input  type="hidden" name="agent_id" value="{$data.agent_id}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">商户名称</label>
+                                <input class="form-control" type="text"  name="mch_name" value="{$data.mch_name}"  readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">负责人</label>
+                                <input class="form-control" type="text" name="mch_card_name" value="{$data.mch_card_name}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户人姓名</label>
+                                <input class="form-control" type="text" value="{$data.mch_bank_name}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户银行</label>
+                                <input class="form-control" type="text" value="{$data.mch_bank_list|reload_bank}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户省份</label>
+                                <input class="form-control" type="text" value="{$data.mch_bank_provice}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户城市</label>
+                                <input class="form-control" type="text" value="{$data.mch_bank_citys}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户支行</label>
+                                <input class="form-control" type="text" value="{$data.mch_linkbnk|reload_banks}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">支行联行号</label>
+                                <input class="form-control" type="text" value="{$data.mch_linkbnk}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">CT1通道费率</label>
+                                <input class="form-control" type="text"  name="mch_name" value="{$rate.wlb}"  readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">CT0通道费率</label>
+                                <input class="form-control" type="text"  name="mch_name" value="{$data.rate}"  readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom:10px;line-height: 15px">
+                        <input id="demo-inline-form-radio-2" class="magic-radio" name="inline-form-radio" type="radio" checked>
+                        <label for="demo-inline-form-radio-2">变更结算费率</label>
+                    </p>
+                    <div class="row">
+                        <if condition="$all eq 'Wlbpays'">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label"><php>echo alleys_name('Wlbpay');</php>终端费率</label>
+                                    <select data-placeholder="请选择..." id="rate" tabindex="2"    style="width: 300px;" name="rate" required="required">
+                                        <volist name=":rate_data_pid($data['agent_id'],'Wlbpay')" id="v">
+                                            <option value="{$v.rate}"  <if condition="$rate.wlb eq $v['rate']">selected</if>>{$v.name}</option>
+                                        </volist>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">{$data.alleys_type|alleys_name}终端费率</label>
+                                    <select data-placeholder="请选择..." id="rate" tabindex="2"    style="width: 300px;" name="rate" required="required">
+                                        <volist name=":rate_data_pid($data['agent_id'],'Wlbpays')" id="v">
+                                            <option value="{$v.rate}"  <if condition="$data.rate eq $v['rate']">selected</if>>{$v.name}</option>
+                                        </volist>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <else/>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">{$data.alleys_type|alleys_name}终端费率</label>
+                                    <select data-placeholder="请选择..." id="rate" tabindex="2"    style="width: 300px;" name="rate" required="required">
+                                        <volist name=":rate_data_pid($data['agent_id'],$_GET['type'])" id="v">
+                                            <option value="{$v.rate}"  <if condition="$data.rate eq $v['rate']">selected</if>>{$v.name}</option>
+                                        </volist>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                        </if>
+                    </div>
+
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom:10px;line-height: 15px">
+                        <input id="demo-inline-form-radio" class="magic-radio" name="inline-form-radio"  type="radio">
+                        <label for="demo-inline-form-radio">变更结算信息</label>
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户银行</label>
+                                <select data-placeholder="请选择..." id="mch_bank_list" tabindex="2"    style="width: 300px;" name="mch_bank_list" required="required">
+                                    <foreach name="bank_list" item="v">
+                                        <option value="{$v.bnkcd}"  <if condition="$data.mch_bank_list eq $v['bnkcd']">selected</if>>{$v.bnknm}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">银行卡号</label>
+                                <input class="form-control" type="text" name="mch_bank_cid" value="{$data.mch_bank_cid}"  >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户名称</label>
+                                <input class="form-control" type="text" name="mch_bank_name" value="{$data.mch_bank_name}">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">帐户类型</label>
+                                <input class="form-control" type="text"  value="个人账户" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户省份</label>
+                                <select data-placeholder="请选择..."  tabindex="2"  id="mch_bank_provice"  style="width: 300px;" name="mch_bank_provice" required="required">
+                                    <foreach name="pro" item="v">
+                                        <option value="{$v.provice}"  <if condition="$data.mch_bank_provice eq $v['provice']">selected</if>>{$v.provice}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group" id="depositCity">
+                                <label class="control-label">开户城市</label>
+                                <select id="selectBCity" class="form-control" data-live-search="true" data-width="100%" name="mch_bank_citys" required="required">
+                                    <option value="{$data.mch_bank_citys}" selected>{$data.mch_bank_citys}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group" id="depositLBnk">
+                                <label class="control-label">开户支行</label>
+                                <select  class="form-control" id="selectLBnk" required="required">
+                                    <option value="{$data.mch_linkbnk}" selected="selected">{$data.mch_linkbnk|reload_banks}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">联行号</label>
+                                <input class="form-control" id="lianhanghao" type="text" name="mch_linkbnk" value="{$data.mch_linkbnk}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">预留手机号码</label>
+                                <input class="form-control" type="text" name="mch_bank_tel" value="{$data.mch_bank_tel}">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="panel-footer text-right">
+                    <input type="hidden" name="cid" value="{$_GET['id']}">
+                    <input type="hidden" name="alleys_type" value="{$_GET['type']}">
+                    <button type="submit" class="btn btn-danger" >提交变更信息</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        $('#mch_bus_type,#mch_industry,#provice,#mch_bank_list,#mch_bank_provice,#rate,#provice').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+
+        $('#mch_bus_type').change(BusChange);
+        $('#mch_bank_type').change(BTypeChange);
+
+
+        $('#provice').change(provinceChange); //省份
+        $('#selectCity').change(cityChange); //市级
+
+        $('#mch_bank_provice').change(BproChange); //银行省份
+        $('#selectBCity').change(BcityChange); //市级
+        $('#mch_bank_list').change(bankChange);
+        $('#selectLBnk').change(selectLBnkval);
+
+
+        BusChange();
+        BTypeChange();
+    });
+
+    function BTypeChange() {
+        var type= $('#mch_bank_type option:selected').val();
+        if(type=='个人账户'){
+            $('.Sq').show();
+        }else{
+            $('.Sq').hide();
+        }
+    }
+
+    function BusChange() {
+        var Bus= $('#mch_bus_type option:selected').val();
+        if(Bus=='无营业执照'){
+            $('.Yz').hide();
+            $('.Sq,#Gr').show();
+            $('#mch_bank_type').hide();
+        }else{
+            $('#mch_bank_type').show();
+            $('.Yz').show();
+            $('#Gr').hide();
+        }
+    }
+
+
+
+    //当支行变了 联行号就变
+    function selectLBnkval() {
+        var lh= $('#selectLBnk option:selected').val();
+        $('#lianhanghao').val(lh);
+    }
+
+    //当开户行放生改变时，带出默认的支行
+    function bankChange(){
+        var cityId = $('#selectBCity option:selected').val();
+        if(cityId!=null && cityId!="" && typeof(cityId)!='undefined'){
+            setLBnk(cityId);
+        }
+    }
+
+    //
+    function BproChange() {
+        var provinceId = $('#mch_bank_provice option:selected').val();
+        setBCity(provinceId);
+    }
+
+    //当省份改变时，带出默认城市
+    function provinceChange(){
+        var provinceId = $('#provice option:selected').val();
+        setCity(provinceId);
+    }
+    //当城市改变的时候,改变区县
+    function cityChange(){
+        var cityId = $('#selectCity option:selected').val();
+        setdistrict(cityId);
+    }
+
+    //当城市改变的时候,改变银行
+    function BcityChange(){
+        var cityId = $('#selectBCity option:selected').val();
+        setLBnk(cityId);
+    }
+
+    //设置银行所属城市
+    function setBCity(provinceId) {
+        var cityStr = "<option value=''>--请选择--</option>";
+        $.ajax({
+            url:"/Pays/Reg/A_area_city",
+            data:'name='+provinceId,
+            type:"POST",
+            dataType:"json",
+            async: false,
+            cache: false,
+            success:function(data){
+                //alert(data.length);
+                for(var i=0; i<data.length; i++){
+                    cityStr += "<option value='"+data[i]+"'>"+data[i]+"</option>";
+                }
+                $("#selectBCity").find("option").remove();
+                $("#selectBCity").append(cityStr);
+                $('#selectBCity').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+                $("#selectBCity").trigger("chosen:updated");
+                $("#selectBCity").trigger("liszt:updated");
+                var cityId = data[0];
+                setLBnk(cityId);
+            }
+        });
+    }
+
+    //设置显示城市
+    function setCity(provinceId){
+        var cityStr = "<option value=''>--请选择--</option>";
+        $.ajax({
+            url:"/Pays/Reg/A_area_city",
+            data:'name='+provinceId,
+            type:"POST",
+            dataType:"json",
+            async: false,
+            cache: false,
+            success:function(data){
+                //alert(data.length);
+                for(var i=0; i<data.length; i++){
+                    cityStr += "<option value='"+data[i]+"'>"+data[i]+"</option>";
+                    //alert(cityStr);
+                }
+                $("#selectCity").find("option").remove();
+                $("#selectCity").append(cityStr);
+                $('#selectCity').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+                $("#selectCity").trigger("chosen:updated");
+                $("#selectCity").trigger("liszt:updated");
+                var cityId = data[0];
+                setdistrict(cityId);
+            }
+        });
+    }
+
+
+    //设置显示区县
+    function setdistrict(provinceId){
+        var disStr = "<option value=''>--请选择--</option>";
+        $.ajax({
+            url:"/Pays/Reg/A_area_disc",
+            data:'name='+provinceId,
+            type:"POST",
+            dataType:"json",
+            async: false,
+            cache: false,
+            success:function(data){
+                //alert(data.length);
+                for(var i=0; i<data.length; i++){
+                    disStr += "<option value='"+data[i]+"'>"+data[i]+"</option>";
+                    //alert(cityStr);
+                }
+                $("#selectDis").find("option").remove();
+                $("#selectDis").append(disStr);
+                $('#selectDis').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+                $("#selectDis").trigger("chosen:updated");
+                $("#selectDis").trigger("liszt:updated");
+            }
+        });
+    }
+
+
+    //当开户市改变且开户行已选择时， 选择开户支行
+    function setLBnk(cityId){
+        var depositBnk = $('#mch_bank_list option:selected').val();
+        var params = {depositBnk:depositBnk,cityId:cityId};
+        $('#lianhanghao').val("");
+        var linkBnkStr = "<option value=''>请选择</option>";
+        if(depositBnk&&cityId) {
+            $.ajax({
+                data: params,
+                url: "/Pays/Reg/A_bnkLink",
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    if (data.list == null) {
+                        linkBnkStr = "<option value=''>此区域无支行信息,请重新选择</option>";
+                    } else {
+                        for (var i = 0; i < data.list.length; i++) {
+                            linkBnkStr += "<option value='" + data.list[i].banking + "'>" + data.list[i].address + "</option>";
+                        }
+                    }
+                    $("#selectLBnk").find("option").remove();
+                    $("#depositLBnk select").append(linkBnkStr);
+                    $('#selectLBnk').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+                    $("#selectLBnk").trigger("chosen:updated");
+                    $("#selectLBnk").trigger("liszt:updated");
+                }
+            });
+        }
+    }
+</script>
+<include file="Public/sfooter"/>

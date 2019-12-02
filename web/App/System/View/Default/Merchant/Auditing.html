@@ -1,0 +1,127 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <ul class="nav nav-tabs">
+                        <li <if condition="$Think.get.status eq ''">class="active"</if>><a href="{:U('Auditing')}">待审核</a></li>
+                        <li <if condition="$Think.get.status eq 'ref'">class="active"</if>><a href="{:U('Auditing',array('status'=>'ref'))}">已拒绝</a></li>
+                        <li <if condition="$Think.get.status eq 'all'">class="active"</if>><a href="{:U('Auditing',array('status'=>'all'))}">全部</a></li>
+                    </ul>
+                </div>
+                <h3 class="panel-title">{:$title}</h3>
+
+
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="" ajax="n">
+                        <div class="panel-body">
+                            <div class="row ">
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <label class="control-label">详细信息</label>
+                                        <input class="form-control" type="text" placeholder="支持 申请人姓名/联系电话/收款码ID/商户名称" name="search_val" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">所属代理</label>
+                                        <input id="dialog_name" class="form-control dialog" type="text"  value="">
+                                        <input id="dialog_aid" class="form-control" type="hidden" name="aid" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">商户类型</label>
+                                        <select  class="form-control" name="bus_type" >
+                                            <option value="">所有类型</option>
+                                            <option value="有营业执照">有营业执照</option>
+                                            <option value="无营业执照">无营业执照</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            <div class="text-right">
+                                <button class="btn btn-success" type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+
+
+            <div class="panel-body">
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">收款码ID</th>
+                        <th class="text-center">所属代理</th>
+                        <th class="text-center">商户名称</th>
+                        <th class="text-center">联系电话</th>
+                        <th class="text-center">申请人姓名</th>
+                        <th class="text-center">商户类型</th>
+                        <th class="text-center">申请时间</th>
+                        <th class="text-center">状态</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center">{$v.codes}</td>
+                            <td class="text-center">{$v.agent_id|agent_name}</td>
+                            <td class="text-center">{$v.mch_name}</td>
+                            <td class="text-center">{$v.mch_tel}</td>
+                            <td class="text-center">{$v.mch_card_name}</td>
+                            <td class="text-center">{$v.mch_bus_type}</td>
+                            <td class="text-center">{$v['ctime'|date='Y-m-d H:i:s',###]}</td>
+                            <td class="text-center">
+                            <if condition="$v['status'] eq 2">
+                                    <span class="label label-danger" style="font-size:12px;font-weight:1;border-radius: 5px;">已拒绝</span>
+                            <elseif condition="$v['status'] eq 1"/>
+                                    <span class="label label-info" style="font-size:12px;font-weight:1;border-radius: 5px;">已通过</span>
+                            <else/>
+                                <span class="label label-default" style="font-size:12px;font-weight:1;border-radius: 5px;">待审核</span>
+                            </if>
+                            </td>
+                            <td class="text-center">
+                                <a href="{:U('Auditing_detail',array('id'=>$v['id']))}" class="btn btn-purple btn-sm" type="button"  >审核信息</a>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('.dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Agent/dialog')}"
+        });
+    });
+</script>
+
+
+<include file="Public/footer"/>

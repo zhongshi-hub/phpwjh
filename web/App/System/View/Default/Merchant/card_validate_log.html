@@ -1,0 +1,159 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <!--筛选功能开始-->
+            <!--<div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="{:U('_log')}" ajax="n">
+                        <div class="panel-body">
+                            <div class="row ">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">所属商户</label>
+                                        <input id="dialog_mch_name" class="form-control mid_dialog" type="text"  value="">
+                                        <input id="dialog_mid" class="form-control" type="hidden" name="mid" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">变更结果</label>
+                                        <select  class="form-control" name="status" >
+                                            <option value="">所有状态</option>
+                                            <option value="1">变更成功</option>
+                                            <option value="0">变更失败</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button style="float: right" class="btn btn-success" type="submit">搜索</button>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>-->
+
+            <!--筛选功能结束-->
+            <div class="panel-body">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div class="col-xs-4" >
+                                    <p class="h2  text-thin mar-no pad-all">{$va1|default="0"}</p>
+                                    <small class="text-lg">总鉴权次数</small>
+                                </div>
+                                <div class="col-xs-4">
+                                    <p class="h2 text-thin mar-no pad-all">{$va2|default="0"}</p>
+                                    <small class="text-lg">已用鉴权次数</small>
+                                </div>
+                                <div class="col-xs-4" >
+                                    <p class="h2  text-thin mar-no pad-all">{$va3|default="0"}</p>
+                                    <small class="text-lg">剩余鉴权次数</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">所属品牌</th>
+                        <th class="text-center">所属商户</th>
+                        <th class="text-center">所属通道</th>
+                        <th class="text-center">鉴权类型</th>
+                        <th class="text-center">鉴权时间</th>
+                        <th class="text-center">鉴权结果</th>
+                        <th class="text-center">鉴权数据</th>
+                        <th class="text-center">操作者</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center">{$v.domain_auth|DomainName}</td>
+                            <td class="text-center"><php>$seller=Get_Seller($v['mid']); if($seller['mch_name']){echo $seller['mch_name'];}else{ echo $v['mid'];};</php></td>
+                            <td class="text-center">
+                                <eq name="v.alleys" value="mch_add_card">
+                                    <span style="color: #b6b6b6">MchAll</span>
+                                    <else/>
+                                    {$v.alleys|alleys_name}
+                                </eq>
+                            </td>
+                            <td class="text-center">
+                                <if condition="$v['source'] eq '变更'">
+                                    <span class="label label-danger" style="font-size:12px;font-weight:1;border-radius: 5px;">信息变更</span>
+                                    <elseif condition="$v['source'] eq '进件'" />
+                                    <span class="label label-mint" style="font-size:12px;font-weight:1;border-radius: 5px;">商户进件</span>
+                                    <else/>
+                                    <span class="label label-success" style="font-size:12px;font-weight:1;border-radius: 5px;">{$v.source}</span>
+                                </if>
+                            </td>
+                            <td class="text-center">{$v['time']}</td>
+                            <td class="text-center">
+                                <if condition="$v['status'] eq 1">
+                                    <span class="label label-danger" style="font-size:12px;font-weight:1;border-radius: 5px;">鉴权成功</span>
+                                    <else/>
+                                    <span class="label label-default" style="font-size:12px;font-weight:1;border-radius: 5px;">鉴权失败</span>
+                                </if>
+                            </td>
+
+                            <td class="text-center">
+                                <button onclick="v_swing({$v.id})" class="btn btn-info btn-rounded btn-sm">详细信息</button>
+                                <input type="hidden" id="{$v.id}_card" value='{$v.card}'>
+                                <input type="hidden" id="{$v.id}_cert" value='{$v.cert}'>
+                                <input type="hidden" id="{$v.id}_name" value='{$v.name}'>
+                                <input type="hidden" id="{$v.id}_phone" value='{$v.phone}'>
+                                <if condition="$v['status'] eq 1">
+                                    <input type="hidden" id="{$v.id}_validate" value='鉴权成功'>
+                                    <else/>
+                                    <input type="hidden" id="{$v.id}_validate" value='{$v.msg}'>
+                                </if>
+                            </td>
+                            <td class="text-center">
+                                <php>$res=sys_op_id($v['op_id'],$v['sys']); if($res){echo $res;}else{echo '商户';}</php>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__/statics/plugins/bootbox/bootbox.min.js"></script>
+<script>
+    function v_swing(id) {
+        var card=$('#'+id+'_card').val();
+        var cert=$('#'+id+'_cert').val();
+        var name=$('#'+id+'_name').val();
+        var phone=$('#'+id+'_phone').val();
+        var validate=$('#'+id+'_validate').val();
+        if(phone) {
+            bootbox.alert({
+                message: "<p class='text-semibold text-main'>鉴权数据详细信息</p><p>姓名</p><p class='well well-sm'>"+name+"</p><p>身份证号</p><p class='well well-sm'>"+cert+"</p><p>银行卡号</p><p class='well well-sm'>"+card+"</p><p>手机号</p><p class='well well-sm'>"+phone+"</p><p>鉴权返回结果提示</p><p class='well well-sm'>"+validate+"</p>",
+                animateIn: 'rubberBand',
+                animateOut: 'wobble'
+            });
+        }else{
+            bootbox.alert({
+                message: "<p class='text-semibold text-main'>鉴权数据详细信息</p><p>姓名</p><p class='well well-sm'>"+name+"</p><p>身份证号</p><p class='well well-sm'>"+cert+"</p><p>银行卡号</p><p class='well well-sm'>"+card+"</p><p>鉴权返回结果提示</p><p class='well well-sm'>"+validate+"</p>",
+                animateIn: 'rubberBand',
+                animateOut: 'wobble'
+            });
+        }
+    }
+</script>
+<include file="Public/footer"/>

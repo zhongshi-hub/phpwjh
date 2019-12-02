@@ -1,0 +1,251 @@
+</div>
+<footer id="footer">
+    <div class="hide-fixed pull-right pad-rgt">
+        总管理后台
+    </div>
+    <p class="pad-lft">&#0169; {:C('WEB_COPY')}</p>
+</footer>
+<!-- 返回顶部 -->
+<button class="scroll-top btn">
+    <i class="pci-chevron chevron-up"></i>
+</button>
+</div>
+
+<!-- 修改密码模态框开始 -->
+<div class="modal fade" id="PassWords" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    密码修改
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <form class="form-horizontal" action="{:U('System/User/editpass')}" method="post">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">旧密码</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" name="oldpass" type="text" placeholder="请输入旧密码" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" >新密码</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" name="newpass"  type="text" placeholder="请输入新密码" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">确认新密码</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" name="newspass" type="text" placeholder="请再次输入新密码" required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button class="btn btn-success" type="submit">确认修改</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 修改密码模态框结束 -->
+
+
+<!-- 修改交易识别码模态框开始 -->
+<div class="modal fade" id="IfRaMeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:65%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    详细信息
+                </h4>
+            </div>
+            <div class="modal-body">
+                <iframe height="500px" src="" frameBorder="0" width="100%"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 修改交易识别码模态框结束 -->
+
+<style>
+    .chosen-container-single .chosen-single{
+        height: 35px!important;
+    }
+    .btn{border-radius: 5px !important;}
+    select {
+        border: solid 1px #e1e5ea;
+        appearance:none;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+        background: url("/Source/plug/arrow.jpg") no-repeat scroll right center transparent !important;
+        padding-right: 14px;
+    }
+    select::-ms-expand { display: none; }
+</style>
+<script type="text/javascript">
+    $('#MouthTime').datepicker({
+        language: "zh-CN",
+        todayHighlight: true,
+        format: 'yyyy-mm',
+        autoclose: true,
+        startView: 1,
+        maxViewMode:2,
+        minViewMode:1
+    });
+
+    $('#MouthDay').datepicker({
+        language: "zh-CN",
+        todayHighlight: true,
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+        //startView: 2,
+        maxViewMode:3
+        //minViewMode:1
+    });
+
+    $('#STime').datepicker({
+        format: "yyyy-mm-dd",
+        todayBtn: "linked",
+        autoclose: true,
+        todayHighlight: true
+    });
+
+
+    //结束时间：
+    $('#ETime').datepicker({
+        format: "yyyy-mm-dd",
+        todayBtn: "linked",
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    
+    $('#s_time').datetimepicker({lang:'th'});
+    $('#e_time').datetimepicker({lang:'th'});
+    $('#sd_time,#ed_time').datetimepicker({
+        lang:'th',
+        timepicker:false,
+        format:'Y-m-d',
+        formatDate:'Y-m-d'
+    });
+
+
+    
+    $(function() {
+        $('.OpenUrl').click(function(){
+            var frameSrc = $(this).attr("href");
+            $('#IfRaMeModal').on('show.bs.modal',function() {
+               $('iframe').attr("src",frameSrc);
+            });
+            $('#IfRaMeModal').modal({show:true});
+            return false;
+        });
+
+
+        $('#demo-chosen-select').chosen();
+        $('#demo-chosen-select1').chosen();
+        $('#demo-chosen-select2').chosen();
+        $('#demo-chosen-select3').chosen();
+        $('#demo-chosen-select4').chosen();
+        $('#demo-chosen-select5').chosen();
+
+        $("form").submit(function (e) {
+            //判断当前form是否要ajax
+            var not=$(this).attr("ajax");
+            if(not != 'n'){
+                e.preventDefault(); //阻止自动提交表单
+            }
+            var ajax_data = $(this).serialize();
+            var actionurl = $(this).attr("action");
+            $.post(actionurl, ajax_data, function(data){
+                if(data.status == 1){
+                    /*如果存在模态框将关闭*/
+                    $('.modal').map(function() {
+                        $(this).modal('hide');
+                    });
+                    $.niftyNoty({
+                        type: 'success',
+                        message : '<strong>'+data.info+'</strong> 3秒后自动跳转!',
+                        container : 'floating',
+                        timer : 3000
+                    });
+                    setTimeout(function(){
+                        window.location.href=data.url
+                    }, 3000);
+                }
+                else{
+                    $.niftyNoty({
+                        type: 'danger',
+                        message : '<strong>'+data.info+'</strong>',
+                        container : 'floating',
+                        timer : 5000
+                    });
+                }
+            }, 'json');
+        });
+    });
+
+    function iFrameHeight() {
+        var ifm= document.getElementById("iframepage");
+        var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;
+        if(ifm != null && subWeb != null) {
+            ifm.height = subWeb.body.scrollHeight;
+            ifm.width = subWeb.body.scrollWidth;
+        }
+    }
+
+    /*上传modal*/
+    function upload_modal(domid){
+        art.dialog.data('domid', domid);
+        layer.open({
+            type: 2,
+            title:false,
+            area: ['600px', '500px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Plugs/Upload/index/Mod/System')}"
+        });
+    }
+    //输入框图片预览
+    function upload_view(data) {
+        var image=$('#'+data).val();
+        if(image==''){
+            $.niftyNoty({
+                type: 'danger',
+                message : '<strong>无图片信息,无法发起预览</strong>',
+                container : 'floating',
+                timer : 5000
+            });
+        }else {
+            $('.upload_view').fancybox({
+                href: image
+            });
+        }
+    }
+    //img标签 图片预览
+    function view_img(data) {
+        $('img').fancybox({
+            href: $('#'+data).attr('src')
+        });
+    }
+
+    //修改密码
+    function password() {
+        $('#PassWords').modal({show:true});
+    }
+
+
+</script>
+</body>
+</html>

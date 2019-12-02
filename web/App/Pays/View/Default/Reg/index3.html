@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <title>授权认证</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
+    <link rel="stylesheet" href="__PUBLIC__/f7/css/framework7.ios.css">
+    <link rel="stylesheet" href="__PUBLIC__/f7/css/framework7.ios.colors.css">
+    <link rel="stylesheet" href="__PUBLIC__/f7/css/framework7-icons.css">
+    <link rel="stylesheet" href="__PUBLIC__/f7/css/my-app.css">
+    <script type="text/javascript" src="__PUBLIC__/f7/js/framework7.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/fancybox/jquery.fancybox.css">
+    <script type="text/javascript" src="__PUBLIC__/fancybox/jquery.fancybox.js"></script>
+</head>
+<body>
+<div class="views">
+    <div class="view view-main">
+        <div class="pages">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="right xun-menu" style="margin-left: 10px;"><span><i class="f7-icons">data</i></span>
+                    </div>
+                    <div class="left"><a href="{:U('index2')}" class="link external">
+                        <i class="f7-icons">chevron_left</i><span>上一步</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page">
+                <div class="page-content" style="padding-top: 30px;">
+                    <form id="form-{$_SESSION['Reg']['codes']}-3" class="list-block store-data" method="post" action="">
+                        <div class="content-block-title">身份认证</div>
+                        <div class="list-block ">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">身份证照</div>
+                                            <div class="item-input open-popup" data-popup=".popup-card">
+                                                <input type="text" placeholder="请点击补全身份信息"
+                                                       style="width: 82%;float:left;" disabled/>
+                                                <div class="right" style="width: 10%;float:right;margin-top: 10px;">
+                                                    <i class="f7-icons">images</i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-block-title zz_title">营业执照</div>
+                        <div class="list-block zz_title1">
+                            <ul>
+                                <li>
+                                    <div class="ks-card-header-pic" style="font-size:14px;">
+                                        <div class="card-header color-white no-border">
+                                            <img style="height: 200px;width: 100%;overflow: hidden;"
+                                                 src="__PUBLIC__/Image/pays/yyzz.png" id="img_yyzz">
+                                            <input name="img-yyzz" type="hidden">
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="card-content-inner">
+                                                <p class="color-gray">营业执照需彩色清晰</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <a href="#" class="link" onclick="IMG_UPLOAD('yyzz');">上传营业执照</a>
+                                            <a href="#" class="link" onclick="GIVE_Image('yyzz',1)">预览</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-block-title sqh_1">授权函</div>
+                        <div class="list-block sqh_2">
+                            <ul>
+                                <li>
+                                    <div class="ks-card-header-pic" style="font-size:14px;">
+                                        <div class="card-header color-white no-border">
+                                            <img id="img_sqh" style="height: 300px;width: 100%;overflow: hidden;"
+                                                 src="__PUBLIC__/Image/pays/sqs.png">
+                                            <input name="img-sqh" type="hidden">
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="card-content-inner">
+                                                <p class="color-gray">授权函原照,需清晰!</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <a href="#" class="link" onclick="IMG_UPLOAD('sqh')">上传授权函</a>
+                                            <a href="#" class="link" onclick="GIVE_Image('sqh',1)">预览</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--身份资质-->
+                        <div class="list-block ">
+                            <ul>
+                                <li>
+                                    <div class="popup popup-card">
+                                        <div class="view navbar-fixed">
+                                            <div class="pages">
+                                                <div class="page">
+                                                    <div class="navbar">
+                                                        <div class="navbar-inner">
+                                                            <div class="center">资质认证</div>
+                                                            <div class="right"><a href="#"
+                                                                                  class="link close-popup">关闭</a></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="page-content">
+
+                                                        <div class="card ks-card-header-pic">
+                                                            <div class="card-header color-white no-border">
+                                                                <img style="height: 200px;width: 100%;overflow: hidden;"
+                                                                     src="__PUBLIC__/Image/pays/z.png" id="img_z">
+                                                                <input name="img-z" type="hidden">
+                                                            </div>
+                                                            <div class="card-content">
+                                                                <div class="card-content-inner">
+                                                                    <p class="color-gray">身份信息</p>
+                                                                    <div class="list-block">
+                                                                        <ul>
+                                                                            <!--<li>
+                                                                                <div class="item-content">
+                                                                                    <div class="item-inner">
+                                                                                        <div class="item-input">
+                                                                                            <input name="card_name"
+                                                                                                   placeholder="上传身份证后自动识别姓名"
+                                                                                                   type="text" readonly>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="item-content">
+                                                                                    <div class="item-inner">
+                                                                                        <div class="item-input">
+                                                                                            <input id="card_val"
+                                                                                                   name="card_val"
+                                                                                                   placeholder="上传身份证后自动识别身份证号"
+                                                                                                   type="text" readonly>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>-->
+                                                                            <li>
+                                                                                <div class="item-content">
+                                                                                    <div class="item-inner">
+                                                                                        <div class="item-input">
+                                                                                            <input name="card_name"
+                                                                                                   placeholder="请输入身份证上所有者的姓名"
+                                                                                                   type="text">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="item-content">
+                                                                                    <div class="item-inner">
+                                                                                        <div class="item-input">
+                                                                                            <input id="card_val"
+                                                                                                   name="card_val"
+                                                                                                   placeholder="请输入身份证上所有者的身份证号"
+                                                                                                   type="text">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-footer">
+                                                               <!-- <a href="#" class="link"
+                                                                   onclick="IMG_UPLOAD('z','card')">上传身份证正面</a>-->
+                                                                <a href="#" class="link"
+                                                                   onclick="IMG_UPLOAD('z')">上传身份证正面</a>
+                                                                <a href="#" class="link"
+                                                                   onclick="GIVE_Image('z')">预览</a>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card ks-card-header-pic">
+                                                            <div class="card-header color-white no-border">
+                                                                <img style="height: 200px;width: 100%;overflow: hidden;"
+                                                                     src="__PUBLIC__/Image/pays/p.png" id="img_p">
+                                                                <input name="img-p" type="hidden">
+                                                            </div>
+                                                            <div class="card-footer">
+                                                                <a href="#" class="link" onclick="IMG_UPLOAD('p')">上传身份证反面</a>
+                                                                <a href="#" class="link"
+                                                                   onclick="GIVE_Image('p')">预览</a>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="card ks-card-header-pic">
+                                                            <div class="card-header color-white no-border">
+                                                                <img style="height: 200px;width: 100%;overflow: hidden;"
+                                                                     src="__PUBLIC__/Image/pays/s.png" id="img_s">
+                                                                <input name="img-s" type="hidden">
+                                                            </div>
+                                                            <div class="card-content">
+                                                                <div class="card-content-inner">
+                                                                    <p class="color-gray">请手持身份证和银行卡 (正面需清晰)</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-footer">
+                                                                <a href="#" class="link" onclick="IMG_UPLOAD('s')">上传手持照片</a>
+                                                                <a href="#" class="link"
+                                                                   onclick="GIVE_Image('s')">预览</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="content-block">
+                                                            <p><a href="#"
+                                                                  class="item-link close-panel button  button-big close-popup">完成上传</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <p>
+                                <a onclick="check_data()" style="width: 100%;text-align: center;color: #007aff"
+                                   class="external button  button-big">提交资料 (3/3)
+                                </a>
+
+                            </p>
+                        </div>
+
+                    </form>
+
+                    <div class="content-block xun_footer">
+                        {$_domain['web_name']}&copy;版权所有
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<style>
+    .picker-item {
+        font-size: 20px !important;
+    }
+</style>
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+    wx.config({$options|json_encode});
+    var myApp = new Framework7({
+        modalTitle: '提示',
+        modalButtonOk: '确定',
+        modalButtonCancel: '取消',
+        modalPreloaderTitle: '加载中...请稍等...',
+        animateNavBackIcon: true,
+        materialRipple: true
+    });
+    var $$ = Dom7;
+    var mainView = myApp.addView('.view-main', {
+        dynamicNavbar: true
+    });
+
+    $$(document).on('ajaxStart', function (e) {
+        myApp.showIndicator();
+    });
+    $$(document).on('ajaxComplete', function (e) {
+        myApp.hideIndicator();
+    });
+
+    /*$$(document).on('touchmove', function (e) {
+     e.preventDefault();
+     },false);*/
+    $(function () {
+        $('a').click(function () {
+            setForm();
+        });
+        bus_status();
+        UpImage_Val();
+
+    });
+
+    //初始化判断有没有营业执照
+    function bus_status() {
+        var Data2 = myApp.formGetData("form-{$_SESSION['Reg']['codes']}-2");
+        if (Data2['bus_type'] == '有营业执照') {
+            $('.zz_title,.zz_title1').show();
+            if (Data2['bank_type'] == '个人账户') {
+                $('.sqh_1,.sqh_2').show();
+                $("#img_sqh").attr('src', '__PUBLIC__/Image/pays/sqh.png');
+            } else {
+                $('.sqh_1,.sqh_2').hide();
+            }
+
+        } else {
+            $('.sqh_1,.sqh_2').show();
+            $('.zz_title,.zz_title1').hide();
+            $("#img_sqh").attr('src', '__PUBLIC__/Image/pays/sqs.png');
+        }
+    }
+
+
+    /*初始化已上传图片*/
+    function UpImage_Val() {
+        var array = ['z', 'p', 's', 'sqh', 'yyzz'];
+        for (var k = 0, length = array.length; k < length; k++) {
+            src = $("[name='img-" + array[k] + "']").val();
+            if (src != null && src != "" && typeof(src) != 'undefined') {
+                $("#img_" + array[k]).attr('src', src);
+            }
+        }
+    }
+
+
+    $$('.xun-menu').on('click', function () {
+        var xun_my = [
+            {
+                text: '清除本页缓存',
+                onClick: function () {
+                    myApp.confirm('缓存清空后需要重新填写!您确定要清空本页缓存数据吗?', function () {
+                        myApp.formDeleteData("form-{$_SESSION['Reg']['codes']}-3");
+                        window.location.reload();
+                    });
+                }
+            },
+            {
+                text: '清除所有缓存',
+                onClick: function () {
+                    myApp.confirm('缓存清空后需要重新填写!您确定要清空所有页面缓存数据吗?', function () {
+                        myApp.formDeleteData("form-{$_SESSION['Reg']['codes']}-1");
+                        myApp.formDeleteData("form-{$_SESSION['Reg']['codes']}-2");
+                        myApp.formDeleteData("form-{$_SESSION['Reg']['codes']}-3");
+                        window.location.reload();
+                    });
+                }
+            }
+
+        ];
+        var xun_colse = [
+            {
+                text: '关闭',
+                color: 'red'
+            }
+        ];
+
+        var groups = [xun_my, xun_colse];
+        myApp.actions(groups);
+    });
+
+
+    function IMG_UPLOAD(ids, mod) {
+        wx.chooseImage({
+            count: 1,
+            sizeType: ['compressed'],
+            sourceType: ['album', 'camera'],
+            success: function (res) {
+                //SDK 上传图片
+                if (res.localIds.length == 0) {
+                    myApp.alert('请先使用 chooseImage 接口选择图片');
+                    return;
+                }
+                wx.uploadImage({
+                    localId: '' + res.localIds,
+                    isShowProgressTips: 1,
+                    success: function (res) {
+                        myApp.showIndicator();
+                        if (mod == 'card') {
+                            $.ajax({
+                                url: '{:U("upload_disc")}',
+                                data: {
+                                    media_id: res.serverId,
+                                    type: 'AliScan',
+                                    api: 'card'
+                                },
+                                type: "POST",
+                                dataType: "json",
+                                success: function (res) {
+                                    myApp.hideIndicator();
+                                    if (res.status == 1) {
+                                        var New_data = res.number;
+                                        $("#img_z").attr('src', res.img_url);
+                                        value = New_data.replace(/\s/g, ' ').replace(/(\d{4})(?=\d)/g, "$1 ");
+                                        $('[name="img-z"]').val(res.img_url);
+                                        $('[name="card_val"]').val(value).removeAttr("readonly");
+                                        $('[name="card_name"]').val(res.name).removeAttr("readonly");
+                                        myApp.alert('身份证信息识别成功!请仔细核对是否正确!如不正确 请手动修改信息!');
+                                    } else {
+                                        myApp.alert(res.info);
+                                    }
+                                },
+                                beforeSend: function (XMLHttpRequest) {
+                                    myApp.showIndicator();
+                                },
+                                error: function (res) {
+                                    myApp.alert(res.info);
+                                }
+                            })
+                        } else {
+                            $.ajax({
+                                url: '{:U("upload_disc")}',
+                                data: {
+                                    media_id: res.serverId,
+                                    type: 'Images'
+                                },
+                                type: "POST",
+                                dataType: "json",
+                                success: function (res) {
+                                    myApp.hideIndicator();
+                                    if (res.status == 1) {
+                                        $("#img_" + ids).attr('src', res.url);
+                                        $("[name='img-" + ids + "']").val(res.url);
+                                        myApp.alert('上传成功', '提示', function () {
+                                            setForm();
+                                        });
+                                    } else {
+                                        myApp.alert(res.info);
+                                    }
+                                },
+                                beforeSend: function (XMLHttpRequest) {
+                                    myApp.showIndicator();
+                                },
+                                error: function (res) {
+                                    myApp.alert(res.info);
+                                }
+                            })
+                        }
+
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        myApp.showIndicator();
+                    },
+                    fail: function (res) {
+                        myApp.alert(JSON.stringify(res));
+                    }
+                })
+
+            }
+        });
+    }
+
+    /*预览图片*/
+    function GIVE_Image(ids, type) {
+        var IMG_URL = $("#img_" + ids)[0].src;
+        if (type == 1) {
+            $.fancybox.open(IMG_URL);
+        } else {
+            var myPhotoBrowser = myApp.photoBrowser({
+                photos: [
+                    IMG_URL
+                ],
+                type: 'standalone',
+                backLinkText: '关闭预览',
+                toolbar: false,
+                expositionHideCaptions: true,
+                initialSlide: 0,
+                swipeToClose: false
+
+            });
+            myPhotoBrowser.open(); // 打开图片浏览器
+            $('.photo-browser > .view > .navbar > .navbar-inner >.center.sliding').html('可放大预览'); //销毁图标题
+        }
+    }
+
+    function setForm() {
+        var yyzz = $("[name='img-yyzz']").val();
+        var z = $("[name='img-z']").val();
+        var p = $("[name='img-p']").val();
+        var s = $("[name='img-s']").val();
+        var sqh = $("[name='img-sqh']").val();
+        var card_name = $("[name='card_name']").val();
+        var card_val = $("[name='card_val']").val();
+        var formData = {
+            'img-yyzz': yyzz,
+            'img-z': z,
+            'img-p': p,
+            'img-s': s,
+            'img-sqh': sqh,
+            'card_name': card_name,
+            'card_val': card_val
+        };
+        myApp.formStoreData("form-{$_SESSION['Reg']['codes']}-3", formData);
+    }
+
+    function check_data() {
+        var Data = myApp.formGetData("form-{$_SESSION['Reg']['codes']}-1");
+        var Data2 = myApp.formGetData("form-{$_SESSION['Reg']['codes']}-2");
+        var Data3 = myApp.formGetData("form-{$_SESSION['Reg']['codes']}-3");
+        var set = $.extend(Data, Data2, Data3);
+        if (!Data3['card_name']) {
+            myApp.alert('身份信息-请填写身份证所有者姓名');
+            return false;
+        }
+        if (!Data3['card_val']) {
+            myApp.alert('身份信息-请填写所有者身份证号');
+            return false;
+        }
+
+        if (!Data3['img-z']) {
+            myApp.alert('身份信息-请上传身份证正面');
+            return false;
+        }
+        if (!Data3['img-p']) {
+            myApp.alert('身份信息-请上传身份证反面');
+            return false;
+        }
+        if (!Data3['img-s']) {
+            myApp.alert('身份信息-请上传手持照片');
+            return false;
+        }
+        if (Data2['bus_type'] == '有营业执照') {
+            if (!Data3['img-yyzz']) {
+                myApp.alert('请上传营业执照');
+                return false;
+            }
+        } else {
+            if (!Data3['img-sqh']) {
+                myApp.alert('请上传授权函');
+                return false;
+            }
+        }
+
+        $.ajax({
+            url: '{:U("mch_data_all")}',
+            data: set,
+            type: "POST",
+            dataType: "json",
+            success: function (res) {
+                myApp.hideIndicator();
+                if (res.status == 1) {
+                    myApp.alert(res.info, '提示', function () {
+                        window.location.href = res.url;
+                    });
+                } else {
+                    myApp.alert(res.info);
+                }
+            },
+            beforeSend: function (XMLHttpRequest) {
+                myApp.showIndicator();
+            },
+            error: function (res) {
+                myApp.alert(res.info);
+            }
+        })
+
+    }
+
+</script>

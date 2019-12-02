@@ -1,0 +1,226 @@
+<include file="Public/header"/>
+<style>
+    .padding_data {
+        padding: 7px;
+        border-radius: 5px;
+    }
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel" style="margin: 9px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">通道列表 - <span style="color:red;font-size: 20px;">{$mch_name}</span></h3>
+            </div>
+        </div>
+        <volist name="data" key="k" id="v" mod="2">
+            <div class="col-lg-3 eq-box-lg">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{$v.alleys}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">基本信息</p>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">商户编号</label>
+                                    <div class="form-control" style="border:none;padding: 0;">
+                                        <notempty name="v.mch_id">
+                                            <span onclick="mch_data('{$v.alleys_type}',{$v.cid})"
+                                                  style="cursor: pointer" class="badge badge-info padding_data">{$v.mch_id}</span>
+                                            <else/>
+                                            <span onclick="sin('{$v.alleys}','{$v.alleys_type}',{$v.cid})"
+                                                  style="cursor: pointer"
+                                                  class="badge badge-mint padding_data add-tooltip"
+                                                  data-toggle="tooltip" data-container="body" data-placement="bottom"
+                                                  data-original-title="点击进件">此通道未进件</span>
+                                        </notempty>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6  text-right">
+                                <div class="form-group">
+                                    <label class="control-label">商户费率</label>
+                                    <div class="form-control" style="border:none;padding: 0;">
+                                        <notempty name="v.rate">
+                                            <span class="badge badge-info padding_data">{$v.rate} %.</span>
+                                            <else/>
+                                            <span class="badge badge-default padding_data"
+                                                  style="color: #666;">Null %.</span>
+                                        </notempty>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">商户状态</label>
+                                    <div class="form-control" style="border:none;padding: 0;">
+                                        <switch name="v.status">
+                                            <case value="1">
+                                                <span class="badge badge-success padding_data">审核通过</span>
+                                            </case>
+                                            <case value="2">
+                                                <span class="badge badge-default padding_data"
+                                                      style="color: #666;">拒绝驳回</span>
+                                            </case>
+                                            <case value="3">
+                                                <span class="badge badge-purple padding_data">审核中</span>
+                                            </case>
+                                            <default/>
+                                            <span class="badge badge-dark padding_data">未进件</span>
+                                        </switch>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <div class="form-group">
+                                    <label class="control-label">通道状态</label>
+                                    <div class="form-control" style="border:none;padding: 0;">
+                                        <switch name="v.load_status">
+                                            <case value="1">
+                                                <span class="badge badge-success padding_data">激活成功</span>
+                                            </case>
+                                            <case value="2">
+                                                <span class="badge badge-default padding_data"
+                                                      style="color: #666;">已冻结</span>
+                                            </case>
+                                            <default/>
+                                            <span class="badge badge-mint padding_data">未激活</span>
+                                        </switch>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">信息操作</p>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-control" style="border:none;padding: 0;cursor: pointer">
+                                        <span class="badge badge-primary padding_data"
+                                              onclick="m_data('{$v.alleys}','{$v.alleys_type}',{$v.cid})">商户信息</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <eq name="v['alter_status']" value="1">
+                                <notempty name="v.mch_id">
+                                    <eq name="v.load_status" value="1">
+                                    <div class="col-sm-6 text-right">
+                                        <div class="form-group">
+                                            <div class="form-control" style="border:none;padding: 0;cursor: pointer">
+                                                <span class="badge badge-danger padding_data"
+                                                      onclick="alter('{$v.alleys}','{$v.alleys_type}',{$v.cid})">变更信息</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </eq>
+                                </notempty>
+                            </eq>
+                        </div>
+
+                        <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">通道简介</p>
+                        <dl>
+                            <dd>
+                                <textarea style="resize:none" class="form-control" disabled><notempty name="v.make">{$v.make}<else/>无描述</notempty></textarea>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </volist>
+    </div>
+</div>
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="alleys-data" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 370px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title">
+                    通道参数配置
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('alley_mch_data')}" method="post">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">商户编号</label>
+                                    <input class="form-control" type="text" name="mch_id" placeholder="商户编号"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">商户密钥</label>
+                                    <input class="form-control" type="text" name="mch_key" placeholder="如有请填写">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="id" value="{$data.id}">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+
+<script>
+    function m_data(api, type, id) {
+        layer.open({
+            type: 2,
+            title: api + '通道(商户信息)',
+            area: ['80%', '85%'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('mdata')}/type/" + type + "/id/" + id
+        });
+    }
+
+    function alter(api, type, id) {
+        window.location.href="{:U('alter')}/type/" + type + "/id/" + id+"?Debug=1";
+    }
+    function sin(api, type, id) {
+        layer.open({
+            type: 2,
+            title: api + '通道进件',
+            area: ['80%', '85%'],
+            fixed: false, //不固定
+            maxmin: true,
+            content: "{:U('mdata')}/type/" + type + "/id/" + id + "/mch/sin"
+        });
+    }
+    function mch_data(type, cid) {
+        var actionurl = "{:U('mch_alleys_getapi')}";
+        var ajax_data = {'cid': cid, 'type': type};
+        $.post(actionurl, ajax_data, function (data) {
+            if (data.status == 1) {
+                $('[name="mch_id"]').val(data.info.mch_id);
+                $('[name="id"]').val(data.info.id);
+                $('[name="mch_key"]').val(data.info.mch_key);
+                $('#alleys-data').modal('show');
+            }
+            else {
+                $.niftyNoty({
+                    type: 'danger',
+                    message: '<strong>' + data.info + '</strong>',
+                    container: 'floating',
+                    timer: 5000
+                });
+            }
+        }, 'json');
+
+
+    }
+</script>
+<include file="Public/footer"/>

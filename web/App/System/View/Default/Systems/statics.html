@@ -1,0 +1,72 @@
+<include file="Public/header"/>
+<!--Bootstrap Table [ OPTIONAL ]-->
+<script src="__PUBLIC__/statics/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<!--Bootstrap Table [ OPTIONAL ]-->
+<link href="__PUBLIC__/statics/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+<!--Nifty Premium Icon [ DEMONSTRATION ]-->
+<link href="__PUBLIC__/statics/css/demo/nifty-demo-icons.min.css" rel="stylesheet">
+<!--Demo [ DEMONSTRATION ]-->
+<link href="__PUBLIC__/statics/css/demo/nifty-demo.min.css" rel="stylesheet">
+<!--Bootstrap Table Sample [ SAMPLE ]-->
+<script src="__PUBLIC__/statics/js/demo/tables-bs-table.js"></script>
+
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <span class="text-muted"><small>(每2分钟更新)最后更新时间:{$Time}</small></span>
+                </div>
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <!--===================================================-->
+            <div class="panel-body">
+                <table data-toggle="table"
+                       data-url="http://www.xunmafu.com/bs-table.json"
+                       data-search="true"
+                       data-show-refresh="false"
+                       data-show-toggle="false"
+                       data-show-columns="false"
+                       data-sort-name="id"
+                       data-page-list="[5, 10, 20,50,100]"
+                       data-page-size="15"
+                       data-pagination="true" data-show-pagination-switch="true">
+                    <thead>
+                    <tr>
+                        <th data-field="id" data-sortable="true" data-formatter="invoiceFormatter">所属品牌</th>
+                        <th data-field="name" data-sortable="true">总交易额</th>
+                        <th data-field="date" data-sortable="true" data-formatter="dateFormatter">今日交易额</th>
+                        <th data-field="amount" data-align="center" data-sortable="true" data-sorter="priceSorter">
+                            昨日交易额
+                        </th>
+                        <th data-field="track" data-align="center" data-sortable="true" data-formatter="trackFormatter">
+                            总商户数
+                        </th>
+                        <th data-field="status" data-align="center" data-sortable="true"
+                            data-formatter="statusFormatter">昨日新增
+                        </th>
+                        <th data-field="track" data-align="center" data-sortable="true" data-formatter="trackFormatter">
+                        今日新增
+                        </th>
+                        <th data-field="status" data-align="center" data-sortable="true"
+                            data-formatter="statusFormatter">昨日笔数
+                        </th>
+                        <th data-field="track" data-align="center" data-sortable="true" data-formatter="trackFormatter">
+                            今日笔数
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!--===================================================-->
+        </div>
+    </div>
+</div>
+<style>
+    .col-lg-2 {
+        width: 20% !important;
+    }
+
+</style>
+<link href="__PUBLIC__/iconfont/manage/iconfont.css" rel="stylesheet">
+<include file="Public/footer"/>

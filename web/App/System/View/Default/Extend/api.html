@@ -1,0 +1,168 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+                                <button id="add_api" class="btn btn-purple"><i class="demo-pli-plus"></i>添加/编辑通道</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                        </div>
+                    </div>
+                </div>
+
+
+                <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th>所属通道</th>
+                        <th>通道ID</th>
+                        <th>通道标识</th>
+                        <th>通道费率</th>
+                        <th>通道状态</th>
+                        <th>更新时间</th>
+                        <th  width="300">通道描述</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td>{$v['alleys']}</td>
+                            <td>{$v['alleys_id']}</td>
+                            <td>{$v['alleys_type']}</td>
+                            <td>{$v['rate']}</td>
+                            <td>
+                                <input id="status-switch-{$v['id']}" value="{$v['id']}"
+                                       class="status_switch toggle-switch switchery-default"
+                                <eq name="v.status" value="1">checked=""</eq>
+                                type="checkbox" name="status">
+                                <label id="status_switch" for="status-switch-{$v['id']}"></label>
+                            </td>
+                            <td>{$v['time'|date='Y-m-d H:i:s',###]}</td>
+                            <td width="300">{$v['make']}</td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="8">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 添加模态框开始 -->
+<div class="modal fade" id="add_api_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    通道信息
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form" action="{:U('add_alleys')}" method="post">
+                    <input type="hidden" name="cid" value="{$_GET['id']}">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">所属通道</label>
+                                    <select data-placeholder="请选择..." id="api-select" tabindex="10" class="form-control" name="api" >
+                                        <foreach name="api" item="v">
+                                            <option value="{$v['id']}" >{$v['name']}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">通道费率</label>
+                                    <input class="form-control" type="text" name="rate" placeholder="主域名 如 xunmafu.com" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">通道描述(如为空 默认为通道总描述)</label>
+                                    <textarea  class="form-control" name="make"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="panel-footer text-right">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('#api-select').chosen({width: '100%'});
+
+    $('#add_api').click(function () {
+        $('#add_api_modal').modal('show');
+    });
+
+
+    /*接口状态更新*/
+    $(".status_switch").change(function () {
+        var status = $("#" + this.id).is(':checked');
+        var ajax_data = {id: this.value, status: status, type: 'status'};
+        var actionurl = "{:U('api_alleys_status')}";
+        $.post(actionurl, ajax_data, function (data) {
+            if (data.status == 1) {
+                $.niftyNoty({
+                    type: 'success',
+                    message: '<strong>' + data.info + '</strong> 2秒后自动刷新当前页面!',
+                    container: 'floating',
+                    timer: 2000
+                });
+                setTimeout(function () {
+                    window.location.reload();
+                }, 2000);
+            }
+            else {
+
+                $.niftyNoty({
+                    type: 'danger',
+                    message: '<strong>' + data.info + '</strong>',
+                    container: 'floating',
+                    timer: 5000
+                });
+            }
+        }, 'json');
+
+    });
+
+
+
+
+
+</script>
+
+<include file="Public/footer"/>

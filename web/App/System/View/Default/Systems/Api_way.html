@@ -1,0 +1,269 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+                                <button id="add_brand" class="btn btn-purple"><i class="demo-pli-plus"></i>添加通道</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                        </div>
+                    </div>
+                </div>
+                <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th>所属公司</th>
+                        <th data-sort-initial="true" data-toggle="true">品牌名称</th>
+                        <th>品牌主域名</th>
+                        <th>品牌授权码</th>
+                        <th>品牌模板主题</th>
+                        <th>加入时间</th>
+                        <th>品牌状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td>{$v['web_doname']}</td>
+                            <td>{$v['web_name']}</td>
+                            <td>{$v['web_domain']}</td>
+                            <td>{$v['web_authcode']}</td>
+                            <td>{$v['theme']}</td>
+                            <td>{$v['web_ctime'|date='Y-m-d H:i:s',###]}</td>
+                            <td>
+                                <input id="status-switch-{$v['id']}" value="{$v['id']}" class="status_switch toggle-switch switchery-default"  <eq name="v.status" value="1">checked=""</eq> type="checkbox"  name="status">
+                                <label id="status_switch" for="status-switch-{$v['id']}"></label>
+                            </td>
+                            <td>
+                                <button class="btn btn-info btn-danger btn-xs">基础信息</button>
+                                <button class="btn btn-info btn-rounded btn-xs" web_id="{$v['id']}" web_doname="{$v['web_doname']}" theme="{$v['theme']}" web_name="{$v['web_name']}" web_domain="{$v['web_domain']}" onclick="edit_brand(this)">编辑</button>
+                                <button class="btn btn-info btn-success btn-xs" onclick="Users('{$v['web_authcode']}')">平台管理员</button>
+                                <button class="btn btn-info btn-pink btn-xs">通道权限</button>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="8">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 添加模态框开始 -->
+<div class="modal fade" id="add_brand_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    添加品牌
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form" action="{:U('System/Extend/add_brand')}" method="post">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">品牌名称</label>
+                                    <input class="form-control" type="text" name="web_name" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">品牌域名</label>
+                                    <input class="form-control" type="text" name="web_domain" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">品牌模板主题</label>
+                                    <input class="form-control" type="text" name="theme" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">品牌公司</label>
+                                    <input class="form-control" type="text" name="web_doname" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="panel-footer text-right">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 编辑模态框开始 -->
+<div class="modal fade" id="edit_brand_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    添加品牌
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="edit_form" action="{:U('System/Extend/edit_brand')}" method="post">
+                    <input type="hidden" name="id" value="">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">品牌名称</label>
+                                    <input class="form-control" type="text" name="web_name" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">品牌域名</label>
+                                    <input class="form-control" type="text" name="web_domain" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">品牌模板主题</label>
+                                    <input class="form-control" type="text" name="theme" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">品牌公司</label>
+                                    <input class="form-control" type="text" name="web_doname" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="panel-footer text-right">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 默认管理员 -->
+<div class="modal fade" id="brand_users_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title">
+                    默认管理员账户
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="users_form" action="{:U('System/Extend/brand_users')}" method="post">
+
+                    <div class="panel-body">
+                        <div class="alert alert-danger">
+                            <strong>提示</strong> <span id="users_msg"></span>
+                        </div>
+                        <input type="hidden" name="codes" value="">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">账户名称</label>
+                                    <input class="form-control" type="text" name="username" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">账户密码</label>
+                                    <input class="form-control" type="password" name="password" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">账户姓名</label>
+                                    <input class="form-control" type="text" name="name" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">账户状态</label>
+                                    <select  id="u_status" tabindex="2" class="form-control" name="status">
+                                        <option value="1" >开启</option>
+                                        <option value="0" >禁用</option>
+                                    </select>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">联系电话</label>
+                                    <input class="form-control" type="text" name="phone" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">联系邮箱</label>
+                                    <input class="form-control" type="email" name="email" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="panel-footer text-right">
+                        <button class="btn btn-info text-left edits" type="button"  onclick="edit_users()">编辑</button>
+                        <button class="btn btn-success " type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+
+</script>
+
+<include file="Public/footer"/>

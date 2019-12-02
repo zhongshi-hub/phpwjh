@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0">
+    <title>会员卡记录详情</title>
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link href="/Source/Css/new_pay/css/base_style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/quick_payment.css">
+    <style>
+        body {
+            height: 100%;
+            background: url('__PUBLIC__/amp/member/dot_bg.png');
+        }
+    </style>
+</head>
+<body class="paymentResultPage">
+<div class='pay_suc' style="background:none;padding-top: 1.3rem;">
+    <div class="content" style="border-radius: 10px;border: 1px solid #f7f7f7;">
+        <div class="content_head">
+            <p>变动金额</p>
+            <p><span class="amount">{$total}</span></p>
+        </div>
+        <php>$memberTotal=memberOrderTotal($user_id);</php>
+
+        <div class="pay_info">
+            <ul>
+                <li>交易类型</li>
+                <li><span style="background-color: #05daa9;color: #ffffff;padding: 5px 10px;font-size: 12px;border-radius: 5px;">
+                    <eq name="type" value="xf">
+                        常规消费
+                    <else/>
+                         {$type|memberCzOrderType}
+                    </eq>
+                </span>
+                </li>
+            </ul>
+            <ul>
+                <li>商户名称</li>
+                <li id="good_name"><php>$data=Get_Seller($mid); echo $data['mch_name'];</php></li>
+            </ul>
+            <ul>
+                <li>门店名称</li>
+                <li ><php>$data=Get_Store($store_id); echo $data['name'];</php></li>
+            </ul>
+            <ul>
+                <li>交易时间</li>
+                <li id="date">{$create_time|date='Y-m-d H:i:s',###}</li>
+            </ul>
+            <ul>
+                <li>交易单号</li>
+                <li id="order_id">{$out_trade_no}</li>
+            </ul>
+            <ul>
+                <li>订单描述</li>
+                <li>{$desc|default='会员直冲'}</li>
+            </ul>
+            <ul>
+                <li>订单状态</li>
+                <li>
+                    <eq name="status" value="1">
+                        <span style="background-color: #00aced;color: #ffffff;padding: 5px 10px;font-size: 12px;border-radius: 5px;">成功</span>
+                    <else/>
+                        <span style="background-color: red;color: #ffffff;padding: 5px 10px;font-size: 12px;border-radius: 5px;">失败</span>
+                    </eq>
+                </li>
+            </ul>
+        </div>
+        <div style="border-top: 1px solid #efefef;padding: 10px 20px;color:#0d88e6">会员卡余额：<span style="float: right" >￥{$memberTotal|default='0.00'}</span></div>
+    </div>
+    <div class="complete_btn" style="margin-top:1rem;background-color: #ffffff;color: #00aced;border: 1px solid #00aced;">返回我的会员卡</div>
+</div>
+</body>
+<script type="text/javascript" src="/Source/jquery.min.js"></script>
+<script type="text/javascript">
+     $('.complete_btn').click(function () {
+         window.location.href="{:U('pays/member/card')}";
+     })
+</script>
+</html>

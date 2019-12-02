@@ -1,0 +1,112 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">账户查询(余额 结算卡)</h3>
+                    </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6 mar-btm">
+                                        <label class="control-label">所属品牌</label>
+                                        <select class="form-control" name="domain_auth" id="domain_auths">
+                                            <option value="">--请选择--</option>
+                                            <volist name=":DomainAuthList()" id="v">
+                                                <option value="{$v.web_authcode}">{$v.web_name}</option>
+                                            </volist>
+                                        </select>
+                                </div>
+                                <div class="col-md-6 mar-btm">
+                                        <label class="control-label">所属商户</label>
+                                        <input id="dialog_mch_name" class="form-control mid_dialog" type="text" readonly>
+                                        <input id="dialog_mid" class="form-control" type="hidden" name="mid" value="">
+                                </div>
+                            </div>
+                            <label class="control-label">返回信息</label>
+                            <textarea id="mch_zh_info" placeholder="返回信息" rows="13" class="form-control" readonly></textarea>
+                        </div>
+                        <div class="panel-footer text-right">
+                            <button type="button" class="btn btn-default" id="mch_zh">提交查询</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<script src="__PUBLIC__/layer/layer.js"></script>
+<script>
+    $('.mid_dialog').click(function () {
+        var type= $('#domain_auths option:selected').val();
+        if(!type){
+            $.niftyNoty({
+                type: 'danger',
+                message : '<strong>请选择品牌后再使用商户筛选功能</strong>',
+                container : 'floating',
+                timer : 5000
+            });
+        }else {
+            layer.open({
+                type: 2,
+                title: '商户检索',
+                area: ['700px', '530px'],
+                fixed: false, //不固定
+                maxmin: false,
+                content: "{:U('Merchant/mch_dialog')}/domain_auth/" + type
+            });
+        }
+    });
+
+    $('#mch_zh').click(function () {
+        var cid=$('[name="mid"]').val();
+        if(cid) {
+            $.ajax({
+                url: "/Pays/Apis/gateway_type",
+                dataType: 'json',
+                data: {cid: cid, alleys: 'Sftpays', way_type: 'mch_balance',show:1},
+                type: 'post',
+                success: function (res) {
+                 $('#mch_zh_info').val(JSON.stringify(res.info));
+                },
+                error: function (res) {
+                    show('通信失败');
+                }
+            });
+        }else{
+            show('请选择商户');
+        }
+
+    });
+
+
+    function show(data,type) {
+        if(type==1){
+            $.niftyNoty({
+                type: 'success',
+                message : '<strong>'+data+'</strong>',
+                container : 'floating',
+                timer : 5000
+            });
+        }else{
+            $.niftyNoty({
+                type: 'danger',
+                message : '<strong>'+data+'</strong>',
+                container : 'floating',
+                timer : 5000
+            });
+        }
+    }
+
+
+
+</script>
+
+<include file="Public/footer"/>

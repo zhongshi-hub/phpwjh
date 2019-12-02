@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>商户认证</title>
+    <link rel="stylesheet" href="/Ext?g=pay_result">
+    <link rel="stylesheet" href="__PUBLIC__/ydui/css/ydui.css">
+</head>
+<body>
+<div class="weui-msg">
+    <div class="weui-msg__icon-area"><img src="__PUBLIC__/auth.png" style="height: 90px; display: inline;"></div>
+    <div class="weui-msg__text-area" style="padding-top: 30px">
+        <h2 class="weui-msg__title" style="font-size: 22px">认证费:￥{$auth.auth_fee}元</h2>
+        <p class="weui-msg__desc" style="text-indent:2em;text-align: left;margin-top: 30px">{$auth.auth_info|default='为了保证您个人信息的真实性及安全性,系统将对您的身份证、银行卡等信息进行审核认证,此类认证将产生认证费用,请知悉！'}</p>
+    </div>
+    <div class="weui-msg__opr-area" style="margin-top: 50px">
+        <p class="weui-btn-area">
+            <button  class="weui-btn weui-btn_primary">立即缴费认证</button>
+        </p>
+    </div>
+    <div class="weui-msg__extra-area">
+        <div class="weui-footer">
+            <p class="weui-footer__text">{$_domain['web_name']} &copy; 2017 版权所有</p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="__YUI__/js/ydui.js"></script>
+<script type="text/javascript" src="__YUI__/js/ydui.flexible.js"></script>
+<script>
+    $('.weui-btn').click(function () {
+        var user_info="{$user_info}";
+        var user_code="{$user_code}";
+        $('.weui-btn').attr('disabled',true);
+        $('.weui-btn').addClass("weui-btn_disabled");
+        $.ajax({
+            type: "POST",
+            url: "{:U('gateway')}",
+            data: {'user_info':user_info,'codes':user_code},
+            beforeSend:function(XMLHttpRequest){
+                YDUI.dialog.loading.open('支付数据提交中...');
+            },
+            success: function(data){
+                YDUI.dialog.loading.close();
+                if(data.status==1){
+                    WeixinJSBridge.invoke('getBrandWCPayRequest', {
+                        'appId': data.info.pay_info.appId,
+                        'timeStamp': data.info.pay_info.timeStamp,
+                        'nonceStr': data.info.pay_info.nonceStr,
+                        'package': data.info.pay_info.package,
+                        'signType':data.info.pay_info.signType,
+                        'paySign': data.info.pay_info.paySign
+                    }, function (res) {
+                        if (res.err_msg == 'get_brand_wcpay_request:ok') {
+                            location.href = "/Api/auth_bos_result/out_trade_no/"+data.info.out_trade_no;
+                        } else {
+                            if (res.err_msg == 'get_brand_wcpay_request:cancel') {
+                                show("您取消的支付,本订单未支付成功");
+                            } else {
+                                show('支付失败');
+                            }
+                        }
+                    });
+                }else{
+                    show(data.info);
+                }
+            }
+        });
+    });
+
+    function show(data) {
+        YDUI.dialog.toast(data, 'none', 2000);
+        $('.weui-btn').removeClass("weui-btn_disabled");
+        $('.weui-btn').attr('disabled',false);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="" ajax="n">
+                        <div class="panel-body">
+                            <div class="row ">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">开户银行</label>
+                                        <select class="form-control" data-placeholder="请选择..." id="mch_bank_list"
+                                                tabindex="2" style="width: 300px;" name="bank_list"
+                                                required="required">
+                                            <foreach name="bank_list" item="v">
+                                                <option value="{$v.bnknm}" <if condition="$p['bank_list'] eq $v['bnknm']">selected</if> >{$v.bnknm}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">开户省份</label>
+                                        <select class="form-control" data-placeholder="请选择..." tabindex="2"
+                                                id="mch_bank_provice" style="width: 300px;" name="bank_provice"
+                                                required="required">
+                                            <foreach name="pro" item="v">
+                                                <option value="{$v.provice}" <if condition="$p['bank_provice'] eq $v['provice']">selected</if>>{$v.provice}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">开户城市</label>
+                                        <select class="form-control" data-placeholder="请选择..."  id="selectBCity" data-live-search="true"
+                                                data-width="100%" name="bank_city">
+                                            <option value="{$data.mch_bank_citys}" <if condition="$p['bank_city'] eq $data['mch_bank_citys']">selected</if>>{$data.mch_bank_citys}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="text-right">
+                                    <button class="btn btn-success" type="submit">搜索</button>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+
+
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+                                <!-- <a href="{:U('abook')}" class="btn btn-purple"><i class="demo-pli-plus"></i>录入商户</a>-->
+                                <button id="bank" class="btn btn-purple"><i class="demo-pli-plus"></i>录入联行号</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">所属银行</th>
+                        <th class="text-center">所属省份</th>
+                        <th class="text-center">所属市级</th>
+                        <th class="text-center">分行全称</th>
+                        <th class="text-center">联行号</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center">{$v.bank}</td>
+                            <td class="text-center">{$v.pro}</td>
+                            <td class="text-center">{$v.city}</td>
+                            <td class="text-center">{$v.address}</td>
+                            <td class="text-center">{$v.banking}</td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="abook_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="S_title">
+                    联行号数据
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('lbank_save')}" method="post">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                        <label class="control-label">开户银行</label>
+                                        <select class="form-control" data-placeholder="请选择..." id="mch_bank_lists"
+                                                tabindex="2" style="width: 300px;" name="bank"
+                                                required="required">
+                                            <foreach name="bank_list" item="v">
+                                                <option value="{$v.bnknm}" >{$v.bnknm}</option>
+                                            </foreach>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">开户省份</label>
+                                    <select class="form-control" data-placeholder="请选择..." tabindex="2"
+                                            id="mch_bank_provices" style="width: 300px;" name="pro"
+                                            required="required">
+                                        <foreach name="pro" item="v">
+                                            <option value="{$v.provice}"
+                                            <if condition="$data.mch_bank_provice eq $v['provice']">selected</if>
+                                            >{$v.provice}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">开户城市</label>
+                                    <select class="form-control" data-placeholder="请选择..." id="selectBCitys" data-live-search="true"
+                                            data-width="100%" name="city" required="required">
+                                        <option value="{$data.mch_bank_citys}">{$data.mch_bank_citys}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">分行全称</label>
+                                    <input class="form-control" type="text" placeholder="填写全称 如中国建设银行郑州分行" name="address" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">分行联行号</label>
+                                    <input class="form-control" type="text" placeholder="联行号ID 如 155454872144" name="banking" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="panel-footer text-right">
+                        <button class="btn btn-success" type="submit">确定并录入</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+<script>
+    $(function () {
+        $('select').chosen({search_contains: true, no_results_text: '没有找到相关的数据'});
+        $('.chosen-container').css('width', '450px');
+        $('#mch_bank_lists_chosen').css('width', '500px');
+        $('#mch_bank_provices_chosen,#selectBCitys_chosen').css('width', '250px');
+
+        $('#bank').click(function () {
+            $('#abook_modal').modal('show');
+        });
+        $('#mch_bank_provice').change(BproChange); //银行省份
+        $('#mch_bank_provices').change(BproChanges); //银行省份
+
+        BproChange();
+    });
+
+
+
+
+    function BproChange() {
+        var provinceId = $('#mch_bank_provice option:selected').val();
+        setBCity(provinceId);
+    }
+
+    //设置银行所属城市
+    function setBCity(provinceId) {
+        var cityStr = "<option value=''>--请选择--</option>";
+        $.ajax({
+            url: "/Pays/Reg/A_area_city",
+            data: 'name=' + provinceId,
+            type: "POST",
+            dataType: "json",
+            async: false,
+            cache: false,
+            success: function (data) {
+                //alert(data.length);
+                for (var i = 0; i < data.length; i++) {
+                    cityStr += "<option value='" + data[i] + "'>" + data[i] + "</option>";
+                }
+                $("#selectBCity").find("option").remove();
+                $("#selectBCity").append(cityStr);
+                $('#selectBCity').chosen({search_contains: true, no_results_text: '没有找到相关的数据'});
+                $("#selectBCity").trigger("chosen:updated");
+                $("#selectBCity").trigger("liszt:updated");
+
+            }
+        });
+    }
+
+    function BproChanges() {
+        var provinceId = $('#mch_bank_provices option:selected').val();
+        setBCitys(provinceId);
+    }
+
+    //设置银行所属城市
+    function setBCitys(provinceId) {
+        var cityStr = "<option value=''>--请选择--</option>";
+        $.ajax({
+            url: "/Pays/Reg/A_area_city",
+            data: 'name=' + provinceId,
+            type: "POST",
+            dataType: "json",
+            async: false,
+            cache: false,
+            success: function (data) {
+                //alert(data.length);
+                for (var i = 0; i < data.length; i++) {
+                    cityStr += "<option value='" + data[i] + "'>" + data[i] + "</option>";
+                }
+                $("#selectBCitys").find("option").remove();
+                $("#selectBCitys").append(cityStr);
+                $('#selectBCitys').chosen({search_contains: true, no_results_text: '没有找到相关的数据'});
+                $("#selectBCitys").trigger("chosen:updated");
+                $("#selectBCitys").trigger("liszt:updated");
+            }
+        });
+    }
+
+</script>
+
+
+<include file="Public/footer"/>

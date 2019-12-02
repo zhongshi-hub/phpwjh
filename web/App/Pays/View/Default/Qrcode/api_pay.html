@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0">
+    <title>在线支付</title>
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link href="/Source/Css/new_pay/css/base_style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/quick_payment.css">
+    <link rel="stylesheet" type="text/css" href="/Source/ydui/css/new_ydui.css">
+<body class="paymentResultPage">
+<div class='pay_suc' style="background: url('data:image/png;base64,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') no-repeat center 0.93333rem;background-size: auto 1.5rem;">
+    <div class="content">
+        <div class="content_head">
+            <p>支付金额</p>
+            <p style="font-weight: bold">￥<span class="amount" >{$total/100}</span></p>
+        </div>
+        <div class="pay_info">
+            <ul>
+                <li>商品名称</li>
+                <li id="good_name">{$body}</li>
+            </ul>
+            <ul>
+                <li>交易时间</li>
+                <li id="date">{:date('Y-m-d H:i:s')}</li>
+            </ul>
+            <ul>
+                <li>交易单号</li>
+                <li id="order_id">{$oid}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="complete_btn">
+        <switch name="payType">
+            <case value="wx">微信支付</case>
+            <case value="qq">QQ支付</case>
+            <case value="ali">支付宝支付</case>
+            <default>请使用微信、支付宝、QQ扫码支付</default>
+        </switch>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/Source/jquery.min.js"></script>
+<script type="text/javascript" src="/Source/ydui/js/ydui.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    var type='{$payType}',callUrl='{$callUrl}',out_trade_no='{$oid}',method='{$method}',appid='{$appid}';
+    var dialog = YDUI.dialog,ajax_data={appid:appid,body:'{$body}',is_api:true,type:type,id: '{$sid}', sid: '{$mid}', openid: '{$openid}', total: '{$total}',out_trade_no:out_trade_no},pay_data='';
+    $(function(){
+        $(".complete_btn").on("click",toScanPay);
+        $('.pay_fail').hide();
+        $('.pay_suc').show();
+    });
+    $(document).ready(function(){
+        $('.complete_btn').trigger('click');
+    });
+
+    function toScanPay(){
+        {$payType}_get();
+    }
+
+    function ali_get() {
+        if(pay_data!==''){
+            ali_pay();
+        }else {
+            $.ajax({
+                type: "POST",
+                url: "/Pays/Apis/gateway",
+                data: ajax_data,
+                beforeSend: function (XMLHttpRequest) {
+                    dialog.loading.open('支付数据提交中...');
+                },
+                success: function (data) {
+                    YDUI.dialog.loading.close();
+                    if (data.status === 1) {
+                        if (data.info.type === 'js') {
+                            pay_data = {
+                                "tradeNO": data.info.pay_info.tradeNO
+                            };
+                            out_trade_no = data.info.out_trade_no;
+                            ali_pay();
+                        } else if (data.info.type === 'form') {
+                            Xun_submitForm(data.info.url, data.info.data);
+                        } else {
+                            show('无可用支付通道');
+                        }
+                    } else {
+                        show(data.info);
+                    }
+                }
+            });
+        }
+    }
+
+    function ali_pay() {
+        AlipayJSBridge.call('tradePay', pay_data, function (result) {
+            if (result.resultCode == 9000) { //支付成功
+                callUrls();
+            } else {
+                show('支付失败');
+            }
+        });
+    }
+
+    function wx_get() {
+        if(pay_data!==''){
+            wx_pay();
+        }else {
+            $.ajax({
+                type: "POST",
+                url: "/Pays/Apis/gateway",
+                data: ajax_data,
+                beforeSend: function (XMLHttpRequest) {
+                    dialog.loading.open('支付数据提交中...');
+                },
+                success: function (data) {
+                    YDUI.dialog.loading.close();
+                    if (data.status === 1) {
+                        if (data.info.type === 'js') {
+                            pay_data = {
+                                'appId': data.info.pay_info.appId,
+                                'timeStamp': data.info.pay_info.timeStamp,
+                                'nonceStr': data.info.pay_info.nonceStr,
+                                'package': data.info.pay_info.package,
+                                'signType': data.info.pay_info.signType,
+                                'paySign': data.info.pay_info.paySign
+                            };
+                            out_trade_no = data.info.out_trade_no;
+                            wx_pay();
+                        } else if (data.info.type === 'form') {
+                            Xun_submitForm(data.info.url, data.info.data);
+                        } else {
+                            show('无可用支付通道');
+                        }
+                    } else {
+                        show(data.info);
+                    }
+                }
+            });
+        }
+    }
+
+    function wx_pay() {
+        WeixinJSBridge.invoke('getBrandWCPayRequest',pay_data, function (res) {
+            if (res.err_msg === 'get_brand_wcpay_request:ok') {
+                callUrls();
+            } else {
+                if (res.err_msg === 'get_brand_wcpay_request:cancel') {
+                    show("您取消的支付");
+                } else {
+                    show('支付失败');
+                }
+            }
+        });
+    }
+
+    function callUrls() {
+        if(callUrl!==''&&out_trade_no!=='') {
+            $.ajax({
+                type: "POST",
+                url: "{:U('apiDataSign')}",
+                data: {oid: out_trade_no, appid: appid, method: method, call_url: callUrl},
+                success: function (data) {
+                    YDUI.dialog.loading.close();
+                    if (data.status === 1 && data.info !== '') {
+                        window.location.href = data.info;
+                    }
+                }
+            });
+        }
+    }
+
+    function Xun_submitForm(action, params) {
+        var data = JSON.parse(params);
+        var form = $("<form></form>");
+        form.attr('action', action);
+        form.attr('method', 'post');
+        for (var i = 0; i < data.length; i++) {
+            var input1 = $("<input type='hidden' name='" + data[i].name + "' />");
+            input1.attr('value', data[i].val);
+            form.append(input1);
+        }
+        form.appendTo("body");
+        form.css('display', 'none');
+        form.submit();
+    }
+    function show(data) {
+        dialog.toast(data, 'none', 2000);
+    }
+</script>
+</html>

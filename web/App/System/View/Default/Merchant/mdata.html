@@ -1,0 +1,403 @@
+<include file="Public/sheader"/>
+<style>
+    .form-control {
+        width: 300px !important;
+    }
+
+    .imgborder {
+        width: 300px;
+        border: solid 1px #E4E4E4;
+        height: 220px;
+        padding: 5px;
+    }
+
+    .imgborder img {
+        width: 100%;
+        display: block;
+        height: 100%;
+    }
+</style>
+<div id="content-container" style="padding-top: 0px!important;padding-bottom: 0px!important;">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-body">
+                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">基本信息</p>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">当前通道</label>
+                            <input class="form-control" type="text" value="{$alleys}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">所属代理</label>
+                            <input class="form-control" type="text" value="{$data.agent_id|agent_name}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">商户名称</label>
+                            <input class="form-control" type="text" value="{$data.mch_name}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">商户类型</label>
+                            <input class="form-control" type="text" value="{$data.mch_bus_type}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">行业类别</label>
+                            <input class="form-control" type="text" value="{$data.mch_industry|Industrid}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">省份</label>
+                            <input class="form-control" type="email" value="{$data.mch_provice}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">城市</label>
+                            <input class="form-control" type="text" value="{$data.mch_citys}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">区县</label>
+                            <input class="form-control" type="text" value="{$data.mch_district}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">地址</label>
+                            <input class="form-control" type="text" value="{$data.mch_address}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">电话</label>
+                            <input class="form-control" type="text" value="{$data.mch_tel}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">负责人</label>
+                            <input class="form-control" type="text" value="{$data.mch_card_name}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">负责人身份证</label>
+                            <input class="form-control" type="text" value="{$data.mch_card_id}" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">终端费率</label>
+                            <input class="form-control" type="text" value="{$rate}‰" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">结算信息</p>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">开户银行</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_list|reload_bank}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">银行卡号</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_cid}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">开户名称</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_name}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">帐户类型</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_type}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">开户省份</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_provice}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group" id="depositCity">
+                            <label class="control-label">开户城市</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_citys}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group" id="depositLBnk">
+                            <label class="control-label">开户支行</label>
+                            <input class="form-control" type="text" value="{$data.mch_linkbnk|reload_banks}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">联行号</label>
+                            <input class="form-control" type="text" value="{$data.mch_linkbnk}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">预留手机号码</label>
+                            <input class="form-control" type="text" value="{$data.mch_bank_tel}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">证件信息</p>
+                <div class="row">
+
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label"><span
+                                    style="color: red">身份证正面(Size:{$data.mch_img_z|img_size})</span></label>
+                            <div class="imgborder">
+                                <img class="image-responsive" id="S1" src="{$data.mch_img_z}" onclick="view_img('S1')">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label"><span
+                                    style="color: red">身份证反面(Size:{$data.mch_img_p|img_size})</span></label>
+                            <div class="imgborder">
+                                <img class="image-responsive" id="S2" src="{$data.mch_img_p}" onclick="view_img('S2')">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label"><span
+                                    style="color: red">手持照(Size:{$data.mch_img_s|img_size})</span></label>
+                            <div class="imgborder">
+                                <img class="image-responsive" id="S3" src="{$data.mch_img_s}" onclick="view_img('S3')">
+                            </div>
+                        </div>
+                    </div>
+                    <if condition="$data.mch_bus_type eq '有营业执照'">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">营业执照(Size:{$data.mch_img_yyzz|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S4" src="{$data.mch_img_yyzz}"
+                                         onclick="view_img('S4')">
+                                </div>
+                            </div>
+                        </div>
+                    </if>
+                    <notempty name="data.mch_img_sqh">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">授权函(Size:{$data.mch_img_sqh|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S5" src="{$data.mch_img_sqh}"
+                                         onclick="view_img('S5')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+                    <notempty name="data.mch_img_m1">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span
+                                        style="color: red">门头照片(Size:{$data.mch_img_m1|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S3" src="{$data.mch_img_m1}" onclick="view_img('S3')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+                    <notempty name="data.mch_img_m2">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span
+                                        style="color: red">门店内景(Size:{$data.mch_img_m2|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S3" src="{$data.mch_img_m2}" onclick="view_img('S3')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+                    <notempty name="data.mch_img_m3">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span
+                                        style="color: red">附加照片1(Size:{$data.mch_img_m3|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S3" src="{$data.mch_img_m3}" onclick="view_img('S3')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+                    <notempty name="data.mch_img_m4">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span
+                                        style="color: red">附加照片2(Size:{$data.mch_img_m4|img_size})</span></label>
+                                <div class="imgborder">
+                                    <img class="image-responsive" id="S3" src="{$data.mch_img_m4}" onclick="view_img('S3')">
+                                </div>
+                            </div>
+                        </div>
+                    </notempty>
+
+                </div>
+            </div>
+            <eq name="Think.get.mch" value="sin">
+                <div class="panel-footer text-justify">
+                    <a class="btn btn-warning"
+                       href="{:U('mdata_edit',array('type'=>$_GET['type'],'id'=>$_GET['id'],'mch'=>'sin'))}">编辑资料</a>
+                    <a class="btn btn-mint" onclick="mch_data()">手工配置(通道参数)</a>
+                    <a class="btn btn-danger" onclick="mch_sin({$data.cid},'{$data.alleys_type}')">确认信息无误并自动进件</a>
+                </div>
+            <else/>
+                <div class="panel-footer text-justify">
+                    <a class="btn btn-warning"
+                       href="{:U('mdata_edit',array('type'=>$_GET['type'],'id'=>$_GET['id'],'mch'=>'sin'))}">编辑资料</a>
+                    
+                </div>
+            </eq>
+        </div>
+    </div>
+</div>
+<!-- 模态框开始 -->
+<div class="modal fade" id="alleys-data" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 370px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title">
+                    通道参数配置
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('alley_mch_data')}" method="post">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">商户编号</label>
+                                    <input class="form-control" type="text" name="mch_id" placeholder="商户编号"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">商户密钥</label>
+                                    <input class="form-control" type="text" name="mch_key" placeholder="如有请填写" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="id" value="{$data.id}">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+
+<script>
+    function mch_data() {
+        $('#alleys-data').modal('show');
+    }
+    function mch_sin(id,type) {
+        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+        layer.alert('进件前请确认商户信息的真实性、准确性和商户费率信息,商户一旦进件成功,修改费率和信息会很麻烦哦,记住,进件前必须确认信息真实性!真实性!真实性!重要的事情说三遍!  ( ^_^ )', {
+            title:'进件提示',
+            skin: 'layui-layer-molv'
+            ,closeBtn: 1
+            ,anim: 6 //动画类型
+        },function(){
+            layer.msg('进件中...请等待结果...', {
+                icon: 16,
+                shade: 0.01,
+                time:300000
+            });
+            //index_msg = layer.msg();
+            var ajax_data ={'cid':id,'alleys':type,'default_alleys':'Wlbpays'};
+            var actionurl ='{:U("mch_in?Debug=1")}';
+            $.post(actionurl, ajax_data, function (data) {
+                if (data.status == 1) {
+                    parent.layer.close(index);
+                    parent.layer.msg(data.info, {shade: 0.3,time: 3000});
+                    parent.window.location.reload();
+
+                }
+                else {
+                    //layer.close(index_msg);
+                    layer.msg(data.info, {shade: 0.03});
+                }
+            }, 'json');
+
+        });
+    }
+    $(function () {
+        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+        $("form").submit(function (e) {
+            e.preventDefault(); //阻止自动提交表单
+            var ajax_data = $(this).serialize();
+            var actionurl = $(this).attr("action");
+            $.post(actionurl, ajax_data, function (data) {
+                if (data.status == 1) {
+                    /*如果存在模态框将关闭*/
+                    $('.modal').map(function () {
+                        $(this).modal('hide');
+                    });
+
+                    parent.layer.close(index);
+                    parent.layer.msg(data.info, {shade: 0.3});
+                    parent.window.location.reload();
+                }
+                else {
+                    $.niftyNoty({
+                        type: 'danger',
+                        message: '<strong>' + data.info + '</strong>',
+                        container: 'floating',
+                        timer: 5000
+                    });
+                }
+            }, 'json');
+        });
+    });
+    //img标签 图片预览
+    function view_img(data) {
+        $('img').fancybox({
+            href: $('#'+data).attr('src')
+        });
+    }
+</script>

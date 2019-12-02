@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <php>$memberTotal=memberOrderTotal($session_member['user']['id']);$temp=memberTemp($session_member['mid']);$activity=R('Common/MemberActivity/getListApi',[$session_member['mid'],$session_member['store_id']]);</php>
+    <!--Time:2019年08月27日20:56:40  DevAuth:郑州讯龙软件科技有限公司 会员卡项目-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>我的会员卡</title>
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/hui/css/hui.css" />
+    <style>
+        body{background-color: #f7f7f7}
+        .card_bg{height:200px;margin: 30px 30px;background: rgba(0, 0, 0, 0) url('/Source/amp/member/card_bg/{$temp['bg']|default='0'}.png') no-repeat scroll 0% 0% / 100% 100%;position: relative;}
+        .card_body{padding:20px 23px;}
+        .card_name{font-size: 20px;font-weight: 600;}
+        .card_slogan{margin: 6px 0 0;font-size: 15px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+        .card_ul{margin-top: 14px;font-size: 12px;line-height: 1.2;    width: 50%;}
+        .card_ul .item{margin-bottom: 5px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;font-size: 13px}
+        .card_info{position: absolute;right: 10px;bottom: 10px;}
+        .card_total{margin: 0 0 4px;padding-right: 12px;text-align: right;font-size: 28px;}
+        .card_no{margin: 0 5px;font-size: 12px;}
+        .card_user_name{font-size: 14px;text-align: right;padding-right: 12px;}
+        .card_ul .item:before {display: inline-block;content: '';width: 10px;height: 10px;margin-right: 5px;-webkit-border-radius: 40%;-moz-border-radius: 40%;border-radius: 40%;}
+        .card_0 .card_ul .item:before {background-color: #96d6ff;}
+        .card_1 .card_ul .item:before {background-color: #f8ffff;}
+        .card_2 .card_ul .item:before {background-color: #cfd0c2;}
+        .card_3 .card_ul .item:before {background-color: #f9bdb4;}
+        .card_4 .card_ul .item:before {background-color: #aaa;}
+        .card_5 .card_ul .item:before {background-color: #eafdc0;}
+        .card_0 *{color: #96d6ff;}
+        .card_1 *{color: #f8ffff}
+        .card_2 *{color: #cfd0c2}
+        .card_3 *{color: #f9bdb4}
+        .card_4 *{color: #aaa}
+        .card_5 *{color: #eafdc0}
+        .pay_total_txt{border-right: 1px solid #f7f7f7;font-size: 16px;width: 30%;border-right: 1px solid #cacaca;line-height: 50px;padding:0 10px}
+        .pay_cz_btn {width: 100%;height: 45px;text-align: center;color: #1296db;line-height: 45px;font-size: 18px;margin: 5px;background: #FFF;border: 1px solid #1296db;border-radius: 5px;}
+        .pay_cz_end{background: #1296db;color: #FFF;}
+        .pay_cz{margin: 15px 8px;}
+        .pay_total_div{font-size: 28px;text-align: right;width: 80%;line-height: 50px;margin-right: 50px}
+        .total{font-size:28px;}
+        .pay_btn_div{margin: 0 10px}
+        .hui-primary{background: #1296db!important;}
+        .hui-primary:active{background:#20a9f1 !important;}
+        .hui-list-text{line-height: unset;}
+        .hui-list li:active, .hui-list > a:active{background: transparent}
+        .hui-list li:nth-child(1){background: #FFFFFF}
+        .hui-list li:nth-child(1) .hui-list-text{margin-left: 0;padding-left: 12px;line-height:49px}
+        .hui-list-text-content{padding:5px 0;}
+        .hui-list-text-content p{font-size: 14px;color: #4c4c4c}
+        .list_total{width: 60%;text-align: right;margin-right: 15px;padding-top:10px;color: #4c4c4c}
+        .pay_btn{height: 46px;line-height: 46px}
+        .pay_cz_btn_song{line-height: unset}
+        .pay_cz_btn_song p{color: #1296db;}
+        .pay_cz_btn_song p:nth-child(1){font-size: 14px;padding-top: 3px}
+        .pay_cz_btn_song p:nth-child(2){font-size: 12px;}
+        .pay_cz_end p{background: #1296db;color: #FFF;}
+        #keyboard td:active{background: #d3d3d3}
+        #keyboard {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 100%;
+            height: 6.4rem;
+            background-color: #fff;
+            border-collapse: collapse;
+            display: none; }
+        #keyboard td {
+            width: 25%;
+            text-align: center;
+            height: 1.6rem;
+            line-height: 1.6rem;
+            font-size: 0.61333rem;
+            color: #585858; }
+        #keyboard td.num {
+            background-image: url(/Source/Css/new_pay/img/border_img.png), url(/Source/Css/new_pay/img/border_img2.png);
+            background-repeat: repeat-x, repeat-y;
+            background-position: 0 top, right top;
+            background-size: 100% 1px, 1px 1.6rem; }
+        #keyboard td.del {
+            background-image: url(/Source/Css/new_pay/img/border_img.png), url(/Source/Css/new_pay/img/delete.png);
+            background-repeat: repeat-x, no-repeat;
+            background-position: 0 top, center center;
+            background-size: 100% 1px, 0.66667rem 0.53333rem; }
+        #keyboard td.key {
+            background-image: url(/Source/Css/new_pay/img/border_img.png), url(/Source/Css/new_pay/img/border_img2.png), url(/Source/Css/new_pay/img/key.png);
+            background-repeat: repeat-x, repeat-y, no-repeat;
+            background-position: 0 top, right top, center center;
+            background-size: 100% 1px, 1px 100%, 0.66667rem 0.6rem; }
+        #keyboard td.complete {
+            background-image: url(/Source/Css/new_pay/img/border_img.png);
+            background-repeat: repeat-x;
+            background-position: 0 top;
+            background-size: 100% 1px;
+            background-color: #1296db;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.53333rem; }
+        #keyboard td.input {
+            color: white; }
+        #trink {
+            color: #4270d3;
+            font-size: 0.5rem;
+            position: absolute;
+            animation: trinking 1s infinite ease-in-out;
+            -webkit-animation: trinking 1s infinite ease-in-out;
+            -moz-animation: trinking 1s infinite ease-in-out;
+            -o-animation: trinking 1s infinite ease-in-out; }
+
+        @keyframes trinking {
+            0% {
+                opacity: 0; }
+            100% {
+                opacity: 100; } }
+        @-webkit-keyframes trinking {
+            0% {
+                opacity: 0; }
+            100% {
+                opacity: 100; } }
+        @-moz-keyframes trinking {
+            0% {
+                opacity: 0; }
+            100% {
+                opacity: 100; } }
+        @-o-keyframes trinking {
+            0% {
+                opacity: 0; }
+            100% {
+                opacity: 100; } }
+
+    </style>
+</head>
+<body>
+<div class="hui-wrap">
+    <div class="card_bg card_{$temp['bg']|default='0'}">
+        <div class="card_body">
+            <div class="card_name">{$temp['name']|default='高级会员卡'}</div>
+            <div class="card_slogan">{$temp['xc']|default='欢迎使用本店会员卡'}</div>
+            <ul class="card_ul card_{$temp['bg']|default='0'}">
+                <foreach name="activity" item="v">
+                    <li class="item">{$v.list_desc}</li>
+                </foreach>
+            </ul>
+            <div class="card_info">
+                <p class="card_user_name">{$session_member['user']['name']}</p>
+                <p class="card_total">￥{$memberTotal|default='0.00'}</p>
+                <p class="card_no">卡号：{$session_member['user']['num']}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hui-list" style="background: transparent;">
+    <div class="hui-flex">
+        <div class="pay_total_txt" style="">充值金额</div>
+        <div class="pay_total_div">￥<span class="total"><span id="trink">|</span></span></div>
+    </div>
+</div>
+<div class="hui-flex pay_cz">
+    <foreach name="total" item="v">
+        <empty name="v.money">
+            <div class="pay_cz_btn" data-total="{$v.total}">{$v.total}元</div>
+            <else/>
+            <div class="pay_cz_btn pay_cz_btn_song" data-total="{$v.total}">
+                <p>{$v.total}元</p>
+                <p>送{$v.money}元</p>
+            </div>
+        </empty>
+    </foreach>
+</div>
+<div class="pay_btn_div">
+<button type="button" class="hui-button hui-button-large hui-primary pay_btn">立即充值</button>
+</div>
+
+<div class="hui-list" style="margin-top:22px;background: transparent;">
+    <ul>
+        <li>
+            <div class="hui-list-text">最近余额记录 <a href="{:U('card')}" style="padding-right: 20px">查看更多</a></div>
+        </li>
+        <foreach name="order" item="v">
+            <li>
+                <div class="hui-list-text">
+                    <div class="hui-list-text-content hui-flex">
+                        <div style="width: 40%">
+                            <p>
+                                <switch name="v.type">
+                                    <case value="jh">会员卡激活</case>
+                                    <case value="xf">会员卡消费</case>
+                                    <case value="cz">会员卡充值</case>
+                                    <case value="tj">会员卡推荐</case>
+                                    <default />会员卡
+                                </switch>
+                            </p>
+                            <p>{$v.create_time|date='Y-m-d H:i:s',###} </p>
+                        </div>
+                        <div class="list_total">
+                           <neq name="v.type" value="xf">+</neq>{$v.total}
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </foreach>
+    </ul>
+</div>
+
+<table id="keyboard">
+    <tr>
+        <td class="num">1</td>
+        <td class="num">2</td>
+        <td class="num">3</td>
+        <td rowspan="2" class="del"></td>
+    </tr>
+    <tr>
+        <td class="num">4</td>
+        <td class="num">5</td>
+        <td class="num">6</td>
+    </tr>
+    <tr>
+        <td class="num">7</td>
+        <td class="num">8</td>
+        <td class="num">9</td>
+        <td rowspan="2" class="complete input">完成</td>
+    </tr>
+    <tr>
+        <td class="num dot">.</td>
+        <td class="num">0</td>
+        <td class="key"></td>
+    </tr>
+</table>
+
+<script type="text/javascript" src="__PUBLIC__/hui/js/hui.js"></script>
+<script type="text/javascript" src="__PUBLIC__/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Css/new_pay/js/fiex.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    $(function() {
+        var total = $('.total'),payConfig='',out_trade_no='',payTotal='';
+        var payData=['{$openid_type}','{$openid}',"{$mid}","{$store_id}","{$pay_store_id}"];
+        hui('.pay_cz_btn').click(function (e) {
+            var total=$(this).data('total');
+            hui('.pay_cz_btn').removeClass("pay_cz_end");
+            hui(this).addClass('pay_cz_end');
+            hui('.total').html(total);
+        });
+
+        $('.pay_btn').click(function (e) {
+            var temp=$('.total').text();
+            if (temp.indexOf("|") != -1) {
+                temp = temp.substring(0, temp.length - 1)
+            }
+            if(temp!=''&&temp.indexOf("0.00") == -1) {
+                paySend(temp);
+            }else{
+                hui.toast('请输入正确的充值金额');
+            }
+
+        });
+
+        function paySend(total) {
+            if(payConfig!==''&&payTotal==total){
+                payEnd(payData[0]);
+            }else {
+                $.ajax({
+                    type: "POST",
+                    url: "{:U('paySend')}",
+                    data: {
+                        'type': payData[0],
+                        'openid': payData[1],
+                        'mid': payData[2],
+                        'store_id': payData[3],
+                        'pay_store_id': payData[4],
+                        'total': total
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        hui.loading('数据通信中');
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        hui.closeLoading();
+                        if (data.status == 1) {
+                            if (data.info.type == 'ali') {
+                                payConfig = {
+                                    "tradeNO": data.info.pay_info.tradeNO
+                                };
+                            } else {
+                                payConfig = {
+                                    'appId': data.info.pay_info.appId,
+                                    'timeStamp': data.info.pay_info.timeStamp,
+                                    'nonceStr': data.info.pay_info.nonceStr,
+                                    'package': data.info.pay_info.package,
+                                    'signType': data.info.pay_info.signType,
+                                    'paySign': data.info.pay_info.paySign
+                                };
+                            }
+                            payTotal=data.info.total;
+                            out_trade_no = data.info.out_trade_no;
+                            payEnd(payData[0]);
+                        } else {
+                            hui.toast(data.info);
+                        }
+                    }
+                });
+            }
+        }
+
+        function payEnd(type) {
+            if(type=='ali'){
+                AlipayJSBridge.call('tradePay', payConfig, function (result) {
+                    if (result.resultCode == 9000) { //支付成功
+                        callUrls();
+                    } else {
+                        hui.toast('支付失败');
+                    }
+                });
+            }else{
+                WeixinJSBridge.invoke('getBrandWCPayRequest',payConfig, function (res) {
+                    if (res.err_msg === 'get_brand_wcpay_request:ok') {
+                        callUrls();
+                    } else {
+                        if (res.err_msg === 'get_brand_wcpay_request:cancel') {
+                            hui.toast("您取消的支付");
+                        } else {
+                            hui.toast('支付失败');
+                        }
+                    }
+                });
+            }
+        }
+
+        function callUrls() {
+            window.location.href="{:U('payResult')}/oid/"+out_trade_no;
+        }
+
+
+        callKeyboard();
+        total.on("click", callKeyboard);
+        $("#keyboard td").on("touchstart", keyboardInput);
+        function callKeyboard() {
+            console.log($("#trink").length);
+            if ($("#trink").length == 1 ||$("#trink").length == 0) {
+                var temp = total.html();
+                var hstr = '<span id="trink">|</span>';
+                if (temp==hstr) {
+                    $(this).html(hstr).addClass("rmb_icon")
+                } else {
+                    $(this).html(temp + hstr);
+                }
+                $("#keyboard").slideDown("fast");
+            }
+        }
+        function keyboardInput(e) {
+            e.preventDefault();
+            var temp2 = total.text();
+            if (temp2.indexOf('|') != -1) {
+                temp2 = temp2.substring(0, temp2.length - 1);
+            }
+            var hstr = '<span id="trink">|</span>';
+            var addnum = $(this).html();
+            if ($(this).hasClass("del")) {
+                //按退格删除键
+                if (temp2 != "") {
+                    var new_num = temp2.slice(0, temp2.length - 1);
+                    total.html(new_num + hstr);
+                }
+            } else if ($(this).hasClass("complete") || $(this).hasClass("key")) {
+                //按下完成或者键盘图标键
+                $("#keyboard").slideUp();
+                $('#trink').remove();
+                if (temp2 == "" || temp2 == 0) {
+                    total.removeClass("rmb_icon").html("<span id=\"trink\">|</span>");
+                }
+            } else if ($(this).hasClass("dot")) {
+                //按下小数点
+                if (temp2 == "") {
+                    total.html("0" + addnum + hstr);
+                } else if (temp2.indexOf(".") != "-1") {
+                    //已有小数点
+                } else {
+                    total.html(temp2 + addnum + hstr);
+                }
+            } else {
+                //数字键
+                if (temp2 > 100000) {
+                    alert("支付超限");
+                    return;
+                }
+                if (temp2.indexOf(".") != "-1") {
+                    //如果有2位小数
+                    var s = temp2.split(".");
+                    if (s[1].length >= 2) {
+                        console.log(s[1]);
+                        return;
+                    }
+                }
+                if (temp2[0] == 0 && temp2[1] != ".") {
+                    addnum = '';
+                }
+                if ((temp2 + addnum) > 100000) {
+                    return;
+                }
+                total.html(temp2 + addnum + hstr);
+            }
+            checkTotal();
+        }
+
+        function checkTotal() {
+            var temp=$('.total').text();
+            if (temp.indexOf("|") != -1) {
+                temp = temp.substring(0, temp.length - 1)
+            }
+            hui('.pay_cz_btn').removeClass("pay_cz_end");
+            if(temp!=''&&temp.indexOf("0.00") == -1) {
+                $(".pay_cz_btn[data-total=" + temp + "]").addClass('pay_cz_end');
+            }
+        }
+    });
+</script>
+</body>
+</html>
