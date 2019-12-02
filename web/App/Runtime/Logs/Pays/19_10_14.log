@@ -1,0 +1,1343 @@
+[ 2019-10-14T01:18:45+08:00 ] 176.58.98.226 /api/v1/pod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000502s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000461s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000513s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+ERR: 非法操作:v1
+NOTIC: [8] Undefined index: Debug /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Tpl/think_exception.tpl 第 8 行.
+
+[ 2019-10-14T09:38:13+08:00 ] 111.0.74.16 /Pays/MchReg/MchPer
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000430s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000415s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000460s ]
+NOTIC: [8] Undefined index: Reg /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/MchRegController.class.php 第 12 行.
+NOTIC: [8] Undefined variable: timestamp /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/MchRegController.class.php 第 1022 行.
+NOTIC: [8] Undefined variable: noncestr /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/MchRegController.class.php 第 1022 行.
+NOTIC: [8] Undefined variable: appid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/MchRegController.class.php 第 1022 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000161s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000215s ]
+NOTIC: [8] Undefined index: Reg /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Pays/be1c69aec69885445012140b3bf1c44b.php 第 34 行.
+NOTIC: [8] Undefined index: Reg /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Pays/be1c69aec69885445012140b3bf1c44b.php 第 36 行.
+NOTIC: [8] Undefined index: Reg /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Pays/be1c69aec69885445012140b3bf1c44b.php 第 37 行.
+NOTIC: [8] Undefined index: Reg /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Pays/be1c69aec69885445012140b3bf1c44b.php 第 38 行.
+NOTIC: [8] Undefined index: Reg /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Pays/be1c69aec69885445012140b3bf1c44b.php 第 39 行.
+NOTIC: [8] Undefined index: Reg /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Pays/be1c69aec69885445012140b3bf1c44b.php 第 474 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015372s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015424s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000132s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000511s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000684s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000373s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000407s ]
+
+[ 2019-10-14T09:39:21+08:00 ] 111.0.74.16 /Pays/MchReg/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000366s ]
+NOTIC: [8] Undefined index: Reg /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/MchRegController.class.php 第 12 行.
+NOTIC: [8] Undefined variable: timestamp /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/MchRegController.class.php 第 1022 行.
+NOTIC: [8] Undefined variable: noncestr /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/MchRegController.class.php 第 1022 行.
+NOTIC: [8] Undefined variable: appid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/MchRegController.class.php 第 1022 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000120s ]
+NOTIC: [8] Undefined index: Reg /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Pays/6469566351bfff45a88d8950c1d68dd5.php 第 32 行.
+NOTIC: [8] Undefined index: Reg /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Pays/6469566351bfff45a88d8950c1d68dd5.php 第 35 行.
+NOTIC: [8] Undefined index: Reg /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Pays/6469566351bfff45a88d8950c1d68dd5.php 第 43 行.
+NOTIC: [8] Undefined index: Reg /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Pays/6469566351bfff45a88d8950c1d68dd5.php 第 43 行.
+NOTIC: [8] Undefined index: Reg /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Pays/6469566351bfff45a88d8950c1d68dd5.php 第 43 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006388s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006430s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000103s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000259s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000406s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000357s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000404s ]
+
+[ 2019-10-14T10:49:54+08:00 ] 123.151.77.72 /EQ/P27383839
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000388s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000433s ]
+
+[ 2019-10-14T10:49:54+08:00 ] 123.151.77.72 /EQM/P27383839
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000616s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000633s ]
+
+[ 2019-10-14T10:49:54+08:00 ] 123.151.77.72 /Pay/UxDuIn3mMazfguz_OcDcMl5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000292s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000448s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000500s ]
+
+[ 2019-10-14T10:49:55+08:00 ] 123.151.77.72 /Pay/UxDuIn3mMazfguz_OcDcMl5?code=061NaeRY01NalU1jVEQY0Vp9RY0NaeRd&state=Pays
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000349s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000074s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000165s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009124s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009209s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000159s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000261s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000475s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000414s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000450s ]
+
+[ 2019-10-14T10:50:01+08:00 ] 123.151.77.72 /Pays/Apis/gateway
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000277s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000334s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+NOTIC: [8] Undefined index: is_api /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/ApisController.class.php 第 13 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+
+[ 2019-10-14T10:50:14+08:00 ] 123.151.77.72 /Pays/Apis/gateway
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+NOTIC: [8] Undefined index: is_api /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/ApisController.class.php 第 13 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+
+[ 2019-10-14T10:50:30+08:00 ] 123.151.77.72 /Pays/Apis/gateway
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000283s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+NOTIC: [8] Undefined index: is_api /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/ApisController.class.php 第 13 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+
+[ 2019-10-14T12:12:28+08:00 ] 61.151.178.172 /EQ/P75032112
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000289s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000330s ]
+
+[ 2019-10-14T12:12:28+08:00 ] 61.151.178.172 /EQM/P75032112
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000409s ]
+
+[ 2019-10-14T12:12:28+08:00 ] 61.151.178.172 /Pay/UxDucn1mMaDfMuy_McTcEly
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000340s ]
+
+[ 2019-10-14T12:12:30+08:00 ] 61.151.178.172 /Pay/UxDucn1mMaDfMuy_McTcEly?code=0111H9hC06A1Tg2kPGgC0UxvhC01H9hs&state=Pays
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000331s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000306s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000342s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000080s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000173s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009674s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009763s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000192s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000346s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000609s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000512s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000583s ]
+
+[ 2019-10-14T12:12:35+08:00 ] 61.151.178.172 /Pays/Apis/gateway
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000348s ]
+NOTIC: [8] Undefined index: is_api /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/ApisController.class.php 第 13 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+
+[ 2019-10-14T12:12:53+08:00 ] 140.207.54.73 /Pays/PWxPay/notifyUrl
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T12:13:14+08:00 ] 61.151.178.172 /Api/result/out_trade_no/191014336974395512193
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000243s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000052s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000087s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007083s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007122s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000124s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000229s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000392s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000328s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000353s ]
+
+[ 2019-10-14T12:44:47+08:00 ] 171.115.22.91 /api/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000313s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000374s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000422s ]
+
+[ 2019-10-14T12:44:49+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000332s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000409s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000459s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T12:44:49+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000343s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000503s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T12:45:04+08:00 ] 110.75.248.38 /Pays/FaceAuto/aliNotify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000310s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000341s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000380s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+
+[ 2019-10-14T12:45:04+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 585 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 604 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"2599925559","method":"auto_pay","sign":"AE224F3321EE14B5BED7ED212259C7 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T13:09:13+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000407s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000452s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000504s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 585 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 604 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"2599925559","method":"auto_pay","sign":"77A97C3D62E0DE214C0BF65F889B73 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T13:09:13+08:00 ] 110.75.242.201 /Pays/FaceAuto/aliNotify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000450s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000487s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000545s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+
+[ 2019-10-14T13:21:29+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000380s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000407s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000458s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 585 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 604 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"2599925559","method":"auto_pay","sign":"452C9C0EE6E50922E177696C87EA62 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T13:21:29+08:00 ] 110.75.248.181 /Pays/FaceAuto/aliNotify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000064s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000450s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000322s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000360s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+
+[ 2019-10-14T15:35:02+08:00 ] 119.123.73.186 /api/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000308s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+
+[ 2019-10-14T15:35:04+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:35:04+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:35:04+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000219s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:35:04+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:35:04+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000332s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000377s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:35:04+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000321s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:35:04+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000442s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000493s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:35:41+08:00 ] 119.123.73.186 /api/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000365s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000330s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000373s ]
+
+[ 2019-10-14T15:35:42+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:35:44+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000478s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000645s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:35:45+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000322s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:37:01+08:00 ] 119.123.73.186 /api/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000300s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000325s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000362s ]
+
+[ 2019-10-14T15:37:03+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000351s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000440s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000501s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:37:04+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:37:05+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000361s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000468s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000516s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:37:05+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000447s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000484s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000530s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:40:10+08:00 ] 119.123.73.186 /api/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000320s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000391s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000460s ]
+
+[ 2019-10-14T15:40:12+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000368s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000462s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000517s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:40:12+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000312s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:40:13+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000314s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:40:13+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000348s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:40:13+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000260s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000403s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000449s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:40:13+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000348s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:40:13+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000311s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:40:14+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000361s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T15:40:14+08:00 ] 119.123.73.186 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000241s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000317s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T16:03:06+08:00 ] 120.216.227.2 /api/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000373s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000344s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000388s ]
+
+[ 2019-10-14T16:03:08+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000333s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000420s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000471s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:03:09+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000330s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T16:11:10+08:00 ] 110.75.242.89 /Pays/FaceAuto/aliNotify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000328s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+
+[ 2019-10-14T16:11:10+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000358s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000405s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 585 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 604 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"3779958356","method":"auto_pay","sign":"9E8B3F29466856019F95E471DFCB3C /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T16:13:47+08:00 ] 120.216.227.2 /api/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000330s ]
+
+[ 2019-10-14T16:13:50+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000313s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000403s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000445s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:13:50+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T16:15:50+08:00 ] 123.151.77.72 /EQ/P27383839
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000301s ]
+
+[ 2019-10-14T16:15:50+08:00 ] 123.151.77.72 /EQM/P27383839
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000289s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+
+[ 2019-10-14T16:15:50+08:00 ] 123.151.77.72 /Pay/UxDuIn3mMazfguz_OcDcMl5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000254s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+
+[ 2019-10-14T16:15:52+08:00 ] 123.151.77.72 /Pay/UxDuIn3mMazfguz_OcDcMl5?code=061kKjEp1x3EPi08MkEp1ZGvEp1kKjEd&state=Pays
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000241s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000088s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000178s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008186s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008257s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000131s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000287s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000362s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000412s ]
+
+[ 2019-10-14T16:15:56+08:00 ] 123.151.77.72 /Pays/Apis/gateway
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000375s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000449s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000500s ]
+NOTIC: [8] Undefined index: is_api /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/ApisController.class.php 第 13 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+
+[ 2019-10-14T16:19:14+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000313s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+NOTIC: [8] Undefined index: store_id /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 27 行.
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: total /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 201 行.
+NOTIC: [8] Undefined index: refund_desc /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 204 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+
+[ 2019-10-14T16:23:19+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000370s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000438s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000492s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 61 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 510 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 521 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"3779958356","method":"auto_pay","sign":"B22322AB2C1A485E9849A81F417F25 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T16:23:47+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000354s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000400s ]
+NOTIC: [8] Undefined index: store_id /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 27 行.
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T16:23:48+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+NOTIC: [8] Undefined index: store_id /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 27 行.
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T16:23:50+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000221s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:24:59+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000410s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000495s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000552s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:00+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000329s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000358s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:01+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000336s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000453s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:02+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000753s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001331s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:03+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000393s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000320s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000362s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:03+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000331s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000445s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000498s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:04+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000336s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:04+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000361s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000456s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000509s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:14+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000283s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000312s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:14+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000325s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:15+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000340s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:15+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000381s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000457s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000510s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:18+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000255s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000338s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:19+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000344s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:19+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000329s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:19+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000255s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000322s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000359s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:20+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000346s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:25:20+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000251s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000359s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:26:03+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000334s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 585 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 604 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"3779958356","method":"auto_pay","sign":"B7841B09EEE1CB40E3DE2F3A99FF0E /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T16:26:03+08:00 ] 110.75.242.13 /Pays/FaceAuto/aliNotify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000620s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000437s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000495s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+
+[ 2019-10-14T16:26:45+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000258s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000321s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 61 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 510 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 521 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"3779958356","method":"auto_pay","sign":"8EF35598DF3D57CA141EA8ABD2D84A /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T16:28:04+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000328s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000360s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T16:28:42+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000297s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000357s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 585 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 604 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"3779958356","method":"auto_pay","sign":"CBF00DD58037CA32E12E94959B626A /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T16:28:42+08:00 ] 110.75.242.230 /Pays/FaceAuto/aliNotify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000264s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000346s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+
+[ 2019-10-14T16:29:23+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000306s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000359s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 61 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 510 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 521 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"3779958356","method":"auto_pay","sign":"E543BE0C1456DCB7C298ECB40D28F4 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T16:34:51+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T17:13:02+08:00 ] 120.216.227.2 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T17:13:03+08:00 ] 116.128.128.41 /Pay/UxDuYn3mMajfcu4_NcjcUl2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000261s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000344s ]
+
+[ 2019-10-14T18:10:31+08:00 ] 171.115.22.91 /api/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000253s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000334s ]
+
+[ 2019-10-14T18:10:34+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 150 行.
+NOTIC: [8] Undefined index: service /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceMchController.class.php 第 151 行.
+
+[ 2019-10-14T18:10:34+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000392s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000445s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T18:10:45+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000297s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000407s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 585 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 604 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"2599925559","method":"auto_pay","sign":"F6828B1905B22582FC988E790C3EB6 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T18:10:45+08:00 ] 110.75.248.215 /Pays/FaceAuto/aliNotify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000352s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+
+[ 2019-10-14T19:24:40+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000314s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000350s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 585 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 604 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"2599925559","method":"auto_pay","sign":"3947AFB5CD0D8E62AF150E7F00F0F3 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T19:24:40+08:00 ] 110.75.242.16 /Pays/FaceAuto/aliNotify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000289s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000338s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000380s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+
+[ 2019-10-14T19:32:35+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 585 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 604 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"2599925559","method":"auto_pay","sign":"73C51DA8F4D286940523DC203D268D /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T19:32:36+08:00 ] 203.209.235.195 /Pays/FaceAuto/aliNotify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000322s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+
+[ 2019-10-14T20:15:56+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 585 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 604 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"2599925559","method":"auto_pay","sign":"BDA4BF4ADD62FC46B099332E3D8A3B /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T20:15:56+08:00 ] 110.75.242.144 /Pays/FaceAuto/aliNotify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000264s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000329s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+
+[ 2019-10-14T20:32:37+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 585 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 604 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"2599925559","method":"auto_pay","sign":"04ADCF4FED7504733A587AFB66AD6E /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T20:32:38+08:00 ] 203.209.244.207 /Pays/FaceAuto/aliNotify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000284s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+
+[ 2019-10-14T20:40:49+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000264s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 585 行.
+NOTIC: [8] Undefined index: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceAutoController.class.php 第 604 行.
+NOTIC: [8] Undefined index: HTTP_X_REAL_IP /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3906 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '<' not found /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): {"appid":"2599925559","method":"auto_pay","sign":"824DA28FB0BA3FF4345E8F1A076D55 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [2] simplexml_load_string(): ^ /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 1074 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+NOTIC: [8] Undefined index:  /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 1265 行.
+NOTIC: [8] Undefined variable: remark /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/SendTemplateController.class.php 第 619 行.
+
+[ 2019-10-14T20:40:49+08:00 ] 203.209.235.216 /Pays/FaceAuto/aliNotify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000340s ]
+NOTIC: [8] Undefined index: HTTP_RAW_POST_DATA /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 14 行.
+NOTIC: [8] Undefined index: r1_merchantNo /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/NotifyController.class.php 第 16 行.
+
+[ 2019-10-14T20:59:49+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000341s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000370s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000408s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
+[ 2019-10-14T21:00:35+08:00 ] 171.115.22.91 /api/face
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000330s ]
+NOTIC: [8] Undefined index: test /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Pays/Controller/FaceApiController.class.php 第 40 行.
+
