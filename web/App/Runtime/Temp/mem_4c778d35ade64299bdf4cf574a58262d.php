@@ -1,0 +1,3 @@
+<?php
+//000000001800a:2:{i:0;a:7:{s:5:"orgNo";s:5:"66545";s:6:"mercId";s:15:"800521000020968";s:5:"trmNo";s:8:"XB301975";s:7:"txnTime";s:14:"20191017113535";s:8:"signType";s:3:"MD5";s:7:"version";s:6:"V1.0.1";s:9:"signValue";s:32:"a79509c94345766e9d72194266d818c9";}i:1;a:7:{s:7:"message";s:0:"";s:7:"sysTime";s:14:"20191017113535";s:10:"returnCode";s:6:"000000";s:5:"appId";s:18:"wx1e688170fc26b2c9";s:8:"appIdKey";s:32:"b878c60f49effa6b1b18b6cd9833feaf";s:6:"mercId";s:15:"800521000020968";s:9:"signValue";s:32:"eeb5d57f72d60cbe137256cb9b8abe0c";}}
+?>
