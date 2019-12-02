@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>YDF Tables Template</title>
+    <link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div style="padding: 0px 10px">
+<table class="table table-bordered">
+    <thead>
+     <tr>
+        <th class="text-center">日结时间</th>
+        <th class="text-center">商户名称</th>
+        <th class="text-center">交易金额 </th>
+        <th class="text-center">交易时间</th>
+        <th class="text-center">商户费率(%.)</th>
+        <th class="text-center">手续费金额</th>
+     </tr>
+    </thead>
+    <tbody>
+    <foreach name="fit" item="v">
+        <tr>
+            <td class="text-center">{$v.daytime}</td>
+            <td class="text-center">{$v.mch_name}</td>
+            <td class="text-center">{$v.TotalFee}</td>
+            <td class="text-center">{$v.otime}</td>
+            <td class="text-center">{$v.rate}%.</td>
+            <td class="text-center">{$v.fit}</td>
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+    <div class="fixed-table-pagination" style="display: block;">
+           {$page}
+    </div>
+</div>
+</body>
+</html>

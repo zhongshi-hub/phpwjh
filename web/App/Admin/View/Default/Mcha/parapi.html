@@ -1,0 +1,348 @@
+<include file="Public/header"/>
+<style>
+    hr{margin-top:0px;}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">渠道接口信息 --(渠道名称:{$basic.JB_parent})</h3>
+        </div>
+        </div>
+        <div class="row">
+            <div class="eq-height">
+                <div class="col-sm-4 eq-box-sm">
+                    <div class="panel">
+
+                        <div class="panel-body">
+                            <div class="panel-control">
+                                <span class="text-muted">状态</span>
+                                <input id="demo-panel-w-switch" class="toggle-switch switchery-default" checked="" type="checkbox" value="{$api.status}">
+                                <label for="demo-panel-w-switch"></label>
+                            </div>
+                            <h4>渠道号</h4>
+                            <hr>
+                            <div class="well well-sm"><notempty name="api.placenum">{$api.placenum}<else/>首次点击状态开启自动生成</notempty></div>
+                            <h4>渠道密钥</h4>
+                            <hr>
+                            <div class="well well-sm"><notempty name="api.placekey">{$api.placekey}<else/>首次点击状态开启自动生成</notempty></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 eq-box-sm">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="panel-control">
+                                <i onclick="$('#mp-edit').modal('show');" class="add-tooltip demo-pli-repeat-2 icon-lg unselectable"  data-original-title="更新信息" data-toggle="tooltip" data-container="body" data-placement="left" ></i>
+                            </div>
+                            <h3 class="panel-title">公众号名称</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="well well-sm" style="text-align: center"><notempty name="api.mpname">{$api.mpname}<else/>未配置</notempty></div>
+                            <h4>APPID</h4>
+                            <hr>
+                            <div class="well well-sm" style="text-align: center"><notempty name="api.mpappid">{$api.mpappid}<else/>未配置</notempty></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 eq-box-sm">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="panel-control">
+                                <i onclick="$('#code-edit').modal('show');" class="add-tooltip demo-pli-repeat-2 icon-lg unselectable"  data-original-title="更新信息" data-toggle="tooltip" data-container="body" data-placement="left" ></i>
+                                <!--<i class="add-tooltip demo-pli-question-circle icon-lg unselectable"  data-original-title="交易码用来区分公众号交易授权目录" data-toggle="tooltip" data-container="body" data-placement="left" ></i>-->
+
+                           </div>
+                            <h3 class="panel-title">
+                               交易识别码
+                            </h3>
+                        </div>
+                        <div class="panel-body" style="text-align: center;">
+                            <div style="font-size:18px;border-radius: 15px;border: 1px solid #07b446;display:inline-block;padding: 5px 14px;">
+                                <notempty name="api.parcode">{$api.parcode}<else/>未配置</notempty>
+                            </div>
+                            <h4 style="padding-top:10px; ">授权目录</h4>
+                            <hr>
+                            <div class="well well-sm" style="word-break:keep-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                                <notempty name="api.parurl">{$api.parurl}<else/>未配置</notempty>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="width: 67.5%">
+            <div class="eq-height">
+                <div class="col-sm-4 eq-box-sm">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="panel-control">
+                                <i onclick="$('#rate-edit').modal('show');" class="add-tooltip demo-pli-repeat-2 icon-lg unselectable"  data-original-title="更新信息" data-toggle="tooltip" data-container="body" data-placement="left" ></i>
+                            </div>
+                            <h3 class="panel-title">T1结算费率(‰)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="well well-sm" style="text-align: center"><notempty name="api.mcha_rate">{$api.mcha_rate}‰<else/>未配置</notempty></div>
+                            <h4>费率类型</h4>
+                            <hr>
+                            <div class="well well-sm" style="text-align: center"><notempty name="api.mcha_rate_type">{$api.mcha_rate_type}<else/>未配置</notempty></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 eq-box-sm">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="panel-control">
+                                <i onclick="$('#rateT0-edit').modal('show');" class="add-tooltip demo-pli-repeat-2 icon-lg unselectable"  data-original-title="更新信息" data-toggle="tooltip" data-container="body" data-placement="left" ></i>
+                            </div>
+                            <h3 class="panel-title">T0结算费率(‰)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="well well-sm" style="text-align: center"><notempty name="api.mcha_ratet0">{$api.mcha_ratet0}‰<else/>未配置</notempty></div>
+                            <h4>费率类型</h4>
+                            <hr>
+                            <div class="well well-sm" style="text-align: center"><notempty name="api.mcha_ratet0_type">{$api.mcha_ratet0_type}<else/>未配置</notempty></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4 eq-box-sm">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="panel-control">
+                                <i onclick="$('#login-edit').modal('show');" class="add-tooltip demo-pli-repeat-2 icon-lg unselectable"  data-original-title="更新信息" data-toggle="tooltip" data-container="body" data-placement="left" ></i>
+                            </div>
+                            <h3 class="panel-title">渠道登录信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="well well-sm" style="text-align: center">初始密码:</div>
+                            <hr>
+                            <div class="well well-sm" style="text-align: center">登录IP:<notempty name="api.end_ip">{$api.end_ip}<else/>未登录</notempty></div>
+                            <div class="well well-sm" style="text-align: center">登录时间:</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<!-- 修改公众号配置模态框开始 -->
+<div class="modal fade" id="mp-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    公众号信息配置
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="{:U('parapi_updata')}" method="post">
+                    <div class="panel-body">
+                        <div class="input-group mar-btm">
+                            <span class="input-group-addon"><i class="fa fa-weixin"></i></span>
+                            <input class="form-control" placeholder="公众号名称" type="text" required="required" name="mpname" value="">
+                        </div>
+                        <div class="input-group mar-btm">
+                            <span class="input-group-addon"><i class="demo-pli-star"></i></span>
+                            <input class="form-control" placeholder="公众号APPID" type="text" required="required" name="mpappid" value="">
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="id" value="{$mchid}">
+                        <input type="hidden" name="type" value="mp">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 修改公众号配置模态框结束 -->
+
+<!-- 修改交易识别码模态框开始 -->
+<div class="modal fade" id="code-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    交易识别码信息配置
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="{:U('parapi_updata')}" method="post">
+                    <div class="panel-body">
+                        <div class="input-group mar-btm">
+                            <span class="input-group-addon"><i class="demo-pli-star"></i></span>
+                            <input class="form-control" placeholder="交易识别码" type="text" required="required" name="parcode" value="">
+                        </div>
+                        <div class="input-group mar-btm">
+                            <span class="input-group-addon"><i class="demo-pli-star"></i></span>
+                            <input class="form-control" placeholder="授权目录URL" type="url" required="required" name="parurl" value="">
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="id" value="{$mchid}">
+                        <input type="hidden" name="type" value="code">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 修改交易识别码模态框结束 -->
+
+<!-- 修改T1结算费率开始 -->
+<div class="modal fade" id="rate-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    T1结算费率信息配置
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="{:U('parapi_updata')}" method="post">
+                    <div class="panel-body">
+                        <div class="input-group mar-btm">
+                            <span class="input-group-addon"><i class="demo-pli-star"></i></span>
+                            <input class="form-control" placeholder="结算费率(‰) 如:3.8" type="text" required="required" name="mcha_rate" value="">
+                        </div>
+                        <div class="input-group mar-btm">
+                            <span class="input-group-addon"><i class="demo-pli-star"></i></span>
+                            <select class="form-control" name="mcha_rate_type" required="required">
+                                <option value="浮动费率" <if condition="$api.mcha_rate_type eq '浮动费率'">selected</if>>浮动费率</option>
+                                <option value="固定费率" <if condition="$api.mcha_rate_type eq '固定费率'">selected</if>>固定费率</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="id" value="{$mchid}">
+                        <input type="hidden" name="type" value="rate">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 修改T1结算费率结束 -->
+<!-- 修改T0结算费率开始 -->
+<div class="modal fade" id="rateT0-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    T0结算费率信息配置
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="{:U('parapi_updata')}" method="post">
+                    <div class="panel-body">
+                        <div class="input-group mar-btm">
+                            <span class="input-group-addon"><i class="demo-pli-star"></i></span>
+                            <input class="form-control" placeholder="结算费率(‰) 如:3.8" type="text" required="required" name="mcha_rateT0" value="">
+                        </div>
+                        <div class="input-group mar-btm">
+                            <span class="input-group-addon"><i class="demo-pli-star"></i></span>
+                            <select class="form-control" name="mcha_rateT0_type" required="required">
+                                <option value="浮动费率" <if condition="$api.mcha_ratet0_type eq '浮动费率'">selected</if>>浮动费率</option>
+                                <option value="固定费率" <if condition="$api.mcha_ratet0_type eq '固定费率'">selected</if>>固定费率</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="id" value="{$mchid}">
+                        <input type="hidden" name="type" value="rateT0">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 修改T0结算费率结束 -->
+
+
+<script>
+    $(function() {
+        /*公众号信息*/
+        $('#mp-edit').on('show.bs.modal',function() {
+            $("input[name='mpname']").val('{$api.mpname}');
+            $("input[name='mpappid']").val('{$api.mpappid}');
+        });
+        /*交易识别码*/
+        $('#code-edit').on('show.bs.modal',function() {
+            $("input[name='parcode']").val('{$api.parcode}');
+            $("input[name='parurl']").val('{$api.parurl}');
+        });
+        /*T1结算费率*/
+        $('#rate-edit').on('show.bs.modal',function() {
+            $("input[name='mcha_rate']").val('{$api.mcha_rate}');
+        });
+        /*T0结算费率*/
+        $('#rateT0-edit').on('show.bs.modal',function() {
+            $("input[name='mcha_rateT0']").val('{$api.mcha_ratet0}');
+        });
+
+        //状态更新
+        if($('#demo-panel-w-switch').val()=='true'){
+            $("#demo-panel-w-switch").prop('checked',true);
+        }else{
+            $("#demo-panel-w-switch").prop('checked',false);
+        }
+        /*接口状态更新*/
+        $("#demo-panel-w-switch").change(function(){
+            var status=$("#demo-panel-w-switch").is(':checked');
+            var ajax_data = {id:{$mchid},status:status,type:'status'};
+            var actionurl = "{:U('parapi_updata')}";
+            $.post(actionurl, ajax_data, function(data){
+                if(data.status == 1){
+                    /*如果存在模态框将关闭*/
+                    $.niftyNoty({
+                        type: 'success',
+                        message : '<strong>'+data.info+'</strong> 2秒后自动刷新当前页面!',
+                        container : 'floating',
+                        timer : 2000
+                    });
+                    setTimeout(function(){
+                        window.location.reload();
+                    }, 2000);
+                }
+                else{
+                    /*如果存在模态框将关闭*/
+                    $.niftyNoty({
+                        type: 'danger',
+                        message : '<strong>'+data.info+'</strong>',
+                        container : 'floating',
+                        timer : 5000
+                    });
+                }
+            }, 'json');
+
+        });
+
+
+
+    });
+</script>
+<include file="Public/footer"/>

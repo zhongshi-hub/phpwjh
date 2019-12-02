@@ -1,0 +1,166 @@
+<include file="Public/header"/>
+<style>
+    .form-control{width: 300px !important;}
+    .imgborder{width: 300px;border: solid 1px #E4E4E4;height: 220px;padding: 5px;}
+    .imgborder img { width:100%; display:block;height: 100%;}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">订单详情 --(所属商户:{$mname[$data['mch_id']]})</h3>
+            </div>
+            <div class="panel-body">
+                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">基本信息</p>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">所属渠道</label>
+                            <input class="form-control" type="text" value="{$basics[$parent_apis[$data['partner']]]}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">商户号</label>
+                            <input class="form-control" type="text"   value="{$data.mch_id}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">支付接口</label>
+                            <input class="form-control" type="text"   value="{$data.service}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">子订单号</label>
+                            <input class="form-control" type="text"   value="{$data.out_trade_no}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">威富通订单号</label>
+                            <input class="form-control" type="text"   value="{$data.transaction_id}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">第三方订单号</label>
+                            <input class="form-control" type="text" value="{$data.out_transaction_id}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">创建时间</label>
+                            <input class="form-control" type="email" value="{$data.createtime|date='Y-m-d H:i:s',###}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">支付成功时间</label>
+                            <input class="form-control" type="text" value="{$data.time_end|date='Y-m-d H:i:s',###}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">交易金额</label>
+                            <input style="color: red" class="form-control" type="text" value="{$data['total_fee']/100}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">交易状态</label>
+                            <input style="color: red" class="form-control" type="text" value="{$data['status']|pays_status}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">支付类型</label>
+                            <input style="color: red" class="form-control" type="text" value="{$data['service']|pays_type}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">结算费率</label>
+                            <input style="color: red" class="form-control" type="text" value="{$data['mch_rate']}%。" readonly>
+                        </div>
+                    </div>
+
+                </div>
+                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">技术相关</p>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">是否原生</label>
+                            <input class="form-control" type="text" value="{$data.is_raw}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">终端IP</label>
+                            <input class="form-control" type="text" value="{$data.mch_create_ip}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">随机码</label>
+                            <input class="form-control" type="text" value="{$data.nonce_str}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">回调时间(子渠道终端)</label>
+                            <input class="form-control" type="text" value="{$data.notify_calltime|date='Y-m-d H:i:s',###}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label class="control-label">异步接收时间</label>
+                            <input class="form-control" type="text" value="{$data.notify_time|date='Y-m-d H:i:s',###}" style="width:96%!important;"  readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label">异步回调地址</label>
+                            <input class="form-control" type="text" value="{$data.notify_url}" style="width:95%!important;"  readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label">返回地址</label>
+                            <input class="form-control" type="text" value="{$data.callback_url}" style="width:95%!important;" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">异步回调报文</label>
+                            <textarea class="form-control" style="width:98%!important;height: 200px;outline:none;resize:none;"  readonly> {$data.notify_data}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer text-right">
+                <a class="btn btn-success" onclick="$('#updates').submit()">更新状态</a>
+                <a class="btn btn-info" onclick="$('#bufa').submit()">补发通知</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--补发通知-->
+<form action="{:U('notices')}" id="bufa">
+    <input type="hidden" name="id" value="{$data.id}">
+</form>
+<!--更新状态-->
+<form action="{:U('updates')}" id="updates">
+    <input type="hidden" name="id" value="{$data.id}">
+</form>
+<include file="Public/footer"/>

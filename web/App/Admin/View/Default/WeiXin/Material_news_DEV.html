@@ -1,0 +1,438 @@
+<include file="WeiXin/header"/>
+<taglib name="html"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <span class="text-muted">
+
+                    </span>
+                    <span class="text-muted"><small></small></span>
+                </div>
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <link href="/Source/Css/wechat/common.css" rel="stylesheet">
+            <div class="panel-body">
+                <div class="appmsg-edit-box" style="">
+                    <div class="appmsg-preview-area">
+                        <div class="appmsg-edit-container appmsg-preview-container js-aside">
+                            <div class="appmsg-container-hd">
+                                <h4 class="appmsg-container-title">图文列表</h4>
+                            </div>
+                            <div class="appmsg-container-bd">
+                                <div class="material-appmsg-item multi">
+                                    <div class="appmsg-content">
+                                        <!-- ngRepeat: material in materialList --><div ng-repeat="material in materialList" ng-click="changeIndex($index)" ng-class="material.class" class="ng-scope cover-appmsg-item active">
+                                        <h4 class="appmsg-title">
+                                            <a href="" target="-blank" class="ng-binding"></a>
+                                        </h4>
+                                        <div class="appmsg-thumb" ng-style="{'background-image' : 'url('+material.thumb+')'}" style="background-image: url(&quot;&quot;);">
+                                        </div>
+                                        <!-- ngIf: $index == 0 --><a href="javascript:;" ng-if="$index == 0" ng-click="exportFromCms()" class="ng-scope">导入文章</a><!-- end ngIf: $index == 0 -->
+                                        <div class="appmsg-edit-mask">
+                                            <!-- ngIf: $index != 0 -->
+                                            <!-- ngIf: $index != (materialList.length - 1) -->
+                                            <a href="javascript:;" ng-click="exportFromCms()">导入文章</a>
+                                            <!-- ngIf: $index != 0 && operate == 'add' -->
+                                        </div>
+                                    </div><!-- end ngRepeat: material in materialList -->
+                                    </div>
+                                </div>
+                                <a title="添加一篇图文" ng-click="addMaterial()" ng-show="materialList.length &lt; 8 &amp;&amp; operate == 'add'" class="appmsg-add" href="javascript:void(0);" style="display: block;">
+                                    <i class="add-gray">+</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appmsg-input-area" id="edit-container" style="">
+                        <!-- ngIf: new_type == 'reply' --><div class="reply ng-scope" ng-if="new_type == 'reply'" style="">
+                        <!--标题-->
+                        <div class="appmsg-edit-item title">
+                            <label for="title" class="" style="display:none">请在这里输入标题</label>
+                            <input id="title" placeholder="请在这里输入标题" class="form-control ng-pristine ng-untouched ng-valid ng-empty" name="title" ng-model="materialList[activeIndex].title" max-length="64" type="text">
+                            <em class="form-control-append hidden">0/64</em>
+                        </div>
+                        <!--作者-->
+                        <div class="appmsg-edit-item author">
+                            <label for="author" class="" style="display:none">请输入作者</label>
+                            <input id="author" placeholder="请输入作者" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="materialList[activeIndex].author" name="author" max-length="8" type="text">
+                            <em class="form-control-append hidden">0/8</em>
+                        </div>
+                        <!-- 阅读原文链接 -->
+                        <!--正文-->
+                        <div  class="editor-area ng-isolate-scope" ng-my-editor="" ng-my-value="materialList[activeIndex].content" style="">
+                            <html:editor id="fw_info" name="fw_info" type="UEDITOR" style="height:300px;">
+                                {$data.fw_info}
+                            </html:editor>
+                        </div>
+                    </div><!-- end ngIf: new_type == 'reply' -->
+                        <!-- ngIf: new_type == 'link' -->
+                    </div>
+                    <div class="appmsg-edit-highlight-area">
+                        <div class="appmsg-edit-title">发布样式编辑</div>
+                        <!-- EBGIN 封面 -->
+                        <div class="appmsg-edit-item gap-left xunform">
+                            <div class="form-group">
+                                <label class="col-sm-12 control-label">封面<span class="color-gray">(小图片建议尺寸：200像素 * 200像素)</span></label>
+                                <div>
+                                    <a href="javascript:void(0);" class="btn btn-default" ng-click="pickPicture('local')">本地图片</a>
+                                    <a href="javascript:void(0);" class="btn btn-default xun-margin-left" ng-click="pickPicture('wechat')">微信图片</a>
+                                    <div style="margin: 20px 0 10px 0;">
+                                        <input ng-checked="0" ng-click="updateSelection()" id="display-cover" type="checkbox">
+                                        <label for="display-cover">在正文顶部显示封面图</label>
+                                    </div>
+                                    <img ng-src="" style="max-height: 200px;">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-12 control-label" ng-click="zhaiyao()">摘要<span class="color-gray">(选填，如果不填写会默认抓取正文前54个字)</span></label>
+                                <div>
+								<span class="form-textarea-box">
+									<textarea class="form-textarea ng-pristine ng-untouched ng-valid ng-empty" ng-model="materialList[activeIndex]['digest']" name="digest" max-length="120" rows="4"></textarea>
+									<em class="form-control-append hidden">0/120</em>
+								</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END 封面 -->
+                    </div>
+                </div>
+                <nav class="navbar navbar-wxapp-bottom navbar-fixed-bottom" role="navigation" style="position: inherit">
+                    <div class="container">
+                        <div class="pager">
+                            <a type="button" class="btn btn-default pull-left hidden">收起正文</a>
+                            <div class="pull-right hidden">
+                                <a type="button" class="btn btn-primary" ng-click="saveNews()">保存</a>
+                                <a type="button" class="btn btn-default">预览</a>
+                                <a type="button" class="btn btn-default">保存并群发</a>
+                            </div>
+                            <a id="savewechat" type="button" class="btn btn-primary" ng-click="saveNews('wechat')" ng-show="!hidenbutton">保存并上传到微信</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/_webuploader/webuploader.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/_webuploader/style.css?t={:time()}" />
+<script type="text/javascript" src="__PUBLIC__/webuploader/webuploader.js?t={:time()}"></script>
+<!--<script type="text/javascript" src="__PUBLIC__/webuploader/upload.js?t={:time()}"></script>-->
+<!-- 文件上传Model 20171126 -->
+<div class="bootbox modal fade" id="FileUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" style="margin-top: -10px;"><i class="pci-cross pci-circle"></i></button>
+                <div class="bootbox-body">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a data-toggle="tab" href="#wrapper" aria-expanded="false">本地上传图片</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#inter" aria-expanded="true">提取网络图片</a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <!--图片上传 Start-->
+                    <div id="wrapper" class="tab-pane fade in active" >
+                        <div id="container" style="min-height: inherit;">
+                            <!--头部，相册选择和格式选择-->
+                            <div id="uploader">
+                                <div class="queueList">
+                                    <div id="dndArea" class="placeholder">
+                                        <div id="filePicker" onclick="create()"></div>
+                                        <p>或将照片/附件拖到这里，单次最多可选1张</p>
+                                    </div>
+                                </div>
+                                <div class="statusBar">
+                                    <div class="progress">
+                                        <span class="text">0%</span>
+                                        <span class="percentage"></span>
+                                    </div><div class="info"></div>
+                                    <div class="btns">
+                                        <div id="filePicker2"></div><div class="uploadBtn">确认使用</div>
+                                        <div class="webuploader-pick" data-dismiss="modal">取消</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--图片上传 END-->
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 修改密码模态框结束 -->
+
+
+
+
+<script type="text/javascript">
+    function create(){
+        uploader.addButton({
+            id: '#filePicker',
+            innerHTML: '上传'
+        });
+    }
+    var uploader,FileUpload=$("#FileUpload");
+    //在点击弹出模态框的时候再初始化WebUploader，解决点击上传无反应问题
+    FileUpload.on("shown.bs.modal",function(){
+        uploader = WebUploader.create({
+            pick: {
+                id: '#filePicker',
+                label: '点击选择图片/附件'
+            },
+            dnd: '#dndArea',
+            paste: '#uploader',
+            swf: '/Source/webuploader/Uploader.swf',
+            chunked: false,
+            chunkSize: 512 * 1024,
+            server: '/Plugs/Upload/index',
+            //runtimeOrder: 'flash',
+            accept: {
+                title: '上传图片',
+                extensions: 'jpg,jpeg,png,ico',
+                mimeTypes: 'image/jpg,image/jpeg,image/png,image/ico'
+            },
+            //不启用压缩
+            compress: false,
+            // 禁掉全局的拖拽功能。这样不会出现图片拖进页面的时候，把图片打开。
+            disableGlobalDnd: true,
+            fileNumLimit: 1,
+            fileSizeLimit: 200 * 1024 * 1024,    // 200 M
+            fileSingleSizeLimit: 100 * 1024 * 1024    // 100 M
+        });
+        uploader.on( 'fileQueued', function( file ) {
+            $('#thelist').append( '<div id="' + file.id + '" class="item">' +
+                    '<h4 class="info">' + file.name + '</h4>' +
+                    '<p class="state">等待上传...</p>' +
+                    '</div>' );
+        });
+
+        // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+        /*uploader.on('uploadSuccess', function (file,response) {
+            var fileUrl = response.data.fileUrl;
+            //TODO
+            $("#responeseText").text("上传成功,文件名："+response.data.fileName);
+        });
+
+        // 当文件上传出错时触发
+        uploader.on('uploadError', function (file) {
+            $("#responeseText").text("上传失败");
+        });
+
+        //当validate不通过时触发
+        uploader.on('error', function (type) {
+            if(type=="F_EXCEED_SIZE"){
+                alert("文件大小不能超过xxx KB!");
+            }
+        });*/
+    });
+    FileUpload.on('hide.bs.modal', function () {
+        //$("#responeseText").text("");
+        uploader.destroy();
+    });
+    /*a.registerCommand(b, {
+        execCommand: function() {
+            e.show(function(b) {
+                if (0 != b.length)
+                    if (1 == b.length) a.execCommand("insertimage", {
+                        src: b[0].url,
+                        _src: b[0].attachment,
+                        width: "100%",
+                        alt: b[0].filename
+                    });
+                    else {
+                        var c = [];
+                        for (i in b) c.push({
+                            src: b[i].url,
+                            _src: b[i].attachment,
+                            width: "100%",
+                            alt: b[i].filename
+                        });
+                        a.execCommand("insertimage", c)
+                    }
+            }, g)
+        }
+    });
+    var c = new d.ui.Button({
+        name: "插入图片",
+        title: "插入图片",
+        cssRules: "background-position: -726px -77px",
+        onclick: function() {
+            a.execCommand(b)
+        }
+    });*/
+
+    UE.registerUI('selectimage',function(a,b){
+        //创建dialog
+        /*var dialog = new UE.ui.Dialog({
+            //指定弹出层中页面的路径，这里只能支持页面
+            iframeUrl:'/static/ueditor/dialogs/selectimage/select.html',
+            //需要指定当前的编辑器实例
+            editor:editor,
+            //指定dialog的名字
+            name:uiName,
+            //dialog的标题
+            title:"插入图片",
+
+            //指定dialog的外围样式
+            cssRules:"width:650px;height:400px;",
+
+            //如果给出了buttons就代表dialog有确定和取消
+            buttons:[
+                {
+                    className:'edui-okbutton',
+                    label:'确定',
+                    onclick:function () {
+                        dialog.close(true);
+                    }
+                },
+                {
+                    className:'edui-cancelbutton',
+                    label:'取消',
+                    onclick:function () {
+                        dialog.close(false);
+                    }
+                }
+            ]});
+*/
+
+        /*var btn = new UE.ui.Button({
+            name:'dialogbutton' + uiName,
+            title:'dialogbutton' + uiName,
+            //需要添加的额外样式，指定icon图标，这里默认使用一个重复的icon
+            cssRules :'background-position: -726px -77px',
+            onclick:function () {
+                //渲染dialog
+                dialog.render();
+                dialog.open();
+            }
+        });*/
+
+        a.registerCommand(b, {
+            execCommand: function() {
+                /*e.show(function(b) {
+                    if (0 != b.length)
+                        if (1 == b.length) a.execCommand("insertimage", {
+                            src: b[0].url,
+                            _src: b[0].attachment,
+                            width: "100%",
+                            alt: b[0].filename
+                        });
+                        else {
+                            var c = [];
+                            for (i in b) c.push({
+                                src: b[i].url,
+                                _src: b[i].attachment,
+                                width: "100%",
+                                alt: b[i].filename
+                            });
+                            a.execCommand("insertimage", c)
+                        }
+                }, g)*/
+                //alert(1);
+                edit_upload_modal();
+            }
+        });
+
+        var c = new UE.ui.Button({
+            name: "插入图片",
+            title: "插入图片",
+            cssRules: "background-position: -380px 0",
+            onclick: function() {
+                //dialog.render();
+                //dialog.open();
+                a.execCommand(b)
+            }
+        });
+
+        return c;
+    },19);
+
+    /*上传modal*/
+    function edit_upload_modal(){
+        /*
+        var strVar = "";
+        strVar += "    <script type=\"text/javascript\" src=\"__PUBLIC__/webuploader/webuploader.js?t=20171127\"><\/script>\n";
+        strVar += "    <script type=\"text/javascript\" src=\"__PUBLIC__/webuploader/upload.js?t=20171127\"><\/script>\n";
+        strVar += "<ul class=\"nav nav-tabs\">\n";
+        strVar += "	<li class=\"active\">\n";
+        strVar += "	<a data-toggle=\"tab\" href=\"#wrapper\" aria-expanded=\"false\">本地上传图片<\/a>\n";
+        strVar += "	<\/li>\n";
+        strVar += "	<li>\n";
+        strVar += "	<a data-toggle=\"tab\" href=\"#inter\" aria-expanded=\"true\">提取网络图片<\/a>\n";
+        strVar += "	<\/li>\n";
+        strVar += "<\/ul>\n";
+        strVar += "<div id=\"myTabContent\" class=\"tab-content\">\n";
+        strVar += "    <!--图片上传 Start-->\n";
+        strVar += "    <div id=\"wrapper\" class=\"tab-pane fade in active\" >\n";
+        strVar += "        <div id=\"container\" style=\"min-height: auto;\">\n";
+        strVar += "            <!--头部，相册选择和格式选择-->\n";
+        strVar += "            <div id=\"uploader\">\n";
+        strVar += "                <div class=\"queueList\">\n";
+        strVar += "                    <div id=\"dndArea\" class=\"placeholder\">\n";
+        strVar += "                        <div id=\"filePicker\"><\/div>\n";
+        strVar += "                        <p>或将照片/附件拖到这里，单次最多可选1张<\/p>\n";
+        strVar += "                    <\/div>\n";
+        strVar += "                <\/div>\n";
+        strVar += "                <div class=\"statusBar\" style=\"bottom:0;width:100%\">\n";
+        strVar += "                    <div class=\"progress\">\n";
+        strVar += "                        <span class=\"text\">0%<\/span>\n";
+        strVar += "                        <span class=\"percentage\"><\/span>\n";
+        strVar += "                    <\/div><div class=\"info\"><\/div>\n";
+        strVar += "                    <div class=\"btns\">\n";
+        strVar += "                        <div id=\"filePicker2\"><\/div><div class=\"uploadBtn\">确认使用<\/div>\n";
+        strVar += "                        <div class=\"webuploader-pick\" data-dismiss=\"modal\" >取消<\/div>\n";
+        strVar += "                    <\/div>\n";
+        strVar += "                <\/div>\n";
+        strVar += "            <\/div>\n";
+        strVar += "        <\/div>\n";
+        strVar += "    <\/div>\n";
+        strVar += "    <!--图片上传 END-->\n";
+        strVar += "\n";
+        strVar += "    <!--提取网络图片 Start-->\n";
+        strVar += "    <div class=\"tab-pane fade\" id=\"inter\" style=\"margin: 1em;width: auto;\">\n";
+        strVar += "        <div  class=\"tab-pane fade in active\" >\n";
+        strVar += "            <div id=\"container\">\n";
+        strVar += "                <div style=\"border: 3px dashed #e6e6e6;margin: 20px;\">\n";
+        strVar += "                    <!--头部，相册选择和格式选择-->\n";
+        strVar += "                    <form action=\"\" method=\"post\" class=\"form-horizontal\" onSubmit=\"return false;\" role=\"form\">\n";
+        strVar += "                        <div id=\"uploader\">\n";
+        strVar += "                            <div class=\"queueList\">\n";
+        strVar += "\n";
+        strVar += "                                <div class=\"form-group\" style=\"margin:10% 0px;\">\n";
+        strVar += "                                    <textarea style=\"padding: 20px;margin: 1em;resize: none;width:95%;height:150px;\" placeholder=\"请输入网络图片地址 如:http://www.xxx.com/xxx.jpg  (仅支持图片格式提取)\" class=\"form-control valid\" name=\"wbs_dataurl\" id=\"wbs_dataurl\" aria-invalid=\"false\"><\/textarea>\n";
+        strVar += "                                <\/div>\n";
+        strVar += "                            <\/div>\n";
+        strVar += "                            <div class=\"statusBar\" style=\"bottom:0;width:100%;margin-left: -20px;\">\n";
+        strVar += "                                <div class=\"info\">输入网络图片地址,点击确认提取<\/div>\n";
+        strVar += "                                <div class=\"btns\">\n";
+        strVar += "                                    <div id=\"filePicker2\"><\/div><div class=\"uploadBtn\"  onclick=\"wbs_netsub();\">确认提取<\/div>\n";
+        strVar += "                                    <div class=\"webuploader-pick\" onclick=\"colseData()\">取消<\/div>\n";
+        strVar += "                                <\/div>\n";
+        strVar += "                            <\/div>\n";
+        strVar += "                        <\/div>\n";
+        strVar += "                    <\/form>\n";
+        strVar += "                <\/div>\n";
+        strVar += "            <\/div>\n";
+        strVar += "        <\/div>\n";
+        strVar += "    <\/div>\n";
+        strVar += "    <!--提取网络图片 END-->\n";
+        strVar += "<\/div>\n";
+        bootbox.dialog({
+            message : strVar
+            //animateIn: 'bounceIn',
+            //animateOut : 'bounceOut'
+        });*/
+       $('#FileUpload').modal({show:true});
+    }
+
+</script>
+</div>

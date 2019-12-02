@@ -1,0 +1,299 @@
+<include file="Public/header"/>
+<style>
+    .imgborder{width: 300px;border: solid 1px #E4E4E4;height: 220px;padding: 5px;}
+    .imgborder img { width:100%; display:block;height: 100%;}
+    .chosen-container{display: block}
+    .ccl_r{color: red;font-size: 1.5em;position: absolute;margin: 0 2px;}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <form id="in_form" method="post" action="" ajax="n">
+                <div class="panel-body">
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">小微入网资料</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">商户简称 <span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text"  name="merchant_shortname" value="{$data.merchant_shortname}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">门店名称 <span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text"  name="store_name" value="{$data.store_name}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">联系人姓名 <span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text"  name="contact" value="{$data.contact}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">联系手机号 <span class="ccl_r">*</span></label>
+                                <input class="form-control" type="tel"  name="contact_phone" value="{$data.contact_phone}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">联系邮箱 <span class="ccl_r">*</span></label>
+                                <input class="form-control" type="email"  name="contact_email" value="{$data.contact_email}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <div class="form-group">
+                                <label class="control-label">身份证姓名 <span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text"  name="id_card_name" value="{$data.id_card_name}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">身份证号 <span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text"  name="id_card_number" value="{$data.id_card_number}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">身份证有效期 <span class="ccl_r">*</span></label>
+                                <div class="input-daterange input-group" id="datepicker">
+                                    <input type="text" class="form-control" id="s_t" name="id_card_valid_time[]" value="{$data['id_card_valid_time'][0]}" required>
+                                    <span class="input-group-addon">至</span>
+                                    <input type="text" class="form-control" id="e_t" name="id_card_valid_time[]" value="<eq name="$data.id_card_valid_time_end" value="on">长期<else/>{$data['id_card_valid_time'][1]}</eq>"  required>
+                                    <span style="position: absolute;min-width: 100px;margin: 5px;">
+                                        <input id="time_c" class="magic-checkbox" name="id_card_valid_time_end" type="checkbox" <eq name="$data.id_card_valid_time_end" value="on">checked</eq>>
+                                        <label for="time_c">长期</label>
+                                    </span>
+                                </div>
+                                <span>证件有效期限需与上传文件上所示期限一致</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label"><span>身份证正面<span class="ccl_r">*</span></span></label>
+                                <img  class="form-control" src="{$data.id_card_copy}" style="width: 100px">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label"><span>身份证反面<span class="ccl_r">*</span></span></label>
+                                <img  class="form-control" src="{$data.id_card_national}" style="width: 100px">
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">门店信息</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">售卖商品/提供服务描述<span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text"  name="product_desc" value="{$data.product_desc}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">客服电话<span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text" name="service_phone" value="{$data.service_phone}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">所属省份<span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text"  name="product_desc" value="{$data.pro|getCityName}" required>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">所属城市<span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text"  name="product_desc" value="{$data.city|getCityName}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">所属区县<span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text"  name="product_desc" value="{$data.dist|getCityName}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">门店详细地址<span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text" name="store_street" value="{$data.store_street}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span>门头照片<span class="ccl_r">*</span></span></label>
+                                <img  class="form-control" src="{$data.store_entrance_pic}" style="width: 100px">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span>门店内景<span class="ccl_r">*</span></span></label>
+                                <img  class="form-control" src="{$data.indoor_pic}" style="width: 100px">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">结算信息</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label" style="color: red">结算费率<span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text" name="rate" value="{$data.rate}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户银行<span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text" name="rate" value="{$data.account_bank}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">银行卡号<span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text" name="account_number" value="{$data.account_number}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户名称<span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text" name="account_name"   value="{$data.account_name}" placeholder="需与身份证姓名一致" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户省份<span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text" name="account_number" value="{$data.bank_pro|getCityName}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group" id="depositCity">
+                                <label class="control-label">开户城市<span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text" name="account_number" value="{$data.bank_city|getCityName}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" id="bank_name">
+                            <div class="form-group" >
+                                <label class="control-label">开户支行<span class="ccl_r">*</span></label>
+                                <input class="form-control" type="text" name="bank_name" value="{$data.bank_name}" placeholder="选择其它银行后需填写银行全称精确到开户行 如郑州银行XXX路支行">
+                                <span>开户银行为其他银行必填,其他17家直连银行无需填写 <a href="https://pay.weixin.qq.com/wiki/doc/api/download/wx_cityno02.zip" style="color: #17a735">银行全称对照表</a></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">补充资料(选填)</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">门店经度</label>
+                                <input class="form-control"  type="text" name="store_longitude" value="{$data.store_longitude}" placeholder="如:113.941355 数字或小数">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">门店纬度</label>
+                                <input class="form-control"  type="text" name="store_latitude" value="{$data.store_latitude}" placeholder="如:22.546245 数字或小数">
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label class="control-label">补充说明</label>
+                                <input class="form-control"  type="text" name="business_addition_desc" value="{$data.business_addition_desc}" placeholder="可填写需要额外说明的文字">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span>经营场地证明</span></label>
+                                <img  class="form-control" src="{$data.address_certification}" style="width: 100px">
+                                <span>门面租赁合同扫描件或经营场地证明（需与身份证同名）</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span>补充材料1</span></label>
+                                <img  class="form-control" src="{$data['business_addition_pics'][0]}" style="width: 100px">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span>补充材料2</span></label>
+                                <img  class="form-control" src="{$data['business_addition_pics'][1]}" style="width: 100px">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span>补充材料3</span></label>
+                                <img  class="form-control" src="{$data['business_addition_pics'][2]}" style="width: 100px">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span>补充材料4</span></label>
+                                <img  class="form-control" src="{$data['business_addition_pics'][3]}" style="width: 100px">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span>补充材料5</span></label>
+                                <img  class="form-control" src="{$data['business_addition_pics'][4]}" style="width: 100px">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">自定义配置项(当接口出现省市Code错误,需自行配置填写)</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">门店所属城市地区码</label>
+                                <input class="form-control" type="text" name="set_store_code"  value="{$data.set_store_code}" placeholder="默认选填,当出现返回进件失败为code时填写">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户城市地区码</label>
+                                <input class="form-control" type="text" name="set_bank_code" value="{$data.set_bank_code}" placeholder="默认选填,当出现返回进件失败为code时填写" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="control-label">微信官方地区码数据</label>
+                                <a class="form-control" style="border: none" href="https://pay.weixin.qq.com/wiki/doc/api/download/wx_cityno.zip">https://pay.weixin.qq.com/wiki/doc/api/download/wx_cityno.zip</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer text-justify">
+                    <a class="btn btn-warning" href="{:U('WxPay/xwList')}">返回列表</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+   $('input').attr('disabled',true);
+</script>
+<include file="Public/footer"/>

@@ -1,0 +1,203 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <ul class="nav nav-tabs">
+                        <li <if condition="$Think.get.status eq ''">class="active"</if>><a href="{:U('Auditing')}">待审核</a></li>
+                        <li <if condition="$Think.get.status eq 'ref'">class="active"</if>><a href="{:U('Auditing',array('status'=>'ref'))}">已拒绝</a></li>
+                        <li <if condition="$Think.get.status eq 'all'">class="active"</if>><a href="{:U('Auditing',array('status'=>'all'))}">全部</a></li>
+                    </ul>
+                </div>
+                <h3 class="panel-title">{:$title}</h3>
+
+
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="" ajax="n">
+                        <div class="panel-body">
+                            <div class="row ">
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <label class="control-label">详细信息</label>
+                                        <input class="form-control" type="text" placeholder="支持 申请人姓名/联系电话/收款码ID/商户名称" name="search_val" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">所属代理</label>
+                                        <input id="dialog_name" class="form-control dialog" type="text"  value="">
+                                        <input id="dialog_aid" class="form-control" type="hidden" name="aid" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">商户类型</label>
+                                        <select  class="form-control" name="bus_type" >
+                                            <option value="">所有类型</option>
+                                            <option value="有营业执照">有营业执照</option>
+                                            <option value="无营业执照">无营业执照</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            <div class="text-right">
+                                <button class="btn btn-success" type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+
+
+            <div class="panel-body">
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">收款码ID</th>
+                        <th class="text-center">所属代理</th>
+                        <th class="text-center">商户名称</th>
+                        <th class="text-center">联系电话</th>
+                        <th class="text-center">申请人姓名</th>
+                        <th class="text-center">商户类型</th>
+                        <th class="text-center">申请时间</th>
+                        <!--<th class="text-center">信用认证</th>-->
+                        <th class="text-center">状态</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center">{$v.codes}</td>
+                            <td class="text-center">{$v.agent_id|agent_name}</td>
+                            <td class="text-center">{$v.mch_name}</td>
+                            <td class="text-center">{$v.mch_tel}</td>
+                            <td class="text-center">{$v.mch_card_name}</td>
+                            <td class="text-center">{$v.mch_bus_type}</td>
+                            <td class="text-center">{$v['ctime'|date='Y-m-d H:i:s',###]}</td>
+                            <!--<td class="text-center">-->
+                                <!--<if condition="$v['auth_status'] eq 1">-->
+                                    <!--<span class="label label-info" style="font-size:12px;font-weight:1;border-radius: 5px;">已认证</span>-->
+                                    <!--<else/>-->
+                                    <!--<span class="label label-default" style="cursor:pointer;font-size:12px;font-weight:1;border-radius: 5px;" onclick="SendAuth({$v.id});">未认证</span>-->
+                                <!--</if>-->
+                            <!--</td>-->
+                            <td class="text-center">
+                            <if condition="$v['status'] eq 2">
+                                    <span class="label label-danger" style="font-size:12px;font-weight:1;border-radius: 5px;">已拒绝</span>
+                            <elseif condition="$v['status'] eq 1"/>
+                                    <span class="label label-info" style="font-size:12px;font-weight:1;border-radius: 5px;">已通过</span>
+                            <else/>
+                                <span class="label label-default" style="font-size:12px;font-weight:1;border-radius: 5px;">待审核</span>
+                            </if>
+                            </td>
+                            <td class="text-center">
+                                <a href="{:U('Auditing_detail',array('id'=>$v['id']))}" class="btn btn-purple btn-sm" type="button"  >审核信息</a>
+                                <button  class="btn btn-primary btn-rounded btn-sm code_call"  onclick="codes_reload({$v.id},'{$v.codes}')">收款码回收</button>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('.dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Agent/dialog')}"
+        });
+    });
+    function codes_reload(id,codes) {
+        layer.alert('收款码回收功能 用于对收款码信息恢复到初始状态,利用回收功能,清除所有已提交信息,最终收款码可再次注册,已提交信息清空处理!此方法只对商户未审核通过状态下有用!已审核通过用户无法使用该操作! <p style="color: red">此操作会清空当前码下所有数据,收款码恢复初始化!一定要三思而后行!切记!切记!切记!重要的事情说三遍!  ( ^_^ )</p>', {
+            title:'收款码回收提示',
+            skin: 'layui-layer-molv'
+            ,closeBtn: 1
+            ,anim: 6 //动画类型
+        },function(){
+            layer.msg('系统处理中...', {
+                icon: 16,
+                shade: 0.01,
+                time:300000
+            });
+            var ajax_data ={'id':id,'codes':codes};
+            var actionurl ='{:U("codes_reload")}';
+            $.post(actionurl, ajax_data, function (data) {
+                if (data.status == 1) {
+                    layer.closeAll();
+                    layer.msg(data.info, {shade: 0.3,time: 3000});
+                    window.location.reload();
+
+                }else {
+                    layer.msg(data.info, {time:5000,shade: 0.03});
+                }
+            }, 'json');
+
+        });
+    }
+
+    //发送未认证商户模板消息提醒
+    function SendAuth(id) {
+        layer.alert('切记!同一个商户不要多次发送未认证消息提醒!合理安排模板消息用途!你确定要给此商户发送未认证的模板消息提醒吗?', {
+            title:'温馨提示',
+            skin: 'layui-layer-molv'
+            ,closeBtn: 1
+            ,anim: 6 //动画类型
+        },function(){
+            layer.msg('提醒发送中...请等待结果...', {
+                icon: 16,
+                shade: 0.01,
+                time:300000
+            });
+            var ajax_data ={id:id};
+            var actionurl ='{:U("SendAuthTemplate",array("Debug"=>"1"))}';
+            $.post(actionurl, ajax_data, function (data) {
+                if (data.status == 1) {
+                    layer.closeAll();
+                    $.niftyNoty({
+                        type: 'success',
+                        message : '<strong>'+data.info+'</strong>',
+                        container : 'floating',
+                        timer : 3000
+                    });
+                }
+                else {
+                    layer.closeAll();
+                    $.niftyNoty({
+                        type: 'danger',
+                        message: '<strong>' + data.info + '</strong>',
+                        container: 'floating',
+                        timer: 5000
+                    });
+                }
+            }, 'json');
+
+        });
+
+    }
+</script>
+
+
+<include file="Public/footer"/>

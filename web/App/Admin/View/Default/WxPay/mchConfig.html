@@ -1,0 +1,212 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+                <div class="panel-body">
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">商户配置</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">商户号：<span style="font-size: 15px">{$sub_mch_id}</span></li>
+                        <li class="list-group-item">商户名称:  <span style="font-size: 15px">{$mch_name}</span></li>
+                    </ul>
+                    <div class="panel" style="border-radius: 3px;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">支付授权目录</h3>
+                        </div>
+                        <form id="path_form" class="panel-body form-horizontal form-padding" ajax="n">
+                            <div class="panel-body">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="jsapi_path">授权目录URL</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="jsapi_path" id="jsapi_path" class="form-control" value="<php>$port= isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443' ? 'https://' : 'http://'; $domain=$port.$_SERVER['HTTP_HOST'].'/Pay/'; echo $domain;</php>" placeholder="" required>
+                                            <small class="help-block">API只支持新增配置，不支持修改 每个商户最多配置5个支付目录</small>
+                                        </div>
+                                    </div>
+                                    <p class="text-semibold text-main">已配置授权目录:</p>
+                                    <foreach name="jsapi_path_list" item="v">
+                                        <p style="border-bottom: 1px solid #e9e9e9;">{$v}</p>
+                                    </foreach>
+
+                                </div>
+                            </div>
+                            <div class="panel-footer text-right">
+                                <div class="row">
+                                    <div class="col-sm-9 col-sm-offset-3">
+                                        <input type="hidden" name="api_type" value="path">
+                                        <input type="hidden" name="id" value="{$id}">
+                                        <button class="btn btn-mint" type="button" id="path">提交</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="panel" style="border-radius: 3px;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">APPID关联</h3>
+                        </div>
+                        <form id="sub_form" class="panel-body form-horizontal form-padding" ajax="n">
+                            <div class="panel-body">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">关联APPID</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="sub_appid"  class="form-control" value="" placeholder="" required>
+                                            <small class="help-block">可以绑定服务商公司名字相同的公众号、小程序、开放平台应用的APPID;</small>
+                                        </div>
+                                    </div>
+                                    <p class="text-semibold text-main">已配置的关联APPID:</p>
+                                    <foreach name="appid_config_list" item="v">
+                                        <p style="border-bottom: 1px solid #e9e9e9;">{$v.sub_appid}</p>
+                                    </foreach>
+                                </div>
+                            </div>
+                            <div class="panel-footer text-right">
+                                <div class="row">
+                                    <div class="col-sm-9 col-sm-offset-3">
+                                        <input type="hidden" name="api_type" value="sub">
+                                        <input type="hidden" name="id" value="{$id}">
+                                        <button class="btn btn-mint" type="button" id="sub">提交</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="panel" style="border-radius: 3px;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">关注配置</h3>
+                        </div>
+                        <form id="appid_form" class="panel-body form-horizontal form-padding" ajax="n">
+                        <div class="panel-body">
+                            <div class="col-sm-5">
+                                    <span>API只支持新增配置，配置后隔30天才能重新修改，所以配置前请确认appid是否正确</span>
+                                    <div class="form-group pad-ver">
+                                        <label class="col-md-3 control-label">关注类型</label>
+                                        <div class="col-md-9">
+                                            <div class="radio">
+                                                <input id="demo-inline-form-radio" class="magic-radio" type="radio" name="sub_type" value="1" checked="">
+                                                <label for="demo-inline-form-radio">公众号</label>
+                                                <input id="demo-inline-form-radio-2" class="magic-radio" type="radio" name="sub_type" value="2">
+                                                <label for="demo-inline-form-radio-2">小程序</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="subscribe_appid">
+                                        <label class="col-md-3 control-label" >推荐关注APPID</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="subscribe_appid"  class="form-control" value="{$appid}" placeholder="">
+                                            <small class="help-block">服务商的公众号APPID</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="receipt_appid">
+                                        <label class="col-md-3 control-label" >推荐小程序APPID</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="receipt_appid" class="form-control" placeholder="">
+                                            <small class="help-block">需为通过微信认证的小程序appid，且认证主体与服务商主体一致</small>
+                                        </div>
+                                    </div>
+                                <p class="text-semibold text-main">已配置的关注APPID:</p>
+                                <foreach name="appid_config_list" item="v">
+                                    <p style="border-bottom: 1px solid #e9e9e9;">{$v.subscribe_appid}</p>
+                                </foreach>
+                            </div>
+                        </div>
+                        <div class="panel-footer text-right">
+                            <div class="row">
+                                <div class="col-sm-9 col-sm-offset-3">
+                                    <input type="hidden" name="api_type" value="appid">
+                                    <input type="hidden" name="id" value="{$id}">
+                                    <button class="btn btn-mint" type="submit" id="appid">提交</button>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+
+                </div>
+        </div>
+    </div>
+</div>
+<script>
+    var subscribe_appid=$('#subscribe_appid'),receipt_appid=$('#receipt_appid'),subscribe_appid_name=$("[name='subscribe_appid']"),receipt_appid_name=$("[name='receipt_appid']");
+    $('[name="sub_type"]').change(sub_type);
+    sub_type();
+    function sub_type() {
+        var val=$("input[name='sub_type']:checked").val();
+        if(val==1){
+            subscribe_appid.show();
+            receipt_appid.hide();
+            subscribe_appid_name.attr('required',true);
+            receipt_appid_name.attr('required',false);
+        }else{
+            subscribe_appid.hide().attr('required',false);
+            receipt_appid.show().attr('required',true);
+            subscribe_appid_name.attr('required',false);
+            receipt_appid_name.attr('required',true);
+        }
+    }
+    $('#path').click(function () {
+        loading('支付授权目录配置中...');
+        $.post('{:U("mchConfig")}',  $('#path_form').serialize(), function (data) {
+            if (data.status) {
+                layer.closeAll();
+                layer.alert(data.info, {
+                    skin: 'layui-layer-lan'
+                    ,title: "请求结果"
+                    ,offset: '100px'
+                },function (e) {
+                    window.location.reload();
+                });
+            }
+            else {
+                layer.alert(data.info);
+            }
+        }, 'json');
+    });
+    $('#sub').click(function () {
+        loading('关联APPID信息配置中...');
+        $.post('{:U("mchConfig")}',  $('#sub_form').serialize(), function (data) {
+            if (data.status) {
+                layer.closeAll();
+                layer.alert(data.info, {
+                    skin: 'layui-layer-lan'
+                    ,title: "请求结果"
+                    ,offset: '100px'
+                },function (e) {
+                    window.location.reload();
+                });
+            }
+            else {
+                layer.alert(data.info);
+            }
+        }, 'json');
+    });
+    $('#appid_form').submit(function (e) {
+        e.preventDefault();
+        loading('推荐关注配置中...');
+        $.post('{:U("mchConfig")}',  $('#appid_form').serialize(), function (data) {
+            if (data.status) {
+                layer.closeAll();
+                layer.alert(data.info, {
+                    skin: 'layui-layer-lan'
+                    ,title: "请求结果"
+                    ,offset: '100px'
+                },function (e) {
+                    window.location.reload();
+                });
+            }
+            else {
+                layer.alert(data.info);
+            }
+        }, 'json');
+    });
+    function loading(text) {
+        layer.msg(text, {
+            icon: 16,
+            shade: 0.2,
+            time:300000
+        });
+    }
+
+</script>

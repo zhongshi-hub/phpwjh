@@ -1,0 +1,71 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <form method="post" action="" ajax="yes">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{:$title}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="row">
+                            <div class="alert alert-mint">
+                                <strong>商户一键迁移到营销模式下说明:</strong><P>请确保等级配置处已添加等级</P>
+                                <p>基础设置处参数已设置</p>
+                                <p>当前商户通道已进件,如未进件  请先进件后操作！</p>
+                                <p>要转移的商户代理必须先过户到基础设置的管理代理名下!</p>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">所属商户</label>
+                                    <input id="dialog_mch_name" class="form-control mid_dialog" type="text"  value="">
+                                    <input id="dialog_mid" class="form-control" type="hidden" name="mid" value="">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">所属上级ID</label>
+                                    <input class="form-control"  name="pid" type="text"  value="" placeholder="0为平台 其它上级参考商户列表商户ID">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label class="control-label">所属等级</label>
+                                        <select data-placeholder="请选择..." tabindex="2" class="form-control" name="grade" required="required" style="width: 200px">
+                                            <foreach name="list" item="v">
+                                                <option value="{$v.id}" <eq name="data.grade" value="$v.id">selected</eq>>{$v.name}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                    <p>备注: 商户的等级</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="panel-footer text-right">
+                    <button class="btn btn-success" type="submit">一键迁移数据</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    $('.mid_dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'商户检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Merchant/mch_dialog')}"
+        });
+    });
+</script>
+<include file="Public/footer"/>

@@ -1,0 +1,209 @@
+<include file="Public/header"/>
+<style>
+    .state{cursor: pointer}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{$title|default='小微进件'}</h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="{:U('xwList')}" ajax="n">
+                        <div class="panel-body">
+                            <div class="row ">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">所属商户</label>
+                                        <input id="dialog_mch_name" class="form-control mid_dialog" type="text"  value="">
+                                        <input id="dialog_mid" class="form-control" type="hidden" name="mid" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">申请结果</label>
+                                        <select  class="form-control" name="applyment_state">
+                                            <option value="">所有状态</option>
+                                            <option value="AUDITING" style="color: #99a79e">审核中</option>
+                                            <option value="REJECTED" style="color: #de2f54">已驳回</option>
+                                            <option value="FROZEN" style="color: #8651ff">已冻结</option>
+                                            <option value="TO_BE_SIGNED" style="color: #1d8be9">待签约</option>
+                                            <option value="FINISH" style="color: #06c64c">已完成</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button style="float: right" class="btn btn-success" type="submit">搜索</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+                                <button id="mchIn" class="btn btn-purple"><i class="demo-pli-add icon-fw"></i>小微进件</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                        </div>
+                    </div>
+                </div>
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">微信申请单号</th>
+                        <th class="text-center" style="width: 100px">关联商户</th>
+                        <th class="text-center">服务商MCHID</th>
+                        <th class="text-center">商户号</th>
+                        <th class="text-center" style="width: 100px">商户名称</th>
+                        <th class="text-center">联系人</th>
+                        <th class="text-center">申请时间</th>
+                        <th class="text-center">更新时间</th>
+                        <th class="text-center">申请状态</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center" title="平台申请单号: {$v.business_code}">
+                                {$v.applyment_id}
+                            </td>
+
+                            <td class="text-center"><php>$seller=Get_Seller($v['mid']); echo $seller['mch_name'];</php></td>
+                            <td class="text-center">
+                                {$v.mch_id}
+                            </td>
+                            <td class="text-center">
+                                {$v.sub_mch_id|default="---"}
+                            </td>
+                            <td class="text-center">
+                                {$v.mch_name}
+                            </td>
+                            <td class="text-center">
+                                {$v.id_card_name}
+                            </td>
+
+                            <td class="text-center">{$v['create_time'|date='Y-m-d H:i:s',###]}</td>
+                            <td class="text-center">{$v['update_time'|date='Y-m-d H:i:s',###]}</td>
+                            <td class="text-center">
+                                <switch name="v.applyment_state">
+                                    <case value="AUDITING">
+                                        <span class="state label label-danger" data-id="{$v.id}" style="background-color:#99a79e;font-size:12px;font-weight:1;border-radius: 5px;">审核中</span>
+                                    </case>
+                                    <case value="REJECTED">
+                                        <span class="state label label-danger"  data-id="{$v.id}" style="background-color:#de2f54;font-size:12px;font-weight:1;border-radius: 5px;">已驳回</span>
+                                    </case>
+                                    <case value="FROZEN">
+                                        <span class="state label label-danger"  data-id="{$v.id}" style="background-color:#8651ff;font-size:12px;font-weight:1;border-radius: 5px;">已冻结</span>
+                                    </case>
+                                    <case value="TO_BE_SIGNED">
+                                        <span class="state label label-danger"  data-id="{$v.id}" style="background-color:#1d8be9;font-size:12px;font-weight:1;border-radius: 5px;">待签约</span>
+                                    </case>
+                                    <case value="FINISH">
+                                        <span class="state label label-danger"  data-id="{$v.id}" style="background-color:#06c64c;font-size:12px;font-weight:1;border-radius: 5px;">已完成</span>
+                                    </case>
+                                    <default />
+                                    <span class="state label label-default"  data-id="{$v.id}" style="font-size:12px;font-weight:1;border-radius: 5px;">未知状态</span>
+                                </switch>
+                            </td>
+                            <td class="text-center">
+                                <a href="{:U('info',['applyment_id'=>$v['applyment_id'],'m'=>$v['mid']])}" class="btn btn-sm btn-default btn-active-primary">
+                                    资料
+                                </a>
+
+                                <button onclick="window.location.href='{:U('xwIn',['id'=>$v['mid'],'business_code'=>$v['business_code']])}'" class="btn btn-sm btn-default btn-active-primary" type="button" aria-expanded="false" <neq name="v.applyment_state" value="REJECTED">disabled</neq>>
+                                    重新入网
+                                </button>
+                                <button onclick="window.location.href='{:U('upInfo',['id'=>$v['id'],'business_code'=>$v['business_code']])}'" class="btn btn-sm btn-default btn-active-primary" type="button" aria-expanded="false" <neq name="v.applyment_state" value="FINISH">disabled</neq>>
+                                    升级
+                                </button>
+                                <div class="btn-group dropup">
+                                    <button class="btn btn-sm btn-default btn-active-primary dropdown-toggle dropdown-toggle-icon" data-toggle="dropdown" type="button" aria-expanded="false" <neq name="v.applyment_state" value="FINISH">disabled</neq>>
+                                        变更 <i class="dropdown-caret caret-up"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{:U('alterInfo',['id'=>$v['id']])}">联系信息</a></li>
+                                        <li><a href="{:U('alterInfo',['type'=>'bank','id'=>$v['id']])}">结算银行卡</a></li>
+                                    </ul>
+                                </div>
+
+                                <button onclick="window.location.href='{:U('mchConfig',['id'=>$v['id'],'business_code'=>$v['business_code']])}'" class="btn btn-sm btn-default btn-active-primary" type="button" aria-expanded="false" <neq name="v.applyment_state" value="FINISH">disabled</neq>>
+                                配置
+                                </button>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="18">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.state').click(function (e) {
+       var id=$(this).data('id');
+        loading('请求审核结果中...');
+        $.post('{:U("applyState")}', {id:id}, function (data) {
+            if (data.status) {
+               layer.closeAll();
+               layer.alert(data.info, {
+                   skin: 'layui-layer-lan'
+                   ,title: "审核结果"
+                   ,offset: '100px'
+               },function (e) {
+                   window.location.reload();
+               });
+            }
+            else {
+                layer.msg(data.info, {time:5000,shade: 0.03});
+            }
+        }, 'json');
+    });
+
+    function loading(text) {
+        layer.msg(text, {
+            icon: 16,
+            shade: 0.2,
+            time:300000
+        });
+    }
+
+    $('#mchIn').click(function () {
+       var mid=$('[name="mid"]').val();
+       if(mid==''||!mid){
+         layer.alert('请先选择所属商户');
+       }else {
+           window.location.href = "{:U('xwIn')}/id/" + mid;
+       }
+    });
+    $('.mid_dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'商户检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Merchant/mch_dialog')}"
+        });
+    });
+</script>
+
+
+<include file="Public/footer"/>

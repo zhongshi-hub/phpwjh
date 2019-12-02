@@ -1,0 +1,158 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <ul class="nav nav-tabs">
+                        <li ><a href="{:U('index',['id'=>$_GET['id']])}">基本配置</a></li>
+                        <li class="active"><a href="{:U('setList',['id'=>$_GET['id']])}">充值记录</a></li>
+                        <li class=""><a href="{:U('payList',['id'=>$_GET['id']])}">扣费记录</a></li>
+                    </ul>
+                </div>
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+
+
+            <!--筛选功能结束-->
+            <div class="panel-body">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div class="col-xs-4" >
+                                    <p class="h2  text-thin mar-no pad-all">{$arr.eTotal|default="0"}</p>
+                                    <small class="text-lg">可用余额</small>
+                                </div>
+                                <div class="col-xs-4">
+                                    <p class="h2 text-thin mar-no pad-all">{$arr.sum|default="0"}</p>
+                                    <small class="text-lg">充值总额</small>
+                                </div>
+                                <div class="col-xs-4" >
+                                    <p class="h2  text-thin mar-no pad-all">{$arr.count|default="0"}</p>
+                                    <small class="text-lg">充值笔数</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--筛选功能开始-->
+                <!--<div class="row">-->
+                    <!--<div class="col-sm-12">-->
+                        <!--<form method="post" action="{:U('_log')}" ajax="n">-->
+                            <!--<div class="panel-body">-->
+                                <!--<div class="row ">-->
+                                    <!--<div class="col-sm-3">-->
+                                        <!--<div class="form-group">-->
+                                            <!--<label class="control-label">所属商户</label>-->
+                                            <!--<input id="dialog_mch_name" class="form-control mid_dialog" type="text"  value="">-->
+                                            <!--<input id="dialog_mid" class="form-control" type="hidden" name="mid" value="">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-sm-3">-->
+                                        <!--<div class="form-group">-->
+                                            <!--<label class="control-label">变更结果</label>-->
+                                            <!--<select  class="form-control" name="status" >-->
+                                                <!--<option value="">所有状态</option>-->
+                                                <!--<option value="1">变更成功</option>-->
+                                                <!--<option value="0">变更失败</option>-->
+                                            <!--</select>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                        <!--<button style="float: right" class="btn btn-success" type="submit">搜索</button>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                        <!--</form>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+                                <button id="set" data-mid="{$Think.get.id}" class="btn btn-success"><i class="demo-pli-add icon-fw"></i>流量充值
+                                </button>                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                        </div>
+                    </div>
+                </div>
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">所属商户</th>
+                        <th class="text-center">商户手机号</th>
+                        <th class="text-center">充值金额</th>
+                        <th class="text-center">付款方式</th>
+                        <th class="text-center">充值订单号</th>
+                        <th class="text-center">充值日期</th>
+                        <th class="text-center">充值状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center"><php>$seller=Get_Seller($v['mid']); if($seller['mch_name']){echo $seller['mch_name'];}else{ echo $v['mid'];};</php></td>
+                            <td class="text-center"><php>$seller=Get_Seller($v['mid']); if($seller['mch_name']){echo $seller['mch_tel'];}else{ echo $v['mid'];};</php></td>
+                            <td class="text-center">
+                                {$v.total}
+                            </td>
+                            <td class="text-center">
+                                {$v.pay_type}
+                            </td>
+                            <td class="text-center">
+                                {$v.oid}
+                            </td>
+                            <td class="text-center">
+                                {$v.time|date='Y-m-d H:i:s',###}
+                            </td>
+                            <td class="text-center">
+                                <if condition="$v['status'] eq 1">
+                                    <span class="label label-success" style="font-size:12px;font-weight:1;border-radius: 5px;">成功</span>
+                                    <elseif condition="$v['status'] eq 2"/>
+                                    <span class="label label-dark" style="font-size:12px;font-weight:1;border-radius: 5px;">已退款</span>
+                                    <else/>
+                                    <span class="label label-default" style="font-size:12px;font-weight:1;border-radius: 5px;">失败/交易中</span>
+                                </if>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#set').click(function () {
+        var id=$(this).data('mid');
+        if(id===''){
+            layer.msg('获取ID信息失败');
+        }
+        layer.prompt({title: '请输入充值金额', formType: 0}, function (text) {
+            var ajax_data = {'mid': id, 'total': text,'type':'set'};
+            $.post("{:U('setTotal')}", ajax_data, function (data) {
+                if (data.status == 1) {
+                    layer.msg(data.info);
+                    window.location.reload();
+                }
+                else {
+                    layer.msg(data.info);
+                }
+            }, 'json');
+
+        });
+    })
+</script>
+<include file="Public/footer"/>

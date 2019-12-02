@@ -1,0 +1,266 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{:$title}-<span style="color: red"><php>$seller=Get_Seller($_GET['id']); echo $seller['mch_name'];</php>--<php>$store=Get_Store($_GET['store_id']); echo $store['name'];</php></span></h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="" ajax="n">
+                        <div class="panel-body">
+                            <div class="row ">
+                                <div>
+                                    <button type="button" style="float: left" id="StoreAdd" class="btn btn-purple"><i class="demo-pli-add icon-fw"></i>添加店员</button>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+            <div class="panel-body">
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">所属商户</th>
+                        <th class="text-center">门店名称</th>
+                        <th class="text-center">店员姓名</th>
+                        <th class="text-center">店员手机</th>
+                        <th class="text-center">店员微信</th>
+                        <th class="text-center">店员状态</th>
+                        <th class="text-center">加入时间</th>
+                        <th class="text-center">订单通知权限</th>
+                        <th class="text-center">流水账单权限</th>
+                        <th class="text-center">登录账户</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center"><php>$seller=Get_Seller($v['sid']); echo $seller['mch_name'];</php></td>
+                            <td class="text-center"><php>$store=Get_Store($v['store_id']); echo $store['name'];</php></td>
+                            <td class="text-center">{$v.username}</td>
+                            <td class="text-center">{$v.phone}</td>
+                            <td class="text-left"><img src="{$v['wx_imgurl']}" style="width: 30px"/> {$v['wx_name']}</td>
+                            <td class="text-center">
+                                <if condition="$v['status'] eq 1">
+                                    <span class="label label-danger"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">开启</span>
+                                    <else/>
+                                    <span class="label label-default"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">禁用</span>
+                                </if>
+                            </td>
+                            <td class="text-center">
+                                {$v.ctime|date='Y-m-d H:i:s',###}
+                            </td>
+                            <td class="text-center">
+                                <if condition="$v['role_wx_temp'] eq 1">
+                                    <span class="label label-danger"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">开启</span>
+                                    <else/>
+                                    <span class="label label-default"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">禁用</span>
+                                </if>
+                            </td>
+                            <td class="text-center">
+                                <if condition="$v['role_order'] eq 1">
+                                    <span class="label label-danger"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">开启</span>
+                                    <else/>
+                                    <span class="label label-default"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">禁用</span>
+                                </if>
+                            </td>
+                            <td class="text-center">{$v.store_id}@{$v.phone}</td>
+                            <td class="text-center">
+                                <button onclick="Store_edit({$v.sid},{$v.id})" class="btn btn-info btn-sm" type="button">编辑</button>
+                                <button onclick="Store_del({$v.sid},{$v.id})" class="btn btn-danger btn-sm" type="button">删除</button>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="Store-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="S_title">
+                    编辑店员
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('store_user_save')}" method="post">
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">店员姓名</label>
+                                    <input class="form-control" type="text" name="username" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">店员电话</label>
+                                    <input class="form-control" type="text" name="phone" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <div class="form-group">
+                                    <img class="form-control" id="wx_img" src="" style="height: 60px!important;width: 60px;padding: 0px">
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <label class="control-label">微信名称</label>
+                                    <input class="form-control" type="text" name="wx_name" disabled>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">店员状态</label>
+                                    <select   class="form-control" name="status" required>
+                                        <option value="1">开启</option>
+                                        <option value="0">禁用</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label"> 登录密码</label>
+                                    <input class="form-control" type="text" name="password" placeholder="为空不修改密码">
+                                </div>
+                            </div>
+                        </div>
+                        <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">店员权限</p>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="checkbox">
+                                    <input name="role_wx_temp" id="role_wx_temp" class="magic-checkbox" type="checkbox">
+                                    <label for="role_wx_temp">订单通知(微信)</label>
+                                    <input name="role_order" id="role_order" class="magic-checkbox" type="checkbox">
+                                    <label for="role_order">流水账单</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="sid" value="">
+                        <input type="hidden" name="store_id" value="">
+                        <input type="hidden" name="id" value="">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+<script>
+    $('#StoreAdd').click(function () {
+        var url="{$QrUrl}";
+        layer.open({
+            type: 1,
+            fixed: false, //不固定
+            maxmin: false,
+            title:false,
+            content: "<img src='"+url+"' width='300px' height='300px' style='padding: 10px'/><p style='text-align: center'>将二维码让店员使用微信扫码绑定</p>"
+        });
+    });
+    
+    function Store_edit(sid,id) {
+        var ajax_data ={'id':id,'sid':sid};
+        $.post("{:U('store_user_data')}", ajax_data, function(data){
+            if(data.status == 1){
+                $("[name='id']").val(data.info.id);
+                $("[name='sid']").val(data.info.sid);
+                $("[name='store_id']").val(data.info.store_id);
+                $("[name='username']").val(data.info.username);
+                $("[name='phone']").val(data.info.phone);
+                $("[name='wx_name']").val(data.info.wx_name);
+                $("[name='status'] option[value='"+data.info.status+"']").attr("selected", true);
+                $("#wx_img").attr('src',data.info.wx_imgurl);
+                if(data.info.role_wx_temp == '0'){
+                    document.getElementById('role_wx_temp').checked = false;
+                }else{
+                    document.getElementById('role_wx_temp').checked = true;
+                }
+                if(data.info.role_order == '0'){
+                    document.getElementById('role_order').checked = false;
+                }else{
+                    document.getElementById('role_order').checked = true;
+                }
+                $('#Store-add').modal('show');
+            }
+            else{
+                layer.msg( data.info, function(){
+                });
+            }
+        }, 'json');
+    }
+
+    function Store_del(sid,id) {
+        var ajax_data ={'id':id,'sid':sid};
+        layer.msg('你确认删除当前店员吗?', {
+            time: 0 //不自动关闭
+            ,btn: ['确认删除', '我再想想']
+            ,yes: function(index){
+                layer.close(index);
+                $.post("{:U('store_user_del')}", ajax_data, function(data){
+                    if(data.status == 1){
+                        $.niftyNoty({
+                            type: 'success',
+                            message : '<strong>'+data.info+'</strong> 3秒后自动跳转!',
+                            container : 'floating',
+                            timer : 3000
+                        });
+                        setTimeout(function(){
+                            window.location.href=data.url
+                        }, 3000);
+                    }else{
+                        $.niftyNoty({
+                            type: 'danger',
+                            message : '<strong>'+data.info+'</strong>',
+                            container : 'floating',
+                            timer : 5000
+                        });
+                    }
+                }, 'json');
+            }
+        });
+    }
+
+
+</script>
+
+
+<include file="Public/footer"/>

@@ -1,0 +1,682 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <present name="Think.get.pid">子</present>
+                    {:$title}
+                </h3>
+
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="" ajax="n">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">详细信息</label>
+                                        <input class="form-control" type="text" placeholder="支持 姓名/联系电话111111111111111111111111111111111"
+                                               name="search_val" value="">
+                                    </div>
+                                </div>
+                                <div id="SerCh">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">省级筛选</label>
+                                            <select data-placeholder="请选择..." tabindex="10" class="form-control"
+                                                    name="sprovince">
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">市级筛选</label>
+                                            <select class="form-control" name="scity">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">县级筛选</label>
+                                            <select class="form-control" name="sdistrict">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1">
+                                    <div class="form-group">
+                                        <label class="control-label">状态筛选</label>
+                                        <select class="form-control" name="status">
+                                            <option value="3">所有</option>
+                                            <option value="1">开启</option>
+                                            <option value="2">禁用</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1" style="display: none">
+                                    <div class="form-group">
+                                        <label class="control-label">认证费用</label>
+                                        <select class="form-control" name="auth_status">
+                                            <option value="3">所有</option>
+                                            <option value="1">开启</option>
+                                            <option value="2">禁用</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-right">
+                                <input type="hidden" name="pid"
+                                       value="<present name='Think.get.pid'>{$Think.get.pid}<else/> 0</present>">
+                                <button class="btn btn-success" type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+
+
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+                                <present name="Think.get.pid">
+                                    <button id="AgentAdd" class="btn btn-info"><i class="demo-pli-add icon-fw"></i>添加子代理
+                                    </button>
+                                    <else/>
+                                    <button id="AgentAdd" class="btn btn-purple"><i class="demo-pli-add icon-fw"></i>添加代理
+                                    </button>
+                                </present>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                        </div>
+                    </div>
+                </div>
+                <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">代理ID</th>
+                        <present name="Think.get.pid">
+                            <th class="text-center">上级代理</th>
+                        </present>
+                        <th class="text-center">代理姓名</th>
+                        <th class="text-center">联系电话</th>
+                        <th class="text-center">通道费率</th>
+                        <th class="text-center">代理状态</th>
+                        <!--<th class="text-center">认证费用</th>-->
+                        <th class="text-center">加入时间</th>
+                        <!--<th class="text-center">邀请码</th>-->
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center">{$v.id}</td>
+                            <present name="Think.get.pid">
+                                <td class="text-center">{$v['pid']|agent_name}</td>
+                            </present>
+                            <td class="text-center">{$v.user_name}</td>
+                            <td class="text-center">{$v.user_phone}</td>
+                            <td class="text-center"><span class="label label-success"
+                                      style="cursor:pointer;font-size:12px;font-weight:1;border-radius: 5px;"
+                                      onclick="A_Rate({$v['id']},{$v['pid']},'{$v.user_name}')">详情</span></td>
+                            <td class="text-center">
+                                <if condition="$v.status eq 1">
+                                    <span class="label label-danger"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">开启</span>
+                                    <else/>
+                                    <span class="label label-default"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">禁用</span>
+                                </if>
+                            </td>
+                            <!--<td class="text-center">-->
+                                <!--<if condition="$v.auth_status eq 1">-->
+                                    <!--<span class="label label-danger"-->
+                                          <!--style="font-size:12px;font-weight:1;border-radius: 5px;">开启</span>-->
+                                    <!--<else/>-->
+                                    <!--<span class="label label-default"-->
+                                          <!--style="font-size:12px;font-weight:1;border-radius: 5px;">禁用</span>-->
+                                <!--</if>-->
+                            <!--</td>-->
+                            <td class="text-center">{$v['ctime'|date='Y-m-d H:i:s',###]}</td>
+                            <!--<td class="text-center" style="cursor: pointer" onclick="agentCode('{$v.id|agentCode}')">点击查看</td>-->
+                            <td class="text-center">
+                                <div class="btn-group btn-group-sm dropup ">
+                                    <button class="btn btn-default btn-active-purple dropdown-toggle" data-toggle="dropdown" type="button">
+                                        操作 <i class="dropdown-caret caret-up"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li class="dropdown-header">请选择操作</li>
+                                        <li><a href="{:U('lists',array('pid'=>$v['id']))}">子代理</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="JavaScript:;" onclick="edit({$v.id})">信息详情</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="javaScript:;" class="restPassword" data-id="{$v.id}" data-name="{$v.user_name}|{$v.user_phone}">重置密码</a></li>
+                                        <li><a href="{:U('agent_login',array('id'=>$v['id']))}" target="_blank">登入代理端</a></li>
+                                    </ul>
+                                </div>
+
+
+                                <!--<a href="{:U('lists',array('pid'=>$v['id']))}" class="btn btn-mint btn-rounded btn-sm">子代理</a>-->
+                                <!--<button class="btn btn-purple btn-sm" type="submit" onclick="edit({$v.id})">信息详情-->
+                                <!--</button>-->
+                                <!--<button class="btn btn-success btn-sm" type="submit" onclick="getTree({$v.id})">层次分析</button>-->
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="Agent-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    添加代理
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('adds')}" method="post">
+                    <div class="panel-body">
+                        <div id="Set">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">代理姓名</label>
+                                        <input class="form-control" type="text" name="user_name" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">联系电话</label>
+                                        <input class="form-control" type="text" name="user_phone" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">所属省份</label>
+                                        <select data-placeholder="请选择..." tabindex="10" class="form-control"
+                                                name="province" id="province_add" >
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">所属城市</label>
+                                        <select class="form-control" name="city" >
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">所属县级</label>
+                                        <select class="form-control" name="district" >
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">详细地址</label>
+                                        <input class="form-control" type="text" name="address" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">代理状态</label>
+                                    <select tabindex="2" class="form-control" name="status" required>
+                                        <option value="1">开启</option>
+                                        <option value="0">禁用</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3" style="display: none">
+                                <div class="form-group">
+                                    <label class="control-label">自助发码</label>
+                                    <select tabindex="2" class="form-control" name="ma_status" required>
+                                        <option value="1">开启</option>
+                                        <option value="0" selected>禁用</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">发展下级</label>
+                                    <select tabindex="2" class="input-md form-control" name="x_status" required>
+                                        <option value="1">开启</option>
+                                        <option value="0">禁用</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3" style="display: none">
+                                <div class="form-group">
+                                    <label class="control-label">认证费用</label>
+                                    <select tabindex="2" class="form-control" name="auth_status" >
+                                        <option value="1">开启</option>
+                                        <option value="0" selected>禁用</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">结算账户</label>
+                                    <input class="form-control" type="text" name="account"
+                                           placeholder="结算信息  此处只作为系统记录使用">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-6" style="display: none">
+                                <div class="form-group">
+                                    <label class="control-label">认证返佣金额(元)</label>
+                                    <input class="form-control" type="text" name="auth_fee" value="0" placeholder="只有开启认证费用才计算"
+                                           >
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row" style="display: none">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">AD-信用卡链接</label>
+                                    <input class="form-control" type="url" name="ad1" placeholder="填写链接地址系统自动生成链接二维码 为空不显示">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">AD-贷款链接</label>
+                                    <input class="form-control" type="url" name="ad2" placeholder="填写链接地址系统自动生成链接二维码 为空不显示">
+                                </div>
+                            </div>
+                        </div>
+                        <php>if(is_admin()){</php>
+                        <p style="border-bottom: 1px solid #dbdbdb;padding: 5px 0">邀请码关联配置(如下面配置 将参与推荐码分润汇总)</p>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label">代理级别</label>
+                                    <select tabindex="2" class="input-md form-control" name="grade">
+                                        <option value="">-请选择-</option>
+                                        <option value="1">服务商</option>
+                                        <option value="2">省代</option>
+                                        <option value="3">市代</option>
+                                        <option value="4">区代</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label">缴费状态</label>
+                                    <select tabindex="2" class="input-md form-control" name="pay_status">
+                                        <option value="0" selected>未交费</option>
+                                        <option value="1">已缴费</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label">邀请码</label>
+                                    <input class="form-control" type="text" name="invite_code"  placeholder="代理的邀请码 六位字符串">
+                                </div>
+                            </div>
+                        </div>
+                        <php>}</php>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">备注</label>
+                                    <input class="form-control" type="text" name="AgentInfo" placeholder="备注信息"
+                                           required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="panel-footer text-right">
+                        
+                        <input type="hidden" name="pid" value="<present name='Think.get.pid'>{$Think.get.pid}<else/> 0</present>">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="Agent-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    代理详情
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('edits')}" method="post">
+                    <div class="panel-body">
+                        <div id="Set_edit">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">代理姓名</label>
+                                        <input class="form-control" type="text" name="user_name" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">联系电话</label>
+                                        <input class="form-control" type="text" name="user_phone" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">所属省份</label>
+                                        <select class="form-control" name="province" required>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">所属城市</label>
+                                        <select class="form-control" name="city" required>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">所属县级</label>
+                                        <select class="form-control" name="district" required>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">详细地址</label>
+                                        <input class="form-control" type="text" name="address" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">代理状态</label>
+                                    <select tabindex="2" class="form-control" name="status" required>
+                                        <option value="1">开启</option>
+                                        <option value="0">禁用</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">发展下级</label>
+                                    <select tabindex="2" class="input-md form-control" name="x_status" required>
+                                        <option value="1">开启</option>
+                                        <option value="0">禁用</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">结算账户</label>
+                                    <input class="form-control" type="text" name="account"  placeholder="结算信息  此处只作为系统记录使用">
+                                </div>
+                            </div>
+                        </div>
+                        <php>if(is_admin()){</php>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label">代理级别</label>
+                                    <select tabindex="2" class="input-md form-control" name="grade">
+                                        <option value="">-请选择-</option>
+                                        <option value="1">服务商</option>
+                                        <option value="2">省代</option>
+                                        <option value="3">市代</option>
+                                        <option value="4">区代</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label">缴费状态</label>
+                                    <select tabindex="2" class="input-md form-control" name="pay_status">
+                                        <option value="1">已缴费</option>
+                                        <option value="0" selected>未交费</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label">邀请码</label>
+                                    <input class="form-control" type="text" name="invite_code"  placeholder="代理的要求码 六位字符串">
+                                </div>
+                            </div>
+                        </div>
+                        <php>}</php>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">备注</label>
+                                    <input class="form-control" type="text" name="AgentInfo" placeholder="备注信息"
+                                           required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="id" value="">
+                        <input type="hidden" name="pid"
+                               value="<present name='Think.get.pid'>{$Think.get.pid}<else/> 0</present>">
+                        <button class="btn btn-success" type="button" id="edit_button">编辑</button>
+                        <button class="btn btn-info" type="button" id="not_button">取消编辑</button>
+                        <button class="btn btn-danger" type="submit" id="sub_button">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--代理费率配置-->
+<!--代理费率结束-->
+
+
+<!-- 模态框关闭 -->
+<script type="text/javascript" src="__PUBLIC__/plug/CSXClass/distpicker.min.js"></script>
+<script>
+    $(function () {
+        $("#SerCh").distpicker({
+            province: "---- 所在省 ----",
+            city: "---- 所在市 ----",
+            district: "---- 所在区 ----"
+        });
+        $("#Set").distpicker({placeholder: false});
+        //$("#Set_edit").distpicker({placeholder: false});
+        $("#province_add").chosen();
+        $("#province_edit").chosen();
+    });
+
+    $('#AgentAdd').click(function () {
+        $('.chosen-container').css('width', '250px');
+        $('#Agent-add input').val('');
+        $('[name="pid"]').val('{$Think.get.pid}');
+        $('#Agent-add').modal('show');
+    });
+
+    $('.restPassword').click(function () {
+        var mchId=$(this).data('id'),mchName=$(this).data('name');
+        layer.prompt({title: '重置密码('+mchName+')', formType: 0}, function(text){
+            var ajax_data ={'id':mchId,'pass':text};
+            $.post("{:U('restPassword')}", ajax_data, function(data){
+                if(data.status == 1){
+                    layer.closeAll();
+                    layer.alert(data.info);
+                }else{
+                    layer.msg( data.info, function(){
+                    });
+                }
+            }, 'json');
+
+        });
+    });
+
+    function agentCode(data) {
+        layer.open({
+            type: 2,
+            title:'代理邀请码',
+            area: ['360px', '600px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: data
+        });
+    }
+
+    function edit(id) {
+        if (id == '') {
+            $.niftyNoty({
+                type: 'danger',
+                message: '<strong>请刷新后重试</strong>',
+                container: 'floating',
+                timer: 5000
+            });
+        }
+        actionurl = "{:U('detail')}";
+        ajax_data = {id: id};
+        $.post(actionurl, ajax_data, function (data) {
+            if (data.status == 1) {
+                $('#Agent-edit input ').attr('disabled', true);
+                $('#Agent-edit select').attr('disabled', true);
+                $('#sub_button,#not_button').hide();
+                $("[name='user_name']").val(data.info.user_name);
+                $("[name='user_phone']").val(data.info.user_phone);
+                $("[name='address']").val(data.info.address);
+                $("[name='T1_COST']").val(data.info.t1_cost);
+                $("[name='T0_COST']").val(data.info.t0_cost);
+                $("[name='T1_TERM']").val(data.info.t1_term);
+                $("[name='T0_TERM']").val(data.info.t0_term);
+                $("[name='auth_fee']").val(data.info.auth_fee);
+                $("[name='account']").val(data.info.account);
+                $("[name='AgentInfo']").val(data.info.agentinfo);
+                $("[name='pid']").val(data.info.pid);
+                $("[name='id']").val(data.info.id);
+                $("[name='ad1']").val(data.info.ad1);
+                $("[name='ad2']").val(data.info.ad2);
+                <php>if(is_admin()){</php>
+                    $("[name='invite_code']").val(data.info.invite_code);
+                    $("[name='grade'] option[value='" + data.info.grade + "']").attr("selected", true);
+                    $("[name='pay_status'] option[value='" + data.info.pay_status + "']").attr("selected", true);
+                <php>}</php>
+                $("#Set_edit").distpicker({
+                    province: '' + data.info.province + '',
+                    city: '' + data.info.city + '',
+                    district: '' + data.info.district + ''
+                });
+                $("[name='status'] option[value='" + data.info.status + "']").attr("selected", true);
+                $("[name='ma_status'] option[value='" + data.info.ma_status + "']").attr("selected", true);
+                $("[name='x_status'] option[value='" + data.info.x_status + "']").attr("selected", true);
+                $("[name='auth_status'] option[value='" + data.info.auth_status + "']").attr("selected", true);
+                $('#Agent-edit').modal('show');
+            }
+            else {
+                $.niftyNoty({
+                    type: 'danger',
+                    message: '<strong>' + data.info + '</strong>',
+                    container: 'floating',
+                    timer: 5000
+                });
+            }
+        }, 'json');
+    }
+
+
+    $('#edit_button').click(function () {
+        $('#Agent-edit input ').attr('disabled', false);
+        $('#Agent-edit select').attr('disabled', false);
+        $('#sub_button,#not_button').show();
+        $('#edit_button').hide();
+    });
+    $('#not_button').click(function () {
+        $('#Agent-edit input ').attr('disabled', true);
+        $('#Agent-edit select').attr('disabled', true);
+        $('#sub_button,#not_button').hide();
+        $('#edit_button').show();
+    });
+
+    $('.close').click(function () {
+        $('#Agent-edit input ').attr('disabled', true);
+        $('#Agent-edit select').attr('disabled', true);
+        $('#sub_button,#not_button').hide();
+        $('#edit_button').show();
+    });
+
+
+    function A_Rate(id, pid,name) {
+        layer.open({
+         type: 2,
+         title:'代理姓名:'+name+'-通道费率配置',
+         area: '500px',
+         fixed: true, //不固定
+         maxmin: false,
+         offset: '50px',
+         content: '{:U("A_Rate")}/id/'+id+'/pid/'+pid,
+            success: function(layero, index) {
+                layer.iframeAuto(index);
+            }
+         });
+    }
+
+
+</script>
+<include file="Public/footer"/>

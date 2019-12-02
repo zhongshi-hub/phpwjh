@@ -1,0 +1,181 @@
+<include file="Public/header"/>
+<script>
+    $(function() {
+        $('#selectbisc').chosen();
+    });
+</script>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <ul class="nav nav-tabs">
+                        <li <eq name="_GET['status']" value="">class="active"</eq>><a href="{:U('accounts')}" >未结算</a></li>
+                        <li <eq name="_GET['status']" value="1">class="active"</eq>><a href="{:U('accounts',array('status'=>1))}" >已结算</a></li>
+                        <li <eq name="_GET['status']" value="2">class="active"</eq>><a href="{:U('accounts',array('status'=>2))}" >全部</a></li>
+                    </ul>
+                </div>
+                <h3 class="panel-title">渠道结算</h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="" ajax="n">
+                        <div class="panel-body">
+                            <div class="row">
+
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">所属渠道</label>
+                                        <select data-placeholder="请选择..." id="selectbisc" tabindex="2" class="form-control" name="partner">
+                                            <option value="" >--请选择--</option>
+                                            <foreach name="b_sic" item="vo">
+                                                <option value="{$vo.id}" <eq name="data.partner" value="$vo.id">selected="selected"</eq>>{$vo.parentname}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div id="demo-dp-range">
+                                        <label class="control-label">日期范围</label>
+                                        <div class="input-daterange input-group">
+                                            <input class="form-control" name="times" type="text" id="sd_time" value="{$data.times}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <input value="{$_GET['status']}" type="hidden" name="status">
+                                <button class="btn btn-success" type="submit">搜索</button>
+                                <button class="btn btn-default" value="ccl" name="export" type="submit"> <i class="fa fa-download"></i>导出</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                        </div>
+                    </div>
+                </div>
+                <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th>日结时间</th>
+                        <th>所属渠道</th>
+                        <th class="text-center">渠道编号</th>
+                        <th class="text-center">交易总笔数</th>
+                        <th class="text-center">交易总金额</th>
+                        <th class="text-center">分润金额</th>
+                        <th class="text-center">结算状态</th>
+                        <th class="text-center">结算时间</th>
+                        <th class="text-center">结算确认金额</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="list" item="v">
+                        <tr>
+                            <td>{$v.acctime|date='Y-m-d H:i:s',###}</td>
+                            <td>{$basics[$parent_apis[$v['partner']]]}</td>
+                            <td class="text-center">{$v.partner}</td>
+                            <td class="text-center">{$v.pay_count}</td>
+                            <td class="text-center">{$v.total_fee}</td>
+                            <td class="text-center"><span class="label label-mint" style="font-size:12px;font-weight:1;border-radius: 5px;">{$v.profit}</span></td>
+                            <td class="text-center">
+                                <eq name="v['status']" value="1">
+                                    <span class="label label-danger" style="font-size:12px;font-weight:1;border-radius: 5px;">已结算</span>
+                                <else/>
+                                    <span class="label label-default" style="font-size:12px;font-weight:1;border-radius: 5px;">未结算</span>
+                               </eq></td>
+                            <td class="text-center">{$v.fit_time|date='Y-m-d H:i:s',###}</td>
+                            <td class="text-center">{$v.fit_fee}</td>
+                            <td class="text-center">
+                                <a href="javascript:;" status="{$v.status}" fit_fee="{$v.fit_fee}" datatime="{$v['acctime']}" partner="{$v['partner']}" onclick="accounts_set(this)" class="btn btn-success btn-rounded btn-sm">结算</a>
+                                <a href="{:U('updates',array('datatime'=>$v['acctime'],'partner'=>$v['partner']))}" class="btn btn-mint btn-rounded btn-sm">更新</a>
+                                <a href="{:U('accounts_detail',array('datatime'=>$v['acctime'],'partner'=>$v['partner']))}" class="btn btn-danger btn-rounded btn-sm OpenUrl">结算详情</a>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="10">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 结算状态模态框开始 -->
+<div class="modal fade" id="account-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    结算信息
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="{:U('account_status')}" method="post">
+                    <div class="panel-body">
+                        <div class="input-group mar-btm">
+                            <span class="input-group-addon"><i class="demo-pli-star"></i></span>
+                            <input class="form-control" placeholder="确认结算金额" type="text" required="required" name="fit_fee" value="">
+                        </div>
+                        <div class="input-group mar-btm">
+                            <span class="input-group-addon"><i class="demo-pli-star"></i></span>
+                            <select class="form-control" name="status" id="status" required="required">
+                                <option value="0" >未结算</option>
+                                <option value="1" >已结算</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden"   class="form-control" name="datatime" >
+                        <input type="hidden"   class="form-control" name="partner" >
+                        <button class="btn btn-success" type="submit">确认提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 结算状态模态框结束 -->
+<script>
+    function accounts_set(val) {
+        var datatime=$(val).attr('datatime');
+        var partner=$(val).attr('partner');
+        var fit_fee=$(val).attr('fit_fee');
+        var status=$(val).attr('status');
+        $("input[name='datatime']").val(datatime);
+        $("input[name='partner']").val(partner);
+        $("input[name='fit_fee']").val(fit_fee);
+        if(status==1){
+            $("#status").find("option[value='1']").attr("selected","selected");
+        }else{
+            $("#status").find("option[value='0']").attr("selected","selected");
+        }
+        $('#account-edit').modal('show');
+
+    }
+</script>
+
+<include file="Public/footer"/>

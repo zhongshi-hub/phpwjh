@@ -1,0 +1,218 @@
+<include file="Public/header"/>
+<style>
+    .state{cursor: pointer}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{$title|default='口碑开店'}</h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="{:U('shopList')}" ajax="n">
+                        <div class="panel-body">
+                            <div class="row ">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">所属商户</label>
+                                        <input id="dialog_mch_name" class="form-control mid_dialog" type="text"  value="">
+                                        <input id="dialog_mid" class="form-control" type="hidden" name="mid" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">申请单状态</label>
+                                        <select  class="form-control" name="status">
+                                            <option value="">所有状态</option>
+                                            <option value="INIT" style="color: #99a79e">初始</option>
+                                            <option value="PROCESS" style="color: #1d8be9">处理中</option>
+                                            <option value="SUCCESS" style="color: #8651ff">成功</option>
+                                            <option value="FAIL" style="color: #de2f54">失败</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">申请子状态</label>
+                                        <select  class="form-control" name="audit_status">
+                                            <option value="">所有状态</option>
+                                            <option value="AUDITING" style="color: #99a79e">审核中</option>
+                                            <option value="WAIT_CERTIFY" style="color: #b7bf3c">等待认证</option>
+                                            <option value="LICENSE_AUDITING" style="color: #8651ff">证照审核中</option>
+                                            <option value="RISK_AUDITING" style="color: #1d8be9">风控审核中</option>
+                                            <option value="WAIT_SIGN" style="color: #03ab99">等待签约</option>
+                                            <option value="FINISH" style="color: #06c64c">终结</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button style="float: right" class="btn btn-success" type="submit">搜索</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+                                <button id="mchIn" class="btn btn-purple"><i class="demo-pli-add icon-fw"></i>口碑入网</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                        </div>
+                    </div>
+                </div>
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">支付宝流水ID</th>
+                        <th class="text-center" style="width: 100px">关联商户</th>
+                        <th class="text-center">服务商PID</th>
+                        <th class="text-center">门店ID</th>
+                        <th class="text-center" style="width: 100px">主门店名称</th>
+                        <th class="text-center">申请时间</th>
+                        <th class="text-center">更新时间</th>
+                        <th class="text-center">申请主状态</th>
+                        <th class="text-center">申请子状态</th>
+                        <!--<th class="text-center">操作</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center" title="{$v.request_id}">
+                               {$v.apply_id}
+                            </td>
+                            <td class="text-center"><php>$seller=Get_Seller($v['mid']); echo $seller['mch_name'];</php></td>
+                            <td class="text-center">
+                                {$v.pid}
+                            </td>
+                            <td class="text-center">
+                                {$v.shop_id|default="---"}
+                            </td>
+                            <td class="text-center">
+                                {$v.main_shop_name}
+                            </td>
+                            <td class="text-center">{$v['create_time'|date='Y-m-d H:i:s',###]}</td>
+                            <td class="text-center">{$v['update_time'|date='Y-m-d H:i:s',###]}</td>
+                            <td class="text-center">
+                                <switch name="v.status">
+                                    <case value="INIT">
+                                        <span class="state label label-danger" data-id="{$v.id}" style="background-color:#99a79e;font-size:12px;font-weight:1;border-radius: 5px;">初始</span>
+                                    </case>
+                                    <case value="PROCESS">
+                                        <span class="state label label-danger"  data-id="{$v.id}" style="background-color:#1d8be9;font-size:12px;font-weight:1;border-radius: 5px;">处理中</span>
+                                    </case>
+                                    <case value="SUCCESS">
+                                        <span class="state label label-danger"  data-id="{$v.id}" style="background-color:#8651ff;font-size:12px;font-weight:1;border-radius: 5px;">成功</span>
+                                    </case>
+                                    <case value="FAIL">
+                                        <span class="state label label-danger"  data-id="{$v.id}" style="background-color:#de2f54;font-size:12px;font-weight:1;border-radius: 5px;">失败</span>
+                                    </case>
+                                    <default />
+                                    <span class="state label label-default"  data-id="{$v.id}" style="font-size:12px;font-weight:1;border-radius: 5px;">{$v.status|default="待处理"}</span>
+                                </switch>
+                            </td>
+                            <td class="text-center">
+                                <switch name="v.audit_status">
+                                    <case value="AUDITING">
+                                        <span class="state label label-danger" data-id="{$v.id}" style="background-color:#99a79e;font-size:12px;font-weight:1;border-radius: 5px;">审核中</span>
+                                    </case>
+                                    <case value="WAIT_CERTIFY">
+                                        <span class="state label label-danger"  data-id="{$v.id}" style="background-color:#b7bf3c;font-size:12px;font-weight:1;border-radius: 5px;">等待认证</span>
+                                    </case>
+                                    <case value="LICENSE_AUDITING">
+                                        <span class="state label label-danger"  data-id="{$v.id}" style="background-color:#8651ff;font-size:12px;font-weight:1;border-radius: 5px;">证照审核中</span>
+                                    </case>
+                                    <case value="RISK_AUDITING">
+                                        <span class="state label label-danger"  data-id="{$v.id}" style="background-color:#1d8be9;font-size:12px;font-weight:1;border-radius: 5px;">风控审核中</span>
+                                    </case>
+                                    <case value="WAIT_SIGN">
+                                        <span class="state label label-danger"  data-id="{$v.id}" style="background-color:#03ab99;font-size:12px;font-weight:1;border-radius: 5px;">等待签约</span>
+                                    </case>
+                                    <case value="FINISH">
+                                        <span class="state label label-danger"  data-id="{$v.id}" style="background-color:#06c64c;font-size:12px;font-weight:1;border-radius: 5px;">终结</span>
+                                    </case>
+                                    <default />
+                                    <span class="state label label-default"  data-id="{$v.id}" style="font-size:12px;font-weight:1;border-radius: 5px;">未知状态</span>
+                                </switch>
+                            </td>
+                           <!-- <td class="text-center">
+                                <a href="{:U('info',['apply_id'=>$v['apply_id'],'m'=>$v['mid']])}" class="btn btn-sm btn-default btn-active-primary">
+                                    资料
+                                </a>
+                            </td>-->
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="18">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.state').click(function (e) {
+        var id=$(this).data('id');
+        loading('请求审核结果中...');
+        $.post('{:U("applyState")}', {id:id}, function (data) {
+            if (data.status) {
+                layer.closeAll();
+                layer.alert(data.info, {
+                    skin: 'layui-layer-lan'
+                    ,title: "审核结果"
+                    ,offset: '100px'
+                },function (e) {
+                    window.location.reload();
+                });
+            }
+            else {
+                layer.msg(data.info, {time:5000,shade: 0.03});
+            }
+        }, 'json');
+    });
+
+    function loading(text) {
+        layer.msg(text, {
+            icon: 16,
+            shade: 0.2,
+            time:300000
+        });
+    }
+
+    $('#mchIn').click(function () {
+        var mid=$('[name="mid"]').val();
+        if(mid==''||!mid){
+            layer.alert('请先选择所属商户');
+        }else {
+            window.location.href = "{:U('Isv/shopCreate')}/id/" + mid;
+        }
+    });
+    $('.mid_dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'商户检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Merchant/mch_dialog')}"
+        });
+    });
+</script>
+
+
+<include file="Public/footer"/>

@@ -1,0 +1,99 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <form method="post" action="" ajax="yes">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{:$title}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label class="control-label">是否开启用户邀请</label>
+                                        <select data-placeholder="请选择..." tabindex="2" class="form-control" name="status" required="required" style="width: 200px">
+                                            <option value="0" <neq name="data.status" value="1">selected</neq>>禁用</option>
+                                            <option value="1" <eq name="data.status" value="1">selected</eq>>启用</option>
+                                        </select>
+                                    </div>
+                                    <p>备注：如开启邀请注册  系统用户将可以商户邀请商户注册机制 关闭则不可以邀请</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label class="control-label">关联代理</label>
+                                        <if condition="($data.aid eq '') OR ($_GET['mod'] eq 'admin') ">
+                                            <input id="dialog_name" class="form-control dialog" type="text" value="{$data.aid|agent_name}" required>
+                                            <input id="dialog_aid" class="form-control" type="hidden" name="aid" value="{$data.aid}">
+                                        <else />
+                                            <input id="dialog_name" class="form-control" type="text" value="{$data.aid|agent_name}" readonly>
+                                            <input id="dialog_aid" class="form-control" type="hidden" name="aid" value="{$data.aid}">
+                                        </if>
+
+                                    </div>
+                                    <p>备注: 邀请机制只允许此代理下的商户 其他代理名下商户不可邀请 </p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label class="control-label">默认等级</label>
+                                        <select data-placeholder="请选择..." tabindex="2" class="form-control" name="grade" required="required" style="width: 200px">
+                                            <foreach name="list" item="v">
+                                            <option value="{$v.id}" <eq name="data.grade" value="$v.id">selected</eq>>{$v.name}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                    <p>备注: 邀请用户注册后的等级</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-mint">
+                            <strong>关联代理:</strong><P>此代理下的所有商户走商户邀商户模式  其他代理按照代理模式  互不牵扯  关联代理一旦配置  将无法更改</P>
+                            <P>建议新建一个代理为关联代理</P>
+                            <strong>费率说明:</strong>通过邀请注册的商户按照默认等级处配置的终端费率进件
+                        </div>
+                         
+                    </div>
+                </div>
+                <div class="panel-footer text-right">
+                    <button class="btn btn-success" type="submit">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    $('.dialog').click(function () {
+        layer.open({
+            type: 2,
+            title: '检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Agent/dialog')}"
+        });
+    });
+    $('select').choose();
+
+    $(function() {
+        $('[name="status"]').change(sms_api);
+       // sms_api();
+    });
+    // function sms_api() {
+    //     var  type= $('[name="sms_api"] option:selected').val(),yun=$('#aliyun'),dayu=$('#alidayu');
+    //     if(type==1){
+    //         yun.show();
+    //         dayu.hide();
+    //     }else{
+    //         dayu.show();
+    //         yun.hide();
+    //     }
+    // }
+</script>
+<include file="Public/footer"/>

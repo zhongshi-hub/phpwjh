@@ -1,0 +1,155 @@
+<include file="WeiXin/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <span class="text-muted">
+
+                    </span>
+                    <span class="text-muted"><small></small></span>
+                </div>
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <link href="__PUBLIC__/Css/wechat/menu.css" rel="stylesheet">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="mobile-menu-preview" style="margin-right: 20px;background-color: #ececec">
+                            <div class="mobile-head-title" style="margin:0px">{$WxData.name}</div>
+                            <section class="xun-chat">
+                                <div class="xun-chat-header"><span class="time">01:21</span></div>
+                                <div class="xun-chat-item xun-chat-left">
+                                    <div class="xun-chat-media">
+                                        <img src="{$WxData.qrc_img}">
+                                    </div>
+                                    <div class="xun-chat-inner">
+                                        <div  class="xun-chat-content bg-white">
+                                            <div class="xun-chat-arrow one"></div>
+                                            <div class="xun-chat-arrow two"></div>
+                                            <p id="view_cheat" style="font-size: 14px;color: #525252;"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="panel" style="border-radius: 1px;height:550px">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{:$title}详细规则</h3>
+                            </div>
+                            <form action="{:U('BeadReply')}"  method="post">
+                            <div class="panel-body">
+                                <div class="form-group pad-ver">
+                                    <label class="col-md-3 control-label">规则状态</label>
+                                    <div class="col-md-9">
+                                        <div class="radio" style="margin-top: 0px;">
+                                            <input id="radio" class="magic-radio" name="status" value="1" <eq name="data.status" value="1">checked=""</eq>  type="radio">
+                                            <label for="radio">启用</label>
+                                            <input id="radio-2" class="magic-radio" name="status" value="0" type="radio" <neq name="data.status" value="1">checked=""</neq> >
+                                            <label for="radio-2">禁用</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group pad-ver">
+                                    <label class="col-md-3 control-label">消息类型</label>
+                                    <div class="col-md-9">
+                                        <div class="radio" style="margin-top: 0px;">
+                                            <input id="radio3" class="magic-radio" name="type" value="text" <neq name="data.type" value="image">checked=""</neq> type="radio">
+                                            <label for="radio3">文字</label>
+                                            <input id="radio-4" class="magic-radio" name="type" value="image" type="radio" <eq name="data.type" value="image">checked=""</eq>>
+                                            <label for="radio-4">图片</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="text">
+                                    <label class="col-md-3 control-label">回复内容</label>
+                                    <div class="col-md-9">
+                                        <textarea name="basic" id="basic" rows="13"  class="form-control" style="resize: none">{$data.reply_text}</textarea>
+                                        <div class="help-block"> 您还可以使用表情和链接。
+                                            <a class="emotion-triggers emoji_show" value_id="basic" href="javascript:;"><i class="fa fa-github-alt"></i> 表情</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="image">
+                                    <label class="col-md-3 control-label">回复图片</label>
+                                    <div class="col-md-9">
+                                       {:loadImage('','image_url')}
+                                        <input id="image_url" type="url" name="image_url" value="{$data.reply_image_url}"  class="form-control" onchange="$('#reply_image').attr('src', this.value);">
+                                        <div class="thumbnail" style="width: 160px;height: 160px;margin-top: 2px">
+                                            <div class="mail-file-img">
+                                                <img id="reply_image" class="image-responsive" src="" style="width: 150px;height: 150px;border: medium none;display: inline-block;">
+                                            </div>
+                                            <div class="caption" style="cursor: pointer;text-align: center;display: block" onclick="edit_upload_modal('reply_image');">
+                                                <p class="text-primary mar-no" style="font-size: 14px">上传图片</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="panel-footer" style="background-color:transparent;border: 0">
+                                <div class="row">
+                                    <div class="col-sm-9 col-sm-offset-5">
+                                        <button class="btn btn-success" type="button" onclick="model()">TEST</button>
+                                        <button class="btn btn-success" type="submit">保 存 规 则</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .xun—ul li{width: 110px;height: 110px;float:left;background-color: #eee; background-position: 50% 50%;background-repeat: no-repeat;  background-size: contain;margin: 5px;cursor: pointer}
+    .xun—ul li:hover{border: 1px solid #03b0ff  }
+</style>
+<div id="material-Modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 980px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title">
+                    图片列表
+                </h4>
+            </div>
+            <div class="modal-body" style="padding: 0px">
+                   <div class="panel-body" style="padding: 0px">
+                       <ul class="list-group xun—ul" style="height:500px;overflow:auto; ">
+                           <li class="list-group-item xun-image"  data-id="1222"  style="background-image:url('http://file.xunmafu.com/Upload/attachment/2017-06-29/9Q9CAB1XVDWLC8CKOHJ3.jpeg')"></li>
+                           <li class="list-group-item xun-image"  data-id="2222"  style="background-image:url('http://file.xunmafu.com/Upload/attachment/2017-06-29/9Q9CAB1XVDWLC8CKOHJ3.jpeg')"></li>
+                           <li class="list-group-item xun-image"  data-id="3333"  style="background-image:url('http://file.xunmafu.com/Upload/attachment/2017-06-29/9Q9CAB1XVDWLC8CKOHJ3.jpeg')"></li>
+                       </ul>
+                   </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#material-Modal').on('show.bs.modal', function () {
+        alert(1);
+    }).on('hidden.bs.modal', function () {
+        alert(2);
+    });
+    $('.xun-image').on('click',function () {
+       alert($(this).attr('data-id'));
+    });
+    function model() {
+        $('#material-Modal').modal({show:true});
+    }
+
+</script>
+
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/emoji/emotions.css">
+<script type="text/javascript"  src="__PUBLIC__/emoji/emoji.js"></script>
+<script type="text/javascript"  src="__PUBLIC__/emoji/reply.js"></script>
+<include file="WeiXin/footer"/>

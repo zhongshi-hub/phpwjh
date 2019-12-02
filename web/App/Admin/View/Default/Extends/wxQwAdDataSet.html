@@ -1,0 +1,85 @@
+<include file="Public/header"/>
+<link href="__PUBLIC__/statics/plugins/dropzone/dropzone.min.css" rel="stylesheet">
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <empty name="data.id" value="">
+                        {:$title}
+                        <else/>
+                        编辑广告
+                    </empty>
+                </h3>
+            </div>
+            <form method="post" action="" ajax="yes">
+                <div class="panel-body">
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">基础信息</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">广告项目名称</label>
+                                <input class="form-control" type="text" min="10" name="name" value="{$data.name}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">开始时间</label>
+                                <input class="form-control" type="text" id="STime" name="start_time" value="{$data.start_time}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">结束时间</label>
+                                <input class="form-control" type="text" id="ETime" name="end_time" value="{$data.end_time}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">广告图片(建议920 × 1136像素)</label>
+                                {:uploads_map('img',$data['img'],2)}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">广告状态</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="status">
+                                    <option value="1"
+                                    <eq name="data.status" value="1">selected</eq>
+                                    >开启</option>
+                                    <option value="0"
+                                    <eq name="data.status" value="0">selected</eq>
+                                    >禁用</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">排序</label>
+                                <input class="form-control" type="text" min="10" name="sort" value="{$data.sort}" required>
+                                <span>数字格式 值越大 越在前</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input name="id" type="hidden" value="{$data.id}">
+                        <input name="type" type="hidden" value="wx">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        $('select').chosen();
+    </script>
+    <include file="Public/footer"/>

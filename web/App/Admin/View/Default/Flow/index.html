@@ -1,0 +1,62 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="{:U('index',['id'=>$_GET['id']])}">基本配置</a></li>
+                        <li class=""><a href="{:U('setList',['id'=>$_GET['id']])}">充值记录</a></li>
+                        <li class=""><a href="{:U('payList',['id'=>$_GET['id']])}">扣费记录</a></li>
+                    </ul>
+                </div>
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <form method="post" action="{:U('index')}" ajax="yes">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">所属商户</label>
+                                <input type="text"  class="form-control" value="{$name}" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">流量费率(千分比)</label>
+                                <input type="text" name="rate" class="form-control" value="{$data.rate}" placeholder="费率千分比,按照当前费率扣费">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">告警手机号</label>
+                                <input type="text" name="sms_phone" class="form-control" value="{$data.sms_phone}" placeholder="填写则通知 为空不通知">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">是否启用流量功能</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="status" required="required">
+                                    <option value="0" <neq name="data.status" value="1">selected</neq>>禁用</option>
+                                    <option value="1" <eq name="data.status" value="1">selected</eq> >启用</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-right">
+                    <input type="hidden" name="mid" value="{$Think.get.id}">
+                    <button class="btn btn-success" type="submit">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<include file="Public/footer"/>

@@ -1,0 +1,110 @@
+<include file="Public/header"/>
+<style>
+    .state{cursor: pointer}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{$title|default='商户升级'}</h3>
+            </div>
+
+            <!--筛选功能结束-->
+            <div class="panel-body">
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">ID</th>
+                        <th class="text-center">子商户号</th>
+                        <th class="text-center" style="width: 300px">升级商户名称</th>
+                        <th class="text-center">申请时间</th>
+                        <th class="text-center">更新时间</th>
+                        <th class="text-center">申请状态</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td class="text-center">
+                                {$id}
+                            </td>
+                            <td class="text-center">
+                                {$sub_mch_id}
+                            </td>
+                            <td class="text-center">
+                                {$mch_name}
+                            </td>
+                            <td class="text-center">{$create_time|date='Y-m-d H:i:s',###}</td>
+                            <td class="text-center">{$update_time|date='Y-m-d H:i:s',###}</td>
+                            <td class="text-center">
+                                <switch name="applyment_state">
+                                    <case value="AUDITING">
+                                        <span class="state label label-danger" data-id="{$id}" style="background-color:#99a79e;font-size:12px;font-weight:1;border-radius: 5px;">审核中</span>
+                                    </case>
+                                    <case value="REJECTED">
+                                        <span class="state label label-danger"  data-id="{$id}" style="background-color:#de2f54;font-size:12px;font-weight:1;border-radius: 5px;">已驳回</span>
+                                    </case>
+                                    <case value="FROZEN">
+                                        <span class="state label label-danger"  data-id="{$id}" style="background-color:#8651ff;font-size:12px;font-weight:1;border-radius: 5px;">已冻结</span>
+                                    </case>
+                                    <case value="NEED_SIGN">
+                                        <span class="state label label-danger"  data-id="{$id}" style="background-color:#1d8be9;font-size:12px;font-weight:1;border-radius: 5px;">待签约</span>
+                                    </case>
+                                    <case value="FINISH">
+                                        <span class="state label label-danger"  data-id="{$id}" style="background-color:#06c64c;font-size:12px;font-weight:1;border-radius: 5px;">已完成</span>
+                                    </case>
+                                    <case value="CHECKING">
+                                        <span class="state label label-danger"  data-id="{$id}" style="background-color:#ffb42c;font-size:12px;font-weight:1;border-radius: 5px;">资料校验中</span>
+                                    </case>
+                                    <case value="ACCOUNT_NEED_VERIFY">
+                                        <span class="state label label-danger"  data-id="{$id}" style="background-color:#2fc695;font-size:12px;font-weight:1;border-radius: 5px;">待账户验证</span>
+                                    </case>
+                                    <default />
+                                    <span class="state label label-default"  data-id="{$id}" style="font-size:12px;font-weight:1;border-radius: 5px;">未知状态</span>
+                                </switch>
+                            </td>
+                            <td class="text-center">
+                                <button onclick="window.location.href='{:U('upInfoCreate',['id'=>$_GET['id'],'business_code'=>$_GET['business_code']])}'" class="btn btn-sm btn-default btn-active-primary" type="button" aria-expanded="false" <neq name="applyment_state" value="REJECTED">disabled</neq>>
+                                重新入网
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.state').click(function (e) {
+        var id=$(this).data('id');
+        loading('请求审核结果中...');
+        $.post('{:U("applyUpState")}', {id:id}, function (data) {
+            if (data.status) {
+                layer.closeAll();
+                layer.alert(data.info, {
+                    skin: 'layui-layer-lan'
+                    ,title: "审核结果"
+                    ,offset: '100px'
+                },function (e) {
+                    window.location.reload();
+                });
+            }
+            else {
+                layer.msg(data.info, {time:5000,shade: 0.03});
+            }
+        }, 'json');
+    });
+
+    function loading(text) {
+        layer.msg(text, {
+            icon: 16,
+            shade: 0.2,
+            time:300000
+        });
+    }
+</script>
+
+
+<include file="Public/footer"/>

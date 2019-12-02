@@ -1,0 +1,39 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="fixed-fluid">
+            <div class="fluid">
+                <div class="panel">
+                    <div id="demo-email-list" class="panel-body">
+                        <h1 class="page-header text-overflow pad-btm">全部消息</h1>
+                        <hr class="hr-sm">
+                        <ul id="demo-mail-list" class="mail-list">
+                            <foreach name="data" item="v">
+                                <eq name="v.is_xing" value="0">
+                                    <li class="mail-attach" onclick="detail({$v.id})" style="cursor: pointer">
+                                        <else/>
+                                    <li class="mail-starred" onclick="detail({$v.id})" style="cursor: pointer">
+                                </eq>
+                                <div class="mail-star"><a><i class="demo-psi-star"></i></a></div>
+                                <div class="mail-from">{$v.type}</div>
+                                <div class="mail-time" style="width: 120px">{$v.ctime}</div>
+                                <div class="mail-attach-icon"></div>
+                                <div class="mail-subject">{$v.title}</div>
+                                </li>
+                            </foreach>
+                        </ul>
+                        <div class="text-right">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function detail(id) {
+        window.location.href="{:U('detail')}/id/"+id;
+    }
+</script>
+<include file="Public/footer"/>

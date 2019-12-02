@@ -1,0 +1,338 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <form method="post" action="{:U('setting')}" ajax="yes">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{:$title}</h3>
+                </div>
+                <div class="panel-body">
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">直推荐分成比例设置</p>
+                    <div class="row">
+                        <div style="padding: 0 20px">
+                            <span class="control-label" style="margin: 10px 0"> 服务商分享推荐码给用户A，A用户注册成为：</span>
+                            <div class="row" style="margin: 20px 30px 0px 30px">
+                                <div class="col-sm-4">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">服务商，则该服务商的分成比例为</span>
+                                        <input type="text" class="form-control" name="zt_a1" placeholder="" value="{$data.zt_a1}" required>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">省级代理，则该服务商的分成比例为</span>
+                                        <input type="text" class="form-control" name="zt_a2" placeholder="" value="{$data.zt_a2}" required>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 0px 30px">
+                                <div class="col-sm-4">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">市级代理，则该服务商的分成比例为</span>
+                                        <input type="text" class="form-control" name="zt_a3" placeholder="" value="{$data.zt_a3}" required>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">区级代理，则该服务商的分成比例为</span>
+                                        <input type="text" class="form-control" name="zt_a4" placeholder="" value="{$data.zt_a4}" required>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <span class="control-label" style="margin: 10px 0"> 省级代理、市级代理、区级代理分享推荐码给用户A，A用户注册成为：</span>
+                            <div class="row" style="margin: 20px 30px 0px 30px">
+                                <div class="col-sm-4">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">服务商，则该代理的分成比例为</span>
+                                        <input type="text" class="form-control" name="zt_b1" placeholder="" value="{$data.zt_b1}" required>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">省级代理，则该代理的分成比例为</span>
+                                        <input type="text" class="form-control" name="zt_b2" placeholder="" value="{$data.zt_b2}" required>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 0px 30px">
+                                <div class="col-sm-4">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">市级代理，则该代理的分成比例为</span>
+                                        <input type="text" class="form-control" name="zt_b3" placeholder="" value="{$data.zt_b3}" required>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">区级代理，则该代理的分成比例为</span>
+                                        <input type="text" class="form-control" name="zt_b4" placeholder="" value="{$data.zt_b4}" required>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">间推荐分成比例设置</p>
+                        <div style="padding: 0 20px">
+                            <span class="control-label" style="margin: 10px 0">服务商、省代、市代、区代分享推荐码给A，A再将二维码分享给B，B注册成为：</span>
+                            <div class="row" style="margin: 20px 30px 0px 30px">
+                                <div class="col-sm-4">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">服务商，则A的分成比例为</span>
+                                        <input type="text" class="form-control" name="jt_a1" placeholder="" value="{$data.jt_a1}" required>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">省级代理，则A的分成比例为</span>
+                                        <input type="text" class="form-control" name="jt_a2" placeholder="" value="{$data.jt_a2}" required>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 0px 30px">
+                                <div class="col-sm-4">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">市级代理，则A的分成比例为</span>
+                                        <input type="text" class="form-control" name="jt_a3" placeholder="" value="{$data.jt_a3}" required>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">区级代理，则A的分成比例为</span>
+                                        <input type="text" class="form-control" name="jt_a4" placeholder="" value="{$data.jt_a4}" required>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">服务商团队管理奖设置</p>
+                        <div style="padding: 0 20px">
+                            <div class="row" style="margin: 20px 30px 0px 30px">
+                                <div class="col-sm-3">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">服务商享有团队管理奖</span>
+                                        <input type="text" class="form-control" name="td_a1" placeholder="" value="{$data.td_a1}" required>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 0px 30px 0px 30px">
+                                <div class="col-sm-6">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">团队管理奖说明：</span>
+                                        <textarea class="form-control" style="resize: none;height: 100px" name="td_a2" required>{$data.td_a2}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">注册费设置</p>
+                        <div style="padding: 0 20px">
+                            <div class="row" style="margin: 20px 30px 0px 30px">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label class="control-label">是否启用注册费功能</label>
+                                            <select data-placeholder="请选择..." tabindex="2" class="form-control" name="reg_total_status">
+                                                <option value="0" <neq name="data.reg_total_status" value="1">selected</neq>>禁用</option>
+                                                <option value="1" <eq name="data.reg_total_status" value="1">selected</eq>>启用</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label class="control-label">收单注册费商户</label>
+                                            <input id="dialog_mch_name" class="form-control mid_dialog" type="text"  value="<php>$seller=Get_Seller($data['reg_mid']); echo $seller['mch_name'];</php>">
+                                            <input id="dialog_mid" class="form-control" type="hidden" name="reg_mid" value="{$data.reg_mid}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 0px 30px 0px 30px">
+                                <div class="col-sm-3">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">服务商注册费</span>
+                                        <input type="text" class="form-control" name="reg_a1" placeholder="" value="{$data.reg_a1}" required>
+                                        <span class="input-group-addon">元</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">省级代理注册费</span>
+                                        <input type="text" class="form-control" name="reg_a2" placeholder="" value="{$data.reg_a2}" required>
+                                        <span class="input-group-addon">元</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 0px 30px 0px 30px">
+                                <div class="col-sm-3">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">市级代理注册费</span>
+                                        <input type="text" class="form-control" name="reg_a3" placeholder="" value="{$data.reg_a3}" required>
+                                        <span class="input-group-addon">元</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">区级代理注册费</span>
+                                        <input type="text" class="form-control" name="reg_a4" placeholder="" value="{$data.reg_a4}" required>
+                                        <span class="input-group-addon">元</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">成本费率设置<span style="font-size: 14px">(千分比单位)</span></p>
+                        <div style="padding: 0 20px">
+                            <div class="row" style="margin: 20px 30px 0px 30px">
+                                <div class="col-sm-3">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">服务商微信成本</span>
+                                        <input type="number" min="1" step="0.01" class="form-control" name="wx_rate_a1" placeholder="" value="{$data.wx_rate_a1}" required>
+                                        <span class="input-group-addon">‰</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">服务商支付宝成本</span>
+                                        <input type="number" min="1" step="0.01" class="form-control" name="ali_rate_a1" placeholder="" value="{$data.ali_rate_a1}" required>
+                                        <span class="input-group-addon">‰</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 0px 30px 0px 30px">
+                                <div class="col-sm-3">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">省代微信成本</span>
+                                        <input type="number" min="1" step="0.01" class="form-control" name="wx_rate_a2" placeholder="" value="{$data.wx_rate_a2}" required>
+                                        <span class="input-group-addon">‰</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">省代支付宝成本</span>
+                                        <input type="number" min="1" step="0.01" class="form-control" name="ali_rate_a2" placeholder="" value="{$data.ali_rate_a2}" required>
+                                        <span class="input-group-addon">‰</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 0px 30px 0px 30px">
+                                <div class="col-sm-3">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">市代微信成本</span>
+                                        <input type="number" min="1" step="0.01" class="form-control" name="wx_rate_a3" placeholder="" value="{$data.wx_rate_a3}" required>
+                                        <span class="input-group-addon">‰</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">市代支付宝成本</span>
+                                        <input type="number" min="1" step="0.01" class="form-control" name="ali_rate_a3" placeholder="" value="{$data.ali_rate_a3}" required>
+                                        <span class="input-group-addon">‰</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 0px 30px 0px 30px">
+                                <div class="col-sm-3">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">区代微信成本</span>
+                                        <input type="number" min="1" step="0.01" class="form-control" name="wx_rate_a4" placeholder="" value="{$data.wx_rate_a4}" required>
+                                        <span class="input-group-addon">‰</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">区代支付宝成本</span>
+                                        <input type="number" min="1" step="0.01" class="form-control" name="ali_rate_a4" placeholder="" value="{$data.ali_rate_a4}" required>
+                                        <span class="input-group-addon">‰</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">注册设置</p>
+                        <div style="padding: 0 20px">
+                            <div class="row" style="margin: 20px 30px 0px 30px">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">注册成功后</label>
+                                        <select class="form-control" name="reg_ok_type">
+                                            <option value="app">APP下载页</option>
+                                            <option value="url">跳转指定页</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">跳转页面地址</label>
+                                        <input class="form-control" type="url" name="reg_ok_url" value="{$data.reg_ok_url}" placeholder="需要跳转的地址">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">提示文字</label>
+                                        <input class="form-control" type="text" name="reg_ok_text" value="{$data.reg_ok_text}" placeholder="成功后提示的文字">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">下载设置</p>
+                        <div style="padding: 0 20px">
+                            <div class="row" style="margin: 20px 30px 0px 30px">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">下载页背景图</label>
+                                        {:uploads_map('down_bg',$data['down_bg'],2)}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Android下载地址</label>
+                                        <input class="form-control" type="url" name="down_android" value="{$data.down_android}" placeholder="完整下载地址">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">IOS下载地址</label>
+                                        <input class="form-control" type="url" name="down_ios" value="{$data.down_ios}" placeholder="完整下载地址">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel-footer text-right">
+                    <button class="btn btn-success" type="submit">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    $(function() {
+        $('select').chosen();
+        $('.mid_dialog').click(function () {
+            layer.open({
+                type: 2,
+                title:'商户检索',
+                area: ['700px', '530px'],
+                fixed: false, //不固定
+                maxmin: false,
+                content: "{:U('Merchant/mch_dialog')}"
+            });
+        });
+    });
+</script>
+<include file="Public/footer"/>

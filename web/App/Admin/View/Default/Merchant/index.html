@@ -1,0 +1,405 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{:$title}</h3>
+
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="" ajax="n">
+                        <div class="panel-body">
+                            <div class="row ">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">详细信息</label>
+                                        <input class="form-control" type="text" placeholder="支持 申请人姓名/联系电话/商户名称" name="search_val" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">所属代理</label>
+                                        <input id="dialog_name" class="form-control dialog" type="text"  value="">
+                                        <input id="dialog_aid" class="form-control" type="hidden" name="aid" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">信用认证</label>
+                                        <select  class="form-control" name="auth_status" >
+                                            <option value="">所有类型</option>
+                                            <option value="1">已认证</option>
+                                            <option value="2">未认证</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">商户类型</label>
+                                        <select  class="form-control" name="bus_type" >
+                                            <option value="">所有类型</option>
+                                            <option value="个人">个人</option>
+                                            <option value="企业">企业</option>
+                                            <option value="个体户">个体户</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1">
+                                    <div class="form-group">
+                                        <label class="control-label">微信通道配置</label>
+                                        <select  class="form-control" name="wx_alleys">
+                                            <option value="">所有类型</option>
+                                            <option value="1">已配置通道</option>
+                                            <option value="2">未配置通道</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1">
+                                    <div class="form-group">
+                                        <label class="control-label">支付宝通道配置</label>
+                                        <select  class="form-control" name="ali_alleys">
+                                            <option value="">所有类型</option>
+                                            <option value="1">已配置通道</option>
+                                            <option value="2">未配置通道</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <button class="btn btn-success" type="submit">搜索</button>
+                                    <button class="btn btn-default" value="ccl" name="export" type="submit"> <i class="fa fa-download"></i>导出</button>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+
+
+            <div class="panel-body">
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th>所属代理</th>
+                        <th style="width: 100px">商户名称</th>
+                        <th class="text-center">联系电话</th>
+                        <th class="text-center">申请人姓名</th>
+                        <th class="text-center">类型</th>
+                        <th class="text-center">加入时间</th>
+                        <!--<th class="text-center">更新时间</th>-->
+                        <th class="text-center">微信通道</th>
+                        <th class="text-center">支付宝通道</th>
+                        <!--<th class="text-center">信用认证</th>-->
+                        <th class="text-center">审核短信</th>
+                        <th class="text-center">商户状态</th>
+                        <th class="text-center">通道配置</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td>{$v.agent_id|agent_name}</td>
+                            <td>{$v.mch_name}</td>
+                            <td class="text-center">{$v.mch_tel}</td>
+                            <td class="text-center">{$v.mch_card_name}</td>
+                            <td class="text-center"> <span  class="label label-default" style="color:#999;font-size:12px;font-weight:1;border-radius: 5px;cursor: pointer;">{$v.mch_bus_type}</span></td>
+                            <td class="text-center">{$v['ctime'|date='Y-m-d H:i:s',###]}</td>
+                            <td class="text-center"><span onclick="Alleys_data({$v.id},'wx');" class="label <php>if(alleys_name($v['wx_alleys'])!='未配置通道'){ echo 'label-danger';}else{ echo 'label-dark';}</php>" style="background-color:<php>echo alleys_color($v['wx_alleys']);</php>;font-size:12px;font-weight:1;border-radius: 5px;cursor: pointer;">{$v.wx_alleys|alleys_name}</span></td>
+                            <td class="text-center"><span onclick="Alleys_data({$v.id},'ali');" class="label <php>if(alleys_name($v['ali_alleys'])!='未配置通道'){ echo 'label-danger';}else{ echo 'label-dark';}</php>" style="background-color:<php>echo alleys_color($v['ali_alleys']);</php>;font-size:12px;font-weight:1;border-radius: 5px;cursor: pointer;">{$v.ali_alleys|alleys_name}</span></td>
+                            <!--<td class="text-center">-->
+                                <!--<if condition="$v['auth_status'] eq 1">-->
+                                    <!--<span class="label label-info" style="font-size:12px;font-weight:1;border-radius: 5px;">已认证</span>-->
+                                    <!--<else/>-->
+                                    <!--<span class="label label-default" style="cursor:pointer;font-size:12px;font-weight:1;border-radius: 5px;" onclick="SendAuth({$v.id});">未认证</span>-->
+                                <!--</if>-->
+                            <!--</td>-->
+                            <td class="text-center">
+                                <eq name="v.sms_status" value="1">
+                                    <span  class="label label-default" style="font-size:12px;font-weight:1;border-radius: 5px;cursor: pointer;">已发送</span>
+                                    <else/>
+                                    <span onclick="mch_sms({$v.id});" class="label label-primary" style="font-size:12px;font-weight:1;border-radius: 5px;cursor: pointer;">未发送</span>
+                                </eq>
+
+                            </td>
+                            <td class="text-center">
+                                <eq name="v.status" value="1">
+                                    <span  onclick="mch_status({$v.id});" class="label label-default" style="font-size:12px;font-weight:1;border-radius: 5px;cursor: pointer;">已通过</span>
+                                </eq>
+
+                            </td>
+                            <td class="text-center">
+                                <a href="{:U('api_way',array('id'=>$v['id']))}" class="btn btn-default btn-sm" type="button"  >支付通道</a>
+                                <!--<a href="{:U('card_api_way',array('id'=>$v['id']))}" class="btn btn-primary btn-sm" type="button"  >无卡通道</a>-->
+
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group btn-group-sm dropup ">
+                                    <button class="btn btn-mint btn-active-purple dropdown-toggle" data-toggle="dropdown" type="button">
+                                        操作 <i class="dropdown-caret caret-up"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li class="dropdown-header">请选择操作</li>
+                                        <li><a href="{:U('mch_detail',array('id'=>$v['id']))}">基本信息</a></li>
+                                        <li><a href="{:U('store',array('id'=>$v['id']))}" >门店列表</a></li>
+                                        <li><a href="JavaScript:;" onclick="Transfer({$v.id});">过户代理</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="{:U('terminal',array('id'=>$v['id']))}" >终端管理</a></li>
+                                        <!--<li><a href="{:U('flow/index',array('id'=>$v['id']))}" >流量管理</a></li>-->
+                                        <!--<li><a href="{:U('flow/payPoll',array('id'=>$v['id']))}" >商户轮询</a></li>-->
+                                        <li class="divider"></li>
+                                        <li><a href="javaScript:;" class="restMchPassword" data-id="{$v.id}" data-name="{$v.mch_name}">重置密码</a></li>
+                                        <li><a href="{:U('mp_login',array('id'=>$v['id']))}" target="_blank">登入商户端</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="20">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="alleys-data" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="S_title">
+                    通道选择
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="panel-body demo-nifty-btn" style="text-align: left">
+                                    <label class="control-label">请选择支付通道,未开通的通道无法切换!如需使用!请开通对应通道后切换!</label>
+                                    <input id="alleys_id" name="alleys_id" type="hidden">
+                                    <input id="alleys_type" name="alleys_type" type="hidden">
+                                    <foreach name="api" item="v" key="k">
+                                        <button id="{$v.alleys_type}" onclick="alleys_submit('{$v.alleys_type}')" class="btn btn-info btn-rounded" style="border-color:<php>echo alleys_color($v['alleys_type']);</php>;background-color:<php>echo alleys_color($v['alleys_type']);</php>;" disabled>{$v.alleys}</button>
+                                    </foreach>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+<script>
+    $('.dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Agent/dialog')}"
+        });
+    });
+    //切换通道
+    function Alleys_data(id,type) {
+        $('.demo-nifty-btn button').attr('disabled',true);
+        //获取已开通的通道
+        var actionurl="{:U('mch_alleys_data')}";
+        var ajax_data={id:id};
+        $.post(actionurl, ajax_data, function(data){
+            if(data.status == 1){
+                var  array=data.info.type;
+                for (var k = 0, length = array.length; k < length; k++) {
+                    $('#'+array[k]).attr('disabled',false);
+                }
+                $('#alleys_type').val(type);
+                $('#alleys_id').val(data.info.cid);
+                $('#alleys-data').modal('show');
+            }else{
+                $.niftyNoty({
+                    type: 'danger',
+                    message : '<strong>'+data.info+'</strong>',
+                    container : 'floating',
+                    timer : 5000
+                });
+            }
+        }, 'json');
+    }
+    //提交
+    function alleys_submit(type) {
+        var cid=$('#alleys_id').val();
+        var alleys_type= $('#alleys_type').val();
+        var actionurl="{:U('mch_alleys_saves')}";
+        var ajax_data={'cid':cid,'type':type,'alleys_type':alleys_type};
+        $.post(actionurl, ajax_data, function(data){
+            if(data.status == 1){
+                $('#alleys-data').modal('hide');
+                $.niftyNoty({
+                    type: 'success',
+                    message : '<strong>'+data.info+'</strong>',
+                    container : 'floating',
+                    timer : 5000
+                });
+                setTimeout(function(){
+                    window.location.reload();
+                }, 2000);
+
+            }else{
+                $.niftyNoty({
+                    type: 'danger',
+                    message : '<strong>'+data.info+'</strong>',
+                    container : 'floating',
+                    timer : 5000
+                });
+            }
+        }, 'json');
+        //alert(type+id);
+    }
+
+
+    $('.restMchPassword').click(function () {
+       var mchId=$(this).data('id'),mchName=$(this).data('name');
+        layer.prompt({title: '重置密码('+mchName+')', formType: 0}, function(text){
+            var ajax_data ={'id':mchId,'pass':text};
+            $.post("{:U('restMchPassword')}", ajax_data, function(data){
+                if(data.status == 1){
+                    layer.closeAll();
+                    layer.alert(data.info);
+                }else{
+                    layer.msg( data.info, function(){
+                    });
+                }
+            }, 'json');
+
+        });
+    });
+
+    function Transfer(id) {
+        layer.prompt({title: '请输入要过户的代理姓名', formType: 0}, function(text){
+            var ajax_data ={'id':id,'agent':text};
+            $.post("{:U('transfer_agent')}", ajax_data, function(data){
+                if(data.status == 1){
+                    layer.msg( data.info, function(){
+
+                    });
+                    window.location.reload();
+                }
+                else{
+                    layer.msg( data.info, function(){
+                    });
+                }
+            }, 'json');
+
+        });
+    }
+
+
+    //发送商户审核通过短信
+    function mch_sms(id) {
+        layer.alert('请确保已经给商户配置好支付通道,未配置好,请先配置!如已配置,可点击确定进行审核通过短信给商户!切记!没有配置支付通道不要发送短信哦!  ( ^_^ )', {
+            title:'短信提示',
+            skin: 'layui-layer-molv'
+            ,closeBtn: 1
+            ,anim: 6 //动画类型
+        },function(){
+            var ajax_data ={'id':id};
+            $.post("{:U('mch_sms')}", ajax_data, function(data){
+                if(data.status == 1){
+                    layer.msg( data.info, function(){
+
+                    });
+                    window.location.reload();
+                }
+                else{
+                    layer.msg( data.info, function(){
+                    });
+                }
+            }, 'json');
+        });
+    }
+
+    function mch_status(id) {
+        layer.alert('此操作 直接将商户信息退回到审核状态,如无此需求,请勿点击确认!切记!点击后就变为审核状态啦,审核状态,审核状态啦!重要的事说三遍! ( ^_^ )', {
+            title:'温馨提示',
+            skin: 'layui-layer-molv'
+            ,closeBtn: 1
+            ,anim: 6 //动画类型
+        },function(){
+            var ajax_data ={'id':id};
+            $.post("{:U('mch_status')}", ajax_data, function(data){
+                if(data.status == 1){
+                    layer.msg( data.info, function(){
+
+                    });
+                    window.location.reload();
+                }
+                else{
+                    layer.msg( data.info, function(){
+                    });
+                }
+            }, 'json');
+        });
+    }
+
+
+    //发送未认证商户模板消息提醒
+    function SendAuth(id) {
+        layer.alert('切记!同一个商户不要多次发送未认证消息提醒!合理安排模板消息用途!你确定要给此商户发送未认证的模板消息提醒吗?', {
+            title:'温馨提示',
+            skin: 'layui-layer-molv'
+            ,closeBtn: 1
+            ,anim: 6 //动画类型
+        },function(){
+            layer.msg('提醒发送中...请等待结果...', {
+                icon: 16,
+                shade: 0.01,
+                time:300000
+            });
+            var ajax_data ={id:id};
+            var actionurl ='{:U("SendAuthTemplate",array("Debug"=>"1"))}';
+            $.post(actionurl, ajax_data, function (data) {
+                if (data.status == 1) {
+                    layer.closeAll();
+                    $.niftyNoty({
+                        type: 'success',
+                        message : '<strong>'+data.info+'</strong>',
+                        container : 'floating',
+                        timer : 3000
+                    });
+                }
+                else {
+                    layer.closeAll();
+                    $.niftyNoty({
+                        type: 'danger',
+                        message: '<strong>' + data.info + '</strong>',
+                        container: 'floating',
+                        timer: 5000
+                    });
+                }
+            }, 'json');
+
+        });
+
+    }
+</script>
+
+
+<include file="Public/footer"/>

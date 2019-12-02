@@ -1,0 +1,30 @@
+<include file="WeiXin/header"/>
+
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <span class="text-muted">
+
+                    </span>
+                    <span class="text-muted"><small></small></span>
+                </div>
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <link href="/Source/Css/wechat/common.css" rel="stylesheet">
+            <div class="panel-body">
+                <ul class="xun-page-tab" style="margin-left: 3px;margin-right: 3px">
+                    <li class="active">
+                        <a href="{:U('WeiXin/Material',array('token'=>$_SESSION['Admin']['WxToken']))}">微信图文</a>
+                    </li>
+                    <li>
+                        <a href="{:U('WeiXin/MaterialImage',array('token'=>$_SESSION['Admin']['WxToken']))}">图片</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>

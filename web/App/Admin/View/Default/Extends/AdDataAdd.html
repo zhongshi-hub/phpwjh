@@ -1,0 +1,196 @@
+<include file="Public/header"/>
+<link href="__PUBLIC__/statics/plugins/dropzone/dropzone.min.css" rel="stylesheet">
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <empty name="data.id" value="">
+                        {:$title}
+                        <else/>
+                        编辑广告
+                    </empty>
+                    </h3>
+            </div>
+            <form method="post" action="" ajax="yes">
+                <div class="panel-body">
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">基础信息</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">广告项目名称</label>
+                                <input class="form-control" type="text" min="10" name="name" value="{$data.name}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">广告位置</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="type" required="required">
+                                    <option value="pay_success" <eq name="data.type" value="pay_success">selected</eq>>支付完成页面</option>
+                                    <option value="mch_notify" <eq name="data.type" value="mch_notify">selected</eq>>商家收款通知</option>
+                                    <option value="pay_notify" <eq name="data.type" value="pay_notify">selected</eq>>用户支付成功通知</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-2" id="type_show">
+                            <div class="form-group">
+                                <label class="control-label">广告显示方式</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="type_show" required="required">
+                                    <option value="0" <neq name="data.type_show" value="1">selected</neq>>默认页面底部</option>
+                                    <option value="1" <eq name="data.type_show" value="1">selected</eq>>直接跳转显示</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">开始时间</label>
+                                <input class="form-control" type="text" id="STime" name="start_time" value="{$data.start_time}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">结束时间</label>
+                                <input class="form-control" type="text" id="ETime" name="end_time" value="{$data.end_time}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">广告信息</p>
+                    <div class="row" style="border: 2px dashed rgba(0, 0, 0, 0.2);padding: 20px;margin-bottom: 20px">
+
+                            <div style="float: left;width: 30%;">
+                                <div id="type_img" class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="control-label">广告图片(建议640 × 177像素)</label>
+                                        {:uploads_map('img',$data['img'],2)}
+                                    </div>
+                                </div>
+                                <div id="type_text"  class="col-sm-12" style="display: none">
+                                    <div class="form-group">
+                                        <label class="control-label">广告文案</label>
+                                        <input class="form-control" type="text"  name="data" value="{$data.data}">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12" id="url_type">
+                                    <div class="form-group">
+                                        <label class="control-label">打开方式</label>
+                                        <div class="radio">
+                                            <input id="demo-inline-form-radio" class="magic-radio" type="radio" name="url_type" value="0" <neq name="data.url_type" value="1">checked</neq>>
+                                            <label for="demo-inline-form-radio">打开连接</label>
+                                            <input id="demo-inline-form-radio-2" class="magic-radio" type="radio" name="url_type" value="1" <eq name="data.url_type" value="1">checked</eq>>
+                                            <label for="demo-inline-form-radio-2">跳转小程序</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-sm-12" id="xcx" style="display: none">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label class="control-label">小程序appid <span style="color: red">*</span></label>
+                                                <input class="form-control" type="text" name="appid" value="{$data.appid}">
+                                                <span>该小程序appid必须与发模板消息的公众号是绑定关联关系，暂不支持小游戏</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label class="control-label">小程序的具体页面路径</label>
+                                                <input class="form-control" type="text" name="pagepath" value="{$data.pagepath}">
+                                                <span>所需跳转到小程序的具体页面路径，支持带参数,（示例index?foo=bar），要求该小程序已发布，暂不支持小游戏</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12" id="url">
+                                    <div class="form-group">
+                                        <label class="control-label">广告链接</label>
+                                        <input class="form-control" type="url" name="url" value="{$data.url}">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="control-label">广告状态</label>
+                                        <select data-placeholder="请选择..." tabindex="2" class="form-control" name="status">
+                                            <option value="1"
+                                            <eq name="data.status" value="1">selected</eq>
+                                            >开启</option>
+                                            <option value="0"
+                                            <eq name="data.status" value="0">selected</eq>
+                                            >禁用</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dz-default dz-message" style="float: right;text-align: center;margin-right: 10%">
+                                <div class="dz-icon">
+                                    <img id="imgId" src="http://file.xunmafu.com/Upload/attachment/2017-11-08/BCGXRSBOMTVETUGGPSNP.png" style="width: 200px"/>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-muted">广告展示效果范例</p>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input name="id" type="hidden" value="{$data.id}">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        $('select').chosen();
+        $(function() {
+            $('[name="type"]').change(ad_local);
+            ad_local();
+            $('[name="url_type"]').change(url_type);
+            url_type();
+        });
+
+        function url_type() {
+            var val=$("[name='url_type']:checked").val(),xcx=$('#xcx'),url=$('#url');
+            if(val==1){
+                xcx.show();
+                url.hide();
+            }else{
+                xcx.hide();
+                url.show();
+            }
+        }
+
+        function ad_local() {
+            var  type= $('[name="type"] option:selected').val();
+            var  path,type_img=$('#type_img'),type_text=$('#type_text'),type_show=$('#type_show'),url_type=$('#url_type');
+            if(type==='pay_success'){
+                path='http://file.xunmafu.com/Upload/attachment/2017-11-08/BCGXRSBOMTVETUGGPSNP.png';
+                type_img.show();
+                type_text.hide();
+                type_show.show();
+                url_type.hide();
+            }else if(type==='mch_notify'){
+                path='http://file.xunmafu.com/Upload/attachment/2017-11-09/9LPE977KX6N61X5F3I6F.png';
+                type_img.hide();
+                type_text.show();
+                type_show.hide();
+                url_type.show();
+            }else{
+                path='http://file.xunmafu.com/Upload/attachment/2017-11-09/8N3F6X38K8JTCFWA1X0T.png';
+                type_img.hide();
+                type_text.show();
+                type_show.hide();
+                url_type.show();
+            }
+            $("#imgId").attr('src',path);
+        }
+    </script>
+<include file="Public/footer"/>

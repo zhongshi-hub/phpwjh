@@ -1,0 +1,347 @@
+<include file="Public/header"/>
+<style>
+    .state{cursor: pointer}
+</style>
+<php>$noticeType=noticeType();</php>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{$title}</h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="{:U('lists')}" ajax="n">
+                        <div class="panel-body">
+                            <div class="row ">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">公告标题</label>
+                                        <input  class="form-control" type="text" name="search" value="" placeholder="设备型号/设备序列号">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">公告群体</label>
+                                        <select data-placeholder="请选择..."  tabindex="2" class="form-control" name="type">
+                                            <option value="" >--请选择--</option>
+                                            <foreach name="noticeType" item="v" key="k">
+                                            <option value="{$k}">{$v}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">公告状态</label>
+                                        <select data-placeholder="请选择..."  tabindex="2" class="form-control" name="status">
+                                            <option value="" >--请选择--</option>
+                                            <option value="1">启用</option>
+                                            <option value="2">禁用</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 10px">
+                                    <button style="float: right" class="btn btn-success" type="submit">搜索</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+                                <button type="button" class="add_notice btn btn-purple"><i class="demo-pli-add icon-fw"></i>添加公告</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                        </div>
+                    </div>
+                </div>
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">公告ID</th>
+                        <th class="text-center">公告群体</th>
+                        <th class="text-center">公告标题</th>
+                        <th class="text-center">创建时间</th>
+                        <th class="text-center">创建人</th>
+                        <th class="text-center">公告状态</th>
+                        <th class="text-center">排序</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center">
+                                {$v.id}
+                            </td>
+                            <td class="text-center">
+                               {$v.type|noticeType}
+                            </td>
+                            <td class="text-center">
+                                {$v.title}
+                            </td>
+                            <td class="text-center">{$v['create_time']}</td>
+                            <td class="text-center">
+                                {$v.uid|sys_op_id}
+                            </td>
+                            <td class="text-center">
+                                <input id="status-switch-{$v['id']}" value="{$v['id']}"
+                                       class="status_switch toggle-switch switchery-default"
+                                <eq name="v.status" value="1">checked=""</eq>
+                                type="checkbox" name="status">
+                                <label id="status_switch" for="status-switch-{$v['id']}"></label>
+                            </td>
+                            <td class="text-center">{$v['sort']}</td>
+                            <td class="text-center">
+                                <button type="button" data-id="{$v.id}" class="detail btn btn-sm btn-default btn-active-primary">
+                                    详情
+                                </button>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="18">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="notice_set" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 550px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title">
+                    公告内容
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('sets')}" method="post">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">公告群体</label>
+                                    <div class="radio">
+
+                                        <foreach name="noticeType" item="v" key="k">
+                                            <input id="form-radio-{$k}" class="magic-radio" type="radio" name="type" value="{$k}" <eq name="k" value="1">checked</eq>>
+                                            <label for="form-radio-{$k}">{$v}</label>
+                                        </foreach>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">公告标题</label>
+                                    <input class="form-control" type="text" name="title">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">公告内容</label>
+                                    <textarea class="form-control"  name="info" style="resize:none;height: 150px"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">公告排序</label>
+                                    <input class="form-control" type="number" name="sort"  placeholder="值越大 越在前">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="notice_edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 550px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title">
+                    公告内容
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('edits')}" method="post">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">公告群体</label>
+                                    <div class="radio">
+                                        <foreach name="noticeType" item="v" key="k">
+                                            <input id="form-radios-{$k}" class="magic-radio" type="radio" name="type" value="{$k}">
+                                            <label for="form-radios-{$k}">{$v}</label>
+                                        </foreach>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">公告标题</label>
+                                    <input class="form-control" type="text" name="title">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">公告内容</label>
+                                    <textarea class="form-control"  name="info" style="resize:none;height: 150px"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">公告排序</label>
+                                    <input class="form-control" type="number" name="sort"  placeholder="值越大 越在前" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="id" value="">
+                        <button class="btn btn-success" type="button" id="edit_button">编辑</button>
+                        <button class="btn btn-info" type="button" id="not_button" style="display: none">取消编辑</button>
+                        <button class="btn btn-danger" type="submit" id="sub_button" style="display: none">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+
+<script>
+    $('select').chosen();
+    $('.add_notice').click(function (e) {
+        $('.add_notice input').val('');
+        $('#notice_set').modal('show');
+    });
+
+    $(".detail").click(function (e) {
+        $(' #notice_edit input:text,#notice_edit textarea').val('');
+        var id=$(this).data('id'),notice_edit=$('#notice_edit');
+        if (id == '') {
+            $.niftyNoty({
+                type: 'danger',
+                message: '<strong>请刷新后重试</strong>',
+                container: 'floating',
+                timer: 5000
+            });
+        }
+        $.post('{:U("getNotice")}', {id:id}, function (data) {
+            if (data.status == 1) {
+                $("#form-radios-"+data.info.type).attr("checked",true);
+                $("[name='title']").val(data.info.title);
+                $("[name='sort']").val(data.info.sort);
+                $("[name='info']").val(data.info.info);
+                $("[name='id']").val(data.info.id);
+                $('#notice_edit input,#notice_edit textarea').attr('disabled', true);
+                notice_edit.modal('show');
+            }else{
+                $.niftyNoty({
+                    type: 'danger',
+                    message: '<strong>' + data.info + '</strong>',
+                    container: 'floating',
+                    timer: 5000
+                });
+            }
+        });
+
+    });
+
+    $('#notice_edit').on('hidden.bs.modal', function () {
+       window.location.reload(true);
+    });
+
+
+    $(".status_switch").change(function () {
+        var status = $("#" + this.id).is(':checked');
+        var ajax_data = {id: this.value, status: status, type: 'status'};
+        var actionurl = "{:U('setStatus')}";
+        $.post(actionurl, ajax_data, function (data) {
+            if (data.status == 1) {
+                $.niftyNoty({
+                    type: 'success',
+                    message: '<strong>' + data.info + '</strong>',
+                    container: 'floating',
+                    timer: 2000
+                });
+                setTimeout(function () {
+                    window.location.reload(true);
+                }, 2000);
+            }
+            else {
+                $.niftyNoty({
+                    type: 'danger',
+                    message: '<strong>' + data.info + '</strong>',
+                    container: 'floating',
+                    timer: 5000
+                });
+            }
+        }, 'json');
+    });
+
+
+    $('#edit_button').click(function () {
+        $('#notice_edit input,#notice_edit textarea').attr('disabled', false);
+        $('#sub_button,#not_button').show();
+        $('#edit_button').hide();
+    });
+    $('#not_button').click(function () {
+        $('#notice_edit input,#notice_edit textarea').attr('disabled', true);
+        $('#sub_button,#not_button').hide();
+        $('#edit_button').show();
+    });
+
+    $('.close').click(function () {
+        $('#notice_edit input,#notice_edit textarea').attr('disabled', true);
+        $('#sub_button,#not_button').hide();
+        $('#edit_button').show();
+    });
+</script>
+
+
+<include file="Public/footer"/>

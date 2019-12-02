@@ -1,0 +1,67 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+                                <a href="{:U('adds')}"><button id="demo-btn-addrow" class="btn btn-purple"><i class="demo-pli-plus"></i>添加渠道</button></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                        </div>
+                    </div>
+                </div>
+                <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th>渠道名称</th>
+                        <th class="text-center">渠道编号</th>
+                        <th class="text-center">负责人</th>
+                        <th class="text-center">联系电话</th>
+                        <th class="text-center">创建时间</th>
+                        <th class="text-center">更新时间</th>
+                        <th class="text-center">接口状态</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="list" item="v">
+                        <tr>
+                            <td>{$v['parentname']}</td>
+                            <td class="text-center"><span class="label label-mint" style="font-size:12px;font-weight:1;border-radius: 5px;">{$Apis[$v['id']]}</span></td>
+                            <td class="text-center">{$bdata[$v['id']]['JB_names']}</td>
+                            <td class="text-center">{$bdata[$v['id']]['JB_phone']}</td>
+                            <td class="text-center">{$v['createtime'|date='Y-m-d H:i:s',###]}</td>
+                            <td class="text-center">{$v['endtime'|date='Y-m-d H:i:s',###]}</td>
+                            <td class="text-center">
+                                <if condition="$Api_status[$v['id']] eq 'true'">
+                                <span class="label label-danger" style="font-size:12px;font-weight:1;border-radius: 5px;">已开启</span>
+                                <else/>
+                                <span class="label label-default" style="font-size:12px;font-weight:1;border-radius: 5px;">未开启</span>
+                                </if>
+                            </td>
+                            <td class="text-center">
+                                <a href="{:U('detail',array('id'=>$v['id']))}" class="btn btn-mint btn-rounded btn-sm">资料详情</a>
+                                <a href="{:U('parapi',array('id'=>$v['id']))}" class="btn btn-danger btn-rounded btn-sm">接口详情</a>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public/footer"/>

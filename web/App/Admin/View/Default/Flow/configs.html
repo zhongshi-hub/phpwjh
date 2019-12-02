@@ -1,0 +1,99 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <form method="post" action="{:U('configs')}" ajax="yes">
+                <div class="panel-body">
+                    <div class="alert alert-danger">
+                        <strong>说明:</strong>
+                        <p>流量配置是针对商户用来附加扣费的一种费率计算方式</p>
+                        <p>用户先预充值，交易金额*流量费率扣手续费，如流量费不存在则无法使用</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">短信模板</label>
+                                <input type="text" name="sms_id" class="form-control" value="{$data.sms_id}" placeholder="用于告警流量不足提醒，填写对应短信模板ID,不填写则不启用告警发送">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">告警金额</label>
+                                <input type="text" name="sms_total" class="form-control" value="{$data.sms_total}" placeholder="达到告警金额进行报警,如10元，则流量余额低于10元则报警">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">是否启用流量功能</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="status" required="required">
+                                    <option value="0" <neq name="data.status" value="1">selected</neq> >禁用</option>
+                                    <option value="1" <eq name="data.status" value="1">selected</eq> >启用</option>
+                                </select>
+                                <span>如设置禁用 则全局将关闭流量功能操作</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">充值相关</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">最低金额</label>
+                                <input type="text" name="min_total" class="form-control" value="{$data.min_total}" placeholder="单笔最低金额">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">最高金额</label>
+                                <input type="text" name="max_total" class="form-control" value="{$data.max_total}" placeholder="单笔最高金额">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">支付商户</label>
+                                <input id="dialog_mch_name" class="form-control mid_dialog" type="text"  value="<php>$seller=Get_Seller($data['pay_mid']); echo $seller['mch_name'];</php>">
+                                <input id="dialog_mid" class="form-control" type="hidden" name="pay_mid" value="{$data.pay_mid}">
+                                <span>充值接口将根据所选择的商户支付配置信息进行支付</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="form-group pad-ver">
+                                <label class="control-label">充值类型</label>
+                                <div class="checkbox">
+                                    <input id="wx" name="wx" class="magic-checkbox" type="checkbox" <notempty name="data.pay_wx">checked</notempty>>
+                                    <label for="wx">微信支付</label>
+                                    <input id="ali" name="ali" class="magic-checkbox" type="checkbox" <notempty name="data.pay_ali">checked</notempty>>
+                                    <label for="ali">支付宝支付</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-right">
+                    <button class="btn btn-success" type="submit">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $('.mid_dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'商户检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Merchant/mch_dialog')}"
+        });
+    });
+</script>
+<include file="Public/footer"/>

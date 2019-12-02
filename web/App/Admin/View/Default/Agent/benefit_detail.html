@@ -1,0 +1,80 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    代理{:$title}
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert alert-danger">
+                    <strong>说明:</strong>
+                    <p>分润规则: 如自己是一级 所有交易(一级+二级+三级...) 按照通道成本费率计算 </p>
+                    <p>计算规则: ((商户交易终端费率-代理当前通道成本)*交易金额)/1000 保留小数点后两位</p>
+                </div>
+
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 table-toolbar-left">
+                            <form method="post" action="" ajax="n">
+                                <input type="hidden" name="id" value="{$_GET['id']}">
+                                <button class="btn btn-info" value="ccl" name="export" type="submit"> <i class="fa fa-download"></i>导出所有分润明细</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">所属代理</th>
+                        <th class="text-center">所属天分</th>
+                        <th class="text-center">层次代理</th>
+                        <th class="text-center">所属门店</th>
+                        <th class="text-center">订单号</th>
+                        <th class="text-center">交易时间</th>
+                        <th class="text-center">交易金额</th>
+                        <th class="text-center">所属通道</th>
+                        <th class="text-center">所属代理成本</th>
+                        <th class="text-center">商户终端费率</th>
+                        <th class="text-center">分润规则</th>
+                        <th class="text-center">分润金额</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center">{$v.agent|agent_name}</td>
+                            <td class="text-center">{$v.day|date='Y-m-d',###}</td>
+                            <td class="text-center">{$v.aid|agent_name}</td>
+                            <td class="text-center" style="width: 120px"><php>$store=Get_Store($v['store_id']); echo $store['name'];</php></td>
+                            <td class="text-center">{$v['out_trade_no']}</td>
+                            <td class="text-center">{$v['time_end']|date='Y-m-d H:i:s',###}</td>
+                            <td class="text-center"><span class="label label-danger" style="font-size:12px;font-weight:1;border-radius: 5px;">{$v['total']}</span></td>
+                            <td class="text-center">{$v.alleys|alleys_name}</td>
+                            <td class="text-center">{$v.cost}‰</td>
+                            <td class="text-center">{$v.term}‰</td>
+                            <td class="text-center"><php>echo AlleyFrType($v['alleys'],1);</php></td>
+                            <td class="text-center">
+                                 <span class="label label-danger" style="font-size:12px;font-weight:1;border-radius: 5px;">{$v.money}</span>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="15">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public/footer"/>

@@ -1,0 +1,254 @@
+<include file="Public/header"/>
+<style>
+    body{
+        -moz-osx-font-smoothing:auto!important;
+    }
+    .panel {
+        border-radius: 5px;
+    }
+</style>
+<script>
+    $(function() {
+        $('select').chosen();
+    });
+</script>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">汇总统计</h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <form method="post" action="{:U('statistics')}">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">所属代理</label>
+                                        <input id="dialog_name" class="form-control dialog" type="text"  value="">
+                                        <input id="dialog_aid" class="form-control" type="hidden" name="aid" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">所属商户</label>
+                                        <input id="dialog_mch_name" class="form-control mid_dialog" type="text"  value="">
+                                        <input id="dialog_mid" class="form-control" type="hidden" name="mid" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">门店名称</label>
+                                        <input id="dialog_store_name" class="form-control store_dialog" type="text"  value="">
+                                        <input id="dialog_store_id" class="form-control" type="hidden" name="store_id" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">支付类型</label>
+                                        <select data-placeholder="请选择..." id="type" tabindex="2" class="form-control" name="type">
+                                            <option value="" >--请选择--</option>
+                                            <option value="wx" <eq name="data.type" value="wx">selected="selected"</eq> >微信</option>
+                                            <option value="ali" <eq name="data.type" value="ali">selected="selected"</eq>>支付宝</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">时间范围</label>
+                                        <div class="input-daterange input-group" >
+                                            <input type="text" class="form-control" id="STime" name="s_time" value="{$data.s_time}"/>
+                                            <span class="input-group-addon">To</span>
+                                            <input type="text" class="form-control" id="ETime" name="e_time" value="{$data.e_time}"/>
+                                            <span class="input-group-addon btn"  style="border-width:1px;" onclick="SetTime(1)">昨天</span>
+                                            <span class="input-group-addon btn"  style="border-width:1px;" onclick="SetTime(2)">今天</span>
+                                            <span class="input-group-addon btn"  style="border-width:1px;" onclick="SetTime(3)">近七天</span>
+                                            <span class="input-group-addon btn"  style="border-width:1px;" onclick="SetTime(4)">近一月</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <div class="text-right">
+                                <button class="btn btn-info" type="submit">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+
+            <div class="panel-body">
+                <div class="alert alert-info">
+                    请按照条件检索 筛选时间范围默认为当天  系统会根据您提交的信息进行对应汇总统计
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 eq-box-sm">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">交易总金额</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>{$sum|number_format=2}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 eq-box-sm">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">交易总笔数</h3>
+                            </div>
+                            <div class="panel-body">
+
+                                <p>{$count|default='0'}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 eq-box-sm">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">退款总金额</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>{$refund_sum|number_format=2}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 eq-box-sm">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">退款总笔数</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>{$refund_count|default='0'}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="col-sm-3 eq-box-sm">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">微信总金额</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>{$wx_sum|number_format=2}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 eq-box-sm">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">微信总笔数</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>{$wx_count|default='0'}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 eq-box-sm">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">支付宝总金额</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>{$ali_sum|number_format=2}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 eq-box-sm">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">支付宝总笔数</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>{$ali_count|default='0'}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $("#demo-foo-addrow").resizableColumns({
+            store: window.store
+        });
+
+    });
+    $('.dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'代理业务检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Agent/dialog')}"
+        });
+    });
+    $('.mid_dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'商户检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Merchant/mch_dialog')}"
+        });
+    });
+    $('.store_dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'门店检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Merchant/store_dialog')}"
+        });
+    });
+
+    function SetTime(num){
+        switch(num){
+            case 1:
+                s_time=GetDateStr(-1);
+                e_time=GetDateStr(0);
+                break;
+            case 2:
+                s_time=GetDateStr(0);
+                e_time=GetDateStr(1);
+                break;
+            case 3:
+                s_time=GetDateStr(-6);
+                e_time=GetDateStr(1);
+                break;
+            case 4:
+                s_time=GetDateStr(-30);
+                e_time=GetDateStr(1);
+                break;
+        }
+        $('[name="s_time"]').val(s_time);
+        $('[name="e_time"]').val(e_time);
+    }
+
+    function GetDateStr(Day) {
+        var dd = new Date();
+        dd.setDate(dd.getDate()+Day);
+        var y = dd.getFullYear();
+        var m = dd.getMonth()+1;
+        var d = dd.getDate();
+        return y+"-"+m+"-"+d;
+    }
+
+
+</script>
+<include file="Public/footer"/>

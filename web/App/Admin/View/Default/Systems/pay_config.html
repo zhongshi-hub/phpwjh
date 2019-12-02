@@ -1,0 +1,390 @@
+<include file="Public/header"/>
+<style>
+    .add_template{
+        font-size: 12px;margin-left: 20px;color: #097cff;border:1px dashed #097cff;padding: 2px;cursor: pointer;
+    }
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <form method="post" action="{:U('pay_config')}" ajax="yes">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{:$title}</h3>
+                </div>
+                <div class="panel-body">
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">授权相关(获取支付宝用户UserId)</p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">支付宝AppId</label>
+                                <input class="form-control" name="ali_appid" type="text"
+                                       placeholder="用户支付宝支付 获取用户信息" value="{$data.ali_appid}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color:red;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">支付宝ISV服务商</p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">服务商PID</label>
+                                <input class="form-control" name="ali_isv_pid" type="text"
+                                       placeholder="支付宝ISV服务商PID" value="{$data.ali_isv_pid}">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">服务商AppId</label>
+                                <input class="form-control" name="ali_isv_appid" type="text"
+                                       placeholder="支付宝ISV服务商三方应用AppId" value="{$data.ali_isv_appid}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">应用私钥</label>
+                                <textarea style="resize:none"  class="form-control" name="ali_isv_private_key" placeholder="应用私钥PrivateKey">{$data.ali_isv_private_key}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">支付宝公钥</label>
+                                <textarea style="resize:none"  class="form-control" name="ali_isv_public_key" placeholder="支付宝公钥AlipayPublicKey">{$data.ali_isv_public_key}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color:red;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">微信支付服务商(需在下方配置的支付公众号同级服务商)</p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">服务商AppId</label>
+                                <input class="form-control" name="xun_wxpay_appid" type="text"
+                                       placeholder="服务商AppId" value="{$data.xun_wxpay_appid}">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">服务商商户号</label>
+                                <input class="form-control" name="xun_wxpay_mch_id" type="text"
+                                       placeholder="微信支付服务商商户号" value="{$data.xun_wxpay_mch_id}">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">API密钥</label>
+                                <input class="form-control" name="xun_wxpay_key" type="password"
+                                       placeholder="服务商交易API密钥" value="{$data.xun_wxpay_key}">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">APIV3秘钥</label>
+                                <input class="form-control" name="xun_wxpay_v3key" type="password"
+                                       placeholder="APIV3秘钥" value="{$data.xun_wxpay_v3key}">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">微信支付(基础/获取用户信息)</p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">支付公众号</label>
+                                <select data-placeholder="请选择..." id="pay_wx" name="pay_wxid" class="form-control">
+                                    <foreach name="weixin" item="v">
+                                        <option value="{$v.id}"
+                                        <if condition="$data.pay_wxid eq $v['id']">selected</if>
+                                        >{$v.name}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">商户公众号</label>
+                                <select data-placeholder="请选择..." id="mch_wx" name="mch_wxid" class="form-control">
+                                    <foreach name="weixin" item="v">
+                                        <option value="{$v.id}"
+                                        <if condition="$data.mch_wxid eq $v['id']">selected</if>
+                                        >{$v.name}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="color:red;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">模板消息-付款成功</p>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="control-label">付款成功模板ID<span class="add_template" onclick="add_template('OPENTM402074550');">一键添加模板ID</span></label>
+                                <input class="form-control" id="OPENTM402074550" name="pay_template_id" type="text" placeholder="模板消息编号:OPENTM402074550 只针对微信支付通知" value="{$data.pay_template_id}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">付款成功头部信息</label>
+                                <input class="form-control" name="pay_first" type="text" placeholder="您好,您已付款成功!"
+                                       value="{$data.pay_first}">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">付款成功底部信息</label>
+                                <input class="form-control" name="pay_remark" type="text" placeholder="如有疑问,请联系XX"
+                                       value="{$data.pay_remark}">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color:red;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">模板消息-收款成功</p>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="control-label">收款成功模板ID<span class="add_template" onclick="add_template('OPENTM408239595');">一键添加模板ID</span></label>
+                                <input id="OPENTM408239595" class="form-control" name="mch_template_id" type="text"
+                                       placeholder="模板消息编号:OPENTM408239595 只针对商家收款通知" value="{$data.mch_template_id}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">收款成功头部信息</label>
+                                <input class="form-control" name="mch_first" type="text" placeholder="您好,您有一笔新的收款订单!"
+                                       value="{$data.mch_first}">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">收款成功底部信息</label>
+                                <input class="form-control" name="mch_remark" type="text" placeholder="如有疑问,请联系XX"
+                                       value="{$data.mch_remark}">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color:red;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">模板消息-提现成功</p>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="control-label">提现到账通知模板ID <span class="add_template" onclick="add_template('OPENTM407639519');">一键添加模板ID</span></label>
+                                <input class="form-control" id="OPENTM407639519" name="tx_template_id" type="text" placeholder="模板消息编号:OPENTM407639519  提现到账通知  只针对微信支付通知" value="{$data.tx_template_id}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">提现成功头部信息</label>
+                                <input class="form-control" name="tx_first" type="text" placeholder="您好,您的提现已到账"
+                                       value="{$data.tx_first}">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">提现成功底部信息</label>
+                                <input class="form-control" name="tx_remark" type="text" placeholder="如有疑问,请联系XX"
+                                       value="{$data.tx_remark}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="color:red;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">模板消息-商户注册成功</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">是否开启</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="reg_template_status">
+                                    <option value="1"
+                                    <eq name="data.reg_template_status" value="1">selected</eq>
+                                    >开启</option>
+                                    <option value="0"
+                                    <eq name="data.reg_template_status" value="0">selected</eq>
+                                    >关闭</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="control-label">商户注册入驻成功模板ID<span class="add_template" onclick="add_template('OPENTM413387262');">一键添加模板ID</span></label>
+                                <input class="form-control" id="OPENTM413387262" name="reg_template_id" type="text" placeholder="模板消息编号:OPENTM413387262 入驻成功通知" value="{$data.reg_template_id}">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color:red;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">模板消息-商户审核结果</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">是否开启</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="sh_template_status">
+                                    <option value="1"
+                                    <eq name="data.sh_template_status" value="1">selected</eq>
+                                    >开启</option>
+                                    <option value="0"
+                                    <eq name="data.sh_template_status" value="0">selected</eq>
+                                    >关闭</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="control-label">审核结果模板ID <span class="add_template" onclick="add_template('OPENTM402193293');">一键添加模板ID</span></label>
+                                <input class="form-control" id="OPENTM402193293" name="sh_template_id" type="text" placeholder="模板消息编号:OPENTM402193293 商户审核通知" value="{$data.sh_template_id}">
+                            </div>
+                        </div>
+                    </div>
+                    <!--<p style="color:red;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">模板消息-商户信用认证(待认证/认证成功)</p>-->
+                    <!--<div class="row">-->
+                        <!--<div class="col-sm-2">-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="control-label">是否开启</label>-->
+                                <!--<select data-placeholder="请选择..." tabindex="2" class="form-control" name="auth_template_status">-->
+                                    <!--<option value="1"-->
+                                    <!--<eq name="data.auth_template_status" value="1">selected</eq>-->
+                                    <!--&gt;开启</option>-->
+                                    <!--<option value="0"-->
+                                    <!--<eq name="data.auth_template_status" value="0">selected</eq>-->
+                                    <!--&gt;关闭</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-sm-5">-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="control-label">商户信用认证模板ID <span class="add_template" onclick="add_template('OPENTM204559869');">一键添加模板ID</span></label>-->
+                                <!--<input class="form-control" id="OPENTM204559869" name="auth_template_id" type="text" placeholder="模板消息编号:OPENTM204559869  认证通知" value="{$data.auth_template_id}">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <p style="color:red;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">模板消息-通道开通成功</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">是否开启</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="alleys_template_status">
+                                    <option value="1"
+                                    <eq name="data.alleys_template_status" value="1">selected</eq>
+                                    >开启</option>
+                                    <option value="0"
+                                    <eq name="data.alleys_template_status" value="0">selected</eq>
+                                    >关闭</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="control-label">商户通道开通成功模板ID<span class="add_template" onclick="add_template('OPENTM413424468');">一键添加模板ID</span></label>
+                                <input class="form-control" id="OPENTM413424468" name="alleys_template_id" type="text" placeholder="模板消息编号:OPENTM413424468 开通成功通知" value="{$data.alleys_template_id}">
+                            </div>
+                        </div>
+                    </div>
+                    <!--<p style="color:red;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">模板消息-通道业务变更</p>-->
+                    <!--<div class="row">-->
+                        <!--<div class="col-sm-2">-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="control-label">是否开启</label>-->
+                                <!--<select data-placeholder="请选择..." tabindex="2" class="form-control" name="alter_template_status">-->
+                                    <!--<option value="1"-->
+                                    <!--<eq name="data.alter_template_status" value="1">selected</eq>-->
+                                    <!--&gt;开启</option>-->
+                                    <!--<option value="0"-->
+                                    <!--<eq name="data.alter_template_status" value="0">selected</eq>-->
+                                    <!--&gt;关闭</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-sm-5">-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="control-label">通道业务变更模板ID<span class="add_template" onclick="add_template('OPENTM406673418');">一键添加模板ID</span></label>-->
+                                <!--<input class="form-control" id="OPENTM406673418" name="alter_template_id" type="text" placeholder="模板消息编号:OPENTM406673418 业务状态变更通知" value="{$data.alter_template_id}">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <p style="color:red;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">模板消息-审核员接收商户注册通知</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">是否开启</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="sh_user_template_status">
+                                    <option value="1"
+                                    <eq name="data.sh_user_template_status" value="1">selected</eq>
+                                    >开启</option>
+                                    <option value="0"
+                                    <eq name="data.sh_user_template_status" value="0">selected</eq>
+                                    >关闭</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="control-label">审核员接收商户注册通知模板ID<span class="add_template" onclick="add_template('OPENTM207173353');">一键添加模板ID</span></label>
+                                <input class="form-control" id="OPENTM207173353" name="sh_user_template_id" type="text" placeholder="模板消息编号:OPENTM207173353 注册提醒" value="{$data.sh_user_template_id}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">接收者OPENID(商户详情或微信用户里查看OPENID)</label>
+                                <input class="form-control" name="sh_user_data" type="text" placeholder="多个OPENID 请用|区隔 例: XXXX|OOOO|UUUU" value="{$data.sh_user_data}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-right">
+                    <button type="submit" class="btn btn-success">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(function() {
+        $('#pay_wx,#mch_wx').chosen({search_contains: true, no_results_text: '没有找到相关的数据'});
+    });
+
+    function add_template(id) {
+        layer.alert('一键增加会增加到当前页面配置的商户公众号内,添加成功自动添加模板ID 您确定要一键添加吗?', {
+            title:'温馨提示',
+            skin: 'layui-layer-molv'
+            ,closeBtn: 1
+            ,anim: 6 //动画类型
+        },function(){
+            layer.msg('模板添加中...请等待结果...', {
+                icon: 16,
+                shade: 0.01,
+                time:300000
+            });
+            var ajax_data ={'template_id':id};
+            var actionurl ='{:U("add_template",array("Debug"=>"1"))}';
+            $.post(actionurl, ajax_data, function (data) {
+                if (data.status == 1) {
+                     layer.closeAll();
+                     $('#'+id).val(data.info);
+                     $.niftyNoty({
+                        type: 'success',
+                        message : '<strong>模板增加成功!模板ID已自动填充到数据框内</strong>',
+                        container : 'floating',
+                        timer : 3000
+                     });
+                }
+                else {
+                    layer.closeAll();
+                    $.niftyNoty({
+                        type: 'danger',
+                        message: '<strong>' + data.info + '</strong>',
+                        container: 'floating',
+                        timer: 5000
+                    });
+                }
+            }, 'json');
+
+        });
+    }
+</script>
+<include file="Public/footer"/>

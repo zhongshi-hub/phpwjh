@@ -1,0 +1,46 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <!--Panel heading-->
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tabs" data-toggle="tab" aria-expanded="true">流量配置</a></li>
+                        <li class=""><a href="#demo-tabs-box-2" data-toggle="tab" aria-expanded="false">充值记录</a></li>
+                        <li class=""><a href="#demo-tabs-box-2" data-toggle="tab" aria-expanded="false">扣费记录</a></li>
+                    </ul>
+                </div>
+                <h3 class="panel-title">流量配置</h3>
+            </div>
+
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="tabs">
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    $(function() {
+        $('[name="sms_api"]').change(sms_api);
+        sms_api();
+    });
+    function sms_api() {
+        var  type= $('[name="sms_api"] option:selected').val(),yun=$('#aliyun'),dayu=$('#alidayu');
+        if(type==1){
+            yun.show();
+            dayu.hide();
+        }else{
+            dayu.show();
+            yun.hide();
+        }
+    }
+</script>
+<include file="Public/footer"/>

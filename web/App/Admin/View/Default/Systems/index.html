@@ -1,0 +1,191 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <form method="post" action="{:U('index')}" ajax="yes">
+                <div class="panel-body">
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;display: none">注册认证</p>
+                    <div class="row" style="display: none">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">是否开启</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="auth_status"
+                                        required="required">
+                                    <option value="1"
+                                    <eq name="auth.auth_status" value="1">selected</eq>
+                                    >开启</option>
+                                    <option value="0"
+                                    <eq name="auth.auth_status" value="0">selected</eq>
+                                    >关闭</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="form-group">
+                                <label class="control-label">认证金额</label>
+                                <input class="form-control" type="text"  name="auth_fee" value="{$auth.auth_fee|default='0.1'}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">收款商户号</label>
+                                <input class="form-control" type="text" name="auth_mch_id" value="{$auth.auth_mch_id|default='10000'}"  required>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">收款商户密钥</label>
+                                <input class="form-control" type="password" name="auth_mch_key"
+                                       value="{$auth.auth_mch_key|default='0'}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="control-label">认证页面描述</label>
+                                <input class="form-control" type="text" name="auth_info" value="{$auth.auth_info}" placeholder="为空 则使用系统默认提示!">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;display: none" >AD-信用卡贷款</p>
+                    <div class="row" style="display: none">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">是否开启</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="ad_status"
+                                        required="required">
+                                    <option value="1"
+                                    <eq name="ad.ad_status" value="1">selected</eq>
+                                    >开启</option>
+                                    <option value="0"
+                                    <eq name="ad.ad_status" value="0">selected</eq>
+                                    >关闭</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="control-label">信用卡链接</label>
+                                <input class="form-control" type="url" name="ad_xyk" value="{$ad.ad_xyk}" placeholder="如果状态开启 此项不可为空">
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="control-label">贷款超市链接</label>
+                                <input class="form-control" type="url" name="ad_dk" value="{$ad.ad_dk}" placeholder="如果状态开启 此项不可为空">
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">商户协议</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">服务协议(自定义名称)</label>
+                                <input class="form-control" type="text" name="fw_name" value="{$xy.fw_name}">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">是否开启</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="fw_status"
+                                        required="required">
+                                    <option value="1"
+                                    <eq name="xy.fw_status" value="1">selected</eq>
+                                    >开启</option>
+                                    <option value="0"
+                                    <eq name="xy.fw_status" value="0">selected</eq>
+                                    >关闭</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">保密协议(自定义名称)</label>
+                                <input class="form-control" type="text" name="bm_name" value="{$xy.bm_name}">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">是否开启</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="bm_status"
+                                        required="required">
+                                    <option value="1"
+                                    <eq name="xy.bm_status" value="1">selected</eq>
+                                    >开启</option>
+                                    <option value="0"
+                                    <eq name="xy.bm_status" value="0">selected</eq>
+                                    >关闭</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">快捷协议(自定义名称)</label>
+                                <input class="form-control" type="text" name="quick_name" value="{$xy.quick_name}">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">是否开启</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="quick_status"
+                                        required="required">
+                                    <option value="1"
+                                    <eq name="xy.quick_status" value="1">selected</eq>
+                                    >开启</option>
+                                    <option value="0"
+                                    <eq name="xy.quick_status" value="0">selected</eq>
+                                    >关闭</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">服务协议内容</label>
+                                {:LoadUEditor('fw_info',$data['fw_info'],'height:300px','fw_info,bm_info,quick_info')}
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">保密协议内容</label>
+                                {:LoadUEditor('bm_info',$data['bm_info'],'height:300px')}
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">快捷绑卡协议内容</label>
+                                {:LoadUEditor('quick_info',$data['quick_info'],'height:300px')}
+                            </div>
+                        </div>
+                    </div>
+                     <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;display: none" >扩展功能</p>
+                    <div class="row" style="display: none">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">是否开启代理邀请码</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="agent_yq"
+                                        required="required">
+                                    <option value="1"
+                                    <eq name="data.agent_yq" value="1">selected</eq>
+                                    >开启</option>
+                                    <option value="0"
+                                    <eq name="data.agent_yq" value="0">selected</eq>
+                                    >关闭</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="panel-footer text-right">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <include file="Public/footer"/>

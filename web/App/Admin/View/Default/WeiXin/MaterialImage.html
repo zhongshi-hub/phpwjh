@@ -1,0 +1,129 @@
+<include file="WeiXin/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <span class="text-muted">
+
+                    </span>
+                    <span class="text-muted"><small></small></span>
+                </div>
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <link href="/Source/Css/wechat/common.css" rel="stylesheet">
+            <div class="panel-body">
+                <ul class="xun-page-tab" style="margin-left: 3px;margin-right: 3px">
+                    <li >
+                        <a href="{:U('WeiXin/Material',array('token'=>$_SESSION['Admin']['WxToken']))}">微信图文</a>
+                    </li>
+                    <li class="active">
+                        <a href="{:U('WeiXin/MaterialImage',array('token'=>$_SESSION['Admin']['WxToken']))}">图片</a>
+                    </li>
+                </ul>
+                <div id="main" ng-controller="materialDisplay" class="ng-scope">
+                    <div class="material">
+                        <div class="material-appmsg">
+                            <div class="material-list-head clearfix">
+                                <div class="pull-right">
+                                    <a href="javascript:;"  onclick="sync('image')" class="btn btn-default">同步微信</a>
+                                    <a onclick="edit_upload_modal('{$_GET['token']}')"  class="btn btn-primary xun-margin-left">上传微信图片</a>
+                                </div>
+                            </div>
+                            <ul class="material-img-list clearfix">
+                                <foreach name="data" item="v">
+                                <li class="material-img-item">
+                                    <div class="appimg-info">
+                                        <span class="appimg-title">{$v.name}</span>
+                                    </div>
+                                    <div class="img-item">
+                                        <img class="img-thumb" src="{$v.url}">
+                                    </div>
+                                    <!--<div class="img-opr">
+                                        <ul>
+                                            <li class="img-opr-item">
+                                                <a class="add-tooltip" href="javascript:void(0);" ng-click="del_material('news', '7', 'wechat')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="删除">&nbsp;<i class="fa fa-trash-o" style="font-size: 20px;color: #98999a;vertical-align: middle;"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>-->
+                                </li>
+                                </foreach>
+                            </ul>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="text-right">
+                    <ul class="pagination">{$page}</ul>
+                </div>
+                {:loadImage('WeiXin')}
+
+                <link rel="stylesheet" href="__PUBLIC__/loading/css/loading.css">
+                <script src="__PUBLIC__/loading/js/loading.js"></script>
+               
+                <script>
+
+                    function sync(type) {
+                        load_show('show',type,'数据同步中。请等待。。。');
+                        var ajax_data = {type:type};
+                        var actionurl = '{:U("GetMaterial")}';
+                        $.post(actionurl, ajax_data, function(data){
+                            load_show('hide',type);
+                            if(data.status == 1){
+                                $.niftyNoty({
+                                    type: 'success',
+                                    message : '<strong>'+data.info+'</strong>',
+                                    container : 'floating',
+                                    timer : 3000
+                                });
+                                setTimeout(function(){
+                                    window.location.href=data.url
+                                }, 3000);
+                            }
+                            else{
+                                $.niftyNoty({
+                                    type: 'danger',
+                                    message : '<strong>'+data.info+'</strong>',
+                                    container : 'floating',
+                                    timer : 5000
+                                });
+                                if(data.url){
+                                    setTimeout(function(){
+                                        window.location.href=data.url
+                                    }, 3000);
+                                }
+                            }
+                        }, 'json');
+                    }
+
+                    /*show hide*/
+                    function load_show(type,name,txt) {
+                        if(type=='show') {
+                            $('body').loading({
+                                loadingWidth: 240,
+                                title: '',
+                                name: name,
+                                discription: txt,
+                                discColor:'#fff',
+                                direction: 'column',
+                                type: 'origin',
+                                originDivWidth: 40,
+                                originDivHeight: 40,
+                                originWidth: 6,
+                                originHeight: 6,
+                                smallLoading: false,
+                                loadingMaskBg: 'rgba(0,0,0,0.2)'
+                            });
+                        }else{
+                            removeLoading(name);
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

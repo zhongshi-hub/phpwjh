@@ -1,0 +1,232 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{:$title}</h3>
+
+            </div>
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+                                 <button id="WeiXinAdd" class="btn btn-purple"><i class="demo-pli-add icon-fw"></i>添加公众号
+                                 </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                        </div>
+                    </div>
+                </div>
+                <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">二维码</th>
+                        <th class="text-center">公众号名称</th>
+                        <th class="text-center">微信号</th>
+                        <th class="text-center">公众号Appid</th>
+                        <th class="text-center">添加时间</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center"><img src="{$v.qrc_img}" title="点击放大查看" width="30" height="30"onclick="IMG('{$v.qrc_img}')" style="cursor:pointer"></td>
+                            <td class="text-center">{$v.name}</td>
+                            <td class="text-center">{$v.num}</td>
+                            <td class="text-center">{$v.appid}</td>
+                            <td class="text-center">{$v['ctime'|date='Y-m-d H:i:s',###]}</td>
+                            <td class="text-center">
+                                <button class="btn btn-purple btn-sm" type="button" onclick="edit({$v.id})" >详情</button>
+                                <!--<button class="btn btn-success btn-sm" type="button" api_wx="{$v.name}" api_url="<php>$url='http://'.$_SERVER['HTTP_HOST'].'/Token/'.$v['token']; echo $url;</php>" api_token="{$v.token}" api_encode="{$v.encodingaeskey}" onclick="api(this)" >接口</button>-->
+                                <!--<button class="btn btn-danger btn-sm" type="button" onclick="weixin('{$v.token}')" >功能</button>-->
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="WeiXin-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    添加公众号
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('weixin_adds')}" method="post">
+                    {__TOKEN__}
+                    <div class="panel-body">
+                      <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">公众号名称</label>
+                                        <input class="form-control" type="text" name="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">公众号微信号</label>
+                                        <input class="form-control" type="text" name="num" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">原始ID</label>
+                                        <input class="form-control" type="text" name="gid" required>
+                                    </div>
+                                </div>
+                       </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">AppID</label>
+                                    <input class="form-control" type="text" name="appid" placeholder="AppID"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">AppSecret</label>
+                                    <input class="form-control" type="text" name="appsecret" placeholder="AppSecret" required>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">公众号二维码</label>
+                                    {:uploads_map('qrc_img','',1)}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">备注描述</label>
+                                    <input class="form-control" type="text" name="info" placeholder="备注或描述" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">公众号验证文件</label>
+                                    <input class="form-control" type="text" name="file_val" placeholder="打开MP_xx.txt文件,复制内容到本处!验证公众号时使用!" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="id">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+
+
+<script type="text/javascript" src="__PUBLIC__/plug/CSXClass/distpicker.min.js"></script>
+<script src="__PUBLIC__/statics/plugins/bootbox/bootbox.min.js"></script>
+<script src="__PUBLIC__/clipboard.min.js"></script>
+<script>
+    var clipboard = new Clipboard('.copy');
+    clipboard.on('success', function(e) {
+        $.niftyNoty({
+            type: 'success',
+            message : '<strong>内容('+e.text+')复制成功</strong>',
+            container : 'floating',
+            timer : 3000
+        });
+    });
+    clipboard.on('error', function(e) {
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+    });
+
+
+    $('#WeiXinAdd').click(function () {
+        $('.chosen-container').css('width', '250px');
+        $('#myModalLabel').html('添加公众号');
+        $('input').val('');
+        $('#WeiXin-add').modal('show');
+    });
+
+    function IMG(url) {
+        $.fancybox.open(url);
+    }
+
+    function edit(id) {
+        actionurl="{:U('detail')}";
+        ajax_data={id:id};
+        $.post(actionurl, ajax_data, function(data){
+            if(data.status == 1){
+                $("[name='name']").val(data.info.name);
+                $("[name='num']").val(data.info.num);
+                $("[name='gid']").val(data.info.gid);
+                $("[name='appid']").val(data.info.appid);
+                $("[name='appsecret']").val(data.info.appsecret);
+                $("[name='qrc_img']").val(data.info.qrc_img);
+                $("[name='info']").val(data.info.info);
+                $("[name='id']").val(data.info.id);
+                $("[name='file_val']").val(data.info.file_val);
+                $('#myModalLabel').html('编辑公众号');
+                $('#WeiXin-add').modal('show');
+            }
+            else{
+                $.niftyNoty({
+                    type: 'danger',
+                    message : '<strong>'+data.info+'</strong>',
+                    container : 'floating',
+                    timer : 5000
+                });
+            }
+        }, 'json');
+    }
+
+    function api(id) {
+        var wx=$(id).attr('api_wx');
+        var url=$(id).attr('api_url');
+        var token=$(id).attr('api_token');
+        var encode=$(id).attr('api_encode');
+        bootbox.alert({
+            message : "<p class='text-semibold text-main'>("+wx+")接口详细信息</p><p>接口URL</p><p><div class='input-group mar-btm'><input id='url' class='form-control' type='text' value='"+url+"' readonly> <span class='input-group-btn'> <button class='btn btn-mint copy' data-clipboard-target='#url' type='button'>复制</button></span></div></p><p>接口Token</p><p><div class='input-group mar-btm'><input  id='token' class='form-control' type='text' value='"+token+"' readonly> <span class='input-group-btn'> <button class='btn btn-mint copy' type='button' data-clipboard-target='#token'>复制</button></span></div></p><p>接口AESKEY</p><p><div class='input-group mar-btm'><input  id='encode' class='form-control' type='text' value='"+encode+"' readonly> <span class='input-group-btn'> <button class='btn btn-mint copy' type='button' data-clipboard-target='#encode'>复制</button></span></div></p>",
+            animateIn: 'bounceIn',
+            animateOut : 'bounceOut'
+        });
+    }
+
+
+    function weixin(token) {
+        window.location.href='{:U("WeiXin/index")}/token/'+token;
+    }
+
+
+    
+</script>
+<include file="Public/footer"/>

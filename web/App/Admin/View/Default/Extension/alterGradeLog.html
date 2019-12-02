@@ -1,0 +1,70 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{:$title}</h3>
+
+            </div>
+            <div class="panel-body">
+                <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr><th class="text-center">ID</th>
+                        <th class="text-center">用户ID</th>
+                        <th class="text-center">商户名称</th>
+                        <th class="text-center">商户手机号</th>
+                        <th class="text-center">变更后的等级</th>
+                        <th class="text-center">操作类型</th>
+                        <th class="text-center">操作人</th>
+                        <th class="text-center">操作时间</th>
+                        <th class="text-center">通道变更结果</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center">{$v.id}</td>
+                            <td class="text-center">{$v.mid}</td>
+                            <td class="text-center"><php>$seller=Get_Seller($v['mid']); echo $seller['mch_name'];</php></td>
+                            <td class="text-center"><php>$seller=Get_Seller($v['mid']); echo $seller['mch_tel'];</php></td>
+                            <td class="text-center"><php>$grade=extensionGrade($v['grade']); echo $grade['name'];</php></td>
+                            <td class="text-center">
+                                <if condition="$v['type'] eq 'auto'">
+                                    <span class="label label-default" style="font-size:12px;font-weight:1;border-radius: 5px;">用户自动升级</span>
+                                    <else/>
+                                    <span class="label label-default" style="font-size:12px;font-weight:1;border-radius: 5px;">后台操作升级</span>
+                                </if>
+                            </td>
+                            <td class="text-center"> <php>$res=sys_op_id($v['op_id'],$v['sys']); if($res){echo $res;}else{echo '用户';}</php></td>
+                            <td class="text-center">{$v.create_time|date='Y-m-d H:i:s',###}</td>
+                            <td class="text-center"><button class="btn btn-default btn-sm load-alter" data-json='{$v.alley_res}' type="button">点击查看</button></td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__/statics/plugins/bootbox/bootbox.min.js"></script>
+<script>
+    $('.load-alter').on('click',function () {
+       var json=JSON.stringify($(this).data('json'),null, "\t");
+        bootbox.alert({
+            message: "<p class='text-semibold text-main'>通道变更数据详细信息</p><p><textarea placeholder=\"返回信息\" rows=\"13\" class=\"form-control\" readonly=\"\">"+json+"</textarea></p>",
+            //animateIn: 'rubberBand',
+            //animateOut: 'wobble'
+        });
+
+    });
+</script>
+<include file="Public/footer"/>

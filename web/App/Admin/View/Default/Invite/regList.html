@@ -1,0 +1,274 @@
+<include file="Public/header"/>
+<style>
+    .state{cursor: pointer}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{$title}</h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="{:U('regList')}" ajax="n">
+                        <div class="panel-body">
+                            <div class="row ">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">推荐人</label>
+                                        <input  class="form-control" type="text" name="code" value="" placeholder="推荐人手机号">
+                                    </div>
+                                </div>
+                                <div style="margin-top: 10px">
+                                    <button style="float: right" class="btn btn-success" type="submit">搜索</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6 table-toolbar-left">
+                        <input type="button" value="执行清算操作" class="btn btn-danger" id="draw">
+                    </div>
+
+                </div>
+
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="15">
+                    <thead>
+                    <tr>
+                        <th class="text-center" rowspan="3" colspan="1" >
+                            选择
+                        </th>
+                        <th class="text-center" rowspan="3" colspan="1" >
+                            推荐人
+                        </th>
+                        <th class="text-center" rowspan="3" colspan="1" >
+                            推荐人角色
+                        </th>
+                        <th class="text-center" rowspan="1" colspan="8" >
+                            代理注册数
+                        </th>
+                        <th class="text-center" rowspan="3" colspan="1" >
+                            统计时间
+                        </th>
+                        <th class="text-center" rowspan="3" colspan="1" >
+                            分成总金额
+                        </th>
+                        <th class="text-center" rowspan="3" colspan="1" >
+                            已清算金额
+                        </th>
+                        <th class="text-center" rowspan="3" colspan="1" style="color: red">
+                            未清算金额
+                        </th>
+                        <th class="text-center" rowspan="3" colspan="1">
+                            操作
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="text-center" rowspan="1" colspan="2" >
+                            服务商注册数
+                        </th>
+                        <th class="text-center" rowspan="1" colspan="2" >
+                            省代注册数
+                        </th>
+                        <th class="text-center" rowspan="1" colspan="2" >
+                            市代注册数
+                        </th>
+                        <th class="text-center" rowspan="1" colspan="2">
+                            区代注册数
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="text-center">
+                            直推荐
+                        </th>
+                        <th class="text-center">
+                            间推荐
+                        </th>
+                        <th class="text-center">
+                            直推荐
+                        </th>
+                        <th class="text-center">
+                            间推荐
+                        </th>
+                        <th class="text-center">
+                            直推荐
+                        </th>
+                        <th class="text-center">
+                            间推荐
+                        </th>
+                        <th class="text-center">
+                            直推荐
+                        </th>
+                        <th class="text-center">
+                            间推荐
+                        </th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+
+                    <foreach name="data" item="v">
+                        <php>$befit=inviteBefitTotalDraw($v['aid']);</php>
+                        <tr>
+                            <td class="text-center" width="">
+                                <input value="{$v.aid}" type="radio" name="check_radio" data-name="{$v.name}" data-phone="{$v.phone}" data-total="{$befit['draw']}">
+                            </td>
+                            <td class="text-center" title="{$v.phone}">
+                                {$v.name}
+                            </td>
+                            <td class="text-center">
+                                {$v.grade_name}
+                            </td>
+                            <td class="text-center">
+                                {$v.zt_1}
+                            </td>
+                            <td class="text-center">
+                                {$v.jt_1}
+                            </td>
+                            <td class="text-center">
+                                {$v.zt_2}
+                            </td>
+                            <td class="text-center">
+                                {$v.jt_2}
+                            </td>
+                            <td class="text-center">
+                                {$v.zt_3}
+                            </td>
+                            <td class="text-center">
+                                {$v.jt_3}
+                            </td>
+                            <td class="text-center">
+                                {$v.zt_4}
+                            </td>
+                            <td class="text-center">
+                                {$v.jt_4}
+                            </td>
+                            <td class="text-center">{$v['create_time']}</td>
+                            <td class="text-center">
+                                {$v.total}
+                            </td>
+                            <td class="text-center">
+                                {$befit['drawTotal']}
+                            </td>
+                            <td class="text-center" style="color: red">
+                                {$befit['draw']}
+                            </td>
+                            <td class="text-center">
+                                <a href="{:U('regDetailList',['code'=>$v['code'],'id'=>$v['aid']])}" class="btn btn-sm btn-default btn-active-primary">
+                                    注册明细
+                                </a>
+                                <a href="{:U('inviteDrawList',['aid'=>$v['aid']])}" class="btn btn-sm btn-default btn-active-primary">
+                                    结算记录
+                                </a>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="18">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+                <div class="alert alert-danger">
+                    <strong>说明:</strong><p>推荐码分润D+1更新显示</p>
+                    <p>分润数据系统会在每天凌晨自动计算各代理的分成数据</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框开始 -->
+<div class="modal fade" id="draw_set" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 500px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title">
+                    结算信息
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('drawSet')}" method="post">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">代理姓名</label>
+                                    <input class="form-control" type="text" name="name"  disabled>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">代理手机号</label>
+                                    <input class="form-control" type="text" name="phone"  disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">最大可结算金额</label>
+                                    <input class="form-control" type="text" name="max_total"  readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">本次结算金额</label>
+                                    <input class="form-control" type="text" name="total" placeholder="支持负数">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">备注信息</label>
+                                    <textarea class="form-control"  name="info" style="resize:none;height: 100px"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="aid" value="">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+
+
+<script>
+    $('#draw').click(function (e) {
+        $('#draw_set input').val('');
+       var radio=$("input[name='check_radio']:checked"),con=$('.layui-layer-content');
+       var aid=radio.val(),name=radio.data('name'),phone=radio.data('phone'),total=radio.data('total');
+       if(aid){
+           $('[name="aid"]').val(aid);
+           $('[name="name"]').val(name);
+           $('[name="phone"]').val(phone);
+           $('[name="max_total"]').val(total);
+           $('#draw_set').modal('show');
+       }else{
+           layer.alert('请先选择要清算的用户');
+       }
+    })
+</script>
+
+
+<include file="Public/footer"/>

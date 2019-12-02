@@ -1,0 +1,43 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="fixed-fluid">
+            <div class="fluid">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="mar-btm pad-btm bord-btm">
+                            <h4 class="page-header text-overflow">
+                                消息详情
+                            </h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <div class="text-bold">{$data.title}</div>
+                                        <small class="text-muted">{$data.ctime}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr-sm visible-xs">
+                            <div class="col-sm-5 clearfix">
+                                <div class="pull-right text-right">
+                                    <p class="mar-no"><small class="text-muted">{$data.type}</small></p>
+                                    <a href="{:U('index')}">
+                                        <strong>返回列表</strong>
+                                        <i class="demo-psi-left-4 icon-fw"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pad-ver bord-ver"  style="margin-top: 15px">
+                            {$data.data}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<include file="Public/footer"/>

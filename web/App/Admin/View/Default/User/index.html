@@ -1,0 +1,70 @@
+<include file="Public/header"/>
+            <div id="content-container">
+                <div id="page-content">
+                  <div class="panel">
+                    <div class="panel-body">
+                        <div class="pad-btm form-inline">
+                            <div class="row">
+                                <div class="col-sm-6 text-xs-center">
+                                    <div class="form-group">
+                                        <a href="{:U('Admin/User/add_user')}"><button id="demo-btn-addrow" class="btn btn-purple"><i class="demo-pli-plus"></i>添加后台成员</button></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 text-xs-center text-right">
+                                </div>
+                            </div>
+                        </div>
+                        <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle" data-page-size="7">
+                            <thead>
+                                <tr>
+                                    <th data-sort-initial="true" data-toggle="true">登录账户</th>
+                                    <th>联系邮箱</th>
+                                    <th>成员姓名</th>
+                                    <th>联系电话</th>
+                                    <th>(角色)管理组</th>
+                                    <th>账户状态</th>
+                                    <th data-hide="phone, tablet">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <foreach name="data" item="v">
+                                    <tr>
+                                        <td>{$v['username']}</td>
+                                        <td>{$v['email']}</td>
+                                        <td>{$v['name']}</td>
+                                        <td>{$v['phone']}</td>
+                                        <td>
+                                            <if condition="$v['is_sys'] eq 1 ">
+                                                <span style="color: red">系统超级管理员</span>
+                                             <else />
+                                                {$v['title']}
+                                            </if>
+                                        </td>
+                                        <td>
+                                            <if condition="$v['status'] eq 1 ">
+                                                正常
+                                                <else />
+                                                禁止
+                                            </if>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('Admin/User/edit_user',array('id'=>$v['id']))}">修改</a>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6">
+                                        <div class="text-right">
+                                            <ul class="pagination"></ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                  </div>
+               </div>
+            </div>
+<include file="Public/footer"/>

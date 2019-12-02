@@ -1,0 +1,44 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <div class="panel-body">
+                <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">推广员</th>
+                        <th class="text-center">所属天分</th>
+                        <th class="text-center">直推分润</th>
+                        <th class="text-center">间推分润</th>
+                        <th class="text-center" style="color: red">总分润</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center"><php>$seller=Get_Seller($v['mid']); echo $seller['mch_name'].'|'.$seller['mch_tel'];</php></td>
+                            <td class="text-center">{$v.day}</td>
+                            <td class="text-center">{$v.zt}元</td>
+                            <td class="text-center">{$v.jt}元</td>
+                            <td class="text-center" style="color: red">{$v.benefit}元</td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public/footer"/>

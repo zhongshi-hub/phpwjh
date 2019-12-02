@@ -1,0 +1,552 @@
+<include file="Public/header"/>
+<style>
+    .form-control{width: 300px !important;}
+    .imgborder{width: 300px;border: solid 1px #E4E4E4;height: 220px;padding: 5px;}
+    .imgborder img { width:100%; display:block;height: 100%;}
+    .chosen-container{display: block}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <form method="post" action="{:U('Auditing_save')}">
+                <div class="panel-body">
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">编辑基本信息</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">收款码ID</label>
+                                <input class="form-control" type="text" value="{$data.codes}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">所属代理</label>
+                                <input class="form-control" type="text"  value="{$data.agent_id|agent_name}" readonly>
+                                <input  type="hidden" name="agent_id" value="{$data.agent_id}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">商户名称</label>
+                                <input class="form-control" type="text"  name="mch_name" value="{$data.mch_name}"  >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label" style="color: red">商户类型</label>
+                                <select id="mch_bus_type" data-placeholder="请选择..."  tabindex="2"  class="form-control" name="mch_bus_type" required="required">
+                                    <option value="快速" <eq name="data.mch_bus_type" value="快速">selected</eq> >快速</option>
+                                    <option value="企业" <eq name="data.mch_bus_type" value="企业">selected</eq> >企业</option>
+                                    <option value="小微" <eq name="data.mch_bus_type" value="小微">selected</eq> >小微</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">行业类别</label>
+                                <select data-placeholder="请选择..." id="mch_industry" tabindex="2"    style="width: 300px;" name="mch_industry" required="required">
+                                    <foreach name="ind" item="v">
+                                        <option value="{$v.pid}"  <if condition="$data.mch_industry eq $v['pid']">selected</if>>{$v.name}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">所属省份</label>
+                                <select data-placeholder="请选择..."  data-width="100%"   id="provice"  class="form-control" name="mch_provice" required="required">
+                                    <foreach name="pro" item="v">
+                                        <option value="{$v.provice}"  <if condition="$data.mch_provice eq $v['provice']">selected</if>>{$v.provice}</option>
+                                    </foreach>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">所属城市</label>
+                                <select id="selectCity" class="form-control" data-live-search="true" data-width="100%" name="mch_citys" required="required">
+                                    <option value="{$data.mch_citys}" selected>{$data.mch_citys}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">所属区县</label>
+                                <select id="selectDis" class="form-control" data-live-search="true" data-width="100%" name="mch_district" required="required">
+                                    <option value="{$data.mch_district}" selected>{$data.mch_district}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">地址</label>
+                                <input class="form-control" type="text" name="mch_address" value="{$data.mch_address}" >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">电话</label>
+                                <input class="form-control" type="text" name="mch_tel" value="{$data.mch_tel}" >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">负责人(如企业为法人)</label>
+                                <input class="form-control" type="text" name="mch_card_name" value="{$data.mch_card_name}" >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">负责人身份证(如企业为法人)</label>
+                                <input class="form-control" type="text" name="mch_card_id" value="{$data.mch_card_id}">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">证件有效期(如企业为法人)</label>
+                                <input class="form-control" type="text" name="card_time" value="{$data.card_time}" placeholder="格式: 年-月-日 永久:9999-12-31">
+                            </div>
+                        </div>
+                        <neq name="mccData" value="0">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">新大陆MCC码</label>
+                                    <select data-placeholder="请选择..." id="pos_mcc" tabindex="2"    style="width: 300px;" name="pos_mcc">
+                                        <option value="">请选择MCC</option>
+                                        <foreach name="mccData" item="v">
+                                            <option value="{$v.mcc}"  <if condition="$data.pos_mcc eq $v['mcc']">selected</if>>{$v.name}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                        </neq>
+                    </div>
+
+                    <div class="row" id="qy_data">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">企业名称</label>
+                                <input class="form-control" type="text" name="qy_name" value="{$data.qy_name}" >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">工商注册号</label>
+                                <input class="form-control" type="text" name="qy_cid" value="{$data.qy_cid}" >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">执照有效期</label>
+                                <input class="form-control" type="text" name="qy_time" value="{$data.qy_time}" placeholder="格式: 年-月-日 永久:9999-12-31" >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">法人姓名</label>
+                                <input class="form-control" type="text" name="qy_fr_name" value="{$data.qy_fr_name}" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="qy_data1">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">法人身份证号</label>
+                                <input class="form-control" type="text" name="qy_fr_cid" value="{$data.qy_fr_cid}" >
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">结算信息</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户银行</label>
+                                <select data-placeholder="请选择..." id="mch_bank_list" tabindex="2"    style="width: 300px;" name="mch_bank_list" required="required">
+                                    <foreach name="bank_list" item="v">
+                                        <option value="{$v.bnkcd}"  <if condition="$data.mch_bank_list eq $v['bnkcd']">selected</if>>{$v.bnknm}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">银行卡号</label>
+                                <input class="form-control" type="text" name="mch_bank_cid" value="{$data.mch_bank_cid}"  >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户名称</label>
+                                <input class="form-control" type="text" name="mch_bank_name" value="{$data.mch_bank_name}">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">帐户类型</label>
+                                <select id="mch_bank_type" data-placeholder="请选择..."  tabindex="2"  class="form-control" name="mch_bank_type" required="required">
+                                    <option value="个人账户" <if condition="$data.mch_bank_type eq '个人账户'">selected</if> >个人账户</option>
+                                    <option value="企业账户" <if condition="$data.mch_bank_type eq '企业账户'">selected</if> >企业账户</option>
+                                </select>
+
+                                <input class="form-control" id="Gr" style="display: none" type="text"  value="个人账户" disabled>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">结算类型</label>
+                                <select id="mch_bank_type_s" data-placeholder="请选择..."  tabindex="2"  class="form-control" name="mch_bank_type_s" required="required">
+                                    <option value="0" <if condition="$data.mch_bank_type_s neq 1">selected</if> >法人结算</option>
+                                    <option value="1" <if condition="$data.mch_bank_type_s eq 1">selected</if> >非法人结算</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户省份</label>
+                                <select data-placeholder="请选择..."  tabindex="2"  id="mch_bank_provice"  style="width: 300px;" name="mch_bank_provice" required="required">
+                                    <foreach name="pro" item="v">
+                                        <option value="{$v.provice}"  <if condition="$data.mch_bank_provice eq $v['provice']">selected</if>>{$v.provice}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group" id="depositCity">
+                                <label class="control-label">开户城市</label>
+                                <select id="selectBCity" class="form-control" data-live-search="true" data-width="100%" name="mch_bank_citys" required="required">
+                                    <option value="{$data.mch_bank_citys}" selected>{$data.mch_bank_citys}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group" id="depositLBnk">
+                                <label class="control-label">开户支行</label>
+                                <select  class="form-control" id="selectLBnk" required="required">
+                                    <option value="{$data.mch_linkbnk}" selected="selected">{$data.mch_linkbnk|reload_banks}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">联行号</label>
+                                <input class="form-control" id="lianhanghao" type="text" name="mch_linkbnk" value="{$data.mch_linkbnk}" readonly>
+                            </div>
+                        </div>„
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">预留手机号码</label>
+                                <input class="form-control" type="text" name="mch_bank_tel" value="{$data.mch_bank_tel}">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">证件信息</p>
+                    <div class="row">
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">身份证正面</span></label>
+                                {:uploads_map('mch_img_z',$data['mch_img_z'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">身份证反面</span></label>
+                                {:uploads_map('mch_img_p',$data['mch_img_p'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">结算银行卡</span></label>
+                                {:uploads_map('mch_img_bank',$data['mch_img_bank'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3" id="s">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">手持照</span></label>
+                                {:uploads_map('mch_img_s',$data['mch_img_s'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3 Yz" id="yyzz">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">营业执照</span></label>
+                                {:uploads_map('mch_img_yyzz',$data['mch_img_yyzz'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3 Yz" id="sqh">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">收款人授权函</span></label>
+                                {:uploads_map('mch_img_sqh',$data['mch_img_sqh'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3 Yz" id="a-z">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">身份证正面(授权人)</span></label>
+                                {:uploads_map('mch_img_auth_z',$data['mch_img_auth_z'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3 Yz" id="a-p">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">身份证反面(授权人)</span></label>
+                                {:uploads_map('mch_img_auth_p',$data['mch_img_auth_p'])}
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3" id="m1">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">门头照片</span></label>
+                                {:uploads_map('mch_img_m1',$data['mch_img_m1'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3" id="m2">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">门店内景</span></label>
+                                {:uploads_map('mch_img_m2',$data['mch_img_m2'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3" id="m3">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">收银台照</span></label>
+                                {:uploads_map('mch_img_m3',$data['mch_img_m3'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3" id="m4">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">商户协议</span></label>
+                                {:uploads_map('mch_img_m4',$data['mch_img_m4'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3" id="m5">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">商户信息</span></label>
+                                {:uploads_map('mch_img_m5',$data['mch_img_m5'])}
+                            </div>
+                        </div>
+                        <!--<div class="col-sm-3 Sq">
+                            <div class="form-group">
+                                <label class="control-label"><span style="color: red">授权函</span></label>
+                                {:uploads_map('mch_img_sqh',$data['mch_img_sqh'])}
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="panel-footer text-justify">
+                    <a class="btn btn-warning" href="{:U('Auditing_detail',array('id'=>$_GET['id']))}">取消编辑并返回上一层</a>
+                    <input type="hidden" name="id" value="{$_GET['id']}">
+                    <button type="submit" class="btn btn-danger" >确认更新信息并提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        $('#pos_mcc,#mch_bus_type,#mch_industry,#mch_bank_list,#mch_bank_provice,#rate,#provice').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+
+        $('#mch_bus_type').change(BusChange);
+        $('#mch_bank_type').change(BTypeChange);
+
+
+        $('#provice').change(provinceChange); //省份
+        $('#selectCity').change(cityChange); //市级
+
+        $('#mch_bank_provice').change(BproChange); //银行省份
+        $('#selectBCity').change(BcityChange); //市级
+        $('#mch_bank_list').change(bankChange);
+        $('#selectLBnk').change(selectLBnkval);
+
+
+        BusChange();
+        BTypeChange();
+    });
+
+    function BTypeChange() {
+        var type= $('#mch_bank_type option:selected').val();
+        if(type=='个人账户'){
+            $('.Sq').show();
+        }else{
+            $('.Sq').hide();
+        }
+    }
+
+    function BusChange() {
+        var Bus= $('#mch_bus_type option:selected').val();
+        if(Bus=='快速'||Bus=='小微'){
+            $('.Yz,#qy_data,#qy_data1,#yyzz,#sqh').hide();
+            $('.Sq,#Gr').show();
+            $('#mch_bank_type').hide();
+        }else{
+            $('#mch_bank_type,#qy_data,#qy_data1').show();
+            $('.Yz').show();
+            $('#Gr').hide();
+        }
+    }
+
+
+
+    //当支行变了 联行号就变
+    function selectLBnkval() {
+        var lh= $('#selectLBnk option:selected').val();
+        $('#lianhanghao').val(lh);
+    }
+
+    //当开户行放生改变时，带出默认的支行
+    function bankChange(){
+        var cityId = $('#selectBCity option:selected').val();
+        if(cityId!=null && cityId!="" && typeof(cityId)!='undefined'){
+            setLBnk(cityId);
+        }
+    }
+
+    //
+    function BproChange() {
+        var provinceId = $('#mch_bank_provice option:selected').val();
+        setBCity(provinceId);
+    }
+
+    //当省份改变时，带出默认城市
+    function provinceChange(){
+        var provinceId = $('#provice option:selected').val();
+        setCity(provinceId);
+    }
+    //当城市改变的时候,改变区县
+    function cityChange(){
+        var cityId = $('#selectCity option:selected').val();
+        setdistrict(cityId);
+    }
+
+    //当城市改变的时候,改变银行
+    function BcityChange(){
+        var cityId = $('#selectBCity option:selected').val();
+        setLBnk(cityId);
+    }
+
+    //设置银行所属城市
+    function setBCity(provinceId) {
+        var cityStr = "<option value=''>--请选择--</option>";
+        $.ajax({
+            url:"/Pays/Reg/A_area_city",
+            data:'name='+provinceId,
+            type:"POST",
+            dataType:"json",
+            async: false,
+            cache: false,
+            success:function(data){
+                //alert(data.length);
+                for(var i=0; i<data.length; i++){
+                    cityStr += "<option value='"+data[i]+"'>"+data[i]+"</option>";
+                }
+                $("#selectBCity").find("option").remove();
+                $("#selectBCity").append(cityStr);
+                $('#selectBCity').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+                $("#selectBCity").trigger("chosen:updated");
+                $("#selectBCity").trigger("liszt:updated");
+                var cityId = data[0];
+                setLBnk(cityId);
+            }
+        });
+    }
+
+    //设置显示城市
+    function setCity(provinceId){
+        var cityStr = "<option value=''>--请选择--</option>";
+        $.ajax({
+            url:"/Pays/Reg/A_area_city",
+            data:'name='+provinceId,
+            type:"POST",
+            dataType:"json",
+            async: false,
+            cache: false,
+            success:function(data){
+                //alert(data.length);
+                for(var i=0; i<data.length; i++){
+                    cityStr += "<option value='"+data[i]+"'>"+data[i]+"</option>";
+                    //alert(cityStr);
+                }
+                $("#selectCity").find("option").remove();
+                $("#selectCity").append(cityStr);
+                $('#selectCity').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+                $("#selectCity").trigger("chosen:updated");
+                $("#selectCity").trigger("liszt:updated");
+                var cityId = data[0];
+                setdistrict(cityId);
+            }
+        });
+    }
+
+
+    //设置显示区县
+    function setdistrict(provinceId){
+        var disStr = "<option value=''>--请选择--</option>";
+        $.ajax({
+            url:"/Pays/Reg/A_area_disc",
+            data:'name='+provinceId,
+            type:"POST",
+            dataType:"json",
+            async: false,
+            cache: false,
+            success:function(data){
+                //alert(data.length);
+                for(var i=0; i<data.length; i++){
+                    disStr += "<option value='"+data[i]+"'>"+data[i]+"</option>";
+                    //alert(cityStr);
+                }
+                $("#selectDis").find("option").remove();
+                $("#selectDis").append(disStr);
+                $('#selectDis').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+                $("#selectDis").trigger("chosen:updated");
+                $("#selectDis").trigger("liszt:updated");
+            }
+        });
+    }
+
+
+    //当开户市改变且开户行已选择时， 选择开户支行
+    function setLBnk(cityId){
+        var depositBnk = $('#mch_bank_list option:selected').val();
+        var params = {depositBnk:depositBnk,cityId:cityId};
+        $('#lianhanghao').val("");
+        var linkBnkStr = "<option value=''>请选择</option>";
+        if(depositBnk&&cityId) {
+            $.ajax({
+                data: params,
+                url: "/Pays/Reg/A_bnkLink",
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    if (data.list == null) {
+                        linkBnkStr = "<option value=''>此区域无支行信息,请重新选择</option>";
+                    } else {
+                        for (var i = 0; i < data.list.length; i++) {
+                            linkBnkStr += "<option value='" + data.list[i].banking + "'>" + data.list[i].address + "</option>";
+                        }
+                    }
+                    $("#selectLBnk").find("option").remove();
+                    $("#depositLBnk select").append(linkBnkStr);
+                    $('#selectLBnk').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+                    $("#selectLBnk").trigger("chosen:updated");
+                    $("#selectLBnk").trigger("liszt:updated");
+                }
+            });
+        }
+    }
+</script>
+<include file="Public/footer"/>

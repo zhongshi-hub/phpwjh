@@ -1,0 +1,156 @@
+<include file="Public/header"/>
+<link href="__PUBLIC__/statics/plugins/dropzone/dropzone.min.css" rel="stylesheet">
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <form method="post" action="" ajax="yes">
+                <div class="panel-body">
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">基础信息</p>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">等级名称</label>
+                                <input class="form-control" type="text" name="name" value="{$res.name}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">等级状态</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="status"
+                                        required="required">
+                                    <option value="1"
+                                    <eq name="res.status" value="1">selected</eq>
+                                    >启用</option>
+                                    <option value="0"
+                                    <eq name="res.status" value="0">selected</eq>
+                                    >禁用</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: darkred;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">等级费率
+                        <span class="pull-right badge badge-mint"></span></p>
+                    <div class="alert alert-mint">
+                        <strong>说明:</strong>此处配置的成本规则 为当前等级计算分润百分比使用 终端费率只针对当前等级的用户使用
+                    </div>
+                    <div class="row">
+                        <volist name="api" id="v">
+                            <div style="width: 50%;float: left">
+                                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">
+                                    通道:{$v.alleys}</p>
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label class="control-label">成本费率</label>
+                                            <select data-placeholder="请选择..." tabindex="2" class="form-control"
+                                                    name="rate[{$v.alleys_type}_cost]" required="required">
+                                                <volist name=":rate_data($v['alleys_type'])" id="vs">
+                                                    <option value="{$vs.rate}"
+                                                    <php>$name=$v['alleys_type'].'_cost';  $data=$rate[$name]; if($vs['rate']==$data){echo selected;}</php>
+                                                    >{$vs.name}</option>
+                                                </volist>
+                                            </select>
+
+                                            <!--<input class="form-control" type="text" name="rate[{$v.alleys_type}_cost]"-->
+                                                   <!--placeholder="费率千分比  如 3.8 " value="<php>$name=$v['alleys_type'].'_cost'; $data=$rate[$name];echo $data;</php>" required>-->
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label class="control-label">终端费率</label>
+                                            <select data-placeholder="请选择..." tabindex="2" class="form-control"
+                                                    name="rate[{$v.alleys_type}_term]" required="required">
+                                                <volist name=":rate_data($v['alleys_type'])" id="vs">
+                                                    <option value="{$vs.rate}"
+                                                    <php>$name=$v['alleys_type'].'_term';  $data=$rate[$name]; if($vs['rate']==$data){echo selected;}</php>
+                                                    >{$vs.name}</option>
+                                                </volist>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </volist>
+                    </div>
+
+                    <p style="color: darkred;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">分润规则
+                        <span class="pull-right badge badge-mint">成本不能大于等于终端费率 反则终端不能小于等于成本费率</span></p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">直推分润百分比</label>
+                                <input class="form-control" type="number" min="1" max="100" name="zt"
+                                       placeholder="分润比例 最大100% 只输入比例 %符号不需要输入"
+                                       value="{$res.zt}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">间推分润百分比</label>
+                                <input class="form-control" type="number" min="1" max="100" name="jt"
+                                       placeholder="分润比例 最大100% 只输入比例 %符号不需要输入"
+                                       value="{$res.jt}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: darkred;border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">升级规则</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">满足升级人数条件</label>
+                                <input class="form-control" type="number" min="0" max="10000" name="up_number"
+                                       placeholder="满足多少推广人数后才可升级"
+                                       value="{$res.up_number}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-mint">
+                        <strong>分润规则说明:</strong>
+                        <p>分润计算公式: （用户等级终端费率-用户等级成本费率)*交易金额</p>
+                        <p>如:终端为6‰ 成本为4‰ 交易金额12000元 那么分润计算为: (6-4)*12000=24000 费率单位转换 默认费率单位为千分比 则2400/1000=24元</p>
+                        <p>直推计算公式: 分润*直推百分比</p>
+                        <p>如: 分润为上例24元 直推百分比为70% 则计算: 24*70/100(百分比换算)=16.8元</p>
+                        <p>间推计算公式: (分润-直推用户所得间推用户的分润)*间推百分比</p>
+                        <p>如: 间推用户分润为100 先算出当前间推用户的上一级所得(也就是当前直推用户,如直推用户所在等级直推百分比是70%) 那么计算为 100*70/100=70元(直推用户所得)
+                            100-70=30元 30*间推百分比(60%)=18元 最终当前等级用户所得间推分润为18元 剩余的12就是平台的</p>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="id" value="{$res.id}">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('[name="ad_local"]').change(ad_local);
+            ad_local();
+        });
+
+        function ad_local() {
+            var type = $('[name="ad_local"] option:selected').val();
+            var path, type_img = $('#type_img'), type_text = $('#type_text');
+            if (type == 1) {
+                path = 'http://file.xunmafu.com/Upload/attachment/2017-11-08/BCGXRSBOMTVETUGGPSNP.png';
+                type_img.show();
+                type_text.hide();
+            } else if (type == 2) {
+                path = 'http://file.xunmafu.com/Upload/attachment/2017-11-09/9LPE977KX6N61X5F3I6F.png';
+                type_img.hide();
+                type_text.show();
+            } else {
+                path = 'http://file.xunmafu.com/Upload/attachment/2017-11-09/8N3F6X38K8JTCFWA1X0T.png';
+                type_img.hide();
+                type_text.show();
+            }
+            $("#imgId").attr('src', path);
+        }
+    </script>
+    <include file="Public/footer"/>

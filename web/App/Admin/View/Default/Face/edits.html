@@ -1,0 +1,142 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <form method="post" action="{:U('edits')}" ajax="yes">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">设备类型</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="type" required="required">
+                                    <option value="wx" <neq name="data.type" value="ali">selected</neq> >微信刷脸设备</option>
+                                    <option value="ali" <eq name="data.type" value="ali">selected</eq> >支付宝刷脸设备</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">设备状态</label>
+                                <select data-placeholder="请选择..." tabindex="2" class="form-control" name="status" required="required">
+                                    <option value="0" <eq name="data.status" value="0">selected</eq> >禁用</option>
+                                    <option value="1" <neq name="data.status" value="0">selected</neq> >启用</option>
+                                </select>
+                                <span>如设置禁用 设备将不可用</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">设备信息</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">设备型号</label>
+                                <input type="text" name="device_number" class="form-control" value="{$data.device_number}" placeholder="" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">设备序列号(SN)</label>
+                                <input type="text" name="device_sn" class="form-control" value="{$data.device_sn}" placeholder="" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">商户信息(可选)</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">所属商户</label>
+                                <div class="input-group mar-btm">
+                                    <input id="dialog_mch_name" class="form-control mid_dialog" type="text"  value="<php>$seller=Get_Seller($data['mid']); echo $seller['mch_name'];</php>">
+                                    <input id="dialog_mid" class="form-control" type="hidden" name="mid" value="{$data.mid}">
+                                    <span class="input-group-btn">
+                                    <button class="btn btn-default mch_rest" type="button" title="清空选择" style="border-radius: 0px !important;"><i class="fa fa-close"></i></button>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">所属门店</label>
+                                <div class="input-group mar-btm">
+                                    <input id="dialog_store_name" class="form-control store_dialog" type="text"  value="<php>$store=Get_Store($data['store_id']); echo $store['name'];</php>">
+                                    <input id="dialog_store_id" class="form-control" type="hidden" name="store_id" value="{$data.store_id}">
+                                    <span class="input-group-btn">
+                                    <button class="btn btn-default store_rest" type="button" title="清空选择" style="border-radius: 0px !important;"><i class="fa fa-close"></i></button>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 14px;">选择所属商户设备可在当前商户下所有门店使用,选择所属门店设备只能当前门店下使用</p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group pad-ver">
+                                <label class="control-label">设备备注</label>
+                                <textarea class="form-control" name="info" style="height: 100px;resize: none">{$data.info}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 14px;">广告费用设置</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">按年收费</label>
+                                <input type="text" name="ad_year" class="form-control" value="{$data.ad_year}" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">按月收费</label>
+                                <input type="text" name="ad_month" class="form-control" value="{$data.ad_month}" placeholder="" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-danger">
+                        <p>首次商户在设备登录自动绑定信息</p> <p>如更换商户 请使用编辑功能清除所属商户和所属门店数据提交更新</p>
+                    </div>
+                </div>
+
+                <div class="panel-footer text-right">
+                    <input type="hidden" name="id" value="{$data.id}">
+                    <button class="btn btn-success" type="submit">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $('select').chosen();
+    $('.mid_dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'商户检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Merchant/mch_dialog')}"
+        });
+    });
+    $('.store_dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'门店检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Merchant/store_dialog')}"
+        });
+    });
+    $('.mch_rest').click(function () {
+        $('#dialog_mch_name,#dialog_mid').val('');
+    });
+    $('.store_rest').click(function () {
+        $('#dialog_store_name,#dialog_store_id').val('');
+    });
+
+</script>
+<include file="Public/footer"/>

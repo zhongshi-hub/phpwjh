@@ -1,0 +1,66 @@
+<include file="Public/header"/>
+<style>
+    .state{cursor: pointer}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{$title}</h3>
+            </div>
+            <div class="panel-body">
+
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">ID</th>
+                        <th class="text-center">代理ID</th>
+                        <th class="text-center">代理姓名</th>
+                        <th class="text-center">代理手机号</th>
+                        <th class="text-center">结算金额</th>
+                        <th class="text-center">结算时间</th>
+                        <th class="text-center">备注信息</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center">
+                                {$v.id}
+                            </td>
+                            <td class="text-center">
+                                {$v.aid}
+                            </td>
+                            <td class="text-center"><php>echo agentField($v['aid'],'user_name')</php></td>
+                            <td class="text-center">
+                                <php>echo agentField($v['aid'],'user_phone')</php>
+                            </td>
+                            
+                            <td class="text-center">  <span class="label label-success" style="cursor:pointer;font-size:12px;font-weight:1;border-radius: 5px;">{$v.total}</span></td>
+                            <td class="text-center">{$v.create_time}</td>
+
+                            <td class="text-center">{$v.info}</td>
+
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="18">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+</script>
+
+
+<include file="Public/footer"/>

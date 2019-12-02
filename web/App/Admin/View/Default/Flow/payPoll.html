@@ -1,0 +1,397 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <span class="text-muted">是否开启轮询</span>
+                    <input id="is_poll" class="toggle-switch" type="checkbox" value="{$Think.get.id}" <eq name="configStatus" value="1">checked=""</eq>>
+                    <label for="is_poll"></label>
+                </div>
+                <h3 class="panel-title">{:$title}</h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert alert-warning">
+                    <strong>说明: </strong>右上角轮询状态如果开启系统按照下列添加的轮询规则进行轮询支付,如果关闭将按照系统默认移动支付关联通道进行支付。</a>
+                </div>
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+                                <button id="poll_add" class="btn btn-purple"><i class="demo-pli-add icon-fw"></i>添加轮询通道规则
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                        </div>
+                    </div>
+                </div>
+                <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">商户别名</th>
+                        <th class="text-center">所属通道</th>
+                        <th class="text-center">商户号</th>
+                        <th class="text-center">最低金额</th>
+                        <th class="text-center">单日金额上限</th>
+                        <th class="text-center">微信支付轮询</th>
+                        <th class="text-center">支付宝支付轮询</th>
+                        <th class="text-center">优先级</th>
+                        <th class="text-center">状态</th>
+                        <th class="text-center">创建时间</th>
+                        <th class="text-center">备注</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center">{$v.name}</td>
+                            <td class="text-center">{$v.alleys|alleys_name}</td>
+                            <td class="text-center">{$v.mch_id}</td>
+                            <td class="text-center">
+                                <empty name="v.alleys_total">
+                                    不限制
+                                    <else/>
+                                    {$v.alleys_total}
+                                </empty>
+                            </td>
+                            <td class="text-center">
+                                <empty name="v.day_total">
+                                    不限制
+                                    <else/>
+                                    {$v.day_total}
+                                </empty>
+                            </td>
+                            <td class="text-center">
+                                <input name="wx" id="wx-{$v['id']}" value="{$v['id']}"
+                                       class="status_switch toggle-switch switchery-default"
+                                <eq name="v.wx" value="1">checked=""</eq>
+                                type="checkbox" name="status">
+                                <label id="wx" for="wx-{$v['id']}"></label>
+                            </td>
+                            <td class="text-center">
+                                <input name="ali" id="ali-{$v['id']}" value="{$v['id']}"
+                                       class="status_switch toggle-switch switchery-default"
+                                <eq name="v.ali" value="1">checked=""</eq>
+                                type="checkbox" name="status">
+                                <label id="ali" for="ali-{$v['id']}"></label>
+                            </td>
+                            <td class="text-center">{$v.level}</td>
+                            <td class="text-center">
+                                <input name="status" id="status-{$v['id']}" value="{$v['id']}"
+                                       class="status_switch toggle-switch switchery-default"
+                                <eq name="v.status" value="1">checked=""</eq>
+                                type="checkbox" name="status">
+                                <label id="status" for="status-{$v['id']}"></label>
+                            </td>
+                            <td class="text-center">{$v['times']|date='Y-m-d H:i:s',###}</td>
+                            <td class="text-center">{$v['mark']}</td>
+                            <td class="text-center">
+                                <button class="btn btn-success btn-sm editPoll" data-id="{$v.id}" type="button">编辑</button>
+                               <button class="btn btn-danger btn-sm delPoll" data-id="{$v.id}" type="button">删除</button>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="15">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    添加轮询通道商户
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form id="poll_form" action="{:U('payPollSet')}" method="post">
+                    {__TOKEN__}
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label class="control-label">商户别名</label>
+                                    <input class="form-control" type="text" name="name" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label">所属通道</label>
+                                    <select data-placeholder="请选择..." tabindex="2" class="form-control" name="alleys" required>
+                                        <foreach name="alley" item="v">
+                                            <option value="{$v.type}">{$v.name}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">商户号</label>
+                                    <input class="form-control" type="text" name="mch_id" placeholder="商户号" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">商户密钥</label>
+                                    <input class="form-control" type="text" name="mch_key" placeholder="商户密钥">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label">扩展字段1</label>
+                                    <input class="form-control" type="text" name="mch_k1" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label">扩展字段2</label>
+                                    <input class="form-control" type="text" name="mch_k2" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label">扩展字段3</label>
+                                    <input class="form-control" type="text" name="mch_k3" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">最低金额</label>
+                                    <input class="form-control" type="text" name="alleys_total" placeholder="满足金额将参与" >
+                                    <span>留空或0不限制</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">单日金额上限</label>
+                                    <input class="form-control" type="text" name="day_total" placeholder="超出上限规则失效" >
+                                    <span>留空或0不限制</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">微信支付轮询</label>
+                                    <select data-placeholder="请选择..." tabindex="2" class="form-control" name="wx">
+                                        <option value="1">启用</option>
+                                        <option value="0">禁用</option>
+                                    </select>
+                                    <span>启用后参与微信支付轮询</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">支付宝支付轮询</label>
+                                    <select data-placeholder="请选择..." tabindex="2" class="form-control" name="ali">
+                                        <option value="1">启用</option>
+                                        <option value="0">禁用</option>
+                                    </select>
+                                    <span>启用后参与支付宝支付轮询</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label class="control-label">轮询优先级</label>
+                                    <input class="form-control" type="text" name="level"  placeholder="值越大 优先级越高">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">参与轮询状态</label>
+                                    <select data-placeholder="请选择..." tabindex="2" class="form-control" name="status">
+                                    <option value="1">参与轮询</option>
+                                    <option value="0">禁用轮询</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="control-label">规则费率</label>
+                                    <input class="form-control" type="text" name="rate" placeholder="千分比用于计算分润" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label">备注信息</label>
+                                    <input class="form-control" type="text" name="mark" placeholder="当前轮询通道规则的备注信息" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="mid" value="{$Think.get.id}">
+                        <input type="hidden" name="id" value="">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+
+<script type="text/javascript" src="__PUBLIC__/plug/CSXClass/distpicker.min.js"></script>
+<script src="__PUBLIC__/statics/plugins/bootbox/bootbox.min.js"></script>
+<script src="__PUBLIC__/clipboard.min.js"></script>
+<script>
+    $('select').chosen({width:"100%" });
+    $('#is_poll').change(function () {
+        var status=$("#" + this.id).is(':checked')?1:0;
+        $.post('{:U("pollConfig")}', {mid:this.value,status:status}, function (data) {
+            if (data.status === 1) {
+                $.niftyNoty({
+                    type: 'success',
+                    message: '<strong>' + data.info + '</strong> 2秒后自动刷新当前页面!',
+                    container: 'floating',
+                    timer: 2000
+                });
+                setTimeout(function () {
+                    window.location.reload();
+                }, 2000);
+            }
+            else {
+
+                $.niftyNoty({
+                    type: 'danger',
+                    message: '<strong>' + data.info + '</strong>',
+                    container: 'floating',
+                    timer: 5000
+                });
+            }
+        }, 'json');
+
+        console.log(status);
+    });
+    /*监听switch状态*/
+    $(".status_switch").change(function () {
+        var name=$(this).attr('name'),status=$("#" + this.id).is(':checked');
+        var ajax_data = {id: this.value, status: status, name:name};
+        $.post('{:U("pollField")}', ajax_data, function (data) {
+            if (data.status === 1) {
+                $.niftyNoty({
+                    type: 'success',
+                    message: '<strong>' + data.info + '</strong> 2秒后自动刷新当前页面!',
+                    container: 'floating',
+                    timer: 2000
+                });
+                setTimeout(function () {
+                    window.location.reload();
+                }, 2000);
+            }
+            else {
+
+                $.niftyNoty({
+                    type: 'danger',
+                    message: '<strong>' + data.info + '</strong>',
+                    container: 'floating',
+                    timer: 5000
+                });
+            }
+        }, 'json');
+    });
+
+    $('.delPoll').click(function () {
+        var  id=$(this).data('id');
+        layer.alert('您确认删除当前规则吗？',function () {
+            $.post('{:U("delPoll")}', {id:id}, function (data) {
+                layer.closeAll();
+                if (data.status === 1) {
+                    $.niftyNoty({
+                        type: 'success',
+                        message: '<strong>' + data.info + '</strong> 2秒后自动刷新当前页面!',
+                        container: 'floating',
+                        timer: 2000
+                    });
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 2000);
+                }
+                else {
+                    $.niftyNoty({
+                        type: 'danger',
+                        message: '<strong>' + data.info + '</strong>',
+                        container: 'floating',
+                        timer: 5000
+                    });
+                }
+            }, 'json');
+        });
+    });
+
+    $('#poll_add').click(function () {
+        $("#poll_form").attr("action", "{:U('payPollSet')}");
+        $('#myModalLabel').html('添加轮询通道商户');
+        $('input').val('');
+        $('[name="mid"]').val({$Think.get.id|default=0});
+        $('#add').modal('show');
+    });
+
+    $('.editPoll').click(function () {
+        var  id=$(this).data('id');
+        $.post("{:U('editPoll')}", {id:id,type:'detail'}, function(data){
+            if(data.status === 1){
+                $("[name='name']").val(data.info.name);
+                $("[name='alleys']").find("option[value='"+data.info.alleys+"']").attr("selected",true);
+                $("[name='mch_id']").val(data.info.mch_id);
+                $("[name='mch_key']").val(data.info.mch_key);
+                $("[name='mch_k1']").val(data.info.mch_k1);
+                $("[name='mch_k2']").val(data.info.mch_k2);
+                $("[name='mch_k3']").val(data.info.mch_k3);
+                $("[name='alleys_total']").val(data.info.alleys_total);
+                $("[name='day_total']").val(data.info.day_total);
+                $("[name='wx']").find("option[value='"+data.info.wx+"']").attr("selected",true);
+                $("[name='ali']").find("option[value='"+data.info.ali+"']").attr("selected",true);
+                $("[name='level']").val(data.info.level);
+                $("[name='status']").find("option[value='"+data.info.status+"']").attr("selected",true);
+                $("[name='mark']").val(data.info.mark);
+                $("[name='id']").val(data.info.id);
+                $("[name='rate']").val(data.info.rate);
+                $("#poll_form").attr("action", "{:U('editPoll')}");
+                $('#myModalLabel').html('编辑轮询通道商户');
+                $('select').trigger("chosen:updated");
+                $('#add').modal('show');
+            }
+            else{
+                $.niftyNoty({
+                    type: 'danger',
+                    message : '<strong>'+data.info+'</strong>',
+                    container : 'floating',
+                    timer : 5000
+                });
+            }
+        }, 'json');
+
+    });
+
+
+
+
+</script>
+<include file="Public/footer"/>

@@ -1,0 +1,161 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <form id="in_form" method="post" action="{:U('alterInfo')}">
+            <div class="panel-body">
+                <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;"><eq name="Think.get.type" value="bank">变更银行卡<else/>变更联系信息</eq></p>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">商户号<span class="ccl_r">*</span></label>
+                            <input class="form-control" type="text" name="sub_mch_id" value="{$data.sub_mch_id}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">商户名称<span class="ccl_r">*</span></label>
+                            <input class="form-control" type="text"  value="{$data.mch_name}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">身份证姓名<span class="ccl_r">*</span></label>
+                            <input class="form-control" type="text"  value="{$data.id_card_name}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <eq name="Think.get.type" value="bank">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">开户银行<span class="ccl_r">*</span></label>
+                            <select class="form-control"  data-placeholder="请选择..." tabindex="2"  name="account_bank" required="required">
+                                <foreach name="bank" item="v">
+                                    <option value="{$v}" <if condition="$data.mch_bank_list eq $v">selected</if>>{$v}</option>
+                                </foreach>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">银行卡号<span class="ccl_r">*</span></label>
+                            <input class="form-control" type="text" name="account_number" value="{$data.mch_bank_cid}" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label">开户省份<span class="ccl_r">*</span></label>
+                            <select data-placeholder="请选择..."  id="bank_pro" tabindex="2" class="form-control"  name="bank_pro" required="required">
+                                <foreach name="pro" item="v">
+                                    <option value="{$v.mid}" <if condition="$data.mch_bank_provice eq $v['name']">selected</if>>{$v.name}</option>
+                                </foreach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group" id="depositCity">
+                            <label class="control-label">开户城市<span class="ccl_r">*</span></label>
+                            <select id="selectBCity" class="form-control" data-live-search="true" data-width="100%" name="bank_city" required="required">
+                                <option value="">请选择市</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4" id="bank_name">
+                        <div class="form-group" >
+                            <label class="control-label">开户支行<span class="ccl_r">*</span></label>
+                            <input class="form-control" type="text" name="bank_name" value="{$data.mch_linkbnk|reload_banks}" placeholder="选择其它银行后需填写银行全称精确到开户行 如郑州银行XXX路支行">
+                            <span>开户银行为其他银行必填,其他17家直连银行无需填写 <a href="https://pay.weixin.qq.com/wiki/doc/api/download/wx_cityno02.zip" style="color: #17a735">银行全称对照表</a></span>
+                        </div>
+                    </div>
+                </div>
+                 <input type="hidden" name="type" value="bank">
+                <else/>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">商户简称</label>
+                                <input class="form-control" type="text" name="merchant_name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">手机号</label>
+                                <input class="form-control" type="text" name="mobile_phone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">邮箱</label>
+                                <input class="form-control" type="text" name="email">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="type" value="no">
+                </eq>
+            </div>
+            <div class="panel-footer text-justify">
+                <a class="btn btn-warning" href="{:U('WxPay/xwList')}">返回列表</a>
+                <input type="hidden" name="id" value="{$_GET['id']}">
+
+                <button id="mchInEnd" type="submit" class="btn btn-danger" >确认信息并变更</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $('select').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+    $('#bank_pro').change(BproChange); //银行省份
+    $('[name="account_bank"]').change(bankNameStatus);
+    bankNameStatus();
+    BproChange();
+
+    function bankNameStatus() {
+        var bank=$('[name="account_bank"]').val();
+        if(bank=='其他银行'){
+            $('#bank_name').show();
+        }else{
+            $('#bank_name').hide();
+        }
+    }
+
+    //当银行省份改变时，带出默认城市
+    function BproChange() {
+        var provinceId = $('#bank_pro option:selected').val();
+        setBCity(provinceId);
+    }
+    //设置银行所属城市
+    function setBCity(provinceId) {
+        var cityStr = "<option value=''>--请选择--</option>";
+        $.ajax({
+            url:"{:U('getProCityData')}",
+            data:'name='+provinceId,
+            type:"POST",
+            dataType:"json",
+            async: false,
+            cache: false,
+            success:function(data){
+                for(var i=0; i<data.info.length; i++){
+                   cityStr += "<option value='" + data.info[i]['mid'] + "'>" + data.info[i]['name'] + "</option>";
+                }
+                $("#selectBCity").find("option").remove();
+                $("#selectBCity").append(cityStr);
+                $('#selectBCity').chosen({search_contains:true,no_results_text: '没有找到相关的数据'});
+                $("#selectBCity").trigger("chosen:updated");
+                $("#selectBCity").trigger("liszt:updated");
+            }
+        });
+    }
+</script>
+<include file="Public/footer"/>

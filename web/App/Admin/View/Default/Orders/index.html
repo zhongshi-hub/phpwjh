@@ -1,0 +1,305 @@
+<include file="Public/header"/>
+<style>
+    body{
+        -moz-osx-font-smoothing:auto!important;
+    }
+</style>
+<script>
+    $(function() {
+        $('select').chosen();
+    });
+</script>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">交易列表</h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                        <form method="post" action="{:U('index')}">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label class="control-label">交易单号</label>
+                                            <input class="form-control" type="text" placeholder="支持订单号泛查询" name="trade_no" value="{$data.trade_no}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label class="control-label">所属代理</label>
+                                            <input id="dialog_name" class="form-control dialog" type="text"  value="">
+                                            <input id="dialog_aid" class="form-control" type="hidden" name="aid" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label class="control-label">所属商户</label>
+                                            <input id="dialog_mch_name" class="form-control mid_dialog" type="text"  value="">
+                                            <input id="dialog_mid" class="form-control" type="hidden" name="mid" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label class="control-label">门店名称</label>
+                                            <input id="dialog_store_name" class="form-control store_dialog" type="text"  value="">
+                                            <input id="dialog_store_id" class="form-control" type="hidden" name="store_id" value="">
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label class="control-label">支付类型</label>
+                                            <select data-placeholder="请选择..." id="paytype" tabindex="2" class="form-control" name="paytype">
+                                                <option value="" >--请选择--</option>
+                                                <option value="pay.weixin.jspay" <eq name="data.paytype" value="pay.weixin.jspay">selected="selected"</eq>>微信JS支付</option>
+                                                <option value="pay.weixin.native" <eq name="data.paytype" value="pay.weixin.native">selected="selected"</eq>>微信扫码支付</option>
+                                                <option value="pay.alipay.jspay" <eq name="data.paytype" value="pay.alipay.jspay">selected="selected"</eq>>支付宝JS支付</option>
+                                                <option value="pay.alipay.native" <eq name="data.paytype" value="pay.alipay.native">selected="selected"</eq>>支付宝扫码支付</option>
+                                                <option value="unified.trade.micropay" <eq name="data.paytype" value="unified.trade.micropay">selected="selected"</eq>>微信/支付宝条码支付</option>
+                                            </select>
+                                        </div>
+                                    </div>-->
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="control-label">时间范围</label>
+                                            <div class="input-daterange input-group" >
+                                                <input type="text" class="form-control" id="STime" name="s_time" value="{$data.s_time}"/>
+                                                <span class="input-group-addon">To</span>
+                                                <input type="text" class="form-control" id="ETime" name="e_time" value="{$data.e_time}"/>
+                                                <span class="input-group-addon btn"  style="border-width:1px;" onclick="SetTime(1)">昨天</span>
+                                                <span class="input-group-addon btn"  style="border-width:1px;" onclick="SetTime(2)">今天</span>
+                                                <span class="input-group-addon btn"  style="border-width:1px;" onclick="SetTime(3)">近七天</span>
+                                                <span class="input-group-addon btn"  style="border-width:1px;" onclick="SetTime(4)">近一月</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">通道类型</label>
+                                            <select data-placeholder="请选择..." id="type" tabindex="2" class="form-control" name="type">
+                                                <option value="" >--请选择--</option>
+                                                <option value="T1" <eq name="data.type" value="T1">selected="selected"</eq> >T1</option>
+                                                <option value="T0" <eq name="data.type" value="T0">selected="selected"</eq>>T0</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">支付通道</label>
+                                            <select data-placeholder="请选择..."  tabindex="2" class="form-control" name="alleys">
+                                                <option value="" >--请选择--</option>
+                                                <foreach name="alleys" item="_v">
+                                                <option value="{$_v}" <eq name="data.alleys" value="$_v">selected="selected"</eq>>{$_v|alleys_name}</option>
+                                                </foreach>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <button class="btn btn-success" type="submit">搜索</button>
+                                    <button class="btn btn-default" value="ccl" name="export" type="submit"> <i class="fa fa-download"></i>导出</button>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+
+            <div class="panel-body">
+
+                <table  class="table  table-bordered table-hover toggle-circle text-center" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">所属代理</th>
+                        <th class="text-center">所属商户</th>
+                        <th class="text-center">门店名称</th>
+                        <th class="text-center">交易类型</th>
+                        <th class="text-center">交易场景</th>
+                        <th class="text-center">交易时间</th>
+                        <th class="text-center">完成时间</th>
+                        <th class="text-center">交易金额</th>
+                        <th class="text-center">交易单号</th>
+                        <th class="text-center">交易状态</th>
+                        <!--<th class="text-center">通道类型</th>-->
+                        <th class="text-center">支付通道</th>
+                        <!--<th class="text-center">通知状态</th>-->
+                        <!--<th class="text-center">通知补发</th>-->
+                        <!--<th class="text-center">申请退款</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="list" item="v">
+                        <tr>
+                            <td><php>$agent=Get_Agent($v['mid']); echo $agent['user_name'];</php></td>
+                            <td style="width: 120px"><php>$seller=Get_Seller($v['mid']); echo $seller['mch_name'];</php></td>
+                            <td style="width: 120px"><php>$store=Get_Store($v['store_id']); echo $store['name'];</php></td>
+                            <td><span class="label label-success" style="background-color:<php>echo pay_type_color($v['service']);</php>;font-size:12px;font-weight:1;border-radius: 5px;" title="<php>echo pays_types($v['service'],true);</php>">{$v['service']|pays_types}</span></td>
+                            <td>
+                                <php>$key=explode('_',$v['service']);if($key[1]!='refund'){</php>
+                                <span class="label label-success" style="background-color:#00bcd4;font-size:12px;font-weight:1;border-radius: 5px;">收款</span>
+                                <php>}else{</php>
+                                <span class="label label-success" style="background-color:#c16e00;font-size:12px;font-weight:1;border-radius: 5px;cursor: pointer" title="{$v.goods_tag}">退款</span>
+                                <php>}</php>
+                            </td>
+                            <td>{$v['createtime']|date='Y-m-d H:i:s',###}</td>
+                            <td>{$v['time_end']|date='Y-m-d H:i:s',###}</td>
+                            <td><span class="label label-danger" style="font-size:12px;font-weight:1;border-radius: 5px;">{$v['total_fee']}</span></td>
+                            <td><a href="#popover" class="add-popover" data-original-title="订单详情" data-content="<php>if($key[1]=='refund'){echo '原订单号:   '.$v['out_transaction_id']; } </php>    官方订单号: {$v['transaction_id']}  " data-placement="top" data-trigger="focus" data-toggle="popover">{$v['out_trade_no']}</a></td>
+                            <td>{$v['status']|pays_status}</td>
+                            <!--<td>{$v['type']}</td>-->
+                            <td class="text-center"><span class="label label-dark" style="background-color:<php>echo alleys_color($v['alleys']);</php>;font-size:12px;font-weight:1;border-radius: 5px;cursor: pointer;">{$v.alleys|alleys_name}</span></td>
+                            <!--<td>-->
+                                <!--<php>$status=get_api_notify($v['out_trade_no'],'send_status');if($status==1){</php>-->
+                                <!--<span class="label label-success" style="font-size:12px;font-weight:1;border-radius: 5px;">成功</span></td>-->
+                                <!--<php>}else{</php>-->
+                                <!--<span class="label label-default" style="font-size:12px;font-weight:1;border-radius: 5px;">失败</span></td>-->
+                                <!--<php>}</php>-->
+                            <!--<td><button class="label label-mint reload" data-id="{$v['out_trade_no']}" style="border: 1px solid transparent;cursor: pointer;font-size:12px;font-weight:1;border-radius: 5px;" >补发</button></td>-->
+                            <!--<td><button class="label <php>$r=is_method_refund($v['alleys']);if(false==$r){echo 'label-default';}else{echo 'label-pink';}</php>  refund" data-id="{$v['out_trade_no']}" style="border: 1px solid transparent;cursor: pointer;font-size:12px;font-weight:1;border-radius: 5px;" <php>$r=is_method_refund($v['alleys']);if(false==$r){echo 'disabled';}</php>>退款</button></td>-->
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="15">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $("#demo-foo-addrow").resizableColumns({
+            store: window.store
+        });
+
+    });
+    //补发通知
+    $('.reload').click(function () {
+        var id =$(this).data('id');
+        layer.alert('<p>您确认要补发异步通知吗?</p><p>确认后系统将异步发送给下游支付结果数据!</p>', {
+            title:'提示',
+            skin: 'layui-layer-molv'
+            ,closeBtn: 1
+            ,anim: 6 //动画类型
+        },function(){
+            $.post("{:U('apiReloadNotify')}?Debug=1", {'id':id}, function(data){
+                if(data.status === 1){
+                    layer.alert(data.info,{
+                        title:'提示',
+                        skin: 'layui-layer-molv'
+                        ,closeBtn: 1
+                        ,anim: 6
+                    },function () {
+                        window.location.reload();
+                    });
+                }else{
+                    layer.alert(data.info,{
+                        title:'提示',
+                        skin: 'layui-layer-molv'
+                        ,closeBtn: 1
+                        ,anim: 6
+                    });
+                }
+            }, 'json');
+        });
+    });
+    //退款操作
+    $('.refund').click(function () {
+        var id =$(this).data('id');
+        layer.alert('<p>您确认要退款吗?</p><p>退款系统只支持全款退款,不支持自定义退款金额!</p>', {
+            title:'提示',
+            skin: 'layui-layer-molv'
+            ,closeBtn: 1
+            ,anim: 6 //动画类型
+        },function(){
+            $.post("{:U('orderRefund')}", {'id':id}, function(data){
+                if(data.status === 1){
+                    layer.msg(data.info);
+                    window.location.reload();
+                }else{
+                    layer.msg(data.info);
+                }
+            }, 'json');
+        });
+    });
+
+    $('.dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'代理业务检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Agent/dialog')}"
+        });
+    });
+    $('.mid_dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'商户检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Merchant/mch_dialog')}"
+        });
+    });
+    $('.store_dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'门店检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Merchant/store_dialog')}"
+        });
+    });
+
+    function SetTime(num){
+        switch(num){
+            case 1:
+                s_time=GetDateStr(-1);
+                e_time=GetDateStr(0);
+                break;
+            case 2:
+                s_time=GetDateStr(0);
+                e_time=GetDateStr(1);
+                break;
+            case 3:
+                s_time=GetDateStr(-6);
+                e_time=GetDateStr(1);
+                break;
+            case 4:
+                s_time=GetDateStr(-30);
+                e_time=GetDateStr(1);
+                break;
+        }
+        $('[name="s_time"]').val(s_time);
+        $('[name="e_time"]').val(e_time);
+    }
+
+    function GetDateStr(Day) {
+        var dd = new Date();
+        dd.setDate(dd.getDate()+Day);
+        var y = dd.getFullYear();
+        var m = dd.getMonth()+1;
+        var d = dd.getDate();
+        return y+"-"+m+"-"+d;
+    }
+
+
+</script>
+<include file="Public/footer"/>

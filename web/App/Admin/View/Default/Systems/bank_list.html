@@ -1,0 +1,124 @@
+<include file="Public/header"/>
+<style>
+    .state{cursor: pointer}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{$title}</h3>
+            </div>
+            <!--筛选功能开始-->
+            <!--<div class="row">-->
+                <!--<div class="col-sm-12">-->
+                    <!--<form method="post" action="{:U('bank_list')}" ajax="n">-->
+                        <!--<div class="panel-body">-->
+                            <!--<div class="row ">-->
+                                <!--<div class="col-sm-3">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label class="control-label">所属</label>-->
+                                        <!--<input  class="form-control" type="text" name="code" value="">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-sm-3">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label class="control-label">所属</label>-->
+                                        <!--<input  class="form-control" type="text" name="pid"  value="" placeholder="请输入代理手机号,查询系统请输入admin">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div style="margin-top: 10px">-->
+                                    <!--<button style="float: right" class="btn btn-success" type="submit">搜索</button>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--筛选功能结束-->
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 text-xs-center">
+                            <div class="form-group">
+                                <button id="add" class="btn btn-purple"><i class="demo-pli-add icon-fw"></i>添加银行</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-xs-center text-right">
+                        </div>
+                    </div>
+                </div>
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">ID</th>
+                        <th class="text-center">银行名称</th>
+                        <th class="text-center">行号</th>
+                        <th class="text-center">状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center">
+                                {$v.id}
+                            </td>
+                            <td class="text-center">
+                                {$v.bnknm}
+                            </td>
+                            <td class="text-center"> {$v.number}</td>
+                            <td class="text-center">
+                                <input id="status-switch-{$v['id']}" value="{$v['id']}"
+                                       class="status_switch toggle-switch switchery-default"
+                                <eq name="v.status" value="1">checked=""</eq>
+                                type="checkbox" name="status">
+                                <label id="status_switch" for="status-switch-{$v['id']}"></label>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="18">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    /*状态更新*/
+    $(".status_switch").change(function () {
+        var status = $("#" + this.id).is(':checked');
+        var ajax_data = {id: this.value, status: status, type: 'status'};
+        var actionurl = "{:U('bankStatus')}";
+        $.post(actionurl, ajax_data, function (data) {
+            if (data.status == 1) {
+                $.niftyNoty({
+                    type: 'success',
+                    message: '<strong>' + data.info + '</strong>',
+                    container: 'floating',
+                    timer: 2000
+                });
+                setTimeout(function () {
+                    window.location.reload();
+                }, 2000);
+            }
+            else {
+                $.niftyNoty({
+                    type: 'danger',
+                    message: '<strong>' + data.info + '</strong>',
+                    container: 'floating',
+                    timer: 5000
+                });
+            }
+        }, 'json');
+    });
+</script>
+
+
+<include file="Public/footer"/>

@@ -1,0 +1,212 @@
+<include file="Public/header"/>
+<style>
+    .form-control{width: 300px !important;}
+    .imgborder{width: 300px;border: solid 1px #E4E4E4;height: 220px;padding: 5px;}
+    .imgborder img { width:100%; display:block;height: 100%;}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">渠道详情 --(渠道名称:{$basic.JB_parent})</h3>
+            </div>
+                <div class="panel-body">
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">基本信息</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">渠道名称</label>
+                                <input class="form-control" type="text" value="{$basic.JB_parent}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">省份</label>
+                                <input class="form-control" type="text"   value="{$basic.JB_province}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">城市</label>
+                                <input class="form-control" type="text"   value="{$basic.JB_city}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">区域</label>
+                                <input class="form-control" type="text"   value="{$basic.JB_area}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">地址</label>
+                                <input class="form-control" type="text"   value="{$basic.JB_address}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">负责人</label>
+                                <input class="form-control" type="text" value="{$basic.JB_names}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">邮箱</label>
+                                <input class="form-control" type="email" value="{$basic.JB_email}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">电话</label>
+                                <input class="form-control" type="text" value="{$basic.JB_phone}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">备注</label>
+                                <input class="form-control" type="text" value="{$basic.JB_other}" readonly>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">结算信息</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户银行</label>
+                                <input class="form-control" type="text" value="{$balance.JS_bank|reload_bank}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">银行卡号</label>
+                                <input class="form-control" type="text" value="{$balance.JS_cards}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户名称</label>
+                                <input class="form-control" type="text" value="{$balance.JS_cardsname}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">帐户类型</label>
+                                <input class="form-control" type="text" value="{$balance.JS_cardstype|reload_cardstype}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户省份</label>
+                                <input class="form-control" type="text" value="{$balance.JS_Province|reload_area}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group" id="depositCity">
+                                <label class="control-label">开户城市</label>
+                                <input class="form-control" type="text" value="{$balance.JS_CityName|reload_area}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group" id="depositLBnk">
+                                <label class="control-label">开户支行</label>
+                                <input class="form-control" type="text" value="{$balance.JS_LBnk|reload_banks}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">证件类型</label>
+                                <input class="form-control" type="text" value="{$balance.JS_type|reload_stype}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">证件号码</label>
+                                <input class="form-control" type="text" value="{$balance.JS_cid}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">手机号码</label>
+                                <input class="form-control" type="text" value="{$balance.JS_phone}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">联行号</label>
+                                <input class="form-control" type="text" value="{$balance.JS_lhh}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">证件上传</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">营业执照</label>
+                                <div class="imgborder">
+                                <img class="image-responsive" src="{$paper.Z_YYZZ}" alt="营业执照" id="Z_YYZZ" onclick="view_img('Z_YYZZ')">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">机构代码证</label>
+                                <div class="imgborder">
+                                <img class="image-responsive" src="{$paper.Z_JGDMZ}" alt="机构代码证" id="Z_JGDMZ" onclick="view_img('Z_JGDMZ')">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户许可证</label>
+                                <div class="imgborder">
+                                <img class="image-responsive" src="{$paper.Z_KHXUZ}" alt="开户许可证" id="Z_KHXUZ" onclick="view_img('Z_KHXUZ')">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">法人身份证</label>
+                                <div class="imgborder">
+                                <img class="image-responsive" src="{$paper.Z_FRSFZ}" alt="法人身份证" id="Z_FRSFZ" onclick="view_img('Z_FRSFZ')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">其它附件1</label>
+                                <div class="imgborder">
+                                <img class="image-responsive" src="{$paper.Z_QT1}" alt="其它附件1" id="Z_QT1" onclick="view_img('Z_QT1')">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">其它附件2</label>
+                                <div class="imgborder">
+                                <img class="image-responsive" src="{$paper.Z_QT2}" alt="其它附件2" id="Z_QT2" onclick="view_img('Z_QT2')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="panel-footer text-right">
+                    <a class="btn btn-success" href="{:U('edits',array('id'=>$_GET['id']))}">编辑资料</a>
+                </div>
+        </div>
+    </div>
+</div>
+<include file="Public/footer"/>

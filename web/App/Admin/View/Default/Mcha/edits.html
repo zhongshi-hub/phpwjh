@@ -1,0 +1,311 @@
+<include file="Public/header"/>
+<style>
+    .form-control{width: 300px !important;}
+</style>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">渠道信息编辑 --(渠道名称:{$basic.JB_parent})</h3>
+            </div>
+            <form>
+                <div class="panel-body">
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">基本信息</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">渠道名称</label>
+                                <input class="form-control" type="text" required="required" name="JB_parent" value="{$basic.JB_parent}">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">省份</label>
+                                <select class="form-control"  name="JB_province" required="required">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">城市</label>
+                                <select class="form-control" data-live-search="true" data-width="100%" name="JB_city" required="required">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">区域</label>
+                                <select class="form-control" data-live-search="true" data-width="100%" name="JB_area" required="required">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">地址</label>
+                                <input class="form-control" type="text" required="required" name="JB_address" value="{$basic.JB_address}">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">负责人</label>
+                                <input class="form-control" type="text" required="required" name="JB_names" value="{$basic.JB_names}">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">邮箱</label>
+                                <input class="form-control" type="email" required="required" name="JB_email" value="{$basic.JB_email}">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">电话</label>
+                                <input class="form-control" type="text" required="required" name="JB_phone" value="{$basic.JB_phone}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">备注</label>
+                                <input class="form-control" type="text" required="required" name="JB_other" value="{$basic.JB_other}">
+                            </div>
+                        </div>
+
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">结算信息</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户银行</label>
+                                <select data-placeholder="请选择..." id="selectBnk" tabindex="2" name="JS_bank" style="width: 300px;">
+                                    <foreach name="banks" item="vo">
+                                        <option value="{$vo.bnkcd}"  <if condition="$balance['JS_bank'] eq $vo['bnkcd']">selected="selected"</if>>{$vo.bnknm}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">银行卡号</label>
+                                <input class="form-control" type="text" required="required" name="JS_cards" value="{$balance.JS_cards}">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户名称</label>
+                                <input class="form-control" type="text" required="required" name="JS_cardsname" value="{$balance.JS_cardsname}">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">帐户类型</label>
+                                <select class="form-control" name="JS_cardstype" required="required" >
+                                    <option value="">--请选择--</option>
+                                    <option value="1" <if condition="$balance['JS_cardstype'] eq 1">selected="selected"</if>>企业账户</option>
+                                    <option value="2" <if condition="$balance['JS_cardstype'] eq 2">selected="selected"</if>>个人账户</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户省份</label>
+                                <select data-placeholder="请选择..." id="selectProvince" tabindex="2" name="JS_Province" style="width: 300px;" required="required">
+                                    <foreach name="area" item="vo">
+                                        <option value="{$vo.areaid}" <if condition="$balance['JS_Province'] eq $vo['areaid']">selected="selected"</if>>{$vo.areaname}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group" id="depositCity">
+                                <label class="control-label">开户城市</label>
+                                <select name="JS_CityName" class="form-control" id="selectCity" required="required">
+                                    <option value="{$balance.JS_CityName}" selected="selected" >{$balance.JS_CityName|reload_area}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group" id="depositLBnk">
+                                <label class="control-label">开户支行</label>
+                                <select name="JS_LBnk" class="form-control" id="selectLBnk" required="required">
+                                    <option value="{$balance.JS_LBnk}" selected="selected">{$balance.JS_LBnk|reload_banks}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">证件类型</label>
+                                <select class="form-control" name="JS_type" required="required">
+                                    <option value="">--请选择--</option>
+                                    <option value="1" <if condition="$balance['JS_type'] eq 1">selected="selected"</if>>身份证</option>
+                                    <option value="2" <if condition="$balance['JS_type'] eq 2">selected="selected"</if>>护照</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">证件号码</label>
+                                <input class="form-control" type="text" required="required" name="JS_cid" value="{$balance.JS_cid}">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">手机号码</label>
+                                <input class="form-control" type="text" required="required" name="JS_phone" value="{$balance.JS_phone}">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">联行号</label>
+                                <input class="form-control" type="text" required="required" name="JS_lhh" id="lianhanghao" value="{$balance.JS_lhh}" placeholder="按照分行 自动补入!" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">证件上传</p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">营业执照</label>
+                                {:uploads_map('Z_YYZZ',$paper['Z_YYZZ'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">机构代码证</label>
+                                {:uploads_map('Z_JGDMZ',$paper['Z_JGDMZ'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">开户许可证</label>
+                                {:uploads_map('Z_KHXUZ',$paper['Z_KHXUZ'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">法人身份证</label>
+                                {:uploads_map('Z_FRSFZ',$paper['Z_FRSFZ'])}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">其它附件1</label>
+                                {:uploads_map('Z_QT1',$paper['Z_QT1'])}
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">其它附件2</label>
+                                {:uploads_map('Z_QT2',$paper['Z_QT2'])}
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="panel-footer text-right">
+                    <input value="{$mchid}" name="id" type="hidden">
+                    <button class="btn btn-success" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script language="javascript" src="__PUBLIC__/plug/PCASClass.js"></script>
+<script>
+    new PCAS("JB_province","JB_city","JB_area",'{$basic.JB_province}','{$basic.JB_city}','{$basic.JB_area}');
+    $(function() {
+        $('#selectBnk').chosen();
+        $('#selectProvince').chosen();
+        $('#selectProvince').change(provinceChange);
+        $('#selectCity').change(cityChange);
+        $('#selectBnk').change(bankChange);
+        $('#selectLBnk').change(selectLBnkval);
+    });
+
+    //当支行变了 联行号就变
+    function selectLBnkval() {
+        var lh= $('#selectLBnk option:selected').val();
+        $('#lianhanghao').val(lh);
+    }
+
+    //当开户行放生改变时，带出默认的支行
+    function bankChange(){
+        var cityId = $('#selectCity option:selected').val();
+        if(cityId!=null && cityId!="" && typeof(cityId)!='undefined'){
+            setLBnk(cityId);
+        }
+    }
+
+    //当省份改变时，带出默认城市
+    function provinceChange(){
+        var provinceId = $('#selectProvince option:selected').val();
+        setCity(provinceId);
+    }
+    //当城市改变的时候，带出默认支行
+    function cityChange(){
+        var cityId = $('#selectCity option:selected').val();
+        setLBnk(cityId);
+    }
+
+    //设置显示城市
+    function setCity(provinceId){
+        var cityStr = "<option value=''>--请选择--</option>";
+        $.ajax({
+            url:"{:U('queryBnkCity')}/parentId/"+provinceId,
+            type:"GET",
+            dataType:"json",
+            async: false,
+            cache: false,
+            success:function(data){
+                for(var i=0; i<data.list.length; i++){
+                    cityStr += "<option value='"+data.list[i].areaid+"'>"+data.list[i].areaname+"</option>";
+                }
+                $("#selectCity").find("option").remove();
+                $("#depositCity select").append(cityStr);
+                var cityId = data.list[0].areaId;
+                setLBnk(cityId);
+            }
+        });
+    }
+    //当开户市改变且开户行已选择时， 选择开户支行
+    function setLBnk(cityId){
+        var depositBnk = $('#selectBnk option:selected').val();
+        var params = {depositBnk:depositBnk,cityId:cityId};
+        $('#lianhanghao').val("");
+        var linkBnkStr = "<option value=''>请选择</option>";
+        if(depositBnk&&cityId) {
+            $.ajax({
+                data: params,
+                url: "{:U('bnkLink')}",
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    if (data.list == null) {
+                        linkBnkStr = "<option value=''>此区域无支行信息,请重新选择</option>";
+                    } else {
+                        for (var i = 0; i < data.list.length; i++) {
+                            linkBnkStr += "<option value='" + data.list[i].banking + "'>" + data.list[i].address + "</option>";
+                        }
+                    }
+                    $("#selectLBnk").find("option").remove();
+                    $("#depositLBnk select").append(linkBnkStr);
+                }
+            });
+        }
+    }
+
+
+
+</script>
+<include file="Public/footer"/>
