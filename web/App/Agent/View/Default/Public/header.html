@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动支付业务管理平台</title>
+    <link rel="shortcut icon" href="{:GetPico()}"/>
+    <link href="/Ext?g=css" rel="stylesheet">
+    <link href="__PUBLIC__/statics/css/themes/type-b/theme-navy.min.css" rel="stylesheet">
+    <script type="text/javascript" src="__PUBLIC__/statics/plugins/pace/pace.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/statics/js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/statics/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/statics/js/nifty.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/artDialog/jquery.artDialog.js?skin=default"></script>
+    <script type="text/javascript" src="__PUBLIC__/layer/layer.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/statics/plugins/bootbox/bootbox.min.js"></script>
+    <script src="/Ext?g=default_js"></script>
+</head>
+
+<!--全局 CCL-->
+<body>
+<div id="container" class="effect aside-float aside-bright mainnav-lg mainnav-fixed navbar-fixed">
+    <!--头部开始-->
+    <header id="navbar">
+        <div id="navbar-container" class="boxed">
+            <div class="navbar-header">
+                <a href="{:U('Agent/Index/index')}" class="navbar-brand">
+                    <img src="__PUBLIC__/statics/img/logo.png" alt="控制台" class="brand-icon">
+                    <div class="brand-title">
+                        <span class="brand-text">业务管理平台</span>
+                    </div>
+                </a>
+            </div>
+            <div class="navbar-content clearfix">
+                <ul class="nav navbar-top-links pull-left">
+                    <li class="tgl-menu-btn">
+                        <a class="mainnav-toggle" href="#">
+                            <i class="demo-pli-view-list"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-top-links pull-right">
+                    <li id="dropdown-user" class="dropdown">
+
+                        <a href="JavaScript:password()" class="dropdown-toggle" title="修改密码">
+                            <i class="fa fa-th"></i>
+                            <span class="badge badge-header badge-danger"></span>
+                        </a>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                                <span class="pull-right">
+                                    <i class="demo-pli-male ic-user"></i>
+                                </span>
+                            <div class="username hidden-xs">
+                                <h4 class="text-main">{$_SESSION['agent']['user_name']}</h4>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu  dropdown-menu-right panel-default">
+
+                            <div class="pad-all text-right">
+                                <a href="{:U('Agent/Login/out')}" class="btn btn-primary">
+                                    <i class="demo-pli-unlock"></i>退出登录
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!--头部结束-->
+    <div class="boxed">
+        <nav id="mainnav-container">
+            <div id="mainnav">
+                <div id="mainnav-menu-wrap">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <div id="mainnav-profile" class="mainnav-profile">
+
+                                <div class="profile-wrap">
+                                    <div class="pad-btm">
+                                        <img class="img-border" src="{:GetPlogo()}"
+                                             style="border-radius: 10%;width: 55px;height: 55px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <ul id="mainnav-menu" class="list-group">
+                                <li <eq name="rule" value="Index/index" >class="active-link"</eq>>
+                                    <a href="{:U('Index/index')}">
+                                        <i class="fa fa-dashboard"
+                                           style="width:20px;text-align: center;font-size: 13px"> </i>
+                                        <span class="menu-title"><strong>控制台</strong></span>
+                                    </a>
+                                </li>
+                                <li <eq name="rule" value="Merchant/index" >class="active-link active"</eq>>
+                                    <a href="#">
+                                        <i class="fa fa-send-o" style="width:20px;text-align: center;font-size: 13px"> </i>
+                                        <span class="menu-title"><strong>商户管理</strong></span>
+                                        <i class="arrow"></i>
+                                    </a>
+                                    <ul class="collapse" aria-expanded="false">
+                                        <li><a href="{:U('Merchant/index')}">商户列表</a></li>
+                                    </ul>
+                                </li>
+                                <li <eq name="rule" value="Agent/lists" >class="active-link active"</eq>>
+                                    <a href="#">
+                                        <i class="fa fa-users" style="width:20px;text-align: center;font-size: 13px"> </i>
+                                        <span class="menu-title"><strong>代理管理</strong></span>
+                                        <i class="arrow"></i>
+                                    </a>
+                                    <ul class="collapse" aria-expanded="false">
+                                        <li><a href="{:U('Agent/lists')}">子代理列表</a></li>
+                                        <li><a href="{:U('Agent/benefit_count')}">子代理分润</a></li>
+                                    </ul>
+                                </li>
+
+                                <li <eq name="rule" value="Orders/index" >class="active-link"</eq>>
+                                    <a href="{:U('Orders/index')}">
+                                        <i class="fa fa-bar-chart"
+                                           style="width:20px;text-align: center;font-size: 13px"> </i>
+                                        <span class="menu-title"><strong>交易管理</strong></span>
+                                    </a>
+                                </li>
+                                <li  <eq name="rule" value="Qrcode/lists" >class="active-link"</eq>>
+                                    <a href="{:U('Qrcode/lists')}">
+                                        <i class="fa fa-qrcode" style="width:20px;text-align: center;font-size: 13px"> </i>
+                                        <span class="menu-title"><strong>收款码管理</strong></span>
+                                    </a>
+                                </li>
+
+                                <li <eq name="rule" value="Users/index" >class="active-link active"</eq>>
+                                <a href="#">
+                                    <i class="fa fa-user" style="width:20px;text-align: center;font-size: 13px"> </i>
+                                    <span class="menu-title"><strong>个人信息</strong></span>
+                                    <i class="arrow"></i>
+                                </a>
+                                <ul class="collapse" aria-expanded="false">
+                                    <li><a href="{:U('Partner/benefit_count')}">分润信息</a></li>
+                                    <li><a href="JavaScript:password()">修改密码</a></li>
+                                </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--头部信息结束-->

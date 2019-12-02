@@ -1,0 +1,272 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">门店列表-<span style="color: red"><php>$seller=Get_Seller($_GET['id']); echo $seller['mch_name'];</php></span></h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="" ajax="n">
+                        <div class="panel-body">
+                            <div class="row ">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="control-label">详细信息</label>
+                                        <input class="form-control" type="text" placeholder="支持 门店名称/门店联系人/联系人电话筛选" name="search_val" value="">
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="button" style="float: left" id="StoreAdd" class="btn btn-purple"><i class="demo-pli-add icon-fw"></i>添加门店</button>
+                                    <button style="float: right" class="btn btn-success" type="submit">搜索</button>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+            <div class="panel-body">
+                <table  class="table table-bordered table-hover toggle-circle table-vcenter" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">所属商户</th>
+                        <th class="text-center">门店名称</th>
+                        <th class="text-center">负责人姓名</th>
+                        <th class="text-center">负责人电话</th>
+                        <th class="text-center">更新时间</th>
+                        <th class="text-center">门店状态</th>
+                        <th class="text-center">收款码ID</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center"><php>$seller=Get_Seller($v['sid']); echo $seller['mch_name'];</php></td>
+                            <td class="text-center">{$v.name}</td>
+                            <td class="text-center">{$v.per_name}</td>
+                            <td class="text-center">{$v.per_phone}</td>
+                            <td class="text-center">{$v['uptime'|date='Y-m-d H:i:s',###]}</td>
+                            <td class="text-center">
+                                <if condition="$v['status'] eq 1">
+                                    <span class="label label-danger"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">开启</span>
+                                    <else/>
+                                    <span class="label label-default"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">禁用</span>
+                                </if>
+                            </td>
+                            <td class="text-center">
+                                <if condition="GetStoreCode($v['id']) neq ''">
+                                <span class="label label-danger" onclick="Open_Codes('{:GetStoreCodePath($v['id'])}')" style="cursor:pointer;font-size:12px;font-weight:1;border-radius: 5px;">
+                                    {:GetStoreCode($v['id'])}
+                                </span>
+                                 <else/>
+                                    <span onclick="Bind_Codes({$v.sid},{$v.id})" class="label label-default" style="cursor:pointer;font-size:12px;font-weight:1;border-radius: 5px;">
+                                    未绑定,点击绑定
+                                        </span>
+                                </if>
+                            </td>
+                            <td class="text-center">
+                                <a href="{:U('store_config',array('id'=>$_GET['id'],'store_id'=>$v['id']))}" class="btn btn-pink btn-sm" type="button"  >配置</a>
+                                <a href="{:U('store_user',array('id'=>$_GET['id'],'store_id'=>$v['id']))}" class="btn btn-mint btn-sm" type="button"  >店员</a>
+                                <a href="{:U('Orders/index',array('store_id'=>$v['id']))}" class="btn btn-success btn-sm" type="button"  >流水</a>
+                                <button onclick="Store_edit({$v.sid},{$v.id})" class="btn btn-purple btn-sm" type="button"  >编辑</button>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="Store-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="S_title">
+                    添加门店
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('store_set')}" method="post">
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">门店名称</label>
+                                    <input class="form-control" type="text" name="name" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">门店状态</label>
+                                    <select   class="form-control" name="status" required>
+                                        <option value="1">开启</option>
+                                        <option value="0">禁用</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">负责人姓名</label>
+                                    <input class="form-control" type="text" name="per_name" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">负责人电话</label>
+                                    <input class="form-control" type="tel" name="per_phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="border-bottom: solid 1px #E4E4E4;font-size: 16px;padding-bottom: 5px;">支付类型</p>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">微信支付</label>
+                                    <select   class="form-control" name="data_wxpay" required>
+                                        <option value="1">开启</option>
+                                        <option value="2">禁用</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">支付宝支付</label>
+                                    <select   class="form-control" name="data_alipay" required>
+                                        <option value="1">开启</option>
+                                        <option value="2">禁用</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">微信配置</label>
+                                    <select   class="form-control" name="data_wxconfig" required>
+                                        <option value="1">通道支付</option>
+                                        <option value="2">自定义链接</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">微信链接地址</label>
+                                    <input class="form-control" type="url" name="data_wxurl" placeholder="当配置为自定义链接生效 此处为URL网址" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">支付宝配置</label>
+                                    <select   class="form-control" name="data_aliconfig" required>
+                                        <option value="1">通道支付</option>
+                                        <option value="2">自定义链接</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">支付宝链接地址</label>
+                                    <input class="form-control" type="url" name="data_aliurl" placeholder="当配置为自定义链接生效 此处为URL网址" >
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="panel-footer text-right">
+                        <input type="hidden" name="sid" value="{$Think.get.id}">
+                        <input type="hidden" name="id" value="">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+<script>
+    $('#StoreAdd').click(function () {
+        $("input").val('');
+        $("[name='sid']").val('{$Think.get.id}');
+        $('#S_title').html('新增门店');
+        $('#Store-add').modal('show');
+    });
+
+    function Bind_Codes(sid,id) {
+        layer.prompt({title: '请输入收款码ID', formType: 0}, function(text){
+            var ajax_data ={'id':id,'sid':sid,'type':'bind','code':text};
+            $.post("{:U('bind_codes')}", ajax_data, function(data){
+                if(data.status == 1){
+                    layer.msg( data.info, function(){
+
+                    });
+                    window.location.reload();
+                }
+                else{
+                    layer.msg( data.info, function(){
+                    });
+                }
+            }, 'json');
+
+        });
+    }
+    function Open_Codes(url) {
+        $.fancybox.open(url);
+    }
+    function Store_edit(sid,id) {
+        var ajax_data ={'id':id,'sid':sid};
+        $.post("{:U('store_data')}", ajax_data, function(data){
+            if(data.status == 1){
+                $('#S_title').html('编辑门店');
+                $("[name='id']").val(data.info.id);
+                $("[name='sid']").val(data.info.sid);
+                $("[name='name']").val(data.info.name);
+                $("[name='per_name']").val(data.info.per_name);
+                $("[name='per_phone']").val(data.info.per_phone);
+                $("[name='data_wxurl']").val(data.info.data_wxurl);
+                $("[name='data_aliurl']").val(data.info.data_aliurl);
+                $("[name='status'] option[value='"+data.info.status+"']").attr("selected", true);
+                $("[name='data_alipay'] option[value='"+data.info.data_alipay+"']").attr("selected", true);
+                $("[name='data_wxpay'] option[value='"+data.info.data_wxpay+"']").attr("selected", true);
+                $("[name='data_aliconfig'] option[value='"+data.info.data_aliconfig+"']").attr("selected", true);
+                $("[name='data_wxconfig'] option[value='"+data.info.data_wxconfig+"']").attr("selected", true);
+
+                $('#Store-add').modal('show');
+            }
+            else{
+                layer.msg( data.info, function(){
+                });
+            }
+        }, 'json');
+    }
+</script>
+
+
+<include file="Public/footer"/>

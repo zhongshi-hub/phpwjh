@@ -1,0 +1,332 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">收款码列表</h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="{:U('lists')}" ajax="n">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label">详细信息</label>
+                                        <input class="form-control" type="text" placeholder="收款码ID" name="codes"
+                                               value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">所属代理</label>
+                                        <input id="dialog_name" class="form-control dialog" type="text" value="">
+                                        <input id="dialog_aid" class="form-control" type="hidden" name="aid" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">绑定状态</label>
+                                        <select class="form-control" name="bind">
+                                            <option value="">所有</option>
+                                            <option value="1">已绑定商户</option>
+                                            <option value="2">未绑定商户</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">状态筛选</label>
+                                        <select class="form-control" name="status">
+                                            <option value="">所有</option>
+                                            <option value="1">开启</option>
+                                            <option value="2">禁用</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">数据条数</label>
+                                        <input class="form-control" type="number" min="10" step="10"  name="page_data">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="text-right">
+                                <button class="btn btn-success" type="submit">搜索</button>
+                            </div>
+
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 table-toolbar-left">
+                            <input type="button" value="全选" class="btn btn-default" id="checkall">
+                            <input type="button" value="全不选" class="btn btn-default" id="unSelect">
+                            <input type="button" value="反选" class="btn btn-default" id="checkrev">
+                            <input type="button" value="导出收款二维码" class="btn btn-danger" id="exp">
+                            <input type="button" value="导出素材合成图片" class="btn btn-success" id="expsucai">
+                            <input type="button" value="导出二维码数据(制作卡牌使用)" class="btn btn-default" id="kadata">
+                        </div>
+
+                       <!-- <div class="col-sm-6 table-toolbar-right">
+                            <button id="QrAdd" class="btn btn-purple"><i class="demo-pli-plus"></i>生成收款码</button>
+                        </div>-->
+                    </div>
+                </div>
+                <table id="demo-custom-toolbar"
+                       class="table table-bordered table-hover toggle-circle table-vcenter demo-add-niftycheck"
+                       data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">选择</th>
+                        <th>收款码ID</th>
+                        <th class="text-center">所属代理</th>
+                        <th class="text-center">所属商户</th>
+                        <th class="text-center">所属门店</th>
+                        <th class="text-center">收款二维码</th>
+                        <th class="text-center">创建时间</th>
+                        <th class="text-center">状态</th>
+                        <!--<th class="text-center">操作</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="list" item="v">
+                        <tr>
+                            <td class="text-center">
+                                <input value="{$v.codes}" type="checkbox" name="check1" id="exp_codes">
+                            </td>
+                            <td>{$v['codes']}</td>
+                            <td class="text-center">
+                                <notempty name="v.aid">
+                                    <notempty name="v.store_id">
+                                         <span class="label label-mint" onclick="tradata()"
+                                               style="cursor:pointer;font-size:12px;font-weight:1;border-radius: 5px;">{$v['aid']|agent_name}</span>
+                                        <else/>
+                                        <span class="label label-mint" onclick="allot({$v.id})"
+                                              style="cursor:pointer;font-size:12px;font-weight:1;border-radius: 5px;">{$v['aid']|agent_name}</span>
+                                    </notempty>
+
+                                    <else/>
+                                    <span class="label label-default" onclick="allot({$v.id})"
+                                          style="cursor:pointer;font-size:12px;font-weight:1;border-radius: 5px;">未分配</span>
+                                </notempty>
+                            </td>
+                            <td class="text-center"><span class="label label-success"
+                                                          style="font-size:12px;font-weight:1;border-radius: 5px;"> <php>$seller=Get_Seller($v['mch_id']);if($seller['mch_name']){ echo $seller['mch_name'];}else{ echo '未绑定';}</php></span>
+                            </td>
+                            <td class="text-center"><span class="label label-info"
+                                                          style="font-size:12px;font-weight:1;border-radius: 5px;"><php>$store=Get_Store($v['store_id']);if($store['name']){ echo $store['name'];}else{ echo '未绑定';}</php></span>
+                            </td>
+                            <td class="text-center"><img src="{$v.code_url}" title="点击放大查看" width="30" height="30"
+                                                         onclick="IMG('{$v.code_url}')" style="cursor:pointer"></td>
+                            <td class="text-center">{$v['ctime'|date='Y-m-d H:i:s',###]}</td>
+                            <td class="text-center">
+                                <if condition="$v['status'] eq 1">
+                                    <span class="label label-danger"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">已开启</span>
+                                    <else/>
+                                    <span class="label label-default"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">未开启</span>
+                                </if>
+                            </td>
+                            <!-- <td class="text-center">
+                                 <a href="" class="btn btn-danger btn-rounded btn-sm">按钮</a>
+                             </td>-->
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="11">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 模态框开始 -->
+<div class="modal fade" id="QR-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pci-cross pci-circle"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    收款码生成
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:U('adds')}" method="post">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">所属代理</label>
+                                    <select data-placeholder="请选择..." id="demo-chosen-select" tabindex="10"
+                                            class="form-control" name="aid">
+                                        <option value="" style="color: red">-空码(不分配代理)-</option>
+                                        <foreach name="agent" item="v">
+                                            <option value="{$v['id']}">{$v['user_name']}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">收款码数量</label>
+                                    <input class="form-control" type="text" name="count"
+                                           onkeyup="this.value=this.value.replace(/\D|^0/g,'')"
+                                           onafterpaste="this.value=this.value.replace(/\D|^0/g,'')" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-footer text-right">
+                        <button class="btn btn-success" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框关闭 -->
+
+
+<link href="__PUBLIC__/statics/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+<!--Bootstrap Table [ OPTIONAL ]-->
+<script src="__PUBLIC__/statics/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script>
+    $('#QrAdd').click(function () {
+        $('.chosen-container').css('width', '250px');
+        $('#QR-add').modal('show');
+    });
+    function IMG(url) {
+        $.fancybox.open(url);
+    }
+    $(function () {
+        //全选
+        $("#checkall").click(function () {
+            $("input[name='check1']:checkbox").prop('checked', true);
+        });
+        //全不选
+        $("#unSelect").click(function () {
+            $("input[name='check1']:checkbox").removeAttr("checked");
+        });
+        //反选
+        $("#checkrev").click(function () {
+            //实现反选功能
+            $('[name=check1]:checkbox').each(function () {
+                this.checked = !this.checked;
+            });
+        });
+        //导出图片
+        $("#exp").click(function () {
+            var exp_codes = $("input[type='checkbox'][name='check1']:checked").map(function () {
+                return $(this).val();
+            }).get().join(",");
+            if (exp_codes == '' || exp_codes == null) {
+                layer.msg('请先选择要导出的二维码', function () {
+                });
+            } else {
+                layer.msg('图片正在打包,请不要关闭本窗口!请等待...');
+                $('#codexls').val(exp_codes);
+                $('#ccl_type').val('exp');
+                $('#kadataform').submit();
+            }
+        });
+
+        //导出素材图片
+        $("#expsucai").click(function () {
+            var exp_codes = $("input[type='checkbox'][name='check1']:checked").map(function () {
+                return $(this).val();
+            }).get().join(",");
+            if (exp_codes == '' || exp_codes == null) {
+                layer.msg('请先选择要导出的二维码', function () {
+                });
+            } else {
+                layer.msg('图片正在打包,请不要关闭本窗口!请等待...');
+                $('#codexls').val(exp_codes);
+                $('#ccl_type').val('expsucai');
+                $('#kadataform').submit();
+            }
+        });
+
+        //导出xls制作卡牌数据
+        $("#kadata").click(function () {
+            var exp_codes = $("input[type='checkbox'][name='check1']:checked").map(function () {
+                return $(this).val();
+            }).get().join(",");
+            if (exp_codes == '' || exp_codes == null) {
+                layer.msg('请先选择要导出的二维码', function () {
+                });
+            } else {
+                layer.msg('信息已提交服务器处理,请不要关闭本窗口!请等待.');
+                $('#codexls').val(exp_codes);
+                $('#ccl_type').val('kadata');
+                $('#kadataform').submit();
+            }
+        });
+    });
+
+
+    $('.dialog').click(function () {
+        layer.open({
+            type: 2,
+            title: '检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Agent/dialog')}"
+        });
+    });
+
+    //代理过户
+    function  tradata() {
+        layer.msg('此收款码已绑定商户,无法变更!');
+    }
+    //代理分配
+    function allot(id) {
+        layer.prompt({title: '请输入要分配的代理ID或全名', formType: 0}, function (text) {
+            var ajax_data = {'id': id, 'agent': text};
+            $.post("{:U('allot_agent')}", ajax_data, function (data) {
+                if (data.status == 1) {
+                    layer.msg(data.info, function () {
+
+                    });
+                    window.location.reload();
+                }
+                else {
+                    layer.msg(data.info, function () {
+                    });
+                }
+            }, 'json');
+
+        });
+    }
+
+</script>
+<form id="kadataform" method="post" action="{:U('codesdown')}" ajax="n">
+    <input type="hidden" id="ccl_type" name="type" value=""/>
+    <input type="hidden" id="codexls" name="code" value=""/>
+</form>
+
+<include file="Public/footer"/>

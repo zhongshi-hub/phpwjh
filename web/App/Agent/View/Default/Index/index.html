@@ -1,0 +1,443 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <span class="text-muted"><small>(每小时更新一次)最后更新时间:{$Time}</small></span>
+                </div>
+                <h3 class="panel-title">数据控制台</h3>
+            </div>
+
+            <div class="panel-body">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div class="col-xs-2" >
+                                    <p class="h2 text-thin mar-no pad-all add-tooltip" data-toggle="tooltip"
+                                       data-container="body" data-placement="top" data-original-title="¥{$Day.sum}">
+                                        {$Day.sum|show_total}</p>
+                                    <small class="text-lg">今日交易总额</small>
+                                </div>
+                                <div class="col-xs-2" >
+                                    <p class="h2 text-thin mar-no pad-all">{$Day.count|default="0"}</p>
+                                    <small class="text-lg">今日交易笔数</small>
+                                </div>
+                                <div class="col-xs-2" >
+                                    <p class="h2 text-thin mar-no pad-all add-tooltip" data-toggle="tooltip"
+                                       data-container="body" data-placement="top" data-original-title="¥{$Day.wxsum}">
+                                        {$Day.wxsum|show_total}</p>
+                                    <small class="text-lg">今日微信总额</small>
+                                </div>
+                                <div class="col-xs-2" >
+                                    <p class="h2  text-thin mar-no pad-all">{$Day.wxcount|default="0"}</p>
+                                    <small class="text-lg">今日微信笔数</small>
+                                </div>
+                                <div class="col-xs-2" >
+                                    <p class="h2 text-thin mar-no pad-all add-tooltip" data-toggle="tooltip"
+                                       data-container="body" data-placement="top" data-original-title="¥{$Day.alisum}">
+                                        {$Day.alisum|show_total}</p>
+                                    <small class="text-lg">今日支付宝总额</small>
+                                </div>
+                                <div class="col-xs-2" >
+                                    <p class="h2  text-thin mar-no pad-all">{$Day.alicount|default="0"}</p>
+                                    <small class="text-lg">今日支付宝笔数</small>
+                                </div>
+                                <!--<div class="col-xs-2" >-->
+                                    <!--<p class="h2 text-thin mar-no pad-all add-tooltip" data-toggle="tooltip"-->
+                                       <!--data-container="body" data-placement="top" data-original-title="¥{$Day.card_sum}">-->
+                                        <!--{$Day.card_sum|show_total}</p>-->
+                                    <!--<small class="text-lg">今日快捷总额</small>-->
+                                <!--</div>-->
+                                <!--<div class="col-xs-2" >-->
+                                    <!--<p class="h2  text-thin mar-no pad-all">{$Day.card_count|default="0"}</p>-->
+                                    <!--<small class="text-lg">今日快捷笔数</small>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-sm-2" >
+                        <div class="panel media middle">
+                            <div class="media-left bg-info pad-all" style="padding: 10px;">
+                                <i class="icon-3x iconfont" style="font-size: 3em;">&#xe636;</i>
+                            </div>
+                            <div class="media-body pad-all" style="padding: 10px;">
+                                <p class="h3  text-thin mar-no  add-tooltip" data-toggle="tooltip"
+                                   data-container="body" data-placement="top" data-original-title="¥{$Go.sum}">
+                                    {$Go.sum}</p>
+                                <p class="text-muted mar-no" style="font-size:13px">昨日交易总额</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2" >
+                        <div class="panel media middle">
+                            <div class="media-left bg-info pad-all" style="padding: 10px;">
+                                <i class="icon-3x iconfont" style="font-size: 3em;">&#xe68e;</i>
+                            </div>
+                            <div class="media-body pad-all" style="padding: 10px;">
+                                <p class="h3  text-thin mar-no">{$Go.count|default="0"}</p>
+                                <p class="text-muted mar-no" style="font-size:13px">昨日交易笔数</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2" >
+                        <div class="panel media middle">
+                            <div class="media-left bg-info pad-all" style="padding: 10px;">
+                                <i class="icon-3x iconfont" style="font-size: 3em;">&#xe611;</i>
+                            </div>
+                            <div class="media-body pad-all" style="padding: 10px;">
+                                <p class="h3  text-thin mar-no add-tooltip" data-toggle="tooltip"
+                                   data-container="body" data-placement="top" data-original-title="¥{$Go.wxsum}">
+                                    {$Go.wxsum}</p>
+                                <p class="text-muted mar-no" style="font-size:13px">昨日微信总额</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2" >
+                        <div class="panel media middle">
+                            <div class="media-left bg-info pad-all" style="padding: 10px;">
+                                <i class="icon-3x iconfont" style="font-size: 3em;">&#xe66f;</i>
+                            </div>
+                            <div class="media-body pad-all" style="padding: 10px;">
+                                <p class="h3  text-thin mar-no">{$Go.wxcount|default="0"}</p>
+                                <p class="text-muted mar-no" style="font-size:13px">昨日微信笔数</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2" >
+                        <div class="panel media middle">
+                            <div class="media-left bg-info pad-all" style="padding: 10px;">
+                                <i class="icon-3x iconfont" style="font-size: 3em;">&#xe728;</i>
+                            </div>
+                            <div class="media-body pad-all" style="padding: 10px;">
+                                <p class="h3  text-thin mar-no add-tooltip" data-toggle="tooltip"
+                                   data-container="body" data-placement="top" data-original-title="¥{$Go.alisum}">
+                                    {$Go.alisum}</p>
+                                <p class="text-muted mar-no" style="font-size:13px">昨日支付宝总额</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2" >
+                        <div class="panel media middle" >
+                            <div class="media-left bg-info pad-all" style="padding: 10px;">
+                                <i class="icon-3x iconfont" style="font-size: 3em;">&#xe8d1;</i>
+                            </div>
+                            <div class="media-body pad-all" style="padding: 10px;">
+                                <p class="h3  text-thin mar-no">{$Go.alicount|default="0"}</p>
+                                <p class="text-muted mar-no" style="font-size:13px">昨日支付宝笔数</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="col-sm-2" >-->
+                        <!--<div class="panel media middle">-->
+                            <!--<div class="media-left bg-info pad-all" style="padding: 10px;">-->
+                                <!--<i class="icon-3x iconfont" style="font-size: 3em;">&#xe606;</i>-->
+                            <!--</div>-->
+                            <!--<div class="media-body pad-all" style="padding: 10px;">-->
+                                <!--<p class="h3  text-thin mar-no add-tooltip" data-toggle="tooltip"-->
+                                   <!--data-container="body" data-placement="top" data-original-title="¥{$Go.card_sum}">-->
+                                    <!--{$Go.card_sum}</p>-->
+                                <!--<p class="text-muted mar-no" style="font-size:13px">昨日快捷总额</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-2" >-->
+                        <!--<div class="panel media middle" >-->
+                            <!--<div class="media-left bg-info pad-all" style="padding: 10px;">-->
+                                <!--<i class="icon-3x iconfont" style="font-size: 3em;">&#xe618;</i>-->
+                            <!--</div>-->
+                            <!--<div class="media-body pad-all" style="padding: 10px;">-->
+                                <!--<p class="h3  text-thin mar-no">{$Go.card_count|default="0"}</p>-->
+                                <!--<p class="text-muted mar-no" style="font-size:13px">昨日快捷笔数</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">数据汇总概览</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="order_allchart" style="height:350px"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">商户分析</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="order_mchchart" style="height:350px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">七日交易分析</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="order_chart" style="height:500px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .col-lg-2 {
+        width: 20% !important;
+    }
+
+</style>
+<link href="__PUBLIC__/iconfont/manage/iconfont.css" rel="stylesheet">
+<script src="__PUBLIC__/plug/echarts.common.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        //商户分析
+        var MchmyChart = echarts.init(document.getElementById('order_mchchart'));
+        var Mch_option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data: ['活跃商户数', '沉睡商户数']
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {show: true}
+                }
+            },
+            series: [
+                {
+                    name: '汇总统计',
+                    type: 'pie',
+                    radius: ['50%', '70%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            show: true,
+                            textStyle: {
+                                fontSize: '30',
+                                fontWeight: 'bold'
+                            }
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    data: [
+                        {value: '{$Mch.live}', name: '活跃商户数'},
+                        {value: '{$Mch.bed}', name: '沉睡商户数'}
+                    ]
+                }
+            ]
+        };
+        MchmyChart.setOption(Mch_option);
+
+        //汇总
+        var AllmyChart = echarts.init(document.getElementById('order_allchart'));
+        var all_option = {
+
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['总交易额', '总笔数', '总商户数', '微信总额', '微信总笔数', '支付宝总额', '支付宝总笔数']
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {show: true}
+                }
+            },
+            series: [
+                {
+                    name: '数据汇总',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '60%'],
+                    data: [
+                        {value: '{$To.sum}', name: '总交易额'},
+                        {value: '{$To.count}', name: '总笔数'},
+                        {value: '{$To.mch}', name: '总商户数'},
+                        {value: '{$To.wxsum}', name: '微信总额'},
+                        {value: '{$To.wxcount}', name: '微信总笔数'},
+                        {value: '{$To.alisum}', name: '支付宝总额'},
+                        {value: '{$To.alicount}', name: '支付宝总笔数'}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+
+        };
+        AllmyChart.setOption(all_option);
+        var myChart = echarts.init(document.getElementById('order_chart'));
+        var day = [{$Mon.day
+    }],
+        sum = [{$Mon.sum
+    }],
+        count = [{$Mon.count
+    }],
+        wxsum = [{$Mon.wxsum
+    }],
+        card_sum = [{$Mon.card_sum
+    }],
+        wxcount = [{$Mon.wxcount
+    }],
+        alisum = [{$Mon.alisum
+    }],
+        alicount = [{$Mon.alicount
+    }],
+        card_count = [{$Mon.card_count
+    }],
+        mch = [{$Mon.mch
+    }]
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                data: ['交易汇总笔数', '微信支付笔数', '支付宝支付笔数','交易汇总金额', '微信支付总额', '支付宝支付总额','商户数']
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    dataView: {show: false, readOnly: false},
+                    magicType: {show: true, type: ['line', 'bar']},
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },
+            grid: {
+                left: '0%',
+                right: '0%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: day
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '交易汇总笔数',
+                    type: 'bar',
+                    data: count
+                },
+                {
+                    name: '微信支付笔数',
+                    type: 'bar',
+                    data: wxcount
+                },
+                {
+                    name: '支付宝支付笔数',
+                    type: 'bar',
+                    stack: '广告',
+                    data: alicount
+                },
+                {
+                    name: '交易汇总金额',
+                    type: 'bar',
+                    stack: '交易汇总金额',
+                    data: sum,
+                    markLine: {
+                        lineStyle: {
+                            normal: {
+                                type: 'dashed'
+                            }
+                        },
+                        data: [
+                            [{type: 'min'}, {type: 'max'}]
+                        ]
+                    }
+                },
+                {
+                    name: '微信支付总额',
+                    type: 'bar',
+                    data: wxsum,
+                    markLine: {
+                        lineStyle: {
+                            normal: {
+                                type: 'dashed'
+                            }
+                        },
+                        data: [
+                            [{type: 'min'}, {type: 'max'}]
+                        ]
+                    }
+
+                },
+                {
+                    name: '支付宝支付总额',
+                    type: 'bar',
+                    barWidth: 5,
+                    stack: '支付宝支付总额',
+                    data: alisum,
+                    markLine: {
+                        lineStyle: {
+                            normal: {
+                                type: 'dashed'
+                            }
+                        },
+                        data: [
+                            [{type: 'min'}, {type: 'max'}]
+                        ]
+                    }
+                },
+                {
+                    name: '商户数',
+                    type: 'bar',
+                    stack: '商户数',
+                    data: mch
+                }
+
+            ]
+        };
+        myChart.setOption(option);
+    })
+</script>
+<include file="Public/footer"/>

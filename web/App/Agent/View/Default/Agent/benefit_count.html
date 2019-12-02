@@ -1,0 +1,222 @@
+<include file="Public/header"/>
+<div id="content-container">
+    <div id="page-content">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <present name="Think.get.pid">子</present>代理分润汇总
+                </h3>
+            </div>
+            <!--筛选功能开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" action="" ajax="n">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">所属代理</label>
+                                        <input id="dialog_name" class="form-control dialog" type="text"  value="">
+                                        <input id="dialog_aid" class="form-control" type="hidden" name="aid" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">所属月份</label>
+                                        <input type="text" class="form-control" id="MouthTime" name="mon" value="{$data.mon}"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">所属天分</label>
+                                        <input type="text" class="form-control" id="MouthDay" name="day" value="{$data.day}"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1">
+                                    <div class="form-group">
+                                        <label class="control-label">处理状态</label>
+                                        <select class="form-control" name="status">
+                                            <option value="3">所有</option>
+                                            <option value="1">已处理(清算)</option>
+                                            <option value="2">待处理(未清)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-right">
+                                <input type="hidden" name="pid"
+                                       value="<present name='Think.get.pid'>{$Think.get.pid}<else/></present>">
+                                <button class="btn btn-success" type="submit">搜索</button>
+                                <button class="btn btn-default" value="ccl" name="export" type="submit"> <i class="fa fa-download"></i>导出</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--筛选功能结束-->
+
+
+            <div class="panel-body">
+                <!--<span style="color: red;font-size: 20px">内测开发阶段,请先不要按照以下信息给代理清算 请以通知后再清算</span>-->
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 table-toolbar-left">
+                            <input type="button" value="全选" class="btn btn-default" id="checkall">
+                            <input type="button" value="全不选" class="btn btn-default" id="unSelect">
+                            <input type="button" value="反选" class="btn btn-default" id="checkrev">
+                            <input type="button" value="执行已清算操作" class="btn btn-danger" id="exp1">
+                            <input type="button" value="执行未清算操作" class="btn btn-success" id="exp2">
+                        </div>
+
+                    </div>
+                </div>
+                <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle" data-page-size="7">
+                    <thead>
+                    <tr>
+                        <th class="text-center">选择</th>
+                        <th class="text-center" width="100">代理姓名</th>
+                        <th class="text-center">所属月份</th>
+                        <th class="text-center">所属天分</th>
+                        <th class="text-center">交易笔数</th>
+                        <th class="text-center">交易金额</th>
+                        <th class="text-center">认证数量</th>
+                        <th class="text-center">认证笔单价</th>
+                        <th class="text-center">认证返佣</th>
+                        <th class="text-center">交易分润金额</th>
+                        <th class="text-center" style="color: red">总分润金额</th>
+                        <th class="text-center">是否清算</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="v">
+                        <tr>
+                            <td class="text-center">
+                                <input value="{$v.id}" type="checkbox" name="check1" id="exp_codes">
+                            </td>
+                            <td class="text-center">{$v.agent|agent_name}</td>
+                            <td class="text-center">{$v.mon}</td>
+                            <td class="text-center">{$v['day'|date='Y-m-d',###]}</td>
+                            <td class="text-center">{$v.count}</td>
+                            <td class="text-center">{$v.fee}</td>
+                            <td class="text-center">{$v.userauth}</td>
+                            <td class="text-center">{$v.auth_fee}</td>
+                            <td class="text-center">{$v.authfees}</td>
+                            <td class="text-center">{$v.benefit}</td>
+                            <td class="text-center" style="color: red">{$v.sums}</td>
+                            <td class="text-center">
+                                <if condition="$v.status eq 1">
+                                    <span class="label label-danger"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">已清算</span>
+                                    <else/>
+                                    <span class="label label-default"
+                                          style="font-size:12px;font-weight:1;border-radius: 5px;">未清算</span>
+                                </if>
+                            </td>
+                            <td class="text-center">
+                                <a href="{:U('benefit_detail',array('id'=>$v['id']))}" class="btn btn-info btn-rounded btn-sm">分润详细</a>
+
+                                <a href="{:U('benefit_count',array('pid'=>$v['agent']))}" class="btn btn-purple btn-rounded btn-sm">子代理分润</a>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="20">
+                            <div class="text-right">
+                                <ul class="pagination">{$page}</ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+                <div class="alert alert-danger">
+                    <strong>说明:</strong><p>分润计算规则: 如一级所得分润及金额  一级+二级+三级...交易数据 以此汇总 </p> <p>清算规则:总平台清算给一级代理 一级代理自己给二级代理清算  二级给三级 以此类推!</p><p>代理层次:默认显示总代理(为一级代理的信息) 如查看子代理的分润信息 进入子代理分润查看</p><p>显示规则说明 :代理分润为系统每天自动计算前一天的分润并汇总,此处默认显示前一天的分润,如显示更多,请使用筛选功能 </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 模态框关闭 -->
+<script type="text/javascript" src="__PUBLIC__/plug/CSXClass/distpicker.min.js"></script>
+<script>
+    $('.dialog').click(function () {
+        layer.open({
+            type: 2,
+            title:'代理业务检索',
+            area: ['700px', '530px'],
+            fixed: false, //不固定
+            maxmin: false,
+            content: "{:U('Agent/dialog')}"
+        });
+    });
+
+    $(function () {
+        //全选
+        $("#checkall").click(function () {
+            $("input[name='check1']:checkbox").prop('checked', true);
+        });
+        //全不选
+        $("#unSelect").click(function () {
+            $("input[name='check1']:checkbox").removeAttr("checked");
+        });
+        //反选
+        $("#checkrev").click(function () {
+            //实现反选功能
+            $('[name=check1]:checkbox').each(function () {
+                this.checked = !this.checked;
+            });
+        });
+        //已清算
+        $("#exp1").click(function () {
+            var exp_codes = $("input[type='checkbox'][name='check1']:checked").map(function () {
+                return $(this).val();
+            }).get().join(",");
+            if (exp_codes == '' || exp_codes == null) {
+                layer.msg('请先选择数据', function () {
+                });
+            } else {
+                layer.msg('数据处理中...');
+                var ajax_data = {'status':1,'data':exp_codes};
+                var actionurl = "{:U('benefit_status')}";
+                $.post(actionurl, ajax_data, function (data) {
+                    if (data.status == 1) {
+                        layer.msg(data.info);
+                        window.location.reload();
+                    }
+                    else {
+                        layer.msg(data.info);
+                    }
+                }, 'json');
+            }
+        });
+
+        //未清算
+        $("#exp2").click(function () {
+            var exp_codes = $("input[type='checkbox'][name='check1']:checked").map(function () {
+                return $(this).val();
+            }).get().join(",");
+            if (exp_codes == '' || exp_codes == null) {
+                layer.msg('请先选择数据', function () {
+                });
+            } else {
+                layer.msg('数据处理中...');
+                var ajax_data = {'status':2,'data':exp_codes};
+                var actionurl = "{:U('benefit_status')}";
+                $.post(actionurl, ajax_data, function (data) {
+                    if (data.status == 1) {
+                        layer.msg(data.info);
+                        window.location.reload();
+                    }
+                    else {
+                        layer.msg(data.info);
+                    }
+                }, 'json');
+            }
+        });
+    });
+</script>
+<include file="Public/footer"/>
