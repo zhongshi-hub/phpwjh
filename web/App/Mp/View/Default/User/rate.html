@@ -1,0 +1,24 @@
+<extend name="Common:base" />
+<block name="body">
+    <div class="row">
+        <empty name="data">
+            <div class="alert alert-danger bg-danger text-white border-0" role="alert">
+                暂未开通任何通道,通道开通后将显示单个通道的费率信息
+            </div>
+        <else/>
+            <foreach name="data" item="vo">
+                <div class="col-lg-4">
+                    <div class="card-box ribbon-box">
+                        <div class="ribbon ribbon-{$vo.class}">{$vo.alleys}</div>
+                        <p class="m-b-0">
+                            <h1 style="text-align: center;">{$vo.rate}‰</h1>
+                            <div style="text-align: center;" class="font-14">以上费率为支付宝、微信支付通道费率</div>
+                        </p>
+                    </div>
+                </div>
+            </foreach>
+        </empty>
+    </div>
+
+
+</block>

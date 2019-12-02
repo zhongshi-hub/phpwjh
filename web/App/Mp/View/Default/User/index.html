@@ -1,0 +1,127 @@
+<extend name="Common:base" />
+<block name="body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-box">
+                <h4 class="m-t-0 header-title">注册信息</h4>
+                <p class="text-muted m-b-30 font-13">
+                    <code class="highlighter-rouge">提示:</code>当前仅显示入网时的信息 系统为多个通道,默认按照入网信息进件,如果过程中更新单个通道的信息及结算信息 请以更新后的信息为主,此处不显示更新后的信息。
+                </p>
+
+                <form>
+                    <div class="form-group">
+                        <label for="1" class="col-form-label">商户名称</label>
+                        <input type="text" class="form-control" id="1" value="{$data.mch_name}" disabled>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-4">
+                            <label for="3" class="col-form-label">申请人姓名</label>
+                            <input type="text" class="form-control" id="3" value="{$data.mch_card_name}" disabled>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="2" class="col-form-label">联系电话</label>
+                            <input type="text" class="form-control" id="2" value="{$data.mch_tel|tel_replace}" disabled>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label  for="4" class="col-form-label">注册时间</label>
+                            <input type="text" class="form-control" id="4" value="{$data.ctime|date='Y-m-d H:i:s',###}" disabled>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="5" class="col-form-label">所属省</label>
+                            <input type="text" class="form-control" id="5" value="{$data.mch_provice}" disabled>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="6" class="col-form-label">所属市</label>
+                            <input type="text" class="form-control" id="6" value="{$data.mch_citys}" disabled>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="7" class="col-form-label">所属区</label>
+                            <input type="text" class="form-control" id="7" value="{$data.mch_district}" disabled>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label  for="8" class="col-form-label">详细地址</label>
+                        <input type="text" class="form-control" id="8" value="{$data.mch_address}" disabled>
+                    </div>
+                    <p class="text-muted m-b-25 font-13">结算信息</p>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="9" class="col-form-label">开户银行</label>
+                            <input type="text" class="form-control" id="9" value="{$data.mch_bank_list|reload_bank}" disabled>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="00" class="col-form-label">开户名称</label>
+                            <input type="text" class="form-control" id="00" value="{$data.mch_bank_name}" disabled>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="01" class="col-form-label">开户省</label>
+                            <input type="text" class="form-control" id="01" value="{$data.mch_bank_provice}" disabled>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="02" class="col-form-label">开户市</label>
+                            <input type="text" class="form-control" id="02" value="{$data.mch_bank_citys}" disabled>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="03" class="col-form-label">联行号</label>
+                            <input type="text" class="form-control" id="03" value="{$data.mch_linkbnk}" disabled>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="04" class="col-form-label">开户支行</label>
+                            <input type="text" class="form-control" id="04" value="{$data.mch_linkbnk|reload_banks}" disabled>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="05" class="col-form-label">银行卡号</label>
+                            <input type="text" class="form-control" id="05" value="{$data.mch_bank_cid}" disabled>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="06" class="col-form-label">预留手机号码</label>
+                            <input type="text" class="form-control" id="06" value="{$data.mch_bank_tel|tel_replace}" disabled>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card-box ribbon-box">
+                <div class="ribbon ribbon-custom">身份证正面</div>
+                <p class="m-b-0">
+                    <img class="img-fluid" src="{$data.mch_img_z}" style="height: 200px;width: 100%">
+                </p>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="card-box ribbon-box">
+                <div class="ribbon ribbon-primary">身份证反面</div>
+                <p class="m-b-0">
+                    <img class="img-fluid" src="{$data.mch_img_p}" style="height: 200px;width: 100%">
+                </p>            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="card-box ribbon-box">
+                <div class="ribbon ribbon-success">结算银行卡</div>
+                <p class="m-b-0">
+                    <img class="img-fluid" src="{$data.mch_img_bank}" style="height: 200px;width: 100%">
+                </p>            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card-box ribbon-box">
+                <div class="ribbon ribbon-success">手持照</div>
+                <p class="m-b-0">
+                    <img class="img-fluid" src="{$data.mch_img_s}" style="height: 200px;width: 100%">
+                </p>            </div>
+        </div>
+    </div>
+</block>

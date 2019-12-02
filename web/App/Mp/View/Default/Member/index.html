@@ -1,0 +1,325 @@
+<extend name="Common:base" />
+<block name="top_css">
+    <link href="__PUBLIC__/amp/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/amp/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="__PUBLIC__/amp/plugins/spinkit/spinkit.css" rel="stylesheet" />
+    <link href="__PUBLIC__/amp/plugins/jquery-toastr/jquery.toast.min.css" rel="stylesheet" />
+    <style>
+        .pagination{display:inline-block;padding-left:0;margin:0px 0;border-radius:4px;}
+        .pagination>li{display:inline;}
+        .pagination>li>a{position:relative;float:left;padding:6px 12px;margin-left:-1px;line-height:1.42857143;color:#337ab7;text-decoration:none;background-color:#fff;border:1px solid #ddd;}
+        .pagination>li:first-child>a{margin-left:0;border-top-left-radius:4px;border-bottom-left-radius:4px;}
+        .pagination>li:last-child>a{border-top-right-radius:4px;border-bottom-right-radius:4px;}
+        .pagination>li>a:focus,.pagination>li>a:hover{z-index:2;color:#23527c;background-color:#eee;border-color:#ddd;}
+        .pagination>.active>a,.pagination>.active>a:focus,.pagination>.active>a:hover{z-index:3;color:#fff;cursor:default;background-color:#337ab7;border-color:#337ab7;}
+        .pull-right{float:none!important;}
+        .pagination>li a:active{box-shadow:inset 0 3px 1px rgba(0,0,0,0.2);}
+        .pagination>li a:hover,.pagination>li a:focus{background-color:#fff;border-color:#42a5f5;color:#42a5f5;box-shadow:inset 0 0 1px #42a5f5;z-index:2;transition:border-color,0.3s;}
+        .pagination>li>a{color:inherit;border-color:#dcdcdc;transition:border-color,0.3s;}
+        .pagination>li:first-child>a{border-top-left-radius:0;border-bottom-left-radius:0;}
+        .pagination>li:last-child>a{border-top-right-radius:0;border-bottom-right-radius:0;}
+        .pagination>.active>a,.pagination>.active>a:hover,.pagination>.active>a:focus{background-color:#42a5f5;border-color:#42a5f5;}
+        .pagination>li>a{background-color:transparent;color:inherit;}
+        .pagination>li>a:focus{box-shadow:none;}
+        .pagination>li a:hover,.pagination>li a:focus{border-color:#00bcd4;color:#00bcd4;box-shadow:inset 0 0 1px #00bcd4;}
+        .pagination>.active>a,.pagination>.active>a:hover,.pagination>.active>a:focus{background-color:#00bcd4;border-color:#00bcd4;}
+        .zzxunlong-box{border: 1px solid #ddd;}
+    </style>
+</block>
+<block name="body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-box">
+                <ul class="nav nav-tabs tabs-bordered">
+                    <li class="nav-item">
+                        <a href="{:U('index')}"  class="nav-link active show">
+                            <i class="fi-monitor mr-2"></i>所有会员
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{:U('userCz')}"  class="nav-link">
+                            <i class="fi-head mr-2"></i>充值记录
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{:U('userXf')}"  class="nav-link">
+                            <i class="fi-mail mr-2"></i>消费记录
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{:U('userTemp')}"  class="nav-link">
+                            <i class="fi-cog mr-2"></i>模板设置
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{:U('userConf')}"  class="nav-link">
+                            <i class="fi-cog mr-2"></i>充值配置
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="row" style="margin-top: 20px">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card-box tilebox-one  zzxunlong-box">
+                            <i class="icon-layers float-right text-muted"></i>
+                            <h6 class="text-muted text-uppercase mt-0">本日新增会员</h6>
+                            <h2 class="m-b-20">{$st.count_day}</h2>
+                            <span class="text-muted">今日新增并激活的会员数</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card-box tilebox-one zzxunlong-box">
+                            <i class="icon-paypal float-right text-muted"></i>
+                            <h6 class="text-muted text-uppercase mt-0">会员总数</h6>
+                            <h2 class="m-b-20">{$st.count}</h2>
+                            <span class="text-muted">总共会员数</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card-box tilebox-one zzxunlong-box">
+                            <i class="icon-chart float-right text-muted"></i>
+                            <h6 class="text-muted text-uppercase mt-0">充值会员总数</h6>
+                            <h2 class="m-b-20">{$st.count_pay}</h2>
+                            <span class="text-muted">充值过会员卡的会员数</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card-box tilebox-one zzxunlong-box">
+                            <i class="icon-rocket float-right text-muted"></i>
+                            <h6 class="text-muted text-uppercase mt-0">实体卡绑定会员</h6>
+                            <h2 class="m-b-20">{$st.count_st}</h2>
+                            <span class="text-muted">绑定过实体会员卡的会员数</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form action="{:U('index')}" method="post">
+                            <div class="form-row align-items-center">
+                                <div class="form-group col-md-2">
+                                    <label class="col-form-label" for="inlineFormInput">详细查询</label>
+                                    <input type="text" class="form-control mb-2" name="search_data" id="inlineFormInput" placeholder="姓名/手机号/卡号">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="col-form-label" for="date">激活时间</label>
+                                    <input type="text" class="form-control mb-2" name="search_time" id="date" placeholder="交易时间范围">
+                                </div>
+                                <button type="submit" class="btn btn-info mb-2" style="margin-top: 20px">搜索</button>
+                                <button type="button" class="btn btn-pink mb-2" style="margin-left:20px;margin-top: 20px">导出</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-box" style="padding: 1px">
+                            <h4 class="m-t-0 header-title">会员信息</h4>
+                            <p class="text-muted font-14 m-b-20">
+                                会员信息默认只显示近七天的会员,如查看更多,请使用查询功能
+                            </p>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>激活门店</th>
+                                    <th>会员卡号</th>
+                                    <th>会员信息</th>
+                                    <th>手机号</th>
+                                    <th>生日</th>
+                                    <th>账户余额（元)</th>
+                                    <th>激活时间</th>
+                                    <th>详情</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="list" id="v" empty="暂无会员数据" >
+                                    <tr>
+                                        <th><php>$store=Get_Store($v['store_id']); echo $store['name'];</php></th>
+                                        <td>{$v['num']}</td>
+                                        <td>{$v['name']}</td>
+                                        <td>{$v['phone']}</td>
+                                        <td>{$v['birthday']}</td>
+                                        <td>{$v['id']|memberOrderTotal}</td>
+                                        <td>{$v['create_time']|date='Y-m-d H:i:s',###}</td>
+                                        <td><span class="showMember" style="background-color: #00aced;padding: 5px 10px;color: #FFF;border-radius: 5px;font-size: 12px;cursor: pointer" data-wx="{$v['wx_id']}" data-ali="{$v['ali_id']}" data-tjr="{$v['tjr']}">查看</span></td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                            <div  style="text-align: right">
+                                {$page}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="memberModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">会员详情</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped mb-0">
+                        <tbody>
+                        <tr>
+                            <th scope="row">微信OpenId</th>
+                            <td class="wx_id"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">支付宝UserId</th>
+                            <td class="ali_id"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">推荐人</th>
+                            <td class="tjr"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+               </div>
+            </div>
+        </div>
+    </div>
+
+</block>
+<block name="footer_js">
+    <script src="__PUBLIC__/amp/plugins/moment/moment.js"></script>
+    <script src="__PUBLIC__/amp/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="__PUBLIC__/amp/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="__PUBLIC__/amp/plugins/jquery-toastr/jquery.toast.min.js" type="text/javascript"></script>
+    <script>
+        jQuery(document).ready(function () {
+            $('.showMember').on('click', function () {
+                $('.wx_id').text($(this).data('wx'));
+                $('.ali_id').text($(this).data('ali'));
+                $('.tjr').text($(this).data('tjr'));
+                $('#memberModal').modal('show');
+            });
+
+            $('#date').daterangepicker({
+                format: 'MM/DD/YYYY',
+                startDate:false,
+                endDate: moment(),
+                minDate: '01/01/2017',
+                maxDate: '12/31/2021',
+                dateLimit: {
+                    days: 31
+                },
+                showDropdowns: true,
+                showWeekNumbers: false,
+                timePicker: false,
+                timePickerIncrement: 1,
+                timePicker12Hour: true,
+                ranges: {
+                    '今日': [moment(), moment()],
+                    '昨日': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    '近7天': [moment().subtract(6, 'days'), moment()],
+                    '近30天': [moment().subtract(29, 'days'), moment()],
+                    '本月': [moment().startOf('month'), moment().endOf('month')],
+                    '上月': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                opens: 'left',
+                drops: 'down',
+                buttonClasses: ['btn', 'btn-sm'],
+                applyClass: 'btn-success',
+                cancelClass: 'btn-light',
+                separator: ' to ',
+                locale: {
+                    applyLabel: '确定',
+                    cancelLabel: '取消',
+                    fromLabel: '起始时间',
+                    toLabel: '结束时间',
+                    customRangeLabel: '自定义',
+                    daysOfWeek: ["日", "一", "二", "三", "四", "五", "六"],
+                    monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                    firstDay: 1
+                }
+            }, function (start, end, label) {
+                //$('#date span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            });
+        });
+
+        $('.order-reload').click(function () {
+            var oid=$(this).data('id');
+            var loading=$('#oLoading_'+oid),reload=$('#oReload_'+oid);
+            reload.hide();
+            loading.show();
+            $.post('{:U("orderRefund")}?Debug=1', {oid:oid}, function (data) {
+                reload.show();
+                loading.hide();
+                if (data.status === 1) {
+                    $.toast({
+                        heading: '温馨提示',
+                        text: data.info,
+                        position: 'top-right',
+                        loaderBg: '#5ba035',
+                        icon: 'success',
+                        hideAfter: 3000,
+                        stack: 1
+                    });
+                    setTimeout(function () {
+                        window.location.href = data.url
+                    }, 3000);
+                }
+                else {
+                    $.toast({
+                        heading: '温馨提示',
+                        text: data.info,
+                        position: 'top-right',
+                        loaderBg: '#bf441d',
+                        icon: 'error',
+                        hideAfter: 3000,
+                        stack: 1
+                    });
+                }
+            }, 'json');
+        });
+
+        $('.order-notify').click(function () {
+            var oid=$(this).data('id');
+            var loading=$('#notifyLoading_'+oid),reload=$('#notify_'+oid);
+            reload.hide();
+            loading.show();
+            $.post('{:U("orderNotify")}?Debug=1', {oid:oid}, function (data) {
+                reload.show();
+                loading.hide();
+                if (data.status === 1) {
+                    $.toast({
+                        heading: '温馨提示',
+                        text: data.info,
+                        position: 'top-right',
+                        loaderBg: '#5ba035',
+                        icon: 'success',
+                        hideAfter: 3000,
+                        stack: 1
+                    });
+                    setTimeout(function () {
+                        window.location.href = data.url
+                    }, 5000);
+                }
+                else {
+                    $.toast({
+                        heading: '温馨提示',
+                        text: data.info,
+                        position: 'top-right',
+                        loaderBg: '#bf441d',
+                        icon: 'error',
+                        hideAfter: 3000,
+                        stack: 1
+                    });
+                }
+            }, 'json');
+        })
+    </script>
+</block>

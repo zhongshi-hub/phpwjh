@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0">
+    <title>我的银行卡</title>
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link href="/Source/Css/new_pay/css/base_style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/quick_payment.css">
+    <link rel="stylesheet" type="text/css" href="/Source/ydui/css/new_ydui.css">
+</head>
+<body class="bank_card_list_page ">
+<section class="no_card ">
+    <img src="/Source/Css/new_pay/images/no_card_icon.png">
+    <p>您还未添加银行卡</p>
+    <p>绑卡后即可使用快捷支付功能</p>
+    <div class="add_card_btn">
+        <ul  onclick='toAddBankCard()'>
+            <li></li>
+            <li>添加银行卡</li>
+        </ul>
+    </div>
+</section>
+<section class="bank_card_list hide">
+    <div class="bank_card_list_box">
+    </div>
+
+    <div class="add_card_btn"  onclick='toAddBankCard()'>
+        <ul>
+            <li></li>
+            <li>添加银行卡</li>
+        </ul>
+    </div>
+</section>
+<div class="toast"></div>
+<div id="fullbg"></div>
+<section class="unbind hide">
+    <ul class="tip">
+        <li>您确定需要解除绑定吗？</li>
+        <li id="unbind_btn">解除绑定</li>
+        <li id="submitCode" class="hide">提交安全码和有效期</li>
+    </ul>
+    <div class="cancel_btn">取消</div>
+</section>
+</body>
+<script type="text/javascript" src="/Source/jquery.min.js"></script>
+<script type="text/javascript" src="/Source/layer/layer.js"></script>
+<script type="text/javascript" src="/Source/ydui/js/ydui.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        // 点击取消绑定
+        $(".cancel_btn").on("click",quiteDialog);
+        // 获取已绑定的银行卡列表
+        getBindBankCard();
+        // 点击取消绑定
+        $("#unbind_btn").on("click",toUnBind);
+    });
+
+
+
+    //var index_load;
+    // 获取已绑定的银行卡列表
+    function getBindBankCard(){
+        YDUI.dialog.loading.open('加载中');
+        $.ajax({
+            url:"/Mch/Index/bind_card_list",
+            dataType:'json',
+            success:getBindBankCardSuc,
+            error:getBindBankCardFail
+        })
+    }
+
+    function getBindBankCardSuc(res){
+        YDUI.dialog.loading.close();
+        if(res.status==1){
+            $(".bank_card_list_box").html("");
+            $(".no_card").addClass('hide');
+            $(".bank_card_list").removeClass('hide');
+            var dataArr=res.info,html='';
+            for(var i=0;i<dataArr.length;i++){
+                    html+='<div class="card_info" bind_id="'+dataArr[i].id+'"><div class="card_type"><div class="img_box"><img style="height: 25px;width: 25px;padding: 9px" src="'+dataArr[i].bank_logo+'"></div><p><span>'+dataArr[i].bank_name.replace('信用卡', "")+'</span><br>信用卡</p></div><p class="card_num">**** **** **** **** '+dataArr[i].card+'</p></div>';
+                }
+                $(".bank_card_list_box").html(html);
+                $(".card_info").on("click",openUnbindDialog)
+        }else{
+            $(".no_card").removeClass('hide');
+            $(".bank_card_list").addClass('hide');
+        }
+    }
+    function getBindBankCardFail(){
+        YDUI.dialog.loading.close();
+        show('请求失败，请稍后重试');
+    }
+
+
+
+    // 到添加银行卡页面
+    function toAddBankCard(){
+        window.location.href='{$get_data}';
+    }
+
+
+
+    $('.card_info').on("click",openUnbindDialog);
+
+    function openUnbindDialog(e){
+        showBg();
+        var bind_id=$(this).attr('bind_id');
+        $('.unbind').show().attr("bind_id",bind_id);
+    }
+
+
+    // 解绑事件
+    function toUnBind(){
+        $("#unbind_btn").off("click",toUnBind);
+        var bind_id=$(".unbind").attr("bind_id");
+        var data={"bind_id":bind_id};
+        quiteDialog();
+        YDUI.dialog.loading.open('加载中');
+        $.ajax({
+            url:"/Mch/Index/unbind_fast_card",
+            dataType:"json",
+            type:'POST',
+            data:data,
+            success:toUnBindSuc,
+            error:toUnBindFail
+        })
+    }
+    function toUnBindSuc(res){
+        YDUI.dialog.loading.close();
+        if(res.status==1){
+            YDUI.dialog.toast('解绑成功', 'success', 1000);
+            getBindBankCard();
+        }else{
+            show(res.info);
+        }
+        $("#unbind_btn").on("click",toUnBind)
+    }
+    function toUnBindFail(){
+        getBindBankCardFail();
+    }
+
+    // 关闭解绑
+    function quiteDialog(){
+        $('#fullbg').hide();
+        $('.unbind').hide();
+    }
+
+    function showBg() {
+        var wh = $(window).height();
+        var bh=$("body").height();
+        var bw = $("body").width();
+        $("#fullbg").css({
+            height:wh>bh?wh:bh,
+            width:bw,
+            display:"block",
+            opacity:0.8
+        });
+    }
+
+
+    function show(data) {
+        YDUI.dialog.loading.close();
+        YDUI.dialog.toast(data, 'none', 2000);
+    }
+</script>
+</html>

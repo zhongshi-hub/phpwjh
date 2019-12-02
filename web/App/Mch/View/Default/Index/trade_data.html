@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商户中心</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <link rel="stylesheet" href="__PUBLIC__/mui/css/mui.min.css">
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/statics/plugins/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/mui/css/mch.css"/>
+    <script src="__YUI__/js/ydui.flexible.js"></script>
+    <script src="__YUI__/js/ydui.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/iconfont/iconfont.css"/>
+</head>
+<body>
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a onclick="call_back()" class="navbar-item"><i class="back-ico"></i></a>
+        <div class="navbar-center"><span class="navbar-title">订单详细信息</span></div>
+    </header>
+    <div class="g-scrollview">
+        <div class="m-cell demo-small-pitch">
+            <div class="cell-item">
+                <div class="cell-left">金额</div>
+                <div class="cell-right" style="color: red">{$data.total_fee}</div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">支付状态</div>
+                <div class="cell-right" style="color: red">{$data.status|pays_status}</div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">支付类型</div>
+                <div class="cell-right">{$data.service|pays_type}</div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">支付通道</div>
+                <div class="cell-right">{$data.alleys|alleys_name}</div>
+            </div>
+        </div>
+
+        <div class="m-celltitle" style="margin-top: 15px;">订单详细信息</div>
+        <div class="m-cell demo-small-pitch" style="margin-bottom: 50px">
+            <div class="cell-item">
+                <div class="cell-left">描述</div>
+                <div class="cell-right">{$data.body}</div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">订单号</div>
+                <div class="cell-right">{$data.out_trade_no}</div>
+            </div>
+            <notempty name="data.transaction_id">
+            <div class="cell-item">
+                <div class="cell-left">三方订单号</div>
+                <div class="cell-right">{$data.transaction_id}</div>
+            </div>
+            </notempty>
+            <notempty name="data.out_transaction_id">
+            <div class="cell-item">
+                <div class="cell-left">官方订单号</div>
+                <div class="cell-right">{$data.out_transaction_id}</div>
+            </div>
+            </notempty>
+            <div class="cell-item">
+                <div class="cell-left">支付时间</div>
+                <div class="cell-right">{$data.createtime|date='Y-m-d H:i:s',###}</div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">完成时间</div>
+                <div class="cell-right">{$data.time_end|date='Y-m-d H:i:s',###}</div>
+            </div>
+
+        </div>
+
+
+
+        <footer class="m-tabbar tabbar-fixed">
+            <a href="{:U('Index/index')}" class="tabbar-item">
+                <span class="tabbar-icon">
+                    <i class="icon-home-outline"></i>
+                </span>
+                <span class="tabbar-txt">主页</span>
+            </a>
+            <a href="{:U('Index/order')}" class="tabbar-item tabbar-active">
+                <span class="tabbar-icon">
+                    <i class="icon-order"></i>
+                    <span class="tabbar-dot"></span>
+                </span>
+                <span class="tabbar-txt">流水</span>
+            </a>
+            <a href="{:U('Index/my')}" class="tabbar-item">
+                <span class="tabbar-icon">
+                    <i class="icon-ucenter-outline"></i>
+                </span>
+                <span class="tabbar-txt">我的</span>
+            </a>
+        </footer>
+</section>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    function call_back() {
+        location.href=document.referrer;
+    }
+</script>
+</body>
+</html>

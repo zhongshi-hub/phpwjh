@@ -1,0 +1,270 @@
+<extend name="Common:base" />
+<block name="top_css">
+    <link href="__PUBLIC__/amp/plugins/jquery-toastr/jquery.toast.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/amp/plugins/custombox/css/custombox.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/amp/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/amp/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/amp/plugins/spinkit/spinkit.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://chencunlong.oss-cn-hangzhou.aliyuncs.com/qrcode.min.js"></script>
+    <style>
+        .chen_tip{position: absolute;width: 100%;height: 87%;left: 0;top: 50px;background-color:#FFFFFF;text-align: center;z-index: 9999}
+        .chen_tip_msg{font-size: 1.8em;font-weight: bold;}
+        #payQrImg img{text-align: center;display: inline!important;}
+    </style>
+</block>
+<block name="body">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card-box">
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th>流量余额</th>
+                        <th>流量费率</th>
+                        <th>流量状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="table-active">
+                        <td>{$balance}元</td>
+                        <td>{$res.rate|default='0'}‰</td>
+                        <td>
+                            <eq name="res.status" value="1">
+                                <span class="badge label-table badge-success">启用</span>
+                                <else/>
+                                <span class="badge label-table badge-dark">禁用</span>
+                            </eq>
+                        </td>
+                        <td>
+                            <a href="#setPay-modal" type="button" class="btn btn-light waves-effect" data-animation="fadein" data-plugin="custommodal"
+                               data-overlaySpeed="200" data-overlayColor="#36404a">立即充值</a>
+                            <a href="{:U('mp/flow/setList')}" type="button" class="btn btn-light">充值记录</a>
+                            <a href="{:U('mp/flow/payList')}" type="button" class="btn btn-light">扣费记录</a>
+                            <!--<a type="button" class="btn btn-light">流量通道</a>-->
+                            <a href="#custom-modal" type="button" class="btn btn-light waves-effect" data-animation="fadein" data-plugin="custommodal"
+                            data-overlaySpeed="200" data-overlayColor="#36404a">设置报警</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="custom-modal" class="modal-demo">
+        <button type="button" class="close" onclick="Custombox.close();">
+            <span>&times;</span><span class="sr-only">关闭</span>
+        </button>
+        <h4 class="custom-modal-title">报警手机号设置</h4>
+        <div class="custom-modal-text">
+            <div class="alert alert-info">此手机号码用于接收流量报警短信，短信提醒每天最多发送3次。</div>
+            <form class="form-horizontal is_ajax" action="{:U('setPhone')}">
+                <div class="form-group m-b-25">
+                    <div class="col-12">
+                        <label for="phone">手机号码</label>
+                        <input class="form-control" type="text" name="sms_phone" id="phone" value="{$res.sms_phone}" required="" placeholder="留空则不发送报警信息">
+                    </div>
+                </div>
+                <div class="form-group account-btn text-center m-t-10">
+                    <div class="col-12">
+                        <button class="btn w-lg btn-rounded btn-custom waves-effect waves-light" type="submit">保存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 充值Modal -->
+    <div id="setPay-modal" class="modal-demo">
+        <button type="button" class="close" onclick="Custombox.close();">
+            <span>&times;</span><span class="sr-only">关闭</span>
+        </button>
+        <h4 class="custom-modal-title">流量充值</h4>
+
+        <div class="custom-modal-text">
+            <div class="chen_tip" style="display: none">
+                <div id="loading" style="display:none;">
+                    <div class="sk-fading-circle">
+                        <div class="sk-circle1 sk-circle"></div>
+                        <div class="sk-circle2 sk-circle"></div>
+                        <div class="sk-circle3 sk-circle"></div>
+                        <div class="sk-circle4 sk-circle"></div>
+                        <div class="sk-circle5 sk-circle"></div>
+                        <div class="sk-circle6 sk-circle"></div>
+                        <div class="sk-circle7 sk-circle"></div>
+                        <div class="sk-circle8 sk-circle"></div>
+                        <div class="sk-circle9 sk-circle"></div>
+                        <div class="sk-circle10 sk-circle"></div>
+                        <div class="sk-circle11 sk-circle"></div>
+                        <div class="sk-circle12 sk-circle"></div>
+                    </div>
+                    <div class="chen_tip_msg">
+                        稍等,系统处理中...
+                    </div>
+                </div>
+                <div id="payQr" style="display: none">
+                    <div id="payQrImg" style="height: 280px;padding-top: 15px;"></div>
+                    <div class="chen_pay_msg" style="font-size: 1.1em">
+                        请使用<span id="payQrType" style="color: #02c0ce;">微信</span>付款,付款成功后系统会自动返回!
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-info">如在线充值无法使用,请联系平台手动充值</div>
+            <form class="form-horizontal pay_ajax" action="#">
+                <div class="form-group m-b-25">
+                    <div class="col-12">
+                        <label for="phone">充值金额</label>
+                        <input class="form-control" type="number" min="{$config.min_total|default='1'}" max="{$config.max_total|default='1'}" id="totalFee" required="" placeholder="充值范围{$config.min_total|default='1'}-{$config.max_total|default='1'}元">
+                    </div>
+                </div>
+                <div class="form-group m-b-25">
+                    <div class="col-12">
+                        <label for="phone">付款方式</label>
+                        <select class="selectpicker m-b-0" data-style="btn-light" name="payType">
+                            <notempty name="config.pay_wx">
+                            <option data-icon="mdi mdi-qrcode-scan" value="wx">微信支付</option>
+                            </notempty>
+                            <notempty name="config.pay_ali">
+                            <option data-icon="mdi mdi-qrcode-scan" value="ali">支付宝支付</option>
+                            </notempty>
+                            <if condition="($config.pay_wx neq 1) AND ($config.pay_ali neq 1) ">
+                                <option data-icon="mdi mdi-qrcode-scan" value="">暂无支付通道</option>
+                            </if>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group account-btn text-center m-t-10">
+                    <div class="col-12">
+                        <button class="btn w-lg btn-rounded btn-custom waves-effect waves-light" type="submit" <if condition="($config.pay_wx neq 1) AND ($config.pay_ali neq 1) ">disabled</if>>立 即 付 款</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</block>
+
+<block name="footer_js">
+    <script src="__PUBLIC__/amp/plugins/custombox/js/custombox.min.js"></script>
+    <script src="__PUBLIC__/amp/plugins/custombox/js/legacy.min.js"></script>
+    <script src="__PUBLIC__/amp/plugins/bootstrap-select/js/bootstrap-select.js" type="text/javascript"></script>
+    <script src="__PUBLIC__/amp/plugins/jquery-toastr/jquery.toast.min.js" type="text/javascript"></script>
+    <script>
+        jQuery(document).ready(function () {
+            $(".select2").select2();
+        });
+        var setIn_data=0;
+        $(function () {
+            $(".is_ajax").submit(function (e) {
+                e.preventDefault(); //阻止自动提交表单
+                var ajax_data = $(this).serialize();
+                var actionurl = $(this).attr("action");
+                Custombox.close('#custom-modal');
+                $.post(actionurl, ajax_data, function (data) {
+                    if (data.status === 1) {
+                        $.toast({
+                            heading: '温馨提示',
+                            text: data.info,
+                            position: 'top-right',
+                            loaderBg: '#5ba035',
+                            icon: 'success',
+                            hideAfter: 3000,
+                            stack: 1
+                        });
+                        setTimeout(function () {
+                            window.location.href = data.url
+                        }, 3000);
+                    }
+                    else {
+                        $.toast({
+                            heading: '温馨提示',
+                            text: data.info,
+                            position: 'top-right',
+                            loaderBg: '#bf441d',
+                            icon: 'error',
+                            hideAfter: 3000,
+                            stack: 1
+                        });
+                    }
+                }, 'json');
+            });
+        });
+
+
+        $(".pay_ajax").submit(function (e) {
+            e.preventDefault();
+            var tip=$('.chen_tip')
+                ,loading=$("#loading")
+                ,qr=$("#payQr")
+                ,loading_text="稍等,系统处理中..."
+                ,loading_msg=$(".chen_tip_msg")
+                ,action='/Pays/FastApi/gateway?Debug=1'
+                ,pid="{$config.pay_mid}"
+                ,randId="{$config.pay_rid}"
+                ,totalFee=$('#totalFee').val()
+                ,payType=$('[name="payType"] option:selected') .val()
+                ,payQrType=$('#payQrType');
+            var data={type:payType,id:randId,sid:pid,total:totalFee,pay_api:'code',flowUid:'{$Think.session.mp.id}'};
+            tip.show();
+            loading_msg.text(loading_text);
+            loading.show();
+            $.post(action, data, function (data) {
+                if (data.status === 1) {
+                    loading.hide();
+                    payQrType.html(payType==='wx'?'微信':'支付宝');
+                    var qrcode = new QRCode('payQrImg', {
+                        title:'请扫码付款',
+                        width: 245,
+                        height: 245,
+                        colorDark : '#000000',
+                        colorLight : '#ffffff',
+                        correctLevel : QRCode.CorrectLevel.H
+                    });
+                    qrcode.clear();
+                    qrcode.makeCode(data.info.qrcode);
+                    qr.show();
+                    setIn_data= setInterval("getOrderStatus('"+data.info.out_trade_no+"','"+data.info.api+"')",5000);
+                }
+                else {
+                    loading_msg.css('color','red');
+                    loading_msg.text(data.info);
+                }
+            }, 'json');
+        });
+
+        //请求支付状态
+        function getOrderStatus(oid,api){
+            if(oid === ''){
+                window.location.reload();
+            }
+            $.ajax({
+                type: "POST",
+                url: "/Pays/FastApi/getOrderStatus",
+                data: {'api':api,'oid':oid},
+                success: function(data){
+                    if(data.status === 1){
+                        clearInterval(setIn_data);
+                        Custombox.close('#setPay-modal');
+                        $.toast({
+                            heading: '温馨提示',
+                            text: '充值成功',
+                            position: 'top-right',
+                            loaderBg: '#5ba035',
+                            icon: 'success',
+                            hideAfter: 3000,
+                            stack: 1
+                        });
+                        setTimeout(function () {
+                            window.location.href = data.url
+                        }, 3000);
+
+                    }else{
+                        console.log('等待用户支付中');
+                    }
+                }
+            });
+        }
+    </script>
+</block>

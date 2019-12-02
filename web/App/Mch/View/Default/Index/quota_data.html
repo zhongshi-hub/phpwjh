@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0">
+    <title>银行卡说明</title>
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link href="/Source/Css/new_pay/css/base_style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/quick_payment.css">
+
+</head>
+<body class="quota_page">
+<p class="head_info">快捷支付目前支持以下银行及卡种，各行限额情况如下表</p>
+<div class="sheet">
+    <ul class="sheet_head">
+        <li>银行</li>
+        <li>卡种</li>
+        <li>单笔（万）</li>
+        <li>单日（万）</li>
+    </ul>
+    <div class="sheet_content">
+        <ul>
+            <li>工商银行</li>
+            <li>中国银行</li>
+            <li>建设银行</li>
+            <li>平安银行</li>
+            <li>兴业银行</li>
+            <li>华夏银行</li>
+            <li>光大银行</li>
+            <li>民生银行</li>
+            <li>招商银行</li>
+            <li>广发银行</li>
+            <li>浦发银行</li>
+            <li>中信银行</li>
+            <li>上海银行</li>
+            <li>北京银行</li>
+        </ul>
+        <ul class="card_kind">
+            <li>信用卡</li>
+        </ul>
+        <ul>
+            <li>2</li>
+            <li>2</li>
+            <li>2</li>
+            <li>2</li>
+            <li>2</li>
+            <li>2</li>
+            <li>2</li>
+            <li>2</li>
+            <li>2</li>
+            <li>2</li>
+            <li>2</li>
+            <li>2</li>
+            <li>2</li>
+            <li>2</li>
+        </ul>
+        <ul>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+        </ul>
+    </div>
+</div>
+<div class="foot_info">
+    <p>说明：</p>
+    <ul>
+        <li>以上额度为银行支持的最高交易额，实际额度与您的商户等级相关</li>
+        <li style="word-break: break-all;">如遇银行卡未开通认证请用电脑进入银联官网授权，地址：<br>https://www.95516.com/brstatic/union/pages/card/openFirst.html?entry=openPay</li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(".card_kind li").height($(".sheet_content ul").eq(0).height())
+</script>
+</html>

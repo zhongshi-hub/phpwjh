@@ -1,0 +1,101 @@
+<extend name="Common:base" />
+<block name="title">活动列表</block>
+<block name="menu_name">
+    活动列表
+</block>
+<block name="top_css">
+    <link href="__PUBLIC__/amp/plugins/sweet-alert/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
+</block>
+<block name="body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-box">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-box" style="padding: 1px">
+                            <h4 class="m-t-0 header-title">活动记录</h4>
+                            <p class="text-muted font-14 m-b-20">
+
+                            </p>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>活动名称	</th>
+                                    <th>活动类型	</th>
+                                    <th>活动内容	</th>
+                                    <th>活动时间	</th>
+                                    <th>适用门店	</th>
+                                    <th>创建时间</th>
+                                    <th>状态</th>
+                                    <th>操作	</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="list" id="v" empty="暂无活动记录" >
+                                    <tr>
+                                        <th scope="row">{$v['name']}</th>
+                                        <td>{$v['typeName']}</td>
+                                        <td><span class="badge label-table badge-warning">{$v['info']}</span></td>
+                                        <td>{$v['time']}</td>
+                                        <td>{$v['storeNum']}</td>
+                                        <td>{$v['create_time']|date='Y-m-d H:i:s',###}</td>
+                                        <td>
+                                            <eq name="v.status" value="1">
+                                                <span class="_close badge label-table badge-success" style="cursor: pointer" title="点击可关闭活动" data-id="{$v.id}">{$v['statusName']}</span>
+                                            <else/>
+                                                <span class="badge label-table badge-dark">{$v['statusName']}</span>
+                                            </eq>
+
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-custom waves-effect waves-light detail"  style="padding: .1rem .4rem;font-size: 12px;border-radius: 5px" data-url="{:U('detail',['id'=>$v['id']])}">详情</button>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                            <div  style="text-align: right">
+                                {$page}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer_js">
+    <script src="__PUBLIC__/amp/plugins/sweet-alert/sweetalert2.min.js"></script>
+    <script type="application/javascript">
+        $('._close').click(function (e) {
+            var id=$(this).data('id');
+            swal.queue([{
+                title: '您确定要停止活动码?',
+                confirmButtonText: '确定',
+                confirmButtonClass: 'btn btn-confirm mt-2',
+                text: '停止活动后,活动将失效',
+                showLoaderOnConfirm: true,
+                preConfirm: function () {
+                    return new Promise(function (resolve) {
+                        $.post("{:U('restStatus')}",{id:id})
+                            .done(function (data) {
+                                swal.insertQueueStep({
+                                    title: data.info,
+                                    confirmButtonText: '确定',
+                                    confirmButtonClass: 'btn btn-confirm mt-2',
+                                    preConfirm: function () {
+                                        window.location.reload(true);
+                                    }
+                                });
+                                resolve()
+                            })
+                    })
+                }
+            }])
+        });
+        $('.detail').click(function (e) {
+            window.location.href=$(this).data('url');
+        })
+    </script>
+</block>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0">
+    <title>常用操作及通道规则说明</title>
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link href="/Source/Css/new_pay/css/base_style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/quick_payment.css">
+    <style>
+        .xun{font-weight: bold;color: #000!important;font-size: 14px!important;margin-top: 5px!important;margin-bottom: 5px!important;}
+    </style>
+</head>
+<body class="quota_page">
+<div class="foot_info">
+    <p class="head_info" style="text-align: center;font-size: 14px">通道模板消息</p>
+    <hr>
+    <p>当您收到通道开通成功通知的时候,说明您的商户已支持当前支付方式</p>
+    <p>如开通多个通道,您可以按照需求,自行在商户端切换使用</p>
+    <p>如开通的只有一个通道。不支持切换,您可以正常使用!</p>
+    <p class="head_info" style="text-align: center;font-size: 14px">通道规则说明</p>
+    <hr>
+    <p class="xun">通道类型:扫码支付</p>
+    <p>扫码支付为扫码使用微信支付宝付款</p>
+    <p class="xun">通道类型:无卡快捷</p>
+    <p>无卡快捷需登录商户端进行支付,需同名交易</p>
+    <p class="xun">到账方式:D0(手动)</p>
+    <p>是指需要商户自己登录微信商户端进行手动提现才可到账</p>
+    <p>提现步骤: 公众号-商户登录-在线提现-根据金额即可提现成功,实时到账(1秒-30分钟之间)</p>
+    <p class="xun">到账方式:D0(自动)</p>
+    <p>是指商户收款码收款后的交易会自动出款到结算卡,无需手动提现操作,实时到账(1秒-30分钟之间)</p>
+    <p class="xun">到账方式:D1</p>
+    <p>是指支付时间次日为周一到周日出款到结算卡,节假日正常清算到账</p>
+    <p class="xun">到账方式:T0</p>
+    <p>是指结算时间为周一到周五实时出款到结算卡,周六周日及节假日转为顺延工作日不到账</p>
+    <p class="xun">到账方式:T1</p>
+    <p>是指支付时间次日为周一到周五出款到结算卡,周六周日及节假日不到账</p>
+    <p class="xun">终端费率</p>
+    <p>是指手续费费率,终端费率采用千分单位计算 如您的费率为3.8‰ 金额为1W 则手续费为38元</p>
+    <p class="head_info" style="text-align: center;font-size: 14px">常用操作说明</p>
+    <hr>
+    <p class="xun">多个通道如何切换操作</p>
+    <p>如果当前商户存在多个支付通道,可登陆微信客户端-结算方式进行切换。切换后将采用新的支付通道。不影响结算,请注意切换的通道是否需要手动提现,如果切换的通道需要手动提现还是需要登陆商户端进行提现到结算卡</p>
+    <p class="xun">银联快捷类型的支付如何使用</p>
+    <p>1.扫描自己的收款码-输入金额-选择快捷支付-登陆商户端-选择支付卡(如未添加银行卡,请点击支付卡中的管理银行卡添加)-选择支付通道(通道中会显示你输入金额的手续费)-点击通道进行支付</p>
+    <p>2.登陆商户端-进入快捷收款-输入金额-选择支付卡(如未添加银行卡,请点击支付卡中的管理银行卡添加)-选择支付通道(通道中会显示你输入金额的手续费)-点击通道进行支付</p>
+    <p class="head_info" style="text-align: center;font-size: 14px">结算声明</p>
+    <hr>
+    <p class="xun">所有通道结算均有银行或三方直接清算给商户,本公司(<php>echo DomainAuthField(domain_auth(), 'web_name');</php>)不做清算处理,如发现结算不到账情况,请联系相关负责人或平台(联系方式见公众号菜单)</p>
+</div>
+</body>
+</html>

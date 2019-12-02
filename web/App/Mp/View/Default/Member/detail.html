@@ -1,0 +1,90 @@
+<extend name="Common:base" />
+<block name="title">活动详情</block>
+<block name="menu_name">
+    活动详情
+</block>
+<block name="top_css">
+</block>
+<block name="body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-box">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label  class="col-form-label">活动名称</label>
+                            <input type="text" class="form-control"  value="{$name}" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label  class="col-form-label">活动类型</label>
+                            <input type="text" class="form-control" value="{$typeName}" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label  class="col-form-label">活动规则</label>
+                            <textarea class="form-control" style="resize: none" disabled>{$info}</textarea>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label  class="col-form-label">时间范围</label>
+                            <input type="text" class="form-control"  value="{$time}" disabled>
+                        </div>
+                    </div>
+                </div>
+                <notempty name="store_name">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label  class="col-form-label">所属门店</label>
+                            <input type="text" class="form-control"  value="{$store_name}" disabled>
+                        </div>
+                    </div>
+                </div>
+                </notempty>
+                <eq name="type" value="xf">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label  class="col-form-label">会员卡消费返现</label>
+                                <eq name="hyk_xf" value="on">
+                                    <input type="text" class="form-control"  value="是" disabled>
+                                    <else/>
+                                    <input type="text" class="form-control"  value="否" disabled>
+                                </eq>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label  class="col-form-label">消费返现次数限制</label>
+                                <input type="text" class="form-control"  value="{$xff_number|default='不限制'}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </eq>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label  class="col-form-label">活动创建时间</label>
+                            <input type="text" class="form-control"  value="{$create_time|date='Y-m-d H:i:s',###}" disabled>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</block>

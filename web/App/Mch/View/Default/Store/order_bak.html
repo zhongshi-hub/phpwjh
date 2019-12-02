@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>门店中心</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <link rel="stylesheet" href="__PUBLIC__/mui/css/mui.min.css">
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/statics/plugins/font-awesome/css/font-awesome.min.css"/>
+    <script src="__YUI__/js/ydui.flexible.js"></script>
+    <script src="__YUI__/js/ydui.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/iconfont/iconfont.css"/>
+
+</head>
+<body>
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a onclick="call_back();" class="navbar-item"><i class="back-ico"></i></a>
+        <div class="navbar-center" style="font-size: 17px;"></div>
+        <div class="navbar-item"><a class="btn btn-primary" href="{:U('order_data')}">筛选</a></div>
+    </header>
+    <div class="g-scrollview">
+        <div class="m-grids-2">
+            <section class="grids-item">
+                <div class="grids-icon">
+                    <php>echo Rand_total($sum);</php>
+                </div>
+                <div class="grids-txt">总交易额</div>
+            </section>
+            <section class="grids-item">
+                <div class="grids-icon">
+                    {$count}
+                </div>
+                <div class="grids-txt">总笔数</div>
+            </section>
+        </div>
+
+        <div class="m-celltitle" style="margin-top: 15px;">最新流水</div>
+        <ul class="mui-table-view">
+            <foreach name="data" item="v">
+                <li class="mui-table-view-cell" style="padding-bottom: 8px">
+                    <a href="javascript:;">
+                        <if condition="$v.service eq 'ali_jsapi'">
+                            <img class="mui-media-object mui-pull-left"  src="__PUBLIC__/statics/ali.png">
+                            <else/>
+                            <img class="mui-media-object mui-pull-left"  src="__PUBLIC__/statics/wx.png">
+                        </if>
+                        <div class="mui-media-body" onclick="trade_data('{$v.out_trade_no}')">
+                            <span style="font-size: 14px"><php>$store=Get_Store($v['store_id']); echo msubstr($store['name'],0,8);</php></span>
+                            <span class="mui-pull-right" style="font-size: 14px;border-radius: 6px;">¥{$v.total_fee}</span>
+                            <p class="mui-ellipsis" style="margin-top: 3px">
+                                <span style="font-size: 12px"> 订单尾号:<php>echo substr($v['out_trade_no'],-4);</php></span>
+                                <span class="mui-pull-right" style="font-size: 14px;border-radius: 6px;">{$v.createtime|date='Y-m-d H:i:s',###}</span>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </foreach>
+        </ul>
+
+
+        <div class="mui-content-padded" style="margin-bottom: 50px;text-align: right">
+            {$page}
+        </div>
+
+
+        <footer class="m-tabbar tabbar-fixed">
+            <a href="{:U('Store/index')}" class="tabbar-item ">
+                <span class="tabbar-icon">
+                    <i class="icon-home-outline"></i>
+                </span>
+                <span class="tabbar-txt">主页</span>
+            </a>
+            <a href="{:U('Store/order')}" class="tabbar-item tabbar-active">
+                <span class="tabbar-icon">
+                    <i class="icon-order"></i>
+                    <span class="tabbar-dot"></span>
+                </span>
+                <span class="tabbar-txt">流水</span>
+            </a>
+            <a href="{:U('Store/my')}" class="tabbar-item">
+                <span class="tabbar-icon">
+                    <i class="icon-ucenter-outline"></i>
+                </span>
+                <span class="tabbar-txt">我的</span>
+            </a>
+        </footer>
+</section>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script>
+
+    function trade_data(id) {
+        window.location.href='/Mch/Store/trade_data/order_id/'+id;
+    }
+    function call_back() {
+        location.href=document.referrer;
+    }
+
+
+
+</script>
+</body>
+</html>

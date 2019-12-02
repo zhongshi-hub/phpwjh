@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
+    <title>业务服务中心</title>
+    <link href="__PUBLIC__/center/default.css?t={:time()}" rel="stylesheet"/>
+    <link rel="stylesheet" href="__PUBLIC__/center/f7/css/framework7.ios.css">
+    <link rel="stylesheet" href="__PUBLIC__/center/f7/css/framework7.ios.colors.css">
+    <link rel="stylesheet" href="__PUBLIC__/center/f7/css/framework7-icons.css">
+    <script type="text/javascript" src="__PUBLIC__/center/f7/js/framework7.js"></script>
+
+    <style>
+        body{background: #e7e8eb none repeat scroll 0 0 !important;line-height: 1!important;}
+        p{margin: 0 !important;}
+    </style>
+
+</head>
+<body>
+<div>
+    <section class="G-card G-salesService">
+        <div class="mod1 _ydf" >
+            <div class="txt-t">
+                <i class="iconfont icon-head"></i>
+                <span class="G-txt17">{$_SESSION['ag']['user_name']}</span>
+            </div>
+            <div class="txt-c">
+                <div class="G-layout-box">
+                    <div class="G-box-col">
+                        <p class="sub-t G-fb">今日交易笔数</p>
+                        <p class="sub-b G-txt25">{$_count}<span class="G-txt14">笔</span></p>
+                    </div>
+                    <div class="G-box-col">
+                        <p class="sub-t">今日交易金额</p>
+                        <p class="sub-b G-txt25"><php>echo Rand_total($_sum);</php><span class="G-txt14">元</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="txt-b">
+                <div class="G-layout-box">
+                    <div class="G-box-col">
+                        <p class="sub-t label"> 活跃商户数 <span class="ydf_hy"><i class="iconfont sym icon-error"></i></span></p>
+                        <p class="sub-b G-txt18">{$_DIS}</p>
+                    </div>
+                    <div class="G-box-col">
+                        <p class="sub-t">今日新增商户</p>
+                        <p class="sub-b G-txt18">{$J_Count}</p>
+                    </div>
+                    <div class="G-box-col">
+                        <p class="sub-t">累计商户数</p>
+                        <p class="sub-b G-txt18">{$M_Count}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="G-card G-listFnCard">
+        <div class="mod1 G-tc">
+            <div class="G-layout-box">
+                <a class="G-box-col adds">
+                    <p class="ico-wrap" style="line-height: 1rem;">
+                        <i class="f7-icons" style="color: #e99400;font-size: 0.35rem;">download_round</i>
+                    </p>
+                    <p class="sub-b G-txt14">注册商户</p>
+                </a>
+                <a class="G-box-col seller">
+                    <p class="ico-wrap" style="line-height: 1rem;">
+                        <i class="f7-icons" style="color: #007aff;font-size: 0.35rem;">more_round</i>
+                    </p>
+                    <p class="sub-b G-txt14">商户管理</p>
+                </a>
+                <a class="G-box-col person" >
+                    <p class="ico-wrap" style="line-height: 1rem;">
+                        <i class="f7-icons" style="color: #4bab82;font-size: 0.35rem;">person</i>
+                    </p>
+                    <p class="sub-b G-txt14">个人资料</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+<!-- About popover -->
+<div class="popover popover-about" style="width:auto!important;">
+    <div class="popover-inner">
+        <div class="content-block" style="margin: 10px 0!important;">
+            <p>交易大于1的商户即为活跃商户</p>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var myApp = new Framework7({
+        modalTitle: '提示',
+        modalButtonOk: '确定',
+        modalButtonCancel: '取消',
+        modalPreloaderTitle: '加载中...请稍等...',
+        animateNavBackIcon: true,
+        materialRipple: true
+    });
+    var $$ = Dom7;
+
+    $$('.ydf_hy').on('click', function () {
+        var clickedLink = this;
+        myApp.popover('.popover-about', clickedLink);
+    });
+
+    $$('.adds').on('click', function () {
+        location.href="{:U('adds')}";
+    });
+    $$('.seller').on('click', function () {
+        location.href="{:U('seller')}";
+    });
+    $$('.person').on('click', function () {
+        location.href="{:U('person')}";
+    });
+
+</script>
+</html>

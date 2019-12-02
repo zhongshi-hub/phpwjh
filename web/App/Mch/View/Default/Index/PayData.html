@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+    <title>二维码收款</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/qr_data/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/qr_data/base.css">
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <style>
+        .mask{
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 998;
+        }
+        .dialog .dialog_button a:first-child{
+            border:none;
+        }
+        .dialog_button a {
+            color:#04BE02 !important;
+        }
+        .card.card-fullscreen .card-body.pay-code {height: 75%;}
+        .pay-message h4 {color: #D2D2D2; font-size: 13pt; font-weight: normal;}
+        .pay-code .header {padding-top: 10px; padding-bottom: 10px;}
+        .pay-code .pay-message {padding-top: 10px;}
+        .pay-code .pay-message h3 {font-size: 25pt;}
+        .pay-code .button-area {margin-top: 10px;}
+        .pay-code .btn {height: 40px; line-height: 40px; font-size: 11pt;}
+        .pay-code {height:initial !important;}
+
+        .pay-code .line {border-top: 1px #e5e5e5 dashed; margin: 30px 20px 10px 20px; display: none;}
+        .pay-code .line .tips {
+            top: -15px;
+            float: right;
+            position: relative;
+            right: 20px;
+            color: #C7C7C7;
+            background-color: white;
+            padding: 5px;
+            font-size: 9pt;
+        }
+        .pay-code .ad-area {padding:0px 10px 0px 10px; position: relative; top: -15px; display: none;}
+        .pay-code .ad-area a {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+        }
+        .pay-code .ad-area .stat_url {position: absolute; width: 1px; height: 1px; bottom: 0px; opacity: 0;}
+        .card .card-body{ min-height: 270px; }
+        @media  only screen and (max-height: 449px) {
+            .pay-code .pay-message {padding-bottom: 10px;}
+        }
+
+        @media  only screen and (min-height: 450px) and (max-height: 520px) {
+            .pay-code .pay-message {padding-bottom: 10px;}
+            .pay-code .header {padding-top:10px; padding-bottom: 10px;}
+        }
+    </style>
+</head>
+<body>
+<!-- 新的支付码页面 -->
+<div class="wrap">
+    <div class="card card-light card-fullscreen" style="background-color: {$color|default='#1697F3'};">
+        <div class="card-body pay-code" style="margin-top: 10%">
+            <div class="header">
+                <h2>您正在向<span style="color: #ff9800;margin-left: 5px;margin-right: 5px">{$body}</span>付款</h2>
+            </div>
+            <div class="pay-message">
+                <h2>收款金额: {$total}元</h2>
+            </div>
+            <div class="button-area" style="margin-top: 0px">
+                <img src="{$qr}" width="250px" style="display: inline!important;"/>
+            </div>
+            <div class="line" style="display: block;margin-top: 15px"></div>
+            <div class="ad-area" style="display: block;top: 0px;padding-bottom:10px;">
+                <p style="margin-top: 0px;font-size: 13px">请勿识别付款,请使用{$info}扫一扫功能付款</p>
+            </div>
+        </div>
+        <div style="color: #ffffff;text-align: center;margin-top: 5px">
+            <p><a href="{:U('fast_data')}">返回收款页面</a></p>
+        </div>
+        <div style="color: #ffffff;text-align: left;margin-top: 10px">
+            <p><img style="height:18px;width: 18px;display: inline;" src="__PUBLIC__/qr_data/info.png">
+            本人（消费者）确认该笔付款为真实合法交易无异议，愿意
+            承担该笔交易所产生的所有法律责任。"{$_domain['web_name']}"技术平台不
+            介入任何交易纠纷处理。</p>
+        </div>
+
+
+        <div style="position: fixed; left: 0; bottom: 0px; height: 40px; width:100%;text-align: center">
+            <div style="height:60px; width: 90px; margin:0 auto;color: #ffffff">
+               <p><img style="height:25px;" src="{$pay_img}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="__YUI__/js/ydui.js"></script>
+<script src="__YUI__/js/ydui.flexible.js"></script>
+<script>
+    $(function () {
+        setInterval("getOrderStatus()",7000);
+    });
+    function getOrderStatus(){
+        var out_trade_no='{$order}';
+        $.ajax({
+            type: "POST",
+            url: "{:U('query')}",
+            data: "out_trade_no="+out_trade_no,
+            success: function(obj){
+                if(obj.status == 1){
+                        YDUI.dialog.alert(obj.info, function(){
+                            window.location.href="{:U('fast_data')}";
+                        });
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

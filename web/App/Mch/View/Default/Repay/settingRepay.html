@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <META HTTP-EQUIV="Expires" CONTENT="0">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0" />
+    <title>代还款设置</title>
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Source/ydui/css/new_ydui.css">
+    <link href="/Source/Css/new_pay/css/base_style.css" rel="stylesheet" type="text/css">
+    <link href="/Source/repay/js/iosSelect/iosSelect.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/Source/repay/css/calendar.css">
+    <link rel="stylesheet" href="/Source/repay/css/repaySetup.css">
+    <style>
+        .main{padding-top: 20px;}
+        .main .cardMain .accountDetailContent{
+            background:url('/Source/repay/image/card_bg.png') no-repeat 100% 100%,url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzViOGFmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzQwNjhiZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+");
+            background-size: 100% auto;
+            height: 2.866667rem;
+            color: #fff!important;
+            border-radius: .21333rem;
+            /*box-shadow: 0 2px 5px 0 #325fc4;*/
+            border: none;
+        }
+        .main .cardMain .accountDetailContent .bankIcon {
+            border-radius: 999px;
+            background-color: #fff;
+            padding: 5px;
+            margin: 0.8rem 0.4rem 0.4rem 0.5rem;
+        }
+        .main .cardMain .accountDetailContent .infos{
+            color: #fff;
+            margin-top: 0.8rem;
+        }
+        .main .cardMain .accountDetailContent .infos .cdMain{
+            color: #fff;
+        }
+        .main .cardMain .accountDetailContent .cardName{
+            color: #fff;
+            margin-top: 0.9rem;
+            float: right;
+            margin-right: 20px;
+            border:1px solid #fff;
+            border-radius: 5px;
+            padding:3px 5px;
+            font-size: 13px;
+
+        }
+        input  .pubInput{
+            color: transparent;
+        }
+        .mask-white-dialog{z-index: 99999;}
+    </style>
+</head>
+<body class="perfectInfoPage">
+<div class="main">
+
+    <div class="cardMain">
+        <div class="accountDetailContent">
+            <img class="bankIcon" src="{$bank_logo}" />
+            <div class="infos">
+                <div class="bankName">{$bank_name}</div>
+                <div class="cdMain"><span class="userName">尾号({$card})</span></div>
+            </div>
+            <div class="cardName">{$cardName}</div>
+        </div>
+    </div>
+    <div class="inpMain">
+        <div class="inpItem">
+            <div class="inpTips fl">还款金额</div>
+            <div class="inpContain ">
+                <input class="pubInput" type="text" id='num' name=""  placeholder="输入需还款金额" onKeyUp="amount(this)" onBlur="overFormat(this)">
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="inpItem">
+            <div class="inpTips fl">还款本金</div>
+            <div class="inpContain ">
+                <input class="pubInput" type="text" id="limit" name=""  placeholder="输入卡还款本金" value="0.00" onKeyUp="amount(this)" onBlur="overFormat(this)">
+
+            </div>
+        </div>
+        <p class="c1">还款本金最低为还款金额的10% <span id="repayDayTime" style="color:red">还款天数为5-10天</span></p>
+        <div class="inpItem mt20">
+            <div class="inpTips fl">还款日</div>
+            <div class="inpContain repayDay">
+                <input class="pubInput" type="text" id="repayDay" name="" readonly placeholder="必填" name="">
+                <span class="arrow_right"></span>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="inpItem isshowarea">
+            <div class="inpTips fl">代还日期</div>
+            <div class="inpContain repayPeriods">
+                <input class="pubInput" type="text" id="repayPeriods" name="" readonly placeholder="请选择" name="">
+                <span class="arrow_right"></span>
+            </div>
+        </div>
+
+        <div class="line"></div>
+    </div>
+    <input type="hidden" id="cardId" value="{$id}">
+    <div class="next_btn" id="past" style="margin-left:10px;width: 40%;float: left;border: 1px solid #436ed2;background-color: #FFF;color: #436ed2">往期计划</div>
+    <div class="next_btn" style="width: 40%;float: right;margin-right:10px;">生成还款计划</div>
+    <!--<p class="agreement">为确保还款成功请准确输入相关内容，18:00前确认还款计划可当日开始还款，18:00后确认次日开始还款。</p>-->
+    <!--<p class="cxTips">为避免额度超限导致失败，请联系发卡行或银行APP内设置提高扫码单卡单日限额</p>-->
+</div>
+<!--<div class="tips setupTips"><span>帮助中心</span><span></span></div>-->
+
+<!--dialog-->
+<div class="dialog hide tc">
+    <div class="dialog_rule hide">
+        <div class="register_words pxline">
+            <p class="dialog_title">温馨提示</p>
+            <p class="dialog_detail">请保证最低卡内余额大于500元</p>
+        </div>
+        <p class="tc">
+            <button class="apply_btn_2" type="button" id="close_dialog">知道了</button>
+        </p>
+    </div>
+</div>
+<div class="mask_calendar">
+    <div class="calendar"></div>
+</div>
+<!--错误提示层-->
+<div class="toast"></div>
+<div id="fullbg"></div>
+<script type="text/javascript" src="/Source/jquery.min.js"></script>
+<script src="/Source/repay/js/iosSelect/iscroll.js" type="text/javascript"></script>
+<script src="/Source/repay/js/iosSelect/iosSelect.js" type="text/javascript"></script>
+<script type="text/javascript" src="/Source/repay/js/date.js"></script>
+<script type="text/javascript" src="/Source/repay/js/repaySetup.js?v={:time()}"></script>
+<!--<script type="text/javascript" src="/Source/repay/js/dialogJs.js"></script>-->
+<script type="text/javascript" src="/Source/ydui/js/ydui.js"></script>
+<script type="text/javascript" src="/Source/layer/layer.js"></script>
+<script>
+    $('#past').on('click',function () {
+       window.location.href='{:U("pastData")}/bindId/{:$_GET["bindId"]}'
+    });
+</script>
+</body>
+</html>

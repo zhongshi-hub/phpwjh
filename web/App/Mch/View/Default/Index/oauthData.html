@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商户中心</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <link rel="stylesheet" href="__PUBLIC__/mui/css/mui.min.css">
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/statics/plugins/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/mui/css/mch.css"/>
+    <script src="__YUI__/js/ydui.flexible.js"></script>
+    <script src="__YUI__/js/ydui.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/iconfont/iconfont.css"/>
+</head>
+<body>
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a onclick="call_back();" class="navbar-item"><i class="back-ico"></i></a>
+        <div class="navbar-center"><span class="navbar-title">商户签约</span></div>
+    </header>
+    <div class="g-scrollview" style="margin-bottom: 50px;text-align: center">
+        <eq name="type" value="wx">
+            <div style="color: #17a735;font-size: 14px;margin: 20px">商户签约微信</div>
+            <div style="width: 200px;margin: 0 auto;padding-top: 30px">
+                <img src="{$wxImgUrl}" style="border: 1px solid #CCCCCC;padding: 5px">
+            </div>
+            <div style="margin-top: 20px;font-size: 14px;">
+                <p style="color: red">长按二维码识别打开</p>
+                <p style="color: red">识别打开后点击签署完成微信签约</p>
+            </div>
+            <else/>
+            <div style="color: #1481da;font-size: 14px;margin: 20px">商户签约支付宝</div>
+            <div style="width: 200px;margin: 0 auto;padding-top: 30px">
+                <img src="{$aliAuthImgUrl}" style="border: 1px solid #CCCCCC;padding: 5px">
+            </div>
+            <div style="margin-top: 20px;font-size: 14px;">
+                <p style="color: red">请将二维码保存或截屏保存</p>
+                <p style="color: red">然后使用支付宝扫码识别签约授权</p>
+            </div>
+        </eq>
+
+        <div style="color: #1481da;font-size: 14px;margin: 10px">二维码请商户本人扫码或识别签约</div>
+    </div>
+    <footer class="m-tabbar tabbar-fixed">
+        <a href="{:U('Index/index')}" class="tabbar-item tabbar-active">
+                <span class="tabbar-icon">
+                    <i class="icon-home-outline"></i>
+                </span>
+            <span class="tabbar-txt">主页</span>
+        </a>
+        <a href="{:U('Index/order')}" class="tabbar-item">
+                <span class="tabbar-icon">
+                    <i class="icon-order"></i>
+                    <span class="tabbar-dot"></span>
+                </span>
+            <span class="tabbar-txt">流水</span>
+        </a>
+        <a href="{:U('Index/my')}" class="tabbar-item">
+                <span class="tabbar-icon">
+                    <i class="icon-ucenter-outline"></i>
+                </span>
+            <span class="tabbar-txt">我的</span>
+        </a>
+    </footer>
+</section>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="__PUBLIC__/fancybox/jquery.fancybox.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/fancybox/jquery.fancybox.css"/>
+<script src="__YUI__/js/ydui.js"></script>
+<script src="__YUI__/js/ydui.flexible.js"></script>
+<style>
+    .toast-content{color: #fff!important;}
+</style>
+<script>
+    function call_back() {
+        location.href=document.referrer;
+    }
+</script>
+</body>
+</html>

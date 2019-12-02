@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html style="height: auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>门店登录</title>
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <link rel="stylesheet" href="__YUI__/css/my-app.css"/>
+
+</head>
+<body>
+<section class="g-flexview">
+    <header class="m-navbar">
+        <div class="navbar-center"><span class="navbar-title">店员登录</span></div>
+    </header>
+    <section class="g-scrollview">
+        <aside class="demo-tip">
+            <p>请正确输入门店绑定手机号码 如忘记密码 点击忘记密码进行修改</p>
+        </aside>
+        <form action="{:U('store')}">
+            <div class="m-cell">
+                <div class="cell-item">
+                    <div class="cell-right"><input class="cell-input" placeholder="请输入店员手机号" autocomplete="off" type="text" name="user_tel" required>
+                    </div>
+                </div>
+                <div class="cell-item">
+                    <div class="cell-right"><input class="cell-input" placeholder="请输入登录密码" autocomplete="off" type="password" name="user_pass" required>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="m-cell">
+                <label class="cell-item">
+                    <span class="cell-left">是否为店长</span>
+                    <label class="cell-right">
+                        <input class="m-switch" type="checkbox" name="is_sys">
+                    </label>
+                </label>
+            </div>-->
+
+            <div class="m-button">
+                <div style="text-align: right;font-size: 14px"><a href="{:U('store_pass')}" style="color: #097cff"><i class="icon-question"></i>忘记密码</a></div>
+                <button type="submit" class="btn-block btn-primary">提 交</button>
+            </div>
+        </form>
+    </section>
+    <section class="with-line xun_footer">
+        {$_domain['web_name']}&copy;版权所有
+    </section>
+</section>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="__YUI__/js/ydui.js"></script>
+<script src="__YUI__/js/ydui.flexible.js"></script>
+<script>
+    $(function () {
+        $("form").submit(function (e) {
+            e.preventDefault(); //阻止自动提交表单
+            var ajax_data = $(this).serialize();
+            var actionurl = $(this).attr("action");
+            YDUI.dialog.loading.open('登录中...');
+            $.post(actionurl, ajax_data, function (data) {
+                YDUI.dialog.loading.close();
+                if (data.status == 1) {
+                    YDUI.dialog.toast(data.info, 'none', function(){
+                        window.location.href = data.url
+                    });
+                }
+                else {
+                    if(data.url){
+                        YDUI.dialog.alert(data.info, function(){
+                            window.location.href = data.url
+                        });
+                    }else {
+                        msg(data.info);
+                    }
+                }
+            }, 'json');
+        });
+
+        function msg(data) {
+            YDUI.dialog.toast(data, 'none');
+        }
+
+    });
+</script>
+</body>
+
+</html>

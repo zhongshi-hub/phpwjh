@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商户中心</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <link rel="stylesheet" href="__YUI__/css/my-app.css"/>
+</head>
+<body>
+<section class="g-flexview" style="margin-bottom: 50px">
+    <aside class="demo-tip">
+        结算方式说明:
+        <p>通道尾号0为即时到账 1为第二天到账</p>
+        <p>通道中包含字母D为(周一至周日)到账 不区分工作日 </p>
+        <p>通道中包含字母T为工作日(周一至周五)到账 周六周日不到账</p>
+    </aside>
+    <div class="g-scrollview">
+        <div class="m-celltitle" style="margin-top: 15px;">微信结算方式</div>
+        <div class="m-cell">
+            <foreach name="list" item="v">
+                <label class="cell-item">
+                    <span class="cell-left">{$v.alleys_type|alleys_name} <!--({$v.rate}‰)--></span>
+                    <label class="cell-right">
+                        <input value="{$v.alleys_type}" name="wx_radio" type="radio" <if condition="$_seller['wx_alleys'] eq  $v['alleys_type']">checked</if>>
+                        <i class="cell-radio-icon"></i>
+                    </label>
+                </label>
+            </foreach>
+        </div>
+        <div class="m-celltitle" style="margin-top: 15px;">支付宝结算方式</div>
+        <div class="m-cell" style="margin-bottom: 50px">
+            <foreach name="list" item="v">
+                <label class="cell-item">
+                    <span class="cell-left">{$v.alleys_type|alleys_name} <!--({$v.rate}‰)--></span>
+                    <label class="cell-right">
+                        <input value="{$v.alleys_type}" name="ali_radio" type="radio" <if condition="$_seller['ali_alleys'] eq  $v['alleys_type']">checked</if>>
+                        <i class="cell-radio-icon"></i>
+                    </label>
+                </label>
+            </foreach>
+        </div>
+
+
+</section>
+
+<footer class="m-tabbar tabbar-fixed">
+    <a href="{:U('Index/index')}" class="tabbar-item tabbar-active">
+                <span class="tabbar-icon">
+                    <i class="icon-home-outline"></i>
+                </span>
+        <span class="tabbar-txt">主页</span>
+    </a>
+    <a href="{:U('Index/order')}" class="tabbar-item">
+                <span class="tabbar-icon">
+                    <i class="icon-order"></i>
+                    <span class="tabbar-dot"></span>
+                </span>
+        <span class="tabbar-txt">流水</span>
+    </a>
+    <a href="{:U('Index/my')}" class="tabbar-item">
+                <span class="tabbar-icon">
+                    <i class="icon-ucenter-outline"></i>
+                </span>
+        <span class="tabbar-txt">我的</span>
+    </a>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="__YUI__/js/ydui.js"></script>
+<script src="__YUI__/js/ydui.flexible.js"></script>
+<script language="javascript">
+    $(function () {
+        $('[name="wx_radio"]').change(function () {
+            var alleys = $('[name="wx_radio"]:checked').val();
+            var ajax_data = {alley:alleys,'type':'wx'};
+            var actionurl = '{:U("alley_data_save")}';
+            YDUI.dialog.loading.open('通道切换中...');
+            $.post(actionurl, ajax_data, function (data) {
+                YDUI.dialog.loading.close();
+                if (data.status == 1) {
+                    YDUI.dialog.toast(data.info, 'none', function () {
+                        window.location.reload();
+                    });
+                }
+                else {
+                    msg(data.info);
+                }
+            }, 'json');
+        });
+
+        $('[name="ali_radio"]').change(function () {
+            var alleys = $('[name="ali_radio"]:checked').val();
+            var ajax_data = {alley:alleys,'type':'ali'};
+            var actionurl = '{:U("alley_data_save")}';
+            YDUI.dialog.loading.open('通道切换中...');
+            $.post(actionurl, ajax_data, function (data) {
+                YDUI.dialog.loading.close();
+                if (data.status == 1) {
+                    YDUI.dialog.toast(data.info, 'none', function () {
+                        window.location.reload();
+                    });
+                }
+                else {
+                    msg(data.info);
+                }
+            }, 'json');
+        });
+
+    });
+
+    function msg(data) {
+        YDUI.dialog.toast(data, 'none');
+    }
+</script>
+
+</body>
+</html>

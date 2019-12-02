@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>在线提现</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <link rel="stylesheet" href="__PUBLIC__/mui/css/mui.min.css">
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/statics/plugins/font-awesome/css/font-awesome.min.css"/>
+    <script src="__YUI__/js/ydui.flexible.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/iconfont/iconfont.css"/>
+    <link rel="stylesheet" href="__YUI__/css/my-app.css"/>
+    <style>
+        .mui-table-view{margin-top: 20px;font-size: 17px}
+        .user {
+            background: #fff none repeat scroll 0 0;
+            height: 158px;
+            position: relative;
+            width: 100%;
+        }
+        .btn-primary{
+            background-color:#4282e3;
+        }
+        .btn-primary:active{
+            background-color:#5593F1;
+        }
+        .m-cell:after{
+            border-bottom: 0px!important;
+        }
+        ::-webkit-input-placeholder {
+            font-size:15px;
+        }
+        .toast-content{color: #ffffff}
+        .m-confirm{width: 70%!important;border-radius: 5px!important;}
+        .mask-black, .mask-black-dialog{
+            background-color: rgba(0, 0, 0, 0.49)!important;
+        }
+        .confirm-ft>a.confirm-btn.primary{
+            color: #4282e3!important;
+        }
+    </style>
+</head>
+<body>
+<section class="g-flexview" style="margin-bottom: 50px">
+    <div class="g-scrollview" style="margin-top: 0px">
+        <div class="user" style="background: #4282e3">
+            <div style="font-size: 14px;color: #ffffff;padding: 10% 10px;text-align: center">
+                <div>可提现金额(元)</div>
+                <br>
+                <div style="font-size: 45px;" id="total_ye">00.00</div>
+                <input type="hidden" name="total_ye" value="">
+            </div>
+        </div>
+        <div class="m-cell" style="padding-top: 10px;margin-top: 10px;padding-bottom: 5px">
+            <div class="cell-item" style="padding-right: 0.24rem;">
+                <div class="cell-right" style="min-height: 0rem;padding-right: 0px!important;">
+                    <input class="cell-input" placeholder="请输入提现金额 最低100元"  style="font-size:18px;margin-bottom:0px;border: 0px;border-bottom: 1px solid rgba(0,0,0,.2)" type="number" name="tx_total" onkeyup="this.value=this.value.replace(/[^\d.]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d.]/g,'')"required>
+                </div>
+                <div style="text-align:right;font-size: 14px;padding-top:10px;padding-right:.24rem;display: block;position:inherit;border-bottom: 1px solid rgba(0,0,0,.2);float: right">
+                    <span style="color: #097cff" id="all">全部金额</span>
+                </div>
+            </div>
+        </div>
+        <div class="m-button">
+            <button id="tx_button" type="button" class="btn-block btn-primary" style="letter-spacing:3px;" disabled>即时到账,立即提现</button>
+        </div>
+        <!--<ul class="mui-table-view mui-table-view-chevron">
+            <li class="mui-table-view-cell">
+                <a  onclick="tx()" class="mui-navigate-right">提现</a>
+            </li>
+        </ul>-->
+        <ul class="mui-table-view mui-table-view-chevron">
+            <li class="mui-table-view-cell">
+                <a href="{:U('total_tx_order',array('type'=>1))}" class="mui-navigate-right">提现记录</a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a href="{:U('total_tx_order',array('type'=>2))}" class="mui-navigate-right">交易流水</a>
+            </li>
+        </ul>
+        <aside class="demo-tip" style="margin-top: 10px">
+            <p>提现说明:</p>
+            提现金额: 提现最低金额100元 单日最高10W<br>
+            提现时间: 08:00-23:00 即时到账 (其它时间不可提现)<br>
+            提现通道: 只针对V通道交易金额提现!V通道交易后,需要等待5-30秒才计入可提现金额数据内!其它通道无需在此处提现!其它通道为自动提现到结算卡!
+        </aside>
+</section>
+<footer class="m-tabbar tabbar-fixed">
+    <a href="{:U('Index/index')}" class="tabbar-item ">
+                <span class="tabbar-icon">
+                    <i class="icon-home-outline"></i>
+                </span>
+        <span class="tabbar-txt">主页</span>
+    </a>
+    <a href="{:U('Index/order')}" class="tabbar-item ">
+                <span class="tabbar-icon">
+                    <i class="icon-order"></i>
+                    <span class="tabbar-dot"></span>
+                </span>
+        <span class="tabbar-txt">流水</span>
+    </a>
+    <a href="{:U('Index/my')}" class="tabbar-item tabbar-active">
+                <span class="tabbar-icon">
+                    <i class="icon-ucenter-outline"></i>
+                </span>
+        <span class="tabbar-txt">我的</span>
+    </a>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="__YUI__/js/ydui.js"></script>
+<script>
+    $(function() {
+        YDUI.dialog.loading.open('获取可提现金额中...');
+        var total=$('[name="tx_total"]'),total_ye=$('[name="total_ye"]');
+        $.ajax({
+            url: "/Pays/Apis/gateway_type",
+            dataType: 'json',
+            data: {cid: {$_SESSION['mch']['id']},alleys:'Sftpays',way_type:'mch_balance'},
+            type: 'post',
+            success: function (res) {
+                YDUI.dialog.loading.close();
+                if (res.status == 1) {
+                    $('#total_ye').html(res.info.balance);
+                    total_ye.val(res.info.balance);
+                } else {
+                    show(res.info);
+                }
+            },
+            error: function (res) {
+                YDUI.dialog.loading.close();
+                show('通信失败');
+            }
+        });
+        total.bind('input propertychange', function() {
+            //console.log($(this).val());
+            if($(this).val()>=100){
+                $('#tx_button').attr("disabled",false);
+            }else{
+                $('#tx_button').attr("disabled",true);
+            }
+        });
+
+        $('#all').on('click',function () {
+            total.val(total_ye.val());
+            if(total_ye.val()>=100){
+                $('#tx_button').attr("disabled",false);
+            }else{
+                $('#tx_button').attr("disabled",true);
+            }
+        });
+        //提现
+        $('#tx_button').on('click',function () {
+            if(parseFloat(total.val())>parseFloat(total_ye.val())){
+                show('您输入的金额超出可提现金额!');
+            }else{
+                order_tx();
+            }
+        })
+    });
+    function order_tx() {
+        YDUI.dialog.loading.open('提现请求中,请稍等...');
+        var total=$('[name="tx_total"]');
+        $.ajax({
+            url: "/Pays/Apis/gateway_type",
+            dataType: 'json',
+            data: {cid: {$_SESSION['mch']['id']},alleys:'Sftpays',way_type:'mch_withdraw',tx_total:total.val()},
+            type: 'post',
+            success: function (res) {
+                YDUI.dialog.loading.close();
+                if (res.status == 1) {
+                    /*YDUI.dialog.toast(res.info, 'none', 2000,function () {
+                        window.location.href=res.url;
+                    });*/
+                    YDUI.dialog.alert(res.info, function(){
+                        window.location.href=res.url;
+                    });
+                } else {
+                    show(res.info);
+                }
+            },
+            error: function (res) {
+                YDUI.dialog.loading.close();
+                show('通信失败');
+            }
+        });
+    }
+    function show(data) {
+        YDUI.dialog.toast(data, 'none', 2000);
+    }
+</script>
+</body>
+</html>

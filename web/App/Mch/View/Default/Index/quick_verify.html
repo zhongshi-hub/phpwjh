@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0">
+    <title>验证手机</title>
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link href="/Source/Css/new_pay/css/base_style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/quick_payment.css">
+    <link rel="stylesheet" type="text/css" href="/Source/ydui/css/new_ydui.css">
+</head>
+<body class="verifyPhonePage">
+<div class="bottom_line">
+    <p class="title bottom_line">
+			<span>支付需要短信确认，验证码已发送至手机 :<br>
+				<span class="phoneNo">{$data.phone}</span>，请按提示操作。
+			</span>
+    </p>
+</div>
+<ul class="input_box bottom_line">
+    <li>验证码</li>
+    <li><input type="number" class="verify_code" name="verify_code" value="" placeholder="请输入验证码"></li>
+    <li class="getCode" onclick="getCode()">发送验证码</li>
+</ul>
+<input type="hidden" id="order_id" name="order_id" value="">
+<div class="bind_btn">立即支付</div>
+<div id="pay_ing" class="hide">
+    <div class="cricle_box">
+        <div class="cricle"></div>
+        <ul>
+            <li>
+                <span class="cricle_l"></span>
+            </li>
+            <li >
+                <span class="cricle_r"></span>
+            </li>
+        </ul>
+        <p class="time">30s</p>
+    </div>
+    <p class="pay_tips">正在支付中</p>
+</div>
+
+<div id="fullbg"></div>
+<div class="toast"></div>
+</body>
+<script type="text/javascript" src="/Source/jquery.min.js"></script>
+<script type="text/javascript" src="/Source/layer/layer.js"></script>
+<script type="text/javascript" src="/Source/ydui/js/ydui.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //立即支付
+        $(".bind_btn").on('click',FBind);
+    });
+
+    // 控制wait icon
+    var shut = false;
+
+    var sid='{$data.sid}';
+    var alleys='{$data.alleys}';
+    var bank_id='{$data.bank_id}';
+    var total='{$data.total}';
+    var id='{$data.id}';
+
+
+    $(".verify_code").on('input',function(){
+        if($(this).val()!=''){
+            $(".bind_btn").addClass('on_click');
+        }else{
+            $(".bind_btn").removeClass('on_click');
+        }
+    });
+
+
+    function FBind() {
+        if($(".bind_btn").hasClass('on_click')){
+            var flag=checkFCode($(".verify_code"));
+            if(!flag){
+                $('.toast').text('请输入6位验证码');
+                setTimeout(showToast,350);
+                return;
+            }
+            toBind();
+        }else{
+            return;
+        }
+    }
+    //进行支付
+    function toBind() {
+        $(".bind_btn").removeClass('on_click');
+        cartoon();
+        //dialog.loading.open('发送中...');
+        var  pay_order_id=$('#order_id').val();
+        var  pay_verify =$('.verify_code').val();
+        var  ajax_data = {type:'submit',sid:sid,alleys:alleys,bank_id:bank_id,id:id,total:total,verify:pay_verify,order_id:pay_order_id};
+        var actionurl = '{:U("Pays/CApi/gateway",array("Debug"=>1))}';
+        $.post(actionurl, ajax_data, function (data) {
+            YDUI.dialog.loading.close();
+            if (data.status == 1) {
+                $("#pay_ing").hide();
+                YDUI.dialog.toast(data.info, 'success', 1500,function () {
+                    window.location.href=data.url;
+                });
+            }else {
+                $("#pay_ing").hide();
+                $(".toast").text(data.info);
+                setTimeout(showToast,350);
+                $('.verify_code').val(null);
+                $('#fullbg').hide();
+                $('#pay_dialog').hide();
+            }
+        }, 'json');
+    }
+
+
+    //验证码数位验证6位
+    function checkFCode(this_){
+        var reg = /^\d{6,6}$/;
+        return reg.test(this_.val());
+    }
+
+    //倒计时
+    function countDown() {
+        var num = 60;
+        $(".getCode").css({"color":"#a3a3a3"});
+        $(".getCode").text(num + "s");
+        num--;
+        var timer = setInterval(function() {
+            $(".getCode").text(num + "s");
+            $(".getCode").removeAttr('onclick');
+            if (num > 0 ) {
+                if(!shut){num--;}else {
+                    clearInterval(timer);
+                    shut = false;
+                    countDown();
+                }
+            } else {
+                clearInterval(timer);
+                //addClass和removeClass
+                $(".getCode").text("重新发送");
+                $(".getCode").attr('onclick','getCode()');
+                $(".getCode").css({"color":"#416fd2"});
+            }
+        }, 1000);
+    }
+
+    // 发送验证码
+    function getCode(){
+        var data = {type:'sms',sid:sid,alleys:alleys,bank_id:bank_id,id:id,total:total};
+        var action_url = '{:U("Pays/CApi/gateway")}';
+        YDUI.dialog.loading.open('短信发送中...');
+        $.post(action_url, data, function (data) {
+            YDUI.dialog.loading.close();
+            if (data.status == 1) {
+                countDown();
+                $('#order_id').val(data.info.order_id);
+                YDUI.dialog.toast('已发送', 'success', 1500);
+            }else {
+                show(data.info);
+            }
+        }, 'json');
+    }
+
+    function show(data) {
+        $('#fullbg').hide();
+        $('#pay_dialog').hide();
+        YDUI.dialog.toast(data, 'none', 2000);
+    }
+
+    // 支付动画
+    function cartoon(){
+        showLoadingBg();
+        $("#pay_ing").show();
+        var i=30;
+        var time=setInterval(function(){
+            i--;
+            $(".time").text(i+'s');
+            $(".cricle_r").css({
+                "transform":"rotate("+(30-i)*12+"deg)",
+                '-webkit-transform':"rotate("+(30-i)*12+"deg)",
+                '-webkit-transform-origin':"0 50%",
+                "transform-origin":"0 50%"
+            });
+            if(i<=15){
+                $(".cricle_r").css("display",'none');
+                $(".cricle_l").css({
+                    "transform":"rotate("+(15-i)*12+"deg)",
+                    "-webkit-transform":"rotate("+(15-i)*12+"deg)",
+                    "transform-origin":"100% 50%",
+                    "-webkit-transform-origin":"100% 50%"
+                })
+            }
+            if(i==0){
+                $(".cricle_l").css("display",'none');
+                clearInterval(time)
+            }
+        },1000)
+    }
+
+
+    function showLoadingBg(){
+        var wh = $(window).height();
+        var bh=$("body").height()
+        var bw = $("body").width();
+        $("#fullbg").css({
+            height:wh>bh?wh:bh,
+            width:bw,
+            display:"block",
+            opacity:0
+        });
+    }
+
+    //toast居中 出现 消失
+    function showToast(){
+        var toastWid=$('.toast').innerWidth();
+        var wW=$(window).width();
+        $('.toast').css({"background-color":'#f8615f',"left":(wW-toastWid)/2});
+        $('.toast').fadeIn(1000);
+        setTimeout(function(){
+            $('.toast').fadeOut(1000);
+        },2000)
+    }
+
+
+</script>
+
+
+
+</html>

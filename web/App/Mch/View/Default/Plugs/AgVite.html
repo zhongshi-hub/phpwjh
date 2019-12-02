@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+    <title>代理邀请二维码</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/qr_data/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/qr_data/base.css">
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <style>
+        .mask{
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 998;
+        }
+        .dialog .dialog_button a:first-child{
+            border:none;
+        }
+        .dialog_button a {
+            color:#04BE02 !important;
+        }
+        .card.card-fullscreen .card-body.pay-code {height: 75%;}
+        .pay-message h4 {color: #D2D2D2; font-size: 13pt; font-weight: normal;}
+        .pay-code .header {padding-top: 10px; padding-bottom: 10px;}
+        .pay-code .pay-message {padding-top: 10px;}
+        .pay-code .pay-message h3 {font-size: 25pt;}
+        .pay-code .button-area {margin-top: 10px;}
+        .pay-code .btn {height: 40px; line-height: 40px; font-size: 11pt;}
+        .pay-code {height:initial !important;}
+
+        .pay-code .line {border-top: 1px #e5e5e5 dashed; margin: 30px 20px 10px 20px; display: none;}
+        .pay-code .line .tips {
+            top: -15px;
+            float: right;
+            position: relative;
+            right: 20px;
+            color: #C7C7C7;
+            background-color: white;
+            padding: 5px;
+            font-size: 9pt;
+        }
+        .pay-code .ad-area {padding:0px 10px 0px 10px; position: relative; top: -15px; display: none;}
+        .pay-code .ad-area a {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+        }
+        .pay-code .ad-area .stat_url {position: absolute; width: 1px; height: 1px; bottom: 0px; opacity: 0;}
+        .card .card-body{ min-height: 270px; }
+        @media  only screen and (max-height: 449px) {
+            .pay-code .pay-message {padding-bottom: 10px;}
+        }
+
+        @media  only screen and (min-height: 450px) and (max-height: 520px) {
+            .pay-code .pay-message {padding-bottom: 10px;}
+            .pay-code .header {padding-top:10px; padding-bottom: 10px;}
+        }
+    </style>
+</head>
+<body>
+<!-- 新的支付码页面 -->
+<div class="wrap">
+    <div class="card card-light card-fullscreen" style="background-color: {$color|default='#1697F3'};">
+        <div class="card-body pay-code" style="margin-top: 12%">
+            <div class="header" style="padding-top: 20px">
+                <h2>长按二维码识别注册</h2>
+            </div>
+            <div class="button-area" style="margin-top: 0px">
+                <img src="{$agent_code}" width="250px" style="display: inline!important;"/>
+            </div>
+            <div class="line" style="display: block;margin-top: 15px"></div>
+            <div class="ad-area" style="display: block;top: 0px;padding-bottom:10px;">
+                <p style="margin-top: 0px;font-size: 13px">点击右上角分享或截屏保存邀请注册</p>
+            </div>
+        </div>
+        <div style="color: #ffffff;text-align: center;margin-top: 10px">
+            <p>所属代理:{$ag_name}</p>
+        </div>
+        <div style="color: #ffffff;text-align: left;margin-top: 30px">
+            <p><img style="height:18px;width: 18px;display: inline;" src="__PUBLIC__/qr_data/info.png">
+                识别二维码后请正确填写信息,每个手机号只能注册一个,为了确保尽快通过!请按照要求正确填写信息,如有疑问,请联系您的专属代理!
+            </p>
+        </div>
+
+
+        <div style="position: fixed; left: 0; bottom: 0px; height: 40px; width:100%;text-align: center">
+            <div style="height:60px; width:150px; margin:0 auto;color: #ffffff">
+                <p>{$_domain['web_name']}&copy;版权所有</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="__YUI__/js/ydui.js"></script>
+<script src="__YUI__/js/ydui.flexible.js"></script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+    wx.config({$options|json_encode});
+    wx.ready(function () {
+        wx.hideMenuItems({
+            menuList: ['menuItem:share:qq', 'menuItem:share:weiboApp', 'menuItem:share:facebook', 'menuItem:share:QZone', 'menuItem:copyUrl', 'menuItem:originPage', 'menuItem:readMode']
+        });
+        wx.onMenuShareTimeline({
+            title: '移动支付系统邀请商户码', // 分享标题
+            link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: 'http://file.xunmafu.com/Upload/attachment/2017-09-04/8EV9QTCHUPVIHNHXVI0U.jpg', // 分享图标
+            success: function () {
+                YDUI.dialog.toast('分享成功', 'none');
+            },
+            cancel: function () {
+                YDUI.dialog.toast('您取消了分享,未分享成功', 'none');
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: '移动支付系统邀请商户码', // 分享标题
+            desc: '移动支付聚合支付扫码支付原生支付移动支付系统OEM搭建一码多付无卡支付多码合一手机支付', // 分享描述
+            link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: 'http://file.xunmafu.com/Upload/attachment/2017-09-04/8EV9QTCHUPVIHNHXVI0U.jpg', // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                YDUI.dialog.toast('分享成功', 'none');
+            },
+
+            cancel: function () {
+                YDUI.dialog.toast('您取消了分享,未分享成功', 'none');
+            }
+        });
+    });
+</script>
+</body>
+</html>

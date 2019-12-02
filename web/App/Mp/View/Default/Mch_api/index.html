@@ -1,0 +1,125 @@
+<extend name="Common:base" />
+<block name="top_css">
+    <link href="__PUBLIC__/amp/plugins/jquery-toastr/jquery.toast.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/amp/plugins/bootstrap-xeditable/css/bootstrap-editable.css" rel="stylesheet"/>
+    <style>
+        .editable-click, a.editable-click, a.editable-click:hover{border-bottom: none!important;}
+    </style>
+</block>
+<block name="body">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card m-b-30">
+                <h6 class="card-header">AppId</h6>
+                <div class="card-body">
+                    <h5 class="card-title">{$api.appid}</h5>
+                    <p class="card-text">对应API接口中所使用的商户AppId</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card m-b-30">
+                <h6 class="card-header">AppKey</h6>
+                <div class="card-body">
+                    <h5 class="card-title">{$api.appkey}</h5>
+                    <p class="card-text">AppKey用于对Api接口中数据签名</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card m-b-30">
+                <h6 class="card-header">异步通知地址</h6>
+                <div class="card-body">
+                    <h5 class="card-title" id="api_notify" data-url="{:U('apiNotifySetting')}" data-type="textarea" data-pk="1" data-title="异步通知地址设置">{$api.notify_url|default='暂未设置,点击我设置'}</h5>
+                    <p class="card-text">支付结果将异步POST形式回调到设置的地址中 </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card m-b-30">
+                <h6 class="card-header">Api接口状态</h6>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <eq name="api.status" value="1">
+                            <span class="badge label-table badge-success">启用</span>
+                            <else/>
+                            <span class="badge label-table badge-dark">禁用</span>
+                        </eq>
+                    </h5>
+                    <p class="card-text">接口状态由总平台设置,如关闭则无法使用Api接口</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card-box ribbon-box">
+                <div class="ribbon ribbon-custom">Api接口数据格式</div>
+                <p class="m-b-0">
+                    采用 HTTP 标准的 POST 协议，为了保证接收方接收数据正确,传输数据必须签名。
+                </p>
+                <p class="m-b-0">
+                    HttpRequestMethod: post<br>
+                    ContentType:application/json;charset=UTF-8
+                </p>
+                <p class="m-b-0">
+
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card-box ribbon-box">
+                <div class="ribbon ribbon-success">Api接口开发文档</div>
+                <p class="m-b-0">请详细阅读开发文档<br>如有疑问,请联系专属客服</p>
+                <a href="http://t.cn/Ef6KNgA" class="btn btn-custom waves-effect waves-light" target="_blank">点击查看</a>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer_js">
+<script src="__PUBLIC__/amp/plugins/moment/moment.js" type="text/javascript"></script>
+<script src="__PUBLIC__/amp/plugins/bootstrap-xeditable/js/bootstrap-editable.min.js" type="text/javascript"></script>
+<script src="__PUBLIC__/amp/plugins/jquery-toastr/jquery.toast.min.js" type="text/javascript"></script>
+<script>
+    $(function(){
+        $.fn.editableform.buttons =
+            '<button type="submit" class="btn btn-primary editable-submit btn-sm waves-effect waves-light"><i class="mdi mdi-check"></i></button>' +
+            '<button type="button" class="btn btn-light editable-cancel btn-sm waves-effect"><i class="mdi mdi-close"></i></button>';
+        $('#api_notify').editable({
+            type: 'text',
+            pk: 1,
+            name: 'notify_url',
+            title: '异步通知地址设置',
+            mode: 'inline',
+            inputclass: 'form-control-sm',
+            success: function(response, newValue) {
+                if(response.status === 1){
+                    $.toast({
+                        heading: '温馨提示!',
+                        text: response.info,
+                        position: 'top-right',
+                        loaderBg: '#5ba035',
+                        icon: 'success',
+                        hideAfter: 3000,
+                        stack: 1
+                    });
+                }else{
+                    $.toast({
+                        heading: '温馨提示',
+                        text: response.info,
+                        position: 'top-right',
+                        loaderBg: '#bf441d',
+                        icon: 'error',
+                        hideAfter: 3000,
+                        stack: 1
+                    });
+                }
+            }
+        });
+
+    })
+</script>
+</block>

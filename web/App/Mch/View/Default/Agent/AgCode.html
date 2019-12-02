@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+    <title>代理邀请二维码</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/qr_data/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/qr_data/base.css">
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <style>
+        .mask{
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 998;
+        }
+        .dialog .dialog_button a:first-child{
+            border:none;
+        }
+        .dialog_button a {
+            color:#04BE02 !important;
+        }
+        .card.card-fullscreen .card-body.pay-code {height: 75%;}
+        .pay-message h4 {color: #D2D2D2; font-size: 13pt; font-weight: normal;}
+        .pay-code .header {padding-top: 10px; padding-bottom: 10px;}
+        .pay-code .pay-message {padding-top: 10px;}
+        .pay-code .pay-message h3 {font-size: 25pt;}
+        .pay-code .button-area {margin-top: 10px;}
+        .pay-code .btn {height: 40px; line-height: 40px; font-size: 11pt;}
+        .pay-code {height:initial !important;}
+
+        .pay-code .line {border-top: 1px #e5e5e5 dashed; margin: 30px 20px 10px 20px; display: none;}
+        .pay-code .line .tips {
+            top: -15px;
+            float: right;
+            position: relative;
+            right: 20px;
+            color: #C7C7C7;
+            background-color: white;
+            padding: 5px;
+            font-size: 9pt;
+        }
+        .pay-code .ad-area {padding:0px 10px 0px 10px; position: relative; top: -15px; display: none;}
+        .pay-code .ad-area a {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+        }
+        .pay-code .ad-area .stat_url {position: absolute; width: 1px; height: 1px; bottom: 0px; opacity: 0;}
+        .card .card-body{ min-height: 270px; }
+        @media  only screen and (max-height: 449px) {
+            .pay-code .pay-message {padding-bottom: 10px;}
+        }
+
+        @media  only screen and (min-height: 450px) and (max-height: 520px) {
+            .pay-code .pay-message {padding-bottom: 10px;}
+            .pay-code .header {padding-top:10px; padding-bottom: 10px;}
+        }
+    </style>
+</head>
+<body>
+<!-- 新的支付码页面 -->
+<div class="wrap">
+    <div class="card card-light card-fullscreen" style="background-color: {$color|default='#1697F3'};">
+        <div class="card-body pay-code" style="margin-top: 10%">
+            <div class="header">
+                <h2>代理:{$_SESSION['ag']['user_name']}</h2>
+            </div>
+            <div class="button-area" style="margin-top: 0px">
+                <img src="{$agent_code}" width="250px" style="display: inline!important;"/>
+            </div>
+            <div class="line" style="display: block;margin-top: 15px"></div>
+            <div class="ad-area" style="display: block;top: 0px;padding-bottom:10px;">
+                <p style="margin-top: 0px;font-size: 13px">请将此二维码保存或截屏发给客户注册</p>
+            </div>
+        </div>
+        <div style="color: #ffffff;text-align: center;margin-top: 10px">
+            <p><a href="{:U('index')}">返回代理控制台</a></p>
+        </div>
+        <div style="color: #ffffff;text-align: left;margin-top: 30px">
+            <p><img style="height:18px;width: 18px;display: inline;" src="__PUBLIC__/qr_data/info.png">
+               请确保自己名下有可注册的空收款码(未注册过商户),此邀请码会自动调取当前名下的空收款码让用户注册,如名下没有空码,将无法使用此功能!</p>
+        </div>
+
+
+        <div style="position: fixed; left: 0; bottom: 0px; height: 40px; width:100%;text-align: center">
+            <div style="height:60px; width:150px; margin:0 auto;color: #ffffff">
+                <p>{$_domain['web_name']}&copy;版权所有</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="__YUI__/js/ydui.js"></script>
+<script src="__YUI__/js/ydui.flexible.js"></script>
+</body>
+</html>

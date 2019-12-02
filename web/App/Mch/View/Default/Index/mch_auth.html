@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商户中心</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <link rel="stylesheet" href="__PUBLIC__/mui/css/mui.min.css">
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/statics/plugins/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/iconfont/iconfont.css"/>
+    <style type="text/css">
+        .auth_png{ position: fixed;top:0;width: 400px}
+        .auth_png p{text-align: right; }
+        .btn-primary{
+            background-color:#4282e3;
+        }
+        .btn-primary:active{
+            background-color:#5593F1;
+        }
+    </style>
+
+</head>
+<body>
+<section class="g-flexview" style="margin-bottom: 50px">
+    <div class="g-scrollview" style="margin-top: 0px">
+        <empty name="_seller['mch_wx_img']">
+            <img src="__YUI__/my/my.jpg"  style="width: 75px;height: 75px;border-radius: 50%;clear: both;display: block;margin: 50px auto 10px auto;border: 2px solid #ffffff">
+            <else/>
+            <img src="{$_seller.mch_wx_img}" style="width: 75px;height: 75px;border-radius: 50%;clear: both;display: block;margin: 50px auto 10px auto;border: 2px solid #ffffff">
+        </empty>
+        <div style="text-align: center">{$_seller.mch_name}</div>
+        <div style="background: #DFE1E2;border-radius: 5px; height: 30px;margin: 20px;padding: 5px;color: #696969;text-align: center">
+            <p>完成认证,即可使用支付所有功能</p>
+        </div>
+        <ul class="mui-table-view" style="font-size: 14px;margin-top: 10px">
+            <li class="mui-table-view-cell">
+                商户姓名:
+                <span class="mui-badge" style="font-size: 14px;background-color: transparent;color: #000">{$_seller.mch_card_name}</span>
+            </li>
+            <li class="mui-table-view-cell">
+               身份证号:
+                <span class="mui-badge" style="font-size: 14px;background-color: transparent;color: #000">{$_seller.mch_card_id|card_id_replace}</span>
+            </li>
+        </ul>
+
+        <div class="m-button" id="auth_data" style="margin-top: 50px">
+                <button type="button" class="btn-block btn-primary" id="auth_zm">立 即 认 证</button>
+        </div>
+</section>
+<div class="auth_png">
+    <p id="ok_auth" style="display: none">
+        <img src="/Source/Image/ok_auth.png" style="display: block;margin: 200px auto 10px auto;"/>
+    </p>
+    <p id="no_auth" style="display: none">
+        <img src="/Source/Image/no_auth.png" style="display: block;margin: 200px auto 10px auto;"/>
+    </p>
+</div>
+
+<footer class="m-tabbar tabbar-fixed">
+    <a href="{:U('Index/index')}" class="tabbar-item ">
+                <span class="tabbar-icon">
+                    <i class="icon-home-outline"></i>
+                </span>
+        <span class="tabbar-txt">主页</span>
+    </a>
+    <a href="{:U('Index/order')}" class="tabbar-item ">
+                <span class="tabbar-icon">
+                    <i class="icon-order"></i>
+                    <span class="tabbar-dot"></span>
+                </span>
+        <span class="tabbar-txt">流水</span>
+    </a>
+    <a href="{:U('Index/my')}" class="tabbar-item tabbar-active">
+                <span class="tabbar-icon">
+                    <i class="icon-ucenter-outline"></i>
+                </span>
+        <span class="tabbar-txt">我的</span>
+    </a>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="__YUI__/js/ydui.flexible.js"></script>
+<script src="__YUI__/js/ydui.js"></script>
+<script src="__PUBLIC__/mui/js/mui.min.js"></script>
+<script>
+    var status='{$_seller.auth_status}';
+    if(status==1){
+        $('#auth_data').hide();
+        $('#ok_auth').show();
+        $('#no_auth').hide();
+    }else{
+        $('#auth_data').show();
+        $('#ok_auth').hide();
+        $('#no_auth').show();
+    }
+
+    $('#auth_zm').on('click',function () {
+        window.location.href='{:U("zm_auth")}';
+    });
+
+</script>
+</body>
+</html>

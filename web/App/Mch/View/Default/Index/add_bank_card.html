@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>添加银行卡</title>
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link href="/Source/Css/new_pay/css/base_style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/quick_payment.css">
+    <link rel="stylesheet" type="text/css" href="/Source/ydui/css/new_ydui.css">
+</head>
+
+
+
+<body class="perfectInfoPage">
+<p class="title bottom_line">请绑定商户本人的银行卡</p>
+<input type="hidden" id="bankCode" name="">
+<input type="hidden" id="cardType" name="">
+<ul class="input_box">
+    <li class="bottom_line">
+        <span>持卡人</span>
+        <span><input type="text" id="bank_holder" name="bank_holder" readonly placeholder="请输入持卡人姓名" value="{$seller.mch_card_name}"></span>
+    </li>
+    <li class="bottom_line">
+        <span>身份证</span>
+        <span><input type="text" id='idcard' name="" readonly placeholder="请输入持卡人身份证号" value="{$seller.mch_card_id}"></span>
+    </li>
+    <li class="bottom_line">
+        <span>卡号</span>
+        <span><input type="text" id="cardNo" name="cardNo" placeholder="请输入银行卡卡号" maxlength="29"></span>
+    </li>
+    <li class="bottom_line ">
+        <span>所属银行</span>
+        <span>
+            <input type="" id='item_name' class="select-item" readonly="readonly"  name=""  placeholder="请选择所属银行">
+            <input type="hidden" name="bank_id" value="">
+        </span>
+        <img class="choice_icon" src="/Source/Css/new_pay/images/arrow_right.png">
+    </li>
+
+    <li class="bottom_line SixInfo">
+        <span>有效期</span>
+        <span class="arrow_right"><input type="text" id="valid_date" class="select-value" name="" readonly="" placeholder="信用卡有效期"></span>
+    </li>
+    <li class="bottom_line SixInfo">
+        <span>安全码</span>
+        <span><input type="number" id="cvv" name=""  placeholder="卡背面末三位"></span>
+        <img class="doubt" src="/Source/Css/new_pay/images/doubt_icon.png"  onclick="showDescriptionDialog(0)">
+    </li>
+    <li class="bottom_line">
+        <span>预留手机</span>
+        <span><input type="number" id="mobile" name="" placeholder="请输入预留手机号"></span>
+        <img class="doubt" src="/Source/Css/new_pay/images/doubt_icon.png" onclick="showDescriptionDialog(1)">
+    </li>
+</ul>
+<eq name="sys_xy.quick_status" value="1">
+<p class="agreement">我同意<span class="agreement_btn">《{$sys_xy.quick_name|default='服务协议'}》</span></p>
+<div class="next_btn">提交</div>
+<else/>
+    <div class="next_btn" style="margin-top: 10px">提交</div>
+</eq>
+
+
+<div class="description_dialog hide">
+    <div class="content">
+        <p class="content_title">预留手机号说明</p>
+        <img src="/Source/Css/new_pay/images/info_explain.png">
+        <p class="content_info"></p>
+    </div>
+    <div class="getIt">知道了</div>
+</div>
+<div class="agreement_dialog hide" style="border-radius: 5px">
+    <img class="close_btn" src="/Source/Css/new_pay/images/close_btn.png">
+    <div class="agreement_content" >
+        {$sys.quick_info}
+    </div>
+</div>
+<div id="fullbg"></div>
+<div class="toast"></div>
+</body>
+
+<script type="text/javascript" src="/Source/jquery.min.js"></script>
+<script type="text/javascript" src="/Source/ydui/js/ydui.js"></script>
+<script type="text/javascript" src='/Source/Css/new_pay/js/selectDate-wap.js'></script>
+<script type="text/javascript" src='/Source/Css/new_pay/js/selectDate.js'></script>
+<script type="text/javascript" src="/Source/layer/layer.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#idcard").val(getIDCard($("#idcard").val()));
+        // 知道了关闭弹窗
+        $(".getIt").on("click",quiteDialog);
+        // 点击遮罩关闭弹窗
+        $("#fullbg").on('click',quiteDialog);
+        // 打开商户协议
+        $(".agreement_btn").on("click",showAgreement);
+        // 关闭协议窗口
+        $(".close_btn").on("click",quiteDialog);
+        // 提交
+        $(".next_btn").on("click",toSubmit);
+        // 判断
+        toGetNext();
+
+        $("#cardNo").on("keyup input",function () {
+            //如果输入非数字，则替换为''，如果输入数字，则在每4位之后添加一个空格分隔
+            this.value = this.value.replace(/[^\d]/g, '').replace(/(\d{4})(?=\d)/g, "$1 ");
+        });
+    });
+    var index;
+    $('.select-item').selectList({
+        level:1,
+        data1:{$bank_data},
+        Linkpage:false,
+        //显示行数
+        line:6,
+        idDefault:true,
+        splitStr:'-',
+        //标题html
+        header:'<div class="selector-header"><a href="javascript:;" class="selector-cancel">取消</a><a href="javascript:;" class="selector-confirm">确定</a></div>',
+        confirm:function(){
+            $('.select-item').val($('.select-item').data('html1'));
+            $('[name="bank_id"]').val($('.select-item').data('value1'));
+        }
+    });
+    //获取带星号的身份证号码
+    function getIDCard(IDCard){
+        var str="";
+        if(IDCard.length==15){
+            var zz=/^(.{6})(.*)(.{3})$/.exec(IDCard);
+            str=zz[1]+"******"+zz[3]
+        }else if(IDCard.length==18){
+            var zz=/^(.{6})(.*)(.{4})$/.exec(IDCard);
+            str=zz[1]+"******"+zz[3]
+        }
+        return str;
+    }
+    // input变化 提交按钮变化
+    $("input").on('input',toGetNext);
+    // 选择后的回调
+    function toGetNext(){
+        if(($("[name='cardNo']").val()!=''&&$("[name='bank_id']").val()!=''&&$(".select-item").val()!=''&&$("#valid_date").val()!=''&&$("#cvv").val()!=''&&$("#mobile").val()!='')){
+            $('.next_btn').addClass("on_click");
+        }else{
+            $('.next_btn').removeClass("on_click");
+        }
+    }
+
+    function quiteDialog(){
+        $('#fullbg').hide();
+        $('.description_dialog').hide();
+        $(".agreement_dialog").hide();
+    }
+
+    function showBg() {
+        var wh = $(window).height();
+        var bh=$("body").height();
+        var bw = $("body").width();
+        $("#fullbg").css({
+            height:wh>bh?wh:bh,
+            width:bw,
+            display:"block",
+            opacity:0.8
+        });
+    }
+    function showDescriptionDialog(index){
+        if(index==0){
+            $(".content_title").text('安全码说明').siblings('img').attr('src','/Source/Css/new_pay/images/safe_code.png');
+            $(".content_info").text("安全码是指在银行卡背面的签名栏，通常会显示银行卡卡号的后四位，其后紧跟有三位数字，这三位数字被称为银行卡安全码。")
+        }else{
+            $(".content_title").text('预留手机号说明').siblings('img').attr('src','/Source/Css/new_pay/images/info_explain.png');
+            $(".content_info").text("银行卡预留手机号是指在银行办理银行卡时填写的持卡人手机号码，由11位数字组成，在进行快捷支付时会做短信验证码校验。")
+        }
+        var dialogh = $('.description_dialog').innerHeight();
+        setTimeout(function(){
+            var sc = $(document).scrollTop();
+            var wh = $(window).height();
+            showBg();
+            $('.description_dialog').css({
+                top:(wh-dialogh)/2+sc
+            }).show();
+        },350)
+    }
+    //协议弹窗
+    function showAgreement(){
+        setTimeout(function(){
+            showBg();
+            $(".agreement_dialog").show();
+        },350)
+
+    }
+    function toSubmit(){
+        if($(this).hasClass('on_click')){
+            submitBeforeCheck()
+        }else{
+            return;
+        }
+    }
+    function submitBeforeCheck(){
+        var cvv=checkCvv($("#cvv"));
+        var mobile=checkFMobile($("#mobile"));
+        var cardNo=checkFBankAccount($("#cardNo"));
+        if(!cvv){
+            $(".toast").text("请输入正确的安全码！");
+            setTimeout(showToast,350);
+            return cvv;
+        }else if(!mobile){
+            $(".toast").text("请输入正确的预留手机号码！");
+            setTimeout(showToast,350);
+            return mobile;
+        }else if(!cardNo){
+            $(".toast").text("请输入正确的银行卡号");
+            setTimeout(showToast,350);
+            return cardNo;
+        }
+        endSubmit()
+    }
+
+    //银行卡号前端验证
+    function checkFBankAccount(this_){
+        var reg = /^\d{9,24}$/;
+        this_.val($.trim(this_.val()));
+        var val = this_.val().replace(/\s+/g,'');
+        $("#FBankAccount").val(val);
+        return reg.test(val);
+    }
+    function endSubmit(){
+        $(".next_btn").removeClass('on_click');
+        index=layer.load(1, {
+            shade: [0.1,'#fff']
+        });
+        var valid_date=$("#valid_date").val().split("/");
+        valid_date=valid_date[1]+valid_date[0];
+        var data={
+            "name":'{$seller.mch_card_name}',
+            'cert':'{$seller.mch_card_id}',
+            "card":$("[name='cardNo']").val().replace(/\s+/g, ""),
+            "bank":$("[name='bank_id']").val(),
+            "bank_name":$(".select-item").val(),
+            "phone":$("#mobile").val(),
+            "cvn":$("#cvv").val(),
+            "date":valid_date,
+            'quick_data':'{$_GET["quick_data"]}'
+        };
+        $.ajax({
+            url:"{:U('bind_fast_card',array('Debug'=>1))}",
+            data:data,
+            dataType:"json",
+            type:'POST',
+            success:endSubmitSuc,
+            error:endSubmitFail
+        })
+
+    }
+    function endSubmitSuc(res){
+        if(res.status==1){
+            layer.close(index);
+            YDUI.dialog.toast('恭喜您，绑卡成功了', 'none', 2000,function () {
+                window.location.href=res.url;
+            });
+        }else{
+            layer.close(index);
+            show(res.info);
+            $(".next_btn").addClass('on_click');
+        }
+    }
+    function endSubmitFail(){
+        layer.close(index);
+        $('.toast').text('请求失败，请稍后重试');
+        setTimeout(showToast,350);
+        $(".next_btn").addClass('on_click');
+    }
+    //安全码校验
+    function checkCvv(this_) {
+        var reg = /^\d{3,3}$/;
+        var val=$.trim(this_.val().replace(/\s/g, ""));
+        return reg.test(val);
+    }
+
+
+    //用户输入手机号验证方法
+    function checkFMobile(this_) {
+        var reg = /^(1)\d{10,10}$/;
+        var val=$.trim(this_.val().replace(/\s/g, ""));
+        return reg.test(val);
+    }
+
+    //toast居中 出现 消失
+    function showToast(){
+        var toastWid=$('.toast').innerWidth();
+        var wW=$(window).width();
+        $('.toast').css({"background-color":'#f8615f',"left":(wW-toastWid)/2});
+        $('.toast').fadeIn(500);
+        setTimeout(function(){
+            $('.toast').fadeOut(500);
+        },1000)
+    }
+
+    function show(data) {
+        YDUI.dialog.toast(data, 'none', 2000);
+    }
+</script>
+</html>

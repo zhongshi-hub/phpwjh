@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Source/repay/css/repayConfirm.css"/>
+    <link rel="stylesheet" type="text/css" href="/Source/ydui/css/new_ydui.css">
+    <title>代还款确认</title>
+    <style>
+        .repaybox {
+            position: relative;
+            z-index: 99;
+            /*border-radius: .05333rem;*/
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 0.333333rem;
+        }
+        .ringbox {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+        .ringbox .item {
+            width: 33.3%;
+            position: relative;
+            padding: .4rem 0;
+            text-align: center;
+        }
+        .repaybox .ringbox .item .title {
+            color: #999;
+            font-size: .34667rem;
+            padding-top: 0;
+        }
+        .repaybox .ringbox .item .value {
+            color: #333;
+            font-size: .50667rem;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="tips" style="text-align: center">系统根据您的还款本金自动生成最优还款计划</div>
+    <div class="repaybox" style="margin: 0px 0.4rem 0.53333rem;">
+        <div class="ringbox">
+            <div class="item">
+                <p class="value">{$planList.total}</p>
+                <p class="title">还款金额(元)</p>
+            </div>
+            <!--<div class="item">-->
+                <!--<p class="value">{$planList.avall}</p>-->
+                <!--<p class="title">还款本金(元)</p>-->
+            <!--</div>-->
+            <div class="item">
+                <p class="value">{$planList.payCount}</p>
+                <p class="title">交易笔数(笔)</p>
+            </div>
+            <div class="item">
+                <p class="value">{$planList.repayCount}</p>
+                <p class="title">还款笔数(笔)</p>
+            </div>
+        </div>
+    </div>
+    <div class="newRepayDetailMain">
+        <volist name="planList.data" id="vo">
+        <div class="repayTabItem">
+            <div class="repHead">
+                <div class="repStatusFt fl">待还</div>
+                <div class="repHeadFT fl mt30" style="width: 70%">还款时间：<span class="repHeadZIDUAN repDateTime">{$vo.day}</span>
+                </div>
+                <div class="repHeadFT fl mt15">还款金额：<span class="repHeadZIDUAN repAmountSu">{$vo.repay}</span></div>
+                <div class="repHeadFT fl mt15 ml35">消费金额：<span class="repHeadZIDUAN repAmountSu">{$vo.pay}</span></div>
+            </div>
+            <div class="line"></div>
+            <ul class="newtableHead">
+                <li class="newWd90px">次数</li>
+                <li class="newWd150px">金额</li>
+                <li class="newWd150px">类型</li>
+                <li class="newWd150px">时间</li>
+                <li class="newWd150px">状态</li>
+            </ul>
+            <div class="line"></div>
+            <volist name="vo.data" id="v" key="k">
+            <ul class="newtableRows">
+                <li class="newWd90px">
+                    <i class="oneIRow grey">{$k}</i>
+                </li>
+                <li class="newWd150px">
+                    <i class="oneIRow">{$v.total}</i>
+                </li>
+                <li class="newWd150px">
+                    <i class="oneIRow">
+                        <eq name="v.type" value="repay">
+                            <span style="color: green">还款</span>
+                        <else/>
+                            <span style="color:red;">消费</span>
+                        </eq>
+                    </i>
+                </li>
+                <li class="newWd150px">
+                    <i class="oneIRow">{$v.time}</i>
+                </li>
+                <li class="newWd150px">
+                    <i class="oneIRow grey">等待</i>
+                </li>
+            </ul>
+            </volist>
+            <div class="line"></div>
+        </div>
+        </volist>
+    </div>
+    <div class="confirmPlan" id="callBackUrl" style="width: 40%;float: left;border: 1px solid #436ed2;background-color: #FFF;color: #436ed2">返回修改</div>
+    <div class="confirmPlan PlanSave" style="width: 40%;float: right">确认计划</div>
+    <!--<div class="agreeMain">我同意 <span class="planProtocol">《代还信用卡服务协议》</span></div>-->
+    <!--<div class="mobileMain">每次代还后会把结果发送至手机：<span class="toMoble">1888*****</span></div>-->
+</div>
+<!--<div class="agreement_dialog hide">-->
+    <!--<img class="close_btn" src="image/close_btn.png">-->
+    <!--<div class="agreement_content">-->
+       <!--协议内容-->
+    <!--</div>-->
+<!--</div>-->
+<div id="fullbg"></div>
+<!--错误提示层-->
+<div class="toast"></div>
+</body>
+<script type="text/javascript" src="/Source/jquery.min.js"></script>
+<script type="text/javascript" src="/Source/layer/layer.js"></script>
+<script type="text/javascript" src="/Source/ydui/js/ydui.js"></script>
+<script>
+    //当前计划ID
+    var PlanId='{$planId}',cardId='{$cardId}';
+    $('#callBackUrl').on('click',function () {
+       window.location.href='{$callBackUrl}';
+    });
+    //确认还款计划点击事件
+    $(".PlanSave").bind("click", function () {
+       //提交数据
+        var opts={
+            url:"/Mch/Repay/PlanSave?Debug=1",
+            data:{
+                cardId:cardId,
+                planId:PlanId
+            },
+            succ: function (data) {
+                if(data.code==1){
+                    window.location.href=data.url;
+                }else{
+                    show(data.msg);
+                }
+            }
+        };
+        window.sendAJAX(opts)
+    });
+
+    //发送AJAX请求
+    window.sendAJAX = function (opts) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            data: opts.data,
+            url: opts.url,
+            success: opts.succ || function () {
+            },
+            error: opts.error || function () {
+                show("请求失败，请稍后重试");
+            }
+        })
+    };
+    function show(data) {
+        YDUI.dialog.toast(data, 'none', 2000);
+    }
+
+</script>
+</html>

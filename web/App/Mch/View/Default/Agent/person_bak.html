@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>个人资料</title>
+    <link rel="stylesheet" href="__PUBLIC__/center/f7/css/framework7.ios.css">
+    <link rel="stylesheet" href="__PUBLIC__/center/f7/css/framework7.ios.colors.css">
+    <link rel="stylesheet" href="__PUBLIC__/center/f7/css/framework7-icons.css">
+    <script type="text/javascript" src="__PUBLIC__/center/f7/js/framework7.js"></script>
+    <style>
+        .item-input{color: #666!important;}
+    </style>
+</head>
+<body>
+<div class="views">
+    <div class="view view-main">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left sliding"><a href="" onclick="back_center()" class="back link"><i class="icon icon-back"></i><span>返回</span></a></div>
+                <div class="center sliding"></div>
+                <div class="right"></div>
+            </div>
+        </div>
+
+        <div class="pages navbar-through">
+            <div class="page">
+                <div class="page-content">
+                    <div class="content-block-title" style="margin-top: 15px!important;">个人资料</div>
+                    <div class="list-block inset">
+                        <ul>
+
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">业务姓名</div>
+                                        <div class="item-input">
+                                            {$data.user_name}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">联系方式</div>
+                                        <div class="item-input">
+                                            {$data.user_phone}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">加入时间</div>
+                                        <div class="item-input">
+                                            {$data.ctime|date='Y-m-d H:i:s',###}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <foreach name="api" item="v" key="k">
+                    <div class="content-block-title">{$v.alleys}通道费率</div>
+                    <div class="list-block inset">
+                        <ul>
+
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">成本费率</div>
+                                        <div class="item-input">
+                                            <php>$type=$v['alleys_type'].'_cost'; echo $rate[$type];</php>‰
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">终端费率</div>
+                                        <div class="item-input">
+                                            <php>$type=$v['alleys_type'].'_term'; echo $rate[$type];</php>‰
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    </foreach>
+                    <form  class="list-block  ajax-submit" method="post" action="{:U('Login/agent_quit')}">
+                        <div class="content-block">
+                            <p>
+                                <button  style="width: 100%;text-align: center;color: #007aff" class="item-link close-panel button  button-big">退 出 系 统
+                                </button>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var myApp = new Framework7({
+        modalTitle: '提示',
+        modalButtonOk: '确定',
+        modalButtonCancel: '取消',
+        modalPreloaderTitle: '加载中...请稍等...',
+        animateNavBackIcon: true,
+        materialRipple: true
+    });
+    var $$ = Dom7;
+    $$(document).on('ajaxStart', function (e) {
+        myApp.showIndicator();
+    });
+    $$(document).on('ajaxComplete', function (e) {
+        myApp.hideIndicator();
+    });
+
+    $$('form.ajax-submit').on('submitted', function (e) {
+        var data = JSON.parse(e.detail.data);
+        if (data.status == 1) { //成功
+            myApp.alert(data.info, function () {
+                location.href = data.url;
+            });
+        } else { //失败
+            myApp.alert(data.info);
+        }
+    });
+
+    function back_center() {
+        location.href="{:U('index')}";
+    }
+</script>
+</body>
+</html>

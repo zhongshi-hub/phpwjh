@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0">
+    <title>向商家付款</title>
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link href="/Source/Css/new_pay/css/base_style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/quick_payment.css">
+    <link href="/Source/Css/new_pay/css/keyboard2.css?v=3" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/dialog2.css">
+    <link rel="stylesheet" type="text/css" href="/Source/ydui/css/new_ydui.css">
+    </head>
+<body class="paymentPage">
+<section class="merchant_info bottom_line">
+    <div class="merchant_name">{$res.name}</div>
+    <input type="hidden" name="id" value="{$res.id}">
+    <input type="hidden" name="sid" value="{$res.sid}">
+    <ul class="pay_num">
+        <li>支付金额 :</li>
+        <li>￥<span id="account" style="position: relative;"></span>
+            <input type="hidden" name="total" id="total_price" value="" onchange="rate_total()">
+        </li>
+    </ul>
+</section>
+<div class="blank bottom_line"></div>
+<ul class="payment_info">
+    <li class="bottom_line">
+        <span>支付卡</span>
+        <span>
+			<input type="" id="bank_card" name=""  readonly="readonly" placeholder="请选择">
+            <input type="hidden" name="bank_id" value="">
+		</span>
+    </li>
+</ul>
+<!--<div class="blank bottom_line"></div>-->
+<div style="text-align: left;padding: 10px 0px 2px 20px;color: #999999">请选择支付通道</div>
+<!-- 支付方式 -->
+<div class="pay_method">
+    <foreach name="data.alley_data" item="v">
+    <ul class="method" onclick="r_url(<php>$is_bank=AlleysGetData($v['alleys_type'],'is_banks'); echo $is_bank.",'".$v['alleys_type']."','".AlleysGetData($v['alleys_type'],'pay_time')."'"</php>)">
+        <li class="yinlian"></li>
+        <li class="method_tip" >
+            <div style="font-size: 15px">
+                {$v.alleys_type|alleys_name} <php>echo AlleysGetData($v['alleys_type'],'total_type')</php>(<php>echo AlleysGetData($v['alleys_type'],'pay_time')</php>)<br>
+                <span style="font-size: 12px;float: left;">单笔<php>echo show_total_han(AlleysGetData($v['alleys_type'],'min_total'))</php>-<php>echo show_total_han(AlleysGetData($v['alleys_type'],'max_total'))</php>元;    <php>$remak=AlleysGetData($v['alleys_type'],'is_remak'); $res=AlleysGetData($v['alleys_type'],'is_total');   if($res){ if($remak){echo $remak .'+'.$res;}else{echo ($v['rate']/10).'%+'.$res;} }else{ if($remak){echo $remak; }else{echo ($v['rate']/10).'%';} }</php> </span>
+
+            </div>
+        </li>
+        <li style="text-align: right;width: 70px">
+            <span style="font-size: 12px;color: red;text-align: right;line-height: 85px" id="{$v.alleys_type}_sxf">¥:0元</span>
+        </li>
+        <li class="select_box"></li>
+    </ul>
+    </foreach>
+</div>
+
+<div class="next_btn hide">下一步</div>
+
+<div id="fullbg"></div>
+<div class="card_list hide">
+    <ul class="list_head bottom_line">
+        <li id="cancel">取消</li>
+        <li id="manage_card">管理银行卡</li>
+    </ul>
+    <ul class="lists">
+        <!-- 	<li>
+                <img src="../images/bos.png">
+                <span>招商银行信用卡（5428）</span>
+            </li>
+            <li></li> -->
+    </ul>
+    <p class="add_card_tip"></p>
+</div>
+
+
+
+<p class="quota">银行卡说明</p>
+<div class="toast"></div>
+
+<!--  键盘  -->
+<table id="keyboard">
+    <tr>
+        <td class="num">1</td>
+        <td class="num">2</td>
+        <td class="num">3</td>
+        <td rowspan="2" class="del"></td>
+    </tr>
+    <tr>
+        <td class="num">4</td>
+        <td class="num">5</td>
+        <td class="num">6</td>
+    </tr>
+    <tr>
+        <td class="num">7</td>
+        <td class="num">8</td>
+        <td class="num">9</td>
+        <td rowspan="2" class="complete" style="color: #ffffff">完成</td>
+    </tr>
+    <tr>
+        <td class="num dot">.</td>
+        <td class="num">0</td>
+        <td class="key"></td>
+    </tr>
+</table>
+</body>
+<script type="text/javascript" src="/Source/jquery.min.js"></script>
+<script type="text/javascript" src='/Source/Css/new_pay/js/selectNew-wap.js'></script>
+<script type="text/javascript" src='/Source/Css/new_pay/js/selectNew.js'></script>
+<script type="text/javascript" src="/Source/ydui/js/ydui.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+        rate_total('{$total}');
+        // 获取已绑定的银行卡列表
+        getBindBankCard();
+        // 打开银行卡列表
+        $("#bank_card").on("click",showCardList);
+        // 关闭银行卡列表
+        $("#cancel").on('click',quiteDialog);
+        //点击返回
+        $(".revise").on("click",function() {
+            $('#fullbg').hide();
+            $('#dialog1').hide();
+        });
+        // 银行卡限额说明
+        $(".quota").on("click",function(){
+            window.location.href="{:U('quota_data')}";
+        });
+        //唤起键盘
+        $("#keyboard td").bind("touchstart",keyboardInput);
+        $(".pay_num li").bind("click",callKeyboard);//
+    });
+
+    var account='{$total}';
+    if(account){
+        $("#account").text(account);
+        $("[name='total']").val(account);
+    }else{
+        /*var no_total = '<span class="trink">|</span>';
+        $("#account").html(no_total);*/
+        //$("#account").text(0);
+    }
+
+
+
+    //支付时间范围
+    function r_url(is_bank,type) {
+        var total= $("[name='total']").val();
+        YDUI.dialog.loading.open('通信中...');
+        $.ajax({
+            url:"/Mch/Index/alleys_pay_time",
+            dataType:'json',
+            data:{type:type,total:total},
+            type:'post',
+            success:function (res) {
+                YDUI.dialog.loading.close();
+                if(res.status==1){
+                    pay_sub(type,is_bank);
+                }else{
+                    show(res.info);
+                }
+            },
+            error:function (res) {
+                YDUI.dialog.loading.close();
+                show('通信失败');
+            }
+        })
+    }
+
+    function pay_sub(type,is_bank) {
+        var total= $("[name='total']").val();
+        var bank_id=$("[name='bank_id']").val();
+        var sid = '{$data.sid}';
+        var alleys = type;
+        var id = '{$data.id}';
+        if(is_bank==1&&!bank_id){
+            show('请选择支付卡');
+        }else {
+            var ajax_data = {type: 'submit_data', sid: sid, alleys: alleys, bank_id: bank_id, id: id, total: total};
+            var actionurl = '{:U("Pays/CApi/gateway",array("Debug"=>1))}';
+            YDUI.dialog.loading.open('通讯中...请稍等...');
+            $.post(actionurl, ajax_data, function (data) {
+                YDUI.dialog.loading.close();
+                if (data.status == 1) {
+                    if(data.info.type=='form'){
+                        Xun_submitForm(data.info.action, data.info.v_data);
+                    }else if(data.info.type=='html'){
+                        document.write(data.info.data);
+                    }else{
+                        window.location.href=data.url;
+                    }
+                } else {
+                    show(data.info);
+                }
+            }, 'json');
+        }
+    }
+
+    function Xun_submitForm(action, params) {
+        var data = params;
+        var form = $("<form></form>");
+        form.attr('action', action);
+        form.attr('method', 'post');
+        for(var i=0 ; i < data.length;i ++){
+            var input1 = $("<input type='hidden' name='"+data[i].name+"' />");
+            input1.attr('value', data[i].val);
+            form.append(input1);
+        }
+        form.appendTo("body");
+        form.css('display', 'none');
+        form.submit();
+    }
+
+
+
+    //计算手续费
+    function rate_total(total) {
+        console.log(total);
+        var type='{$rate_total_data}';
+        var _type=JSON.parse(type);
+        for(var i=0;i<_type.length;i++){
+            if(_type[i]['rate'].indexOf("封顶") >0){
+                var rate=_type[i]['rate'].replace('元封顶', "");
+                if(_type[i]['total'].indexOf("%") >0){
+                    var _total=_type[i]['total'].replace('%', "");
+                    var _total_fee=Math.round((total*_total/100) * 100) / 100;
+                    var out_data=parseFloat(rate)+parseFloat(_total_fee);
+                    $('#'+_type[i]['type']+'_sxf').html('¥'+Math.round(out_data * 100) / 100+'元');
+                    console.log(out_data);
+                }else{
+                    var _out_data=parseFloat(rate)+parseFloat(_type[i]['total']);
+                    $('#'+_type[i]['type']+'_sxf').html('¥'+Math.round(_out_data * 100) / 100+'元');
+                }
+            }else{
+                var _total_rate = (total * _type[i]['rate']) / 1000;
+                var _total_rate_fee = Math.round(_total_rate * 100) / 100;
+                if(_type[i]['total'].indexOf("%") >0){
+                    var _rate_total=_type[i]['total'].replace('%', "");
+                    var _rate_total_fee=Math.round((total*_rate_total/100) * 100) / 100;
+                    var _rate_out_data = parseFloat(_total_rate_fee) + parseFloat(_rate_total_fee);
+                    $('#' + _type[i]['type'] + '_sxf').html('¥' + Math.round(_rate_out_data * 100) / 100 + '元');
+                }else {
+                    var _total_out_data = parseFloat(_total_rate_fee) + parseFloat(_type[i]['total']);
+                    $('#' + _type[i]['type'] + '_sxf').html('¥' + Math.round(_total_out_data * 100) / 100 + '元');
+                }
+
+            }
+        }
+    }
+    
+    // 获取已绑定的银行卡列表
+    function getBindBankCard(){
+        $(".add_card_tip").text("正在加载中，请稍后");
+        $.ajax({
+            url:"/Mch/Index/bind_card_list",
+            dataType:'json',
+            success:getBindBankCardSuc,
+            error:getBindBankCardFail
+        })
+    }
+    function getBindBankCardSuc(res){
+        if(res.status==1){
+            $(".lists").html("");
+            $(".add_card_tip").hide();
+            var dataArr=res.info,html='';
+            for(var i=0;i<dataArr.length;i++){
+              html+='<li  card_id="'+dataArr[i].id+'"><img style="height: 25px;width: 25px;padding: 10px" src="'+dataArr[i].bank_logo+'"><span>'+dataArr[i].bank_name+'（'+dataArr[i].card+'）'+'</span></li>';
+            }
+            $(".lists").html(html);
+            $(".lists li").on("click",choiceBank);
+        }else{
+            $("#bank_card").val("");
+            $(".add_card_tip").text("请点击【管理银行卡】进行绑卡");
+        }
+    }
+
+    function getBindBankCardFail(){
+        $('.toast').text('请求失败，请稍后重试');
+        showToast();
+    }
+
+    // 选择银行卡
+    function choiceBank(){
+        card_id=$(this).attr("card_id");
+        var bank_card=$(this).find("span").text();
+        $("#bank_card").val(bank_card);
+        $("[name='bank_id']").val(card_id);
+        quiteDialog();
+    }
+
+    // 打开银行卡列表
+    function showCardList(){
+        $(this).blur();
+        showBg();
+        // 获取已绑定的银行卡列表
+        getBindBankCard();
+        $('.card_list').show();
+    }
+    // 点击管理银行卡页面跳转
+    $("#manage_card").click(function(){
+        window.location.href='{$get_data}';
+    });
+    // 关闭银行卡列表弹窗
+    function quiteDialog(){
+        $('#fullbg').hide();
+        $('.card_list').hide();
+    }
+    // 显示遮罩
+    function showBg() {
+        var wh = $(window).height();
+        var bh=$("body").height();
+        var bw = $("body").width();
+        $("#fullbg").css({
+            height:wh>bh?wh:bh,
+            width:bw,
+            display:"block",
+            opacity:0.8
+        });
+    }
+
+
+    // 支付键盘
+    function keyboardInput(e){
+        e.preventDefault(); //阻止浏览器默认行为
+        var temp2=$("#account").text();//文字或金额
+        if(temp2.indexOf('|')!=-1){temp2 = temp2.substring(0,temp2.length-1);}
+        var hstr = '<span class="trink">|</span>';
+        if($(this).hasClass("del")){
+            //按退格删除键
+            if(temp2!=""){
+                var new_num = temp2.slice(0,temp2.length-1);
+                $("#account").html(new_num+hstr);
+                $("[name='total']").val(new_num);
+                rate_total(new_num);
+            }
+        }else if($(this).hasClass("complete") || $(this).hasClass("key")){
+            //按下完成或者键盘图标键
+            $("#keyboard").slideUp();
+            $('.trink').remove();
+        }else if($(this).hasClass("dot")){
+            //按下小数点
+            var addnum = $(this).html();
+            if(temp2==""){
+                $("#account").html("0"+addnum+hstr);
+                $("[name='total']").val("0"+addnum);
+                rate_total("0"+addnum);
+            }else if(temp2.indexOf(".")!="-1"){
+                //已有小数点
+            }else{
+                $("#account").html(temp2+addnum+hstr);
+                $("[name='total']").val(temp2+addnum);
+                rate_total(temp2+addnum);
+            }
+        }else{
+            //数字键
+            if(temp2>100000){alert("支付超限"); return;}
+            if(temp2.indexOf(".")!="-1"){
+                //如果有2位小数
+                var s=temp2.split(".");
+                if (s[1].length>=2){console.log(s[1]);return;}
+            }
+            var addnum = $(this).html();
+            if(temp2[0]==0&&temp2[1]!="."){
+                addnum='';
+            }
+            if((temp2+addnum)>100000){ return;}
+            $("#account").html(temp2+addnum+hstr);
+            $("[name='total']").val(temp2+addnum);
+            rate_total(temp2+addnum);
+        }
+        if($("#account").text() == "" || $("#account").text()== "|"){
+            $('.next_btn').removeClass('on_click');
+        } else {
+            if($("#bank_card").val()!=''&&$("#item_name").val()!=''){
+                $('.next_btn').addClass('on_click');
+            }else{
+                $('.next_btn').removeClass('on_click');
+            }
+        }
+        $(".cou_lists>li").removeClass("NoUse")
+    }
+
+
+    // 唤起键盘
+    function callKeyboard(){
+        if($(".trink").length == 0){
+            var temp=$("#account").html();
+            var hstr = '<span class="trink">|</span>';
+            $("#account").html(temp + hstr);
+            $("[name='total']").val(temp);
+            rate_total(temp);
+            $("#keyboard").slideDown("fast");
+        }
+    }
+
+    function show(data) {
+        YDUI.dialog.toast(data, 'none', 2000);
+    }
+</script>
+</html>

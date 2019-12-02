@@ -1,0 +1,84 @@
+<extend name="Common:base" />
+<block name="title">创建推荐送活动</block>
+<block name="menu_name">
+    创建推荐送活动
+</block>
+<block name="top_css">
+</block>
+<block name="body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-box">
+                <h4 class="m-t-0 m-b-30 header-title">创建活动</h4>
+                <form role="form">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>活动名称</label>
+                                <input type="text" class="form-control" name="name" placeholder="最多10个汉字" required>
+                                <small  class="form-text text-muted">开卡用户首单充值满足最低充值额度，并且填写推荐人，推荐人与被推荐人都可获得会员卡余额奖励~</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>奖励首单充值最低金额</label>
+                                <input type="number" class="form-control" min="0.01" step="0.01" name="cz_total" placeholder="" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>推荐人与被推荐人奖励余额</label>
+                                <input type="number" class="form-control"  min="0.01" step="0.01" name="tjr_total" placeholder="" required>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <button type="submit" class="btn btn-primary">提交</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer_js">
+<script type="application/javascript">
+    $(function() {
+        $("form").submit(function (e) {
+            e.preventDefault();
+            var ajax_data = $(this).serialize();
+            var actionurl = $(this).attr("action");
+            $.post(actionurl, ajax_data, function (data) {
+                if (data.status === 1) {
+                    $.toast({
+                        heading: '温馨提示!',
+                        text: data.info,
+                        position: 'top-right',
+                        loaderBg: '#5ba035',
+                        icon: 'success',
+                        hideAfter: 3000,
+                        stack: 1
+                    });
+                    setTimeout(function () {
+                        window.location.href="{:U('activity')}";
+                    }, 3000);
+                }
+                else {
+                    $.toast({
+                        heading: '温馨提示',
+                        text: data.info,
+                        position: 'top-right',
+                        loaderBg: '#bf441d',
+                        icon: 'error',
+                        hideAfter: 3000,
+                        stack: 1
+                    });
+                }
+            }, 'json');
+        });
+    });
+</script>
+</block>

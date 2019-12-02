@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0">
+    <title>向商家付款</title>
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link href="/Source/Css/new_pay/css/base_style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/quick_payment.css?v=4">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/quick_payment_Coupon.css?v=4">
+    <link href="/Source/Css/new_pay/css/keyboard2.css?v=3" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/dialog2.css?v=5">
+</head>
+<body class="paymentPage">
+<section class="merchant_info bottom_line">
+    <div class="merchant_name"></div>
+    <ul class="pay_num">
+        <li>支付金额 :</li>
+        <li>￥<span id="account" style="position: relative;"></span></li>
+    </ul>
+</section>
+<div class="blank bottom_line"></div>
+<ul class="payment_info">
+    <li class="bottom_line">
+        <span>商品名称</span>
+        <span>
+				<input type="" id='item_name' class="select-item" readonly="readonly"  name=""  placeholder="请选择">
+			</span>
+    </li>
+    <li class="bottom_line">
+        <span>支付卡</span>
+        <span>
+				<input type="" id="bank_card" name=""  readonly="readonly" placeholder="请选择">
+			</span>
+    </li>
+    <li class="bottom_line">
+        <span>到账方式</span>
+        <span>
+				<input type="" id="account_mode" name="" class="select-mode" readonly="readonly" placeholder="请选择">
+			</span>
+    </li>
+</ul>
+<div class="blank bottom_line"></div>
+<ul class="payment_info coupon_Info hide">
+    <li class="bottom_line">
+        <span>体验券</span>
+        <span>
+				<input type="" id='item_Coupon'  readonly="readonly"  name=""  placeholder="请选择">
+			</span>
+    </li>
+</ul>
+<div class="next_btn">下一步</div>
+<div class="pay_date hide">快捷支付费率为<span id="rateT0"></span>（T0）/<span id="rateT1"></span>（T1）</div>
+<div id="fullbg"></div>
+<div class="card_list hide">
+    <ul class="list_head bottom_line">
+        <li id="cancel">取消</li>
+        <li id="manage_card">管理银行卡</li>
+    </ul>
+    <ul class="lists">
+        <!-- 	<li>
+                <img src="../images/bos.png">
+                <span>招商银行信用卡（5428）</span>
+            </li>
+            <li></li> -->
+    </ul>
+    <p class="add_card_tip"></p>
+</div>
+<!-- 体验券列表 -->
+<div class="coupon_list hide">
+    <ul class="list_head bottom_line">
+        <li id="coupon_cancel">取消</li>
+    </ul>
+    <ul class="cou_lists">
+        <!--<li>-->
+        <!--<div class="couponContains fl">-->
+        <!--<div class="couponName fl">快捷支付体验券</div>-->
+        <!--<div class="couponTime fl">有效期至 <span class="couponYesTime">2017-07-08</span></div>-->
+        <!--</div>-->
+        <!--<div class="couponPrice fl">￥<span class="couponJine">200</span></div>-->
+        <!--<div class="getHuiCopuon fl"></div>-->
+        <!--</li>-->
+    </ul>
+    <p class="add_card_tip"></p>
+</div>
+<!-- tip_dialog  -->
+<div class="tip_dialog hide" id="dialog1">
+    <div class="tip_content pxline">
+        <p class="tip_title">交易失败</p>
+        <p class="tip_detail tc">
+            银行卡安全码或有效期有误
+        </p>
+    </div>
+    <ul class="tip_btns">
+        <li class="revise ">返回</li>
+        <li class="line"></li>
+        <li class="editBtn ">修改</li>
+    </ul>
+</div>
+<!-- 到账方式 -->
+<div class="mode_list hide">
+    <ul class="list_head bottom_line">
+        <li id="mode_cancel">取消</li>
+    </ul>
+    <ul class="mode_lists" id="select_mode">
+        <li data-value="次日到账(费率0.55%)" data-id="0" class=""><span>次日到账</span><br><span >费率0.55%，次日15点前到账</span></li>
+        <li data-value="立即到账(费率0.58%)" data-id="1"  id="default_mode" style="height: 60px;"><span class="discan">立即到账</span><br><span id="T0_mode">费率0.58%，00：30至22：30可用</span></li>
+    </ul>
+</div>
+
+<p class="quota">银行卡说明</p>
+<div class="toast"></div>
+<!--dialog-->
+<div class="dialog hide tc">
+    <div class="dialog_rule hide">
+        <div class="register_words pxline">
+            <p class="dialog_title">额度超限</p>
+            <p class="dialog_detail">单笔限额：2000元<br>单卡日限额：20000元</p>
+        </div>
+        <p class="tc">
+            <button class="apply_btn_2" type="button" id="close_dialog">知道了</button>
+        </p>
+    </div>
+</div>
+
+<div class="tip_dialog2 hide">
+    <p class="tip_title2">温馨提示</p>
+    <p class="tip_content2">支付金额超过体验券额度，交易完成后 您的体验券将不能再次使用 </p>
+    <ul class="tip_btns2">
+        <li class="toBack2">修改金额</li>
+        <li></li>
+        <li class="toNextPay">继续交易</li>
+    </ul>
+</div>
+
+<div id="fullbg"></div>
+<div id="pay_ing" class="hide">
+    <div class="cricle_box">
+        <div class="cricle"></div>
+        <ul>
+            <li>
+                <span class="cricle_l"></span>
+            </li>
+            <li >
+                <span class="cricle_r"></span>
+            </li>
+        </ul>
+        <p class="time">30s</p>
+    </div>
+    <p class="pay_tips">正在支付中</p>
+</div>
+
+<div class="tip_dialog hide">
+    <p class="tip_title">交易失败</p>
+    <p class="tip_content">您的银行卡需在银联开通认证支付才能使用。认证方式：拨打95516按1再按7</p>
+    <ul class="tip_btns">
+        <li class="toBack">好的</li>
+        <li></li>
+        <li ><a href="tel:95516">拨打电话</a></li>
+    </ul>
+</div>
+
+<div class="tip_dialog3 hide">
+    <p class="tip_title3">温馨提示</p>
+    <p class="tip_content3">如需继续交易请先完善安全码和有效期 </p>
+    <ul class="tip_btns3">
+        <li class="toBack3">取消</li>
+        <li></li>
+        <li class="toNextSet">去完善</li>
+    </ul>
+</div>
+
+<!--  键盘  -->
+<table id="keyboard">
+    <tr>
+        <td class="num">1</td>
+        <td class="num">2</td>
+        <td class="num">3</td>
+        <td rowspan="2" class="del"></td>
+    </tr>
+    <tr>
+        <td class="num">4</td>
+        <td class="num">5</td>
+        <td class="num">6</td>
+    </tr>
+    <tr>
+        <td class="num">7</td>
+        <td class="num">8</td>
+        <td class="num">9</td>
+        <td rowspan="2" class="complete">完成</td>
+    </tr>
+    <tr>
+        <td class="num dot">.</td>
+        <td class="num">0</td>
+        <td class="key"></td>
+    </tr>
+</table>
+</body>
+<script type="text/javascript" src="/Source/jquery.min.js"></script>
+<script type="text/javascript" src='/Source/Css/new_pay/js/selectNew-wap.js'></script>
+<script type="text/javascript" src='/Source/Css/new_pay/js/selectNew.js'></script>
+<script type="text/javascript">
+    var bankLogoArray=[];
+    $(function(){
+        //银行logo数组
+        bankLogoArray=[
+            "abc","bankofdl","bankqh","bea","beeb","bob","boc","bos","bsb","ccb",
+            "cdrcb","ceb","cgb","chengdebank","chinaciticbank","cib","citibank","citic","cmb","cmbc",
+            "comm","cqcbank","cqrcb","cscb","csrcbank","czcb","dyccb","fgnyx","grcbank","gyccb",
+            "gzcb","gzccb","hebbank","hnnxs","hrbcb","hsbank","hxb","hzb","icbc","jhccb",
+            "jjccb","jsbchina","jybank","ljbank","lzbank","mintaibank","nbcb","nccbank","ncxs","njcb",
+            "ordosbank","pingan","psbc","qlbchina","sdb","sdebank","spdb","srbank","srcb","tzbank",
+            "uccb","wffccb","whccb","wjrcb","wrcb","wzcb","yccb","ydnsh","zjtlcb"
+        ];
+
+        //获取额度
+        getQuota();
+        // 获取费率
+        getRate();
+
+        // 获取已绑定的银行卡列表
+        getBindBankCard();
+
+        // 弹窗关闭
+        $("#close_dialog").on("click",quit_dialog);
+
+        // 打开银行卡列表
+        $("#bank_card").on("click",showCardList);
+
+        // 关闭银行卡列表
+        $("#cancel").on('click',quiteDialog);
+        //点击返回
+        $(".revise").on("click",function() {
+            $('#fullbg').hide();
+            $('#dialog1').hide();
+        });
+        //点击修改
+        $(".editBtn").on("click",function(){
+            var param  = location.href.split('?')[1];
+            location.href = "./perfectCard.html?"+ param;
+        })
+
+        // 支付
+        $(".next_btn").on("click",toPay);
+
+        // 银行卡限额说明
+        $(".quota").on("click",function(){
+            var oldUrl=window.location.href;
+            window.location.href="./quota.html?"+oldUrl.split("?")[1];
+        })
+        //唤起键盘
+        $("#keyboard td").bind("touchstart",keyboardInput);
+
+        $(".pay_num li").bind("click",callKeyboard);//
+        //到账方式
+        $("#account_mode").on("click",function() {
+            $(this).blur();
+            showBg();
+            $('.mode_list').slideDown();
+        });
+        //选择到账方式
+        $("#select_mode li").on("click",function() {
+            if(!$(this).find('span').eq(0).hasClass('discan')){
+                $('.mode_list').slideUp();
+                $("#fullbg").hide();
+                $('#account_mode').val($(this).data('value'));
+                $("#account_mode").data("id",$(this).data('id'));
+                toGetNext();
+            } else {
+                return ;
+            }
+        })
+        $('#mode_cancel').on('click',function() {
+            $('.mode_list').slideUp();
+            $('#fullbg').hide();
+        })
+        // 获取经纬度
+        getLocation();
+
+        /////////////////////体验券/////////////////////////////////
+        // 获取体验券列表
+        getCouponCard()
+        // 打开体验券
+        $("#item_Coupon").on("click",showCouponList);
+        $('#coupon_cancel').on('click',function() {
+            $('.coupon_list').slideUp();
+            $('#fullbg').hide();
+        })
+        //////////////////////体验券/////////////////////////////
+    })
+
+    Date.prototype.Format = function (fmt) { //author: meizz
+        var o = {
+            "M+": this.getMonth() + 1, //月份
+            "d+": this.getDate(), //日
+            "h+": this.getHours(), //小时
+            "m+": this.getMinutes(), //分
+            "s+": this.getSeconds(), //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+    var domain='https://pos.yeahka.com/leposweb/fastpay/';
+    // domain='http://pos.lepass.cn/leposweb/fastpay/';
+    var merchantName=getUrlParam("merchantName");
+    $(".merchant_name").text(decodeURIComponent(escape(merchantName)));
+    var merchant_id=getUrlParam("merchantId");
+
+
+    var t0_flag = getUrlParam("t0") || '0';
+    var session_id=getUrlParam("session_id");
+    var account=getUrlParam("account");
+    $("#account").text(account);
+
+
+    var bind_id=localStorage.getItem('bind_id'),
+            card_id=localStorage.getItem('card_id'),
+            phoneNo=localStorage.getItem('phoneNo'),
+            card_type=localStorage.getItem('card_type'),
+            bank_card=localStorage.getItem('bank_card');
+
+    //体验券
+    var couponId=localStorage.getItem("couponId"),
+            couponAmount=localStorage.getItem("couponAmount"),
+            couponCount=localStorage.getItem("couponCount"),
+            couponRemark=localStorage.getItem("couponRemark"),
+            couponStart_time=localStorage.getItem("couponStart_time"),
+            couponEnd_time=localStorage.getItem("couponEnd_time"),
+            couponType=localStorage.getItem("couponType"),
+            couponUse_default=localStorage.getItem("couponUse_default")
+            ;
+    var isShowCoupon=false,CouponDefaultID=-1,isNextPay=true;
+    //首绑体验券ID
+    var first_bindCard_CouponID="",isShowActiveTip=false;
+
+    var merchantId=localStorage.getItem('merchant_id');
+    var goods_name= localStorage.getItem('good_name');
+    if(merchantId==merchant_id){
+        if(goods_name!=null&&goods_name!=''){
+            $("#item_name").val(goods_name);
+        }
+    }
+    // 控制wait icon
+    var index;
+
+    // 经纬度
+    var latitude=10;
+    var longitude=10;
+    var onceLimit = 0 ,dayLimit = 0,fastPayLimit = "";
+    function getLocation(){
+        var geolocation = new BMap.Geolocation();
+        // 创建地理编码实例
+        geolocation.getCurrentPosition(function(r) {
+            if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                var pt = r.point;
+                latitude=pt.lat;
+                longitude=pt.lng;
+            }
+        });
+    }
+    /*******************************getQuota*********************************/
+// 拉取额度信息
+    function getQuota(){
+        var merchantId=getUrlParam("merchantId") ||'';
+        var username = getUrlParam("username") || '';
+        var sessionId =getUrlParam("session_id") || '';
+        if( fastPayLimit ==  ""){
+            $.ajax({
+                url:"http://pos.yeahka.com/leposweb/fastpay/fastpay_limit_tip.do?merchant_id="+merchantId+"&username="+username+"&sessionid="+sessionId+"&wx_fastpay=1",
+                dataType:"json",
+                success:function(res){
+                    var mylimit = res.data;
+                    fastPayLimit = JSON.stringify(mylimit);
+                    isShowActiveTip=mylimit.isShowActiveTip;
+                    if(mylimit.isShowActiveTip){
+                        $("#bank_card").val("T0首笔交易免手续费").attr("style","color:#fa6e6e!important")
+                    }
+                }
+            })
+        }
+    }
+    /********************************超额弹窗********************************/
+    function quotaDialog(data){
+        var fastLimit = JSON.parse(data);
+        onceLimit = fastLimit.F_t0_ic_once_amount_limit/100;
+        dayLimit = fastLimit.F_t0_ic_day_amount_limit/100;
+        $(".dialog_title").html("额度超限");
+        $(".dialog_detail").html("单笔限额："+onceLimit+"元"+"<br>"+"单卡日限额："+dayLimit+"元");
+        show_reward_rule();
+    }
+
+    // 到账方式
+    function accountMode(json) {
+        var now = new Date($.ajax({async: false}).getResponseHeader("Date"));
+        var nowT = now.getTime();
+        now.setHours(0,30 ,0);
+        var start = now.getTime();
+        now.setHours(22,30,0);
+        var end = now.getTime();
+        var t0_rate = json.t0CreditCardCommission/100+'%';
+        var t1_rate = json.t1CreditCardCommission/100+'%';
+        $(".mode_lists li").eq(0).find('span').eq(1).text("费率"+t1_rate+"，次日15点前到账");
+        $(".mode_lists li").eq(0).data('value',"次日到账(费率"+t1_rate+")") ;
+        $(".mode_lists li").eq(1).data('value',"立即到账(费率"+t0_rate+")") ;
+        if(nowT >= start && nowT <= end ) {
+            $("#default_mode").find('span').eq(0).removeClass('discan');
+            $("#T0_mode").text('费率'+t0_rate+'，立即到账');
+            $("#account_mode").val("立即到账(费率"+t0_rate+")");
+            $("#account_mode").data("id","1");
+        } else {
+            $("#default_mode").find('span').eq(0).addClass('discan');
+            $("#T0_mode").text('费率'+t0_rate+'，00：30至22：30可用');
+            $("#account_mode").val("次日到账(费率"+t1_rate+")");
+            $("#account_mode").data("id","0");
+        }
+        toGetNext();
+    }
+
+    // 获取费率 所有商户
+    function getRate(){
+        $.ajax({
+            url:domain+'queryfee.do?merchant_id='+merchant_id+"&allInfo=1",
+            dataType:'json',
+            success:getRateSuc,
+            error:getBindBankCardFail,
+        })
+    }
+
+
+    function getRateSuc(res){
+        if(res.code==0){
+            accountMode(res.data);
+            //所有商户都可显示费率
+            // var isAgent=res.data.isAgent;
+            // if(isAgent==1){
+            // 	var rateT0=res.data.t0CreditCardCommission;
+            // 	var rateT1=res.data.t1CreditCardCommission;
+            // 	$("#rateT0").text(rateT0/100+'%');
+            // 	$("#rateT1").text(rateT1/100+'%');
+            // 	$(".pay_date").removeClass('hide');
+            //}
+        }else{
+            $('.toast').text(res.msg);
+            showToast()
+        }
+    }
+
+    // 获取已绑定的银行卡列表
+    function getBindBankCard(){
+        $(".add_card_tip").text("正在加载中，请稍后");
+        $.ajax({
+            url:domain+"bind_card_list.do?merchant_id="+merchant_id+"&session_id="+session_id+"&user_name="+localStorage.getItem('user_name')||"",
+            dataType:'json',
+            success:getBindBankCardSuc,
+            error:getBindBankCardFail
+        })
+    }
+    function getBindBankCardSuc(res){
+        if(res.error_code==0){
+
+            $(".lists").html("");
+            if(res.query_result!=null){
+                $(".add_card_tip").hide();
+                var dataArr=res.query_result.card_list,html='';
+                var flag,index;
+                for(var i=0;i<dataArr.length;i++){
+                    if(bind_id==dataArr[i].bind_id){
+                        flag=true;
+                        index=i;
+                        break;
+                    }else{
+                        flag=false;
+                    }
+                }
+                if(flag){
+                    $("#bank_card").val(dataArr[index].bank_name+getCardType(dataArr[index].card_type)+'（'+dataArr[i].card_mask_id.substr(-4)+'）');
+                    bind_id=dataArr[index].bind_id;
+                    card_id=dataArr[index].card_mask_id;
+                    phoneNo=dataArr[index].phone_no;
+                    card_type=dataArr[index].card_type;
+                    localStorage.setItem('auth_mode',dataArr[index].auth_mode);
+                    localStorage.setItem('support_trade_mode',dataArr[index].support_trade_mode)
+                }else{
+                    $("#bank_card").val("");
+                }
+                for(var i=0;i<dataArr.length;i++){
+                    //设置银行logo  没有的用默认的
+                    var logo=bankLogoArray.indexOf(dataArr[i].bank_code.toLowerCase())===-1?"default.png":dataArr[i].bank_code.toLowerCase()+".png";
+                    html+='<li bind_id="'+dataArr[i].bind_id+'" card_id="'+dataArr[i].card_mask_id+'" phoneNo="'+dataArr[i].phone_no+'" card_type="'+dataArr[i].card_type+'" auth_mode="'+dataArr[i].auth_mode+'" support_trade_mode="'+dataArr[i].support_trade_mode+'" card_mask_id="'+dataArr[i].card_mask_id+'" isToSetInfo="'+(dataArr[i].card_type.toString()==="2"&&dataArr[i].support_trade_mode.toString()==="2" &&dataArr[i].auth_mode.toString()==="2")+'"><img src="./logo/'+logo+'"><span>'+dataArr[i].bank_name+getCardType(dataArr[i].card_type)+'（'+dataArr[i].card_mask_id.substr(-4)+'）'+'</span></li>';
+                }
+                $(".lists").html(html);
+                $(".lists li").on("click",choiceBank);
+
+            }else{
+                $("#bank_card").val("");
+                $(".add_card_tip").text("请点击【管理银行卡】进行绑卡");
+            }
+            toGetNext();
+        }else{
+            $('.toast').text(res.error_msg);
+            showToast()
+        }
+    }
+    function getBindBankCardFail(){
+        $('.toast').text('请求失败，请稍后重试');
+        showToast();
+    }
+
+
+    //给数组排序
+    function quickSort(arr,name,snum){
+//如果数组<=1,则直接返回
+        if(arr.length<=1){return arr;}
+        var pivotIndex=Math.floor(arr.length/2);
+//找基准，并把基准从原数组删除
+        var pivot=arr.splice(pivotIndex,1)[0];
+        var middleNum=pivot[name];
+// 定义左右数组
+        var left=[];
+        var right=[];
+//比基准小的放在left，比基准大的放在right
+        if(snum){
+            for(var i=0;i<arr.length;i++){
+                if(Number(arr[i][name])<=Number(middleNum) ){
+                    left.push(arr[i]);
+                }else{
+                    right.push(arr[i]);
+                }
+            }
+        }else{
+            for(var i=0;i<arr.length;i++){
+                if(arr[i][name]<=middleNum){
+                    left.push(arr[i]);
+                }else{
+                    right.push(arr[i]);
+                }
+            }
+        }
+//递归,返回所需数组
+        return quickSort(left,name,snum).concat([pivot],quickSort(right,name,snum));
+    }
+
+    // 判断卡类型
+    function getCardType(a){
+        var str="";
+        switch (a.toString()){
+            case "0":str="未知";break;
+            case "1":str="借记卡";break;
+            case "2":str="信用卡";break;
+            case "3":str="境外卡";break;
+            case "4":str="存折";break;
+        }
+        return str;
+    }
+
+
+
+    // 选择银行卡
+    function choiceBank(){
+        bind_id=$(this).attr("bind_id");
+        card_id=$(this).attr("card_id");
+        phoneNo=$(this).attr("phoneNo");
+        card_type=$(this).attr("card_type");
+        var bank_card=$(this).find("span").text();
+        $("#bank_card").val(bank_card);
+        quiteDialog();
+        toGetNext();
+
+        localStorage.setItem('bind_id',bind_id);
+        localStorage.setItem('card_id',card_id);
+        localStorage.setItem('card_type',card_type);
+        localStorage.setItem('bank_card', bank_card);
+        localStorage.setItem('phoneNo', phoneNo);
+        localStorage.setItem('auth_mode', $(this).attr("auth_mode"));
+        localStorage.setItem('support_trade_mode', $(this).attr("support_trade_mode"));
+    }
+
+    // 打开银行卡列表
+    function showCardList(){
+        $(this).blur();
+        showBg();
+        // 获取已绑定的银行卡列表
+        getBindBankCard()
+
+        $('.card_list').show();
+    }
+    // 打开体验券列表
+    function showCouponList(){
+        if($("#item_Coupon").hasClass("NoUse")){return}
+        $(this).blur();
+        showBg();
+        $('.coupon_list').show();
+    }
+
+    // 点击管理银行卡页面跳转
+    $("#manage_card").click(function(){
+        var oldUrl=window.location.href;
+        var url='./bankCardList.html?';
+        window.location.href=url+oldUrl.split('?')[1]+"&isShowActiveTip="+isShowActiveTip;
+    });
+    //四要素鉴权失败
+    function authFail(){
+        showBg();
+        $('#dialog1').show();
+    }
+
+
+    // 关闭银行卡列表弹窗
+    function quiteDialog(){
+        $('#fullbg').hide();
+        $('.card_list').hide();
+    }
+
+
+
+    // 显示遮罩
+    function showBg() {
+        var wh = $(window).height();
+        var bh=$("body").height()
+        var bw = $("body").width();
+        $("#fullbg").css({
+            height:wh>bh?wh:bh,
+            width:bw,
+            display:"block",
+            opacity:0.8
+        });
+    }
+
+    // 选择行业后回调
+    function toGetNext(){
+        var temp= $("#account").text();
+        if($('.trink').length!=0){temp = temp.split("|")[0]};
+        if($("#bank_card").val()!=''&& $("#item_name").val()!='' && temp!='' && $("#account_mode").val()!=''){
+            $('.next_btn').addClass('on_click');
+        }else{
+            $('.next_btn').removeClass('on_click');
+        }
+        localStorage.setItem('good_name',$("#item_name").val());
+        localStorage.setItem('account_mode',$("#account_mode").val());
+        localStorage.setItem('merchant_id',merchant_id);
+    }
+
+    // 点击下一步
+    function toPay(){
+        if($(this).hasClass('on_click')){
+            if($('.trink').length!=0){$('.trink').remove()}
+            var bind_id=localStorage.getItem("bind_id");
+            if($("li[bind_id='"+bind_id+"']").attr("isToSetInfo")=="true"){
+                localStorage.setItem('card_mask_id',$("li[bind_id='"+bind_id+"']").attr("card_id"));
+                showCodeTipsDialog();
+                return;
+            }
+            toEndPay();
+        }else{
+            return;
+        }
+    }
+
+    function toEndPay(){
+        $('.next_btn').removeClass('on_click');
+        account = $("#account").text();
+        if(parseFloat(account)<5){
+            $(".dialog_title").html("乐刷温馨提示")
+            $(".dialog_detail").html("快捷支付金额不少于5元");
+            show_reward_rule();
+            return;
+        }
+        if($(".selectCoupon").length>0){
+            var amount=$(".selectCoupon").attr("amount");
+            if(parseFloat(account)>parseFloat(amount)/100){
+                showCouponTipsDialog();
+            }else{
+                gotoPay();
+            }
+        }else{
+            gotoPay();
+        }
+    }
+
+    function gotoPay(){
+        if($("#account_mode").data("id")!=null && $("#account_mode").data("id")!=""){t0_flag = $("#account_mode").data("id");}else{t0_flag="0"}
+        var voucher_id="",first_bind_voucher_id="";
+        var source_type = getUrlParam("source_type") || "";
+        if(first_bindCard_CouponID){//有首绑券
+            first_bind_voucher_id=first_bindCard_CouponID;
+        }
+        voucher_id=$(".selectCoupon").attr("couponid");
+        var auth_mode=localStorage.getItem('auth_mode'),support_trade_mode=localStorage.getItem('support_trade_mode');
+        if(auth_mode.toString()==="2" &&support_trade_mode.toString()==="1" &&account<5000){
+            $(".dialog_title").html("温馨提示");
+            $(".dialog_detail").html("此卡支持的单笔最小交易额为5000元，请修改金额或更换银行卡");
+            show_reward_rule();
+            return;
+        }
+        var data={
+            "user_name":localStorage.getItem('user_name')||"",
+            "merchant_id":merchant_id,
+            "session_id":session_id,
+            "amount":account*1000000000000*100/1000000000000,
+            "t0_flag":t0_flag,
+            "good_name":$("#item_name").val(),
+            "bind_id":bind_id,
+            "card_id":card_id,
+            "card_type":card_type,
+            "longitude":longitude,
+            "latitude":latitude,
+            "model":"-1",
+            "auth_mode":localStorage.getItem('auth_mode'),
+            "support_trade_mode":localStorage.getItem('support_trade_mode'),
+            "voucher_id":voucher_id,
+            "first_bind_voucher_id":first_bind_voucher_id,
+            "source_type":source_type,
+            "jump_flag":"2"
+        };
+        index=layer.load(1, {
+            shade: [0.1,'#fff']
+        });
+        localStorage.setItem("payData",JSON.stringify(data));
+        $.ajax({
+            url:domain+"pay.do",
+            data:data,
+            dataType:"json",
+            success:toEndPaySuc,
+            error:toEndPayFail
+        });
+
+    }
+    //修改地址栏参数值
+    function changeUrlArg(url, arg, val){
+        var pattern = arg+'=([^&]*)';
+        var replaceText = arg+'='+val;
+        return url.match(pattern) ? url.replace(eval('/('+ arg+'=)([^&]*)/gi'), replaceText) : (url.match('[\?]') ? url+'&'+replaceText : url+'?'+replaceText);
+    }
+
+    function toEndPaySuc(res){
+        if(res.error_code==0){
+            var state=res.state;
+            var order_id=res.pay_order_id;
+            var oldUrl=window.location.href;
+            oldUrl=oldUrl.split("?")[1];
+            oldUrl=changeUrlArg(oldUrl,"account",account);
+            var resp_code=res.resp_code;
+            if(res.page_jump_url!==""){
+                var htmls=res.page_jump_url;
+                localStorage.setItem("payInfo_sdgs",htmls);
+                location.href="openpay_sdgs.html?"+oldUrl;
+            }
+            if(resp_code!=-10099){
+                //银联快捷支付
+                if(res.is_union_quick_payment.toString()==="1"){
+                    var info=res.info;
+                    var bs64=new Base64();
+                    var htmls=bs64.decode(info);
+                    localStorage.setItem("payInfo",htmls);
+                    location.href="openpay.html?"+oldUrl;
+                }
+                if(state==0||state==4){
+                    //支付失败
+                    var url="./paymentResult.html?";
+                    localStorage.setItem('payState', 1);
+                    localStorage.setItem('failureMsg',res.failure_msg);
+                    window.location.href=url+oldUrl;
+                }else if(state==1){
+                    //轮询
+                    queryPayResult(order_id);
+                }else if(state==3){
+                    //支付成功
+                    var url="paymentResult.html?";
+
+                    localStorage.setItem('order_id', order_id);
+                    localStorage.setItem('payState', 0);
+                    localStorage.setItem('trans_time', res.trans_time);
+
+                    window.location.href=url+oldUrl;
+                }else if(state==2){
+                    //短信验证
+                    var transaction_id=res.transaction_id;
+                    var url="./payVerifyPhone.html?";
+
+                    localStorage.setItem('transaction_id', transaction_id);
+                    localStorage.setItem('order_id', order_id);
+
+                    window.location.href=url+oldUrl;
+                }
+            }else{
+                layer.close(index);
+                showAuthTipDialog();
+            }
+        }else{
+            var mesage = res.error_msg||"";
+            layer.close(index);
+            if(res.error_code == -1056 || res.error_code == -1057 ){
+                authFail();
+            } else {
+                if((mesage.indexOf("超额") == -1&&mesage.indexOf("限额") == -1 ) || !fastPayLimit){
+                    $(".toast").text(mesage);
+                    showToast();
+                } else {
+                    quotaDialog(fastPayLimit);
+                }
+            }
+            $('.next_btn').addClass('on_click');
+        }
+    }
+    function toEndPayFail(){
+        layer.close(index);
+        $(".toast").text("请求失败，请稍后重试")
+        showToast();
+        $('.next_btn').addClass('on_click');
+    }
+
+    // 查询支付结果
+    function queryPayResult(order_id) {
+        layer.close(index);
+        cartoon();
+        var data={
+            "user_name":localStorage.getItem('user_name')||"",
+            "merchant_id":merchant_id,
+            "session_id":session_id,
+            "order_id":order_id
+        }
+        var oldUrl=window.location.href;
+        oldUrl=oldUrl.split("?")[1];
+        var url="./paymentResult.html?";
+        var t = 10;
+        var timer=setInterval(function(){
+            t--;
+            if(t==0){
+                clearInterval(timer);
+                localStorage.setItem('payState', 1);
+                window.location.href=url+oldUrl;
+            }
+            $.ajax({
+                url:domain+"query_fastpay_result.do",
+                data:data,
+                dataType:"json",
+                success:function(res){
+                    if(res.error_code==0){
+                        var state=res.state;
+                        var order_id=res.pay_order_id;
+                        var resp_code=res.resp_code;
+                        if(resp_code!=-10099){
+                            if(state==0||state==4||state==2){
+                                //支付失败
+                                localStorage.setItem('payState', 1);
+                                localStorage.setItem('failureMsg',res.failure_msg);
+                                window.location.href=url+oldUrl;
+                            }else if(state==1){
+                                //轮询
+
+                            }else if(state==3){
+                                //支付成功
+                                localStorage.setItem('order_id', order_id);
+                                localStorage.setItem('payState', 0);
+                                localStorage.setItem('trans_time', res.trans_time);
+
+                                window.location.href=url+oldUrl;
+                            }
+                        } else{
+                            clearInterval(timer);
+                            $("#pay_ing").hide();
+                            showAuthTipDialog();
+                        }
+                    }
+                },
+                error:toEndPayFail
+            })
+        },3000)
+
+    }
+
+    // 支付动画
+    function cartoon(){
+        showLoadingBg();
+        $("#pay_ing").show();
+        var i=30;
+        var time=setInterval(function(){
+            i--;
+            $(".time").text(i+'s');
+            $(".cricle_r").css({
+                "transform":"rotate("+(30-i)*12+"deg)",
+                '-webkit-transform':"rotate("+(30-i)*12+"deg)",
+                '-webkit-transform-origin':"0 50%",
+                "transform-origin":"0 50%"
+            })
+            if(i<=15){
+                $(".cricle_r").css("display",'none');
+                $(".cricle_l").css({
+                    "transform":"rotate("+(15-i)*12+"deg)",
+                    "-webkit-transform":"rotate("+(15-i)*12+"deg)",
+                    "transform-origin":"100% 50%",
+                    "-webkit-transform-origin":"100% 50%"
+                })
+            }
+            if(i==0){
+                $(".cricle_l").css("display",'none');
+                clearInterval(time)
+            }
+        },1000)
+    }
+
+    // 认证提示弹窗
+    function showAuthTipDialog(){
+        showAuthBg();
+        $('.tip_dialog').show();
+        $(".toBack").click(function(){
+            $(".tip_dialog,#fullbg").hide();
+            $('.next_btn').addClass('on_click');
+        })
+
+    }
+
+    // 体验券提示弹窗
+    function showCouponTipsDialog(){
+        showAuthBg();
+        $('.tip_dialog2').show();
+        $(".toBack2").click(function(){
+            $(".tip_dialog2,#fullbg").hide();
+            $('.next_btn').addClass('on_click');
+        });
+        $(".toNextPay").click(function(){
+            gotoPay();
+        })
+    }
+
+    // 如需继续交易请先完善安全码和有效期
+    function showCodeTipsDialog(){
+        showAuthBg();
+        $('.tip_dialog3').show();
+        $(".toBack3").click(function(){
+            $(".tip_dialog3,#fullbg").hide();
+            $('.next_btn').addClass('on_click');
+        });
+        $(".toNextSet").click(function(){
+            var para=window.location.href.split("?")[1];
+            window.location.href="UpdateInfoFour.html?"+para
+        })
+    }
+
+    // 显示遮罩
+    function showAuthBg() {
+        var wh = $(window).height();
+        var bh=$("body").height()
+        var bw = $("body").width();
+        $("#fullbg").css({
+            height:wh>bh?wh:bh,
+            width:bw,
+            display:"block",
+            opacity:0.3
+        });
+    }
+    function showLoadingBg(){
+        var wh = $(window).height();
+        var bh=$("body").height()
+        var bw = $("body").width();
+        $("#fullbg").css({
+            height:wh>bh?wh:bh,
+            width:bw,
+            display:"block",
+            opacity:0
+        });
+    }
+    //toast居中 出现 消失
+    function showToast(){
+        var toastWid=$('.toast').innerWidth();
+        var wW=$(window).width();
+        $('.toast').css({"background-color":'#f8615f',"left":(wW-toastWid)/2});
+        $('.toast').fadeIn(500);
+        setTimeout(function(){
+            $('.toast').fadeOut(500);
+        },1000)
+    }
+
+
+    //获取url中的参数对应的值
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null)
+            return unescape(r[2]);
+        return null; //返回参数值
+    }
+
+    /*********************************keyboardInput*******************************/
+// 支付键盘
+    function keyboardInput(e){
+        e.preventDefault(); //阻止浏览器默认行为
+        var temp2=$("#account").text();//文字或金额
+        if(temp2.indexOf('|')!=-1){temp2 = temp2.substring(0,temp2.length-1);}
+        var hstr = '<span class="trink">|</span>';
+        var toCouponVal=0;
+        if($(this).hasClass("del")){
+            //按退格删除键
+            if(temp2!=""){
+                var new_num = temp2.slice(0,temp2.length-1);
+                $("#account").html(new_num+hstr);
+                toCouponVal=new_num;
+            }
+        }else if($(this).hasClass("complete") || $(this).hasClass("key")){
+            //按下完成或者键盘图标键
+            $("#keyboard").slideUp();
+            $('.trink').remove();
+            toCouponVal=temp2;
+        }else if($(this).hasClass("dot")){
+            //按下小数点
+            var addnum = $(this).html();
+            if(temp2==""){
+                $("#account").html("0"+addnum+hstr);
+            }else if(temp2.indexOf(".")!="-1"){
+                //已有小数点
+            }else{
+                $("#account").html(temp2+addnum+hstr);
+            }
+            toCouponVal=temp2+addnum;
+        }else{
+            //数字键
+            if(temp2>100000){alert("支付超限"); return;}
+            if(temp2.indexOf(".")!="-1"){
+                //如果有2位小数
+                var s=temp2.split(".");
+                if (s[1].length>=2){console.log(s[1]);return;}
+            }
+            var addnum = $(this).html();
+            if(temp2[0]==0&&temp2[1]!="."){
+                addnum='';
+            }
+            if((temp2+addnum)>100000){ return;}
+            $("#account").html(temp2+addnum+hstr);
+            toCouponVal=temp2+addnum;
+        }
+        if($("#account").text() == "" || $("#account").text()== "|"){
+            $('.next_btn').removeClass('on_click');
+        } else {
+            if($("#bank_card").val()!=''&&$("#item_name").val()!=''){
+                $('.next_btn').addClass('on_click');
+            }else{
+                $('.next_btn').removeClass('on_click');
+            }
+        }
+        if(!first_bindCard_CouponID){
+            judgmentCouponVaild(parseFloat(toCouponVal));
+        }else{
+            if($(".selectCoupon").attr("couponid")===CouponDefaultID.toString()){
+                var couponValue=parseFloat($(".selectCoupon").attr("amount"))/100;
+                if(toCouponVal>couponValue){
+                    $(".getHuiCopuon").removeClass("getCopuon");
+                }
+            }
+        }
+        $(".cou_lists>li").removeClass("NoUse")
+    }
+
+
+    // 唤起键盘
+    function callKeyboard(){
+        if($(".trink").length == 0){
+            var temp=$("#account").html();
+            var hstr = '<span class="trink">|</span>';
+            $("#account").html(temp + hstr);
+            $("#keyboard").slideDown("fast");
+        }
+    }
+</script>
+</html>

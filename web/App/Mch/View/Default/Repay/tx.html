@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>余额手动还款</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <link rel="stylesheet" href="__PUBLIC__/mui/css/mui.min.css">
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/statics/plugins/font-awesome/css/font-awesome.min.css"/>
+    <script src="__YUI__/js/ydui.flexible.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/iconfont/iconfont.css"/>
+    <link rel="stylesheet" href="__YUI__/css/my-app.css"/>
+    <style>
+        .mui-table-view{margin-top: 20px;font-size: 17px}
+        .user {
+            background: #fff none repeat scroll 0 0;
+            height: 158px;
+            position: relative;
+            width: 100%;
+        }
+        .btn-primary{
+            background-color:#4282e3;
+        }
+        .btn-primary:active{
+            background-color:#5593F1;
+        }
+        .m-cell:after{
+            border-bottom: 0px!important;
+        }
+        ::-webkit-input-placeholder {
+            font-size:15px;
+        }
+        .toast-content{color: #ffffff}
+        .m-confirm{width: 70%!important;border-radius: 5px!important;}
+        .mask-black, .mask-black-dialog{
+            background-color: rgba(0, 0, 0, 0.49)!important;
+        }
+        .confirm-ft>a.confirm-btn.primary{
+            color: #4282e3!important;
+        }
+    </style>
+</head>
+<body>
+<section class="g-flexview" style="margin-bottom: 50px">
+    <div class="g-scrollview" style="margin-top: 0px">
+        <div class="user" style="background: #4282e3">
+            <div style="font-size: 14px;color: #ffffff;padding: 10% 10px;text-align: center">
+                <div>余额(元)</div>
+                <br>
+                <div style="font-size: 45px;" id="total_ye">0.00</div>
+                <input type="hidden" name="total_ye" value="">
+            </div>
+        </div>
+
+        <div class="m-button">
+            <button id="tx_button" type="button" class="btn-block btn-primary" style="letter-spacing:3px;" disabled>立即手动还款</button>
+        </div>
+        <aside class="demo-tip" style="margin-top: 10px">
+            <p>余额说明:</p>
+            当前余额为智能还款余额账户<br>
+            还款时间: 08:00-23:00 即时到账 (其它时间不可还款)<br>
+            当设置还款计划后期间由于某些原因计划终止,导致已消费金额没有进行还款操作，此时需要本人手工还款。
+        </aside>
+</section>
+<footer class="m-tabbar tabbar-fixed">
+    <a href="{:U('Index/index')}" class="tabbar-item ">
+                <span class="tabbar-icon">
+                    <i class="icon-home-outline"></i>
+                </span>
+        <span class="tabbar-txt">主页</span>
+    </a>
+    <a href="{:U('Index/order')}" class="tabbar-item ">
+                <span class="tabbar-icon">
+                    <i class="icon-order"></i>
+                    <span class="tabbar-dot"></span>
+                </span>
+        <span class="tabbar-txt">流水</span>
+    </a>
+    <a href="{:U('Index/my')}" class="tabbar-item tabbar-active">
+                <span class="tabbar-icon">
+                    <i class="icon-ucenter-outline"></i>
+                </span>
+        <span class="tabbar-txt">我的</span>
+    </a>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="__YUI__/js/ydui.js"></script>
+<script>
+    $(function() {
+        YDUI.dialog.loading.open('获取可提现金额中...');
+        var total=$('[name="tx_total"]'),total_ye=$('[name="total_ye"]');
+        $.ajax({
+            url: "/Pays/CRhcard/Balance?Debug=1",
+            dataType: 'json',
+            data: {cid: {$_SESSION['mch']['id']},alleys:'Rhcard'},
+            type: 'post',
+            success: function (res) {
+                YDUI.dialog.loading.close();
+                if (res.status == 1) {
+                    $('#total_ye').html(res.info.canbalance);
+                    total_ye.val(res.info.canbalance);
+                    if(res.info.canbalance<=100){
+                        $('#tx_button').attr("disabled",true);
+                    }else{
+                        $('#tx_button').attr("disabled",false);
+                    }
+                } else {
+                    show(res.info);
+                }
+            },
+            error: function (res) {
+                YDUI.dialog.loading.close();
+                show('通信失败');
+            }
+        });
+
+
+        $('#all').on('click',function () {
+            total.val(total_ye.val());
+            if(total_ye.val()>=100){
+                $('#tx_button').attr("disabled",false);
+            }else{
+                $('#tx_button').attr("disabled",true);
+            }
+        });
+        //提现
+        $('#tx_button').on('click',function () {
+            if(parseFloat(total_ye.val())<=100){
+                show('还款金额最低100元');
+            }else{
+                order_tx();
+            }
+        })
+    });
+    function order_tx() {
+        YDUI.dialog.loading.open('提现请求中,请稍等...');
+        var total=$('[name="tx_total"]');
+        $.ajax({
+            url: "/Pays/Apis/gateway_type",
+            dataType: 'json',
+            data: {cid: {$_SESSION['mch']['id']},alleys:'Sftpays',way_type:'mch_withdraw',tx_total:total.val()},
+            type: 'post',
+            success: function (res) {
+                YDUI.dialog.loading.close();
+                if (res.status == 1) {
+                    /*YDUI.dialog.toast(res.info, 'none', 2000,function () {
+                        window.location.href=res.url;
+                    });*/
+                    YDUI.dialog.alert(res.info, function(){
+                        window.location.href=res.url;
+                    });
+                } else {
+                    show(res.info);
+                }
+            },
+            error: function (res) {
+                YDUI.dialog.loading.close();
+                show('通信失败');
+            }
+        });
+    }
+    function show(data) {
+        YDUI.dialog.toast(data, 'none', 2000);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html style="height: auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>在线支付</title>
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <link rel="stylesheet" href="__YUI__/css/my-app.css"/>
+</head>
+<body>
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a onclick="call_back();" class="navbar-item"><i class="back-ico"></i></a>
+        <div class="navbar-center"><span class="navbar-title">在线支付</span></div>
+    </header>
+    <section class="g-scrollview" style="margin-bottom: 50px">
+        <aside class="demo-tip">
+            如信息不正确 请在我的银行卡列表里重新添加!
+        </aside>
+            <input type="hidden" name="order_id" id="order_id">
+            <div class="m-cell">
+                <section class="cell-item">
+                    <div class="cell-left">支付金额</div>
+                    <div class="cell-right" STYLE="color: #FFB400;font-size: 16px"><!--<span class="badge badge-danger">{$pay_data.total_fee}元</span>--> ¥ {$pay_data.total_fee}元</div>
+                </section>
+            </div>
+            <div class="m-cell">
+                <!--<div class="cell-item">
+                    <div class="cell-right">
+                        <input class="cell-input" value="{$data.name}" readonly>
+                    </div>
+                </div>
+                <div class="cell-item">
+                    <div class="cell-right">
+                        <input class="cell-input" value="{$data.cert}"  readonly>
+                    </div>
+                </div>-->
+                <div class="cell-item">
+                    <div class="cell-left">银行：</div>
+                    <div class="cell-right">
+                        <input class="cell-input" value="{$data.bank|reload_bank}(尾号{$data.card|card_replace})" readonly>
+                    </div>
+                </div>
+                <!--<div class="cell-item">
+                   <div class="cell-left">卡号：</div>
+                   <div class="cell-right">
+                       <input class="cell-input" value="{$data.card}" style="color: red"  readonly>
+                   </div>
+               </div>
+               <div class="cell-item">
+                   <div class="cell-right">
+                       <input class="cell-input" value="{$data.date}"  readonly>
+                   </div>
+               </div>
+               <div class="cell-item">
+                   <div class="cell-right">
+                       <input class="cell-input" value="{$data.cvn}"  readonly>
+                   </div>
+               </div>-->
+                <div class="cell-item">
+                    <div class="cell-left">手机号：</div>
+                    <div class="cell-right">
+                        <input class="cell-input" value="{$data.phone|tel_replace}" readonly>
+                    </div>
+                </div>
+                <div class="cell-item">
+                    <div class="cell-right">
+                        <input type="number" pattern="[0-9]*" class="cell-input" placeholder="请输入验证码" autocomplete="off"
+                               name="verify" id="verify" required/>
+                        <a href="javascript:;" class="btn btn-warning" id="A_GetCode">获取短信验证码</a>
+                    </div>
+                </div>
+            </div>
+            <div class="m-button">
+                <button type="button" id="pay_submit" class="btn-block btn-primary">立 即 支 付</button>
+            </div>
+    </section>
+    <section class="with-line xun_footer">
+        {$_domain['web_name']}&copy;版权所有
+    </section>
+
+</section>
+<footer class="m-tabbar tabbar-fixed">
+    <a href="{:U('Index/index')}" class="tabbar-item tabbar-active">
+                <span class="tabbar-icon">
+                    <i class="icon-home-outline"></i>
+                </span>
+        <span class="tabbar-txt">主页</span>
+    </a>
+    <a href="{:U('Index/order')}" class="tabbar-item">
+                <span class="tabbar-icon">
+                    <i class="icon-order"></i>
+                    <span class="tabbar-dot"></span>
+                </span>
+        <span class="tabbar-txt">流水</span>
+    </a>
+    <a href="{:U('Index/my')}" class="tabbar-item">
+                <span class="tabbar-icon">
+                    <i class="icon-ucenter-outline"></i>
+                </span>
+        <span class="tabbar-txt">我的</span>
+    </a>
+</footer>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="__YUI__/js/ydui.js"></script>
+<script src="__YUI__/js/ydui.flexible.js"></script>
+<script>
+    $(function () {
+        var $this = $(this);
+        var sid='{$pay_data.aid}';
+        var alleys='{$pay_data.alleys}';
+        var bank_id='{$data.id}';
+        var total='{$pay_data.total_fee}';
+        var id='{$pay_data.mid}';
+        var dialog = YDUI.dialog;
+        var $getCode = $('#A_GetCode');
+        // 定义参数
+        $getCode.sendCode({
+            disClass: 'btn-disabled',
+            secs: 60,
+            run: false,
+            runStr: '{%s}秒后重新获取',
+            resetStr: '重新获取验证码'
+        });
+
+        $getCode.on('click', function () {
+            dialog.loading.open('发送中...');
+            var ajax_data = {type:'sms',sid:sid,alleys:alleys,bank_id:bank_id,id:id,total:total};
+            var actionurl = '{:U("Pays/CApi/gateway")}';
+           $.post(actionurl, ajax_data, function (data) {
+                dialog.loading.close();
+                if (data.status == 1) {
+                    sms_end(data.info.order_id);
+                }else {
+                    msg(data.info);
+                }
+            }, 'json');
+
+        });
+
+
+
+        $('#pay_submit').click(function () {
+            dialog.loading.open('发送中...');
+            var  pay_order_id=$('#order_id').val();
+            var  pay_verify =$('#verify').val();
+            var  ajax_data = {type:'submit',sid:sid,alleys:alleys,bank_id:bank_id,id:id,total:total,verify:pay_verify,order_id:pay_order_id};
+            var actionurl = '{:U("Pays/CApi/gateway",array("Debug"=>1))}';
+            $.post(actionurl, ajax_data, function (data) {
+                dialog.loading.close();
+                if (data.status == 1) {
+                    dialog.toast(data.info, 'success', 1500,function () {/* 关闭后调用 */
+                      window.location.href=data.url;
+                    });
+                }else {
+                    msg(data.info);
+                }
+            }, 'json');
+        });
+
+        function sms_end($order) {
+            YDUI.dialog.loading.close();
+            $('#order_id').val($order);
+            $getCode.sendCode('start');
+            YDUI.dialog.toast('已发送', 'success', 1500);
+        }
+
+    });
+
+
+    function msg(data) {
+      YDUI.dialog.toast(data, 'none');
+    }
+    function call_back() {
+        location.href=document.referrer;
+    }
+</script>
+
+</body>
+
+</html>

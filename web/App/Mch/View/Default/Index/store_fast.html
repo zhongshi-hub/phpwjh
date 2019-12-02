@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html style="height: auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>支付方式</title>
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <link rel="stylesheet" href="__YUI__/css/my-app.css"/>
+</head>
+<body>
+<section class="g-flexview">
+    <section class="g-scrollview">
+        <aside class="demo-tip">
+            当前商户存在多个门店,请选择门店后进入收款!
+        </aside>
+
+        <div class="m-cell">
+            <foreach name="list" item="v">
+            <a class="cell-item" href="javascript:;" onclick="sub({$v.id})">
+                <div class="cell-left">{$v.name}</div>
+                <div class="cell-right cell-arrow"></div>
+            </a>
+            </foreach>
+
+        </div>
+    </section>
+
+
+</section>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="__YUI__/js/ydui.js"></script>
+<script src="__YUI__/js/ydui.flexible.js"></script>
+<script>
+    function sub(id) {
+        var ajax_data = {sid:id};
+        var actionurl = '';
+        YDUI.dialog.loading.open('切换门店中...');
+        $.post(actionurl, ajax_data, function (data) {
+            YDUI.dialog.loading.close();
+            if (data.status == 1) {
+                window.location.href="{:U('fast_data')}";
+            }else{
+                show(data.info);
+            }
+        }, 'json');
+    }
+    function show(data) {
+        YDUI.dialog.toast(data, 'none', 2000);
+    }
+</script>
+
+</body>
+
+</html>

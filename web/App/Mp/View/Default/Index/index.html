@@ -1,0 +1,95 @@
+<extend name="Common:base" />
+<block name="top_css">
+    <link rel="stylesheet" href="__PUBLIC__/amp/plugins/morris/morris.css">
+</block>
+<block name="body">
+    <div class="row">
+        <div class="col-xs-6 col-sm-3">
+            <div class="card-box bg-danger widget-flat border-danger text-white">
+                <i class="fi-delete"></i>
+                <h3 class="m-b-10">{$dayData.sum}</h3>
+                <p class="text-uppercase m-b-5 font-13 font-600">今日交易总额</p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <div class="card-box widget-flat border-custom bg-custom text-white">
+                <i class="fi-tag"></i>
+                <h3 class="m-b-10">{$dayData.count}</h3>
+                <p class="text-uppercase m-b-5 font-13 font-600">今日交易笔数</p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <div class="card-box bg-primary widget-flat border-primary text-white">
+                <i class="fi-archive"></i>
+                <h3 class="m-b-10">{$dayData.ali}</h3>
+                <p class="text-uppercase m-b-5 font-13 font-600">今日支付宝总额</p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <div class="card-box widget-flat border-success bg-success text-white">
+                <i class="fi-help"></i>
+                <h3 class="m-b-10">{$dayData.wx}</h3>
+                <p class="text-uppercase m-b-5 font-13 font-600">今日微信总额</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card-box">
+                <h4 class="header-title">七日交易额汇总</h4>
+                <div id="morris-sum" style="height: 350px;" class="mt-4"></div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card-box">
+                <h4 class="header-title">七日笔数汇总</h4>
+                <div id="morris-count" style="height: 350px;" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="row">-->
+        <!--<div class="col-lg-12">-->
+            <!--<div class="card-box">-->
+                <!--<h4 class="header-title">按时段交易统计</h4>-->
+                <!--<div id="morris-line-example" style="height: 350px;" class="mt-4"></div>-->
+            <!--</div> &lt;!&ndash; card-box &ndash;&gt;-->
+        <!--</div> &lt;!&ndash; end row &ndash;&gt;-->
+    <!--</div>-->
+    <!-- end row -->
+</block>
+<block name="footer_js">
+    <script src="__PUBLIC__/amp/plugins/morris/morris.min.js"></script>
+    <script src="__PUBLIC__/amp/plugins/raphael/raphael-min.js"></script>
+    <script>
+        !function($) {
+            "use strict";
+            var MorrisCharts = function() {};
+            MorrisCharts.prototype.createStackedChart  = function(element, data, xkey, ykeys, labels, lineColors) {
+                Morris.Bar({
+                    element: element,
+                    data: data,
+                    xkey: xkey,
+                    ykeys: ykeys,
+                    stacked: true,
+                    labels: labels,
+                    hideHover: 'auto',
+                    resize: true, //defaulted to true
+                    gridLineColor: '#eeeeee',
+                    barColors: lineColors
+                });
+            },
+                MorrisCharts.prototype.init = function() {
+                    var $sum  = {$weekSum};
+                    this.createStackedChart('morris-sum', $sum, 'day', ['wx', 'ali'], ["微信", "支付宝"], ['#02c0ce','#4eb7eb']);
+                    var $count  = {$weekCount};
+                    this.createStackedChart('morris-count', $count, 'day', ['wx', 'ali'], ["微信", "支付宝"], ['#02c0ce','#4eb7eb']);
+                },
+                $.MorrisCharts = new MorrisCharts, $.MorrisCharts.Constructor = MorrisCharts
+        }(window.jQuery),
+            function($) {
+                "use strict";
+                $.MorrisCharts.init();
+            }(window.jQuery);
+    </script>
+</block>

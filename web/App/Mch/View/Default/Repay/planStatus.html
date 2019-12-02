@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <META HTTP-EQUIV="Expires" CONTENT="0">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0" />
+    <title>提交详情</title>
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link href="/Source/Css/new_pay/css/base_style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/quick_payment.css">
+    <link rel="stylesheet" href="/Source/repay/css/repaySetup.css">
+</head>
+<body id="submit">
+<div class="c1">
+    <img src="/Source/repay/image/success.png" width="100%" height="100%" />
+    <p>提交成功</p>
+    <p>卡尾号(<i class="cardNum">{$card}</i>)代还款设置成功！</p>
+    <p>代还款期间，请确保卡余额保持不变否则会影响还款成功率！</p>
+</div>
+<div class="trigger">
+    <div class="btn finish">完成</div>
+    <div class="btn checkD">查看还款详情</div>
+</div>
+<!--错误提示层-->
+<div class="toast"></div>
+<script type="text/javascript" src="/Source/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //完成点击事件
+        $(".finish").bind("click",function(){
+            window.location.href="{:U('Mch/Index/index')}";
+        });
+
+        //查看还款详情点击事件
+        $(".checkD").bind("click",function(){
+            window.location.href="{$repayDetail}";
+        });
+    })
+</script>
+</body>
+</html>

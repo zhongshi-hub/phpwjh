@@ -1,0 +1,126 @@
+<extend name="Common:base" />
+<block name="title">充值配置</block>
+<block name="menu_name">
+    充值配置
+</block>
+<block name="top_css">
+</block>
+<block name="body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-box">
+                <ul class="nav nav-tabs tabs-bordered">
+                    <li class="nav-item">
+                        <a href="{:U('index')}"  class="nav-link ">
+                            <i class="fi-monitor mr-2"></i>所有会员
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{:U('userCz')}"  class="nav-link">
+                            <i class="fi-head mr-2"></i>充值记录
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{:U('userXf')}"  class="nav-link">
+                            <i class="fi-mail mr-2"></i>消费记录
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{:U('userTemp')}"  class="nav-link">
+                            <i class="fi-cog mr-2"></i>模板设置
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{:U('userConf')}"  class="nav-link active">
+                            <i class="fi-cog mr-2"></i>充值配置
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="row mb-4" style="margin-top: 20px">
+                    <div class="col-md-12">
+                        <h4 class="header-title">充值二维码</h4>
+                        <img class="img-thumbnail" src="{$qr}" width="300px" height="300px">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>充值链接</label>
+                            <div class="input-group">
+                                <input id="cz_url" type="text" class="form-control" value="{$url}" placeholder=""  readonly>
+                                <div class="input-group-append">
+                                    <button class="url_copy btn btn-dark waves-effect waves-light" type="button">复制链接</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>收款门店</label>
+                            <div class="input-group">
+                                <input  id="pay_store" type="text" class="form-control" value="{$temp.pay_store|getStoreName}" placeholder=""  readonly>
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">选择门店</button>
+                                    <div class="dropdown-menu">
+                                        <foreach name="store" item="v">
+                                            <a class="dropdown-item"  data-id="{$v.id}">{$v.name}</a>
+                                            <div class="dropdown-divider"></div>
+                                        </foreach>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="footer_js">
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script>
+        $('.url_copy').attr('data-clipboard-text', $('#cz_url').val());
+        var clipboard = new ClipboardJS('.url_copy');
+        clipboard.on('success', function (e) {
+            toast('success','复制成功');
+        });
+        clipboard.on('error', function (e) {
+            toast('error','复制成功');
+        });
+        $('.dropdown-item').click(function (e) {
+            var id=$(this).data('id'),name=$(this).text();
+            $('#pay_store').val(name);
+            $.post("{:U('setPayStore')}", {id:id}, function (data) {
+                if (data.status === 1) {
+                    $.toast({
+                        heading: '温馨提示!',
+                        text: data.info,
+                        position: 'top-right',
+                        loaderBg: '#5ba035',
+                        icon: 'success',
+                        hideAfter: 3000,
+                        stack: 1
+                    });
+                    setTimeout(function () {
+                        window.location.reload(true);
+                    }, 3000);
+                }
+                else {
+                    $.toast({
+                        heading: '温馨提示',
+                        text: data.info,
+                        position: 'top-right',
+                        loaderBg: '#bf441d',
+                        icon: 'error',
+                        hideAfter: 3000,
+                        stack: 1
+                    });
+                }
+            }, 'json');
+        });
+    </script>
+</block>

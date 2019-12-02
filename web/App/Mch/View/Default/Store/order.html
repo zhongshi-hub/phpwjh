@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>门店中心</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <link rel="stylesheet" href="__PUBLIC__/mui/css/mui.min.css">
+    <link rel="stylesheet" href="__YUI__/css/ydui.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/statics/plugins/font-awesome/css/font-awesome.min.css"/>
+    <script src="__YUI__/js/ydui.flexible.js"></script>
+    <script src="__YUI__/js/ydui.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/iconfont/iconfont.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/layui/css/xun_push.css" media="all">
+    <script src="__PUBLIC__/layui/layui.js" charset="utf-8"></script>
+    <style>
+        .m-grids-2 .grids-item:not(:nth-child(2n)):before{border-right: 1px solid #75D7F7;}
+        .grids-item:after{border-bottom:0}
+        .grids-txt{color: #ffffff}
+    </style>
+
+</head>
+<body>
+<section class="g-flexview">
+    <div class="g-scrollview" style="margin-bottom: 50px;margin-top: 0px">
+        <div class="m-grids-2" style="background:rgba(0, 0, 0, 0) radial-gradient(circle at left top , #d1f0d0, #c3edda 10%, #84c4d4 40%, #a1bbdf) repeat scroll 0 0;color: #fff;height: 150px;">
+            <div style="float: right;margin: 10px"><a class="btn btn-primary" href="{:U('order_data')}">筛选</a></div>
+            <section class="grids-item" style="margin-top: 55px;font-size: 16px; border: 1px solid rgba(255,255,255,.2);background-color: rgba(255,255,255,.1);">
+                <div class="grids-icon" id="order_sum">
+                </div>
+                <div class="grids-txt">总交易额</div>
+            </section>
+            <section class="grids-item" style="font-size: 16px;border: 1px solid rgba(255,255,255,.2);background-color: rgba(255,255,255,.1);">
+                <div class="grids-icon" id="order_count">
+                </div>
+                <div class="grids-txt">总笔数</div>
+            </section>
+        </div>
+
+    </div>
+    <footer class="m-tabbar tabbar-fixed">
+        <a href="{:U('Store/index')}" class="tabbar-item ">
+                <span class="tabbar-icon">
+                    <i class="icon-home-outline"></i>
+                </span>
+            <span class="tabbar-txt">主页</span>
+        </a>
+        <a href="{:U('Store/order')}" class="tabbar-item tabbar-active">
+                <span class="tabbar-icon">
+                    <i class="icon-order"></i>
+                    <span class="tabbar-dot"></span>
+                </span>
+            <span class="tabbar-txt">流水</span>
+        </a>
+        <a href="{:U('Store/my')}" class="tabbar-item">
+                <span class="tabbar-icon">
+                    <i class="icon-ucenter-outline"></i>
+                </span>
+            <span class="tabbar-txt">我的</span>
+        </a>
+    </footer>
+</section>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<style>
+    .m-celltitle:after{border-bottom:0px solid #D9D9D9;}
+</style>
+<script>
+    var url = window.location.search;
+    layui.use('flow', function () {
+        var flow = layui.flow;
+        flow.load({
+            elem: '.g-scrollview' //流加载容器
+            ,mb: '50' //滚动条所在元素，一般不用填，此处只是演示需要。
+            ,isLazyimg:false
+            , done: function (page, next) { //执行下一页的回调
+                var ajax_data = {pages: page};
+                var actionurl = '{:U("order_data_json")}'+url;
+                $.get(actionurl, ajax_data, function (res) {
+                    var lis = [];
+                    layui.each(res.data, function (index, rel) {
+                        lis.push('<div class="m-celltitle" style="margin-top: 15px;margin-bottom: 2px;">'+rel.day+'<span style="float: right;font-size: 12px;">'+rel.count+'笔/总:'+rel.sum+'元</span></div>');
+                        layui.each(rel.data, function (index2, item) {
+                            lis.push('<ul class="mui-table-view"><li class="mui-table-view-cell" style="padding-bottom: 8px">' +
+                                    '<a href="javascript:;">' +
+                                    '<img class="mui-media-object mui-pull-left"  src="' + item.service + '">' +
+                                    '<div class="mui-media-body" onclick="trade_data(\''+item.out_trade_no+'\')">' +
+                                    '<span style="font-size: 14px">' + item.store_id + '</span>' +
+                                    '<span class="mui-pull-right" style="font-size: 14px;border-radius: 6px;">¥' + item.total_fee + '</span>' +
+                                    '<p class="mui-ellipsis" style="margin-top: 3px">' +
+                                    '<span style="font-size: 12px"> 订单尾号:' + item.out_end + '</span>' +
+                                    '<span class="mui-pull-right" style="font-size: 14px;border-radius: 6px;">' + item.createtime + '</span>' +
+                                    '</p></div></a></li></ul>'
+                            );
+                        });
+                    });
+                    $('#order_sum').html(res.sum);
+                    $('#order_count').html(res.count);
+                    next(lis.join(''), page < res.pages);
+                }, 'json');
+
+            }
+        });
+    });
+
+    function trade_data(id) {
+        window.location.href = '/Mch/Store/trade_data/order_id/' + id;
+    }
+</script>
+</body>
+</html>

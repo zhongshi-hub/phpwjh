@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Source/repay/css/repayConfirm.css"/>
+    <link rel="stylesheet" type="text/css" href="/Source/ydui/css/new_ydui.css">
+    <title>计划详情</title>
+    <style>
+        .repaybox {
+            position: relative;
+            z-index:10;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 0.333333rem;
+        }
+        .ringbox {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+        .ringbox .item {
+            width: 33.3%;
+            position: relative;
+            padding: .4rem 0;
+            text-align: center;
+        }
+        .repaybox .ringbox .item .title {
+            color: #999;
+            font-size: .34667rem;
+            padding-top: 0;
+        }
+        .repaybox .ringbox .item .value {
+            color: #333;
+            font-size: .50667rem;
+        }
+        /*tips_dialog2*/
+        .tip_dialog2 {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            z-index: 11;
+            height: 3.533333rem;
+            width: 8.933333333333333rem;
+            background-color: #fff;
+            border-radius: 8px;
+            padding-top: 0.88rem;
+            text-align: center;
+            color: #333
+        }
+
+        .tip_dialog2 .tip_title2 {
+            line-height: 0.5066666666666667rem;
+            height: 0.5066666666666667rem;
+            font-size: 0.5333333333333333rem;
+            color:#000;
+        }
+
+        .tip_dialog2 .tip_content2 {
+            margin: .4rem auto 0;
+            width: 90%;
+            line-height: .61333rem;
+            font-size: 0.3733333333333333rem
+        }
+
+        .tip_dialog2 .tip_btns2 {
+            line-height: 1.333333333333333rem;
+            height: 1.333333333333333rem;
+            width: 100%;
+            overflow: hidden;
+            position: absolute;
+            bottom: 0;
+            color:#0070ff;
+            font-size:0.48rem;
+        }
+
+        .tip_dialog2 .tip_btns2:before {
+            content: "";
+            pointer-events: none;
+            box-sizing: border-box;
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            left: 0;
+            top: 0;
+            border-top: 1px solid #e6e9e8;
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0
+        }
+
+        .tip_dialog2 .tip_btns2 li {
+            float: left;
+            width: 50%;
+            height: 100%;
+            font-size: .48rem;
+            list-style:none;
+        }
+
+        .tip_dialog2 .tip_btns2 li:nth-of-type(2) {
+            margin-left: -1px;
+            width: 0;
+            border-right: 1px solid #e6e9e8;
+            -webkit-transform: scaleX(0.5);
+            transform: scaleX(0.5)
+        }
+
+        .tip_dialog2 .tip_btns2 li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: #333;
+            text-decoration: none
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <!--<eq name="planList.status" value="1">-->
+    <!--<div class="tips" style="text-align: center;background-color: #761c19;color: #fff;margin: 0">{$planList.errorMsg|default='计划已终止'}</div>-->
+    <!--<elseeq name="planList.status" value="2"/>-->
+        <!--<div class="tips" style="text-align: center;background-color: #761c19;color: #fff;margin: 0">本期账单已还款完成</div>-->
+    <!--</eq>-->
+
+    <if condition="$planList['status']  eq 1">
+        <div class="tips" style="text-align: center;background-color: #761c19;color: #fff;margin: 0">{$planList.errorMsg|default='计划已终止'}</div>
+    <elseif condition="$planList['status']  eq 2"/>
+        <div class="tips" style="text-align: center;background-color: #21901f;color: #fff;margin: 0">本期账单已还款完成</div>
+    <else />
+
+    </if>
+
+    <div class="tips" style="text-align: center">当前计划为卡尾号({$planList.card})还款计划</div>
+    <div class="repaybox" style="margin: 0px 0.4rem 0.53333rem;">
+        <div class="ringbox">
+            <div class="item">
+                <p class="value">{$planList.total}</p>
+                <p class="title">还款金额(元)</p>
+            </div>
+            <div class="item">
+                <p class="value">{$planList.payCount}</p>
+                <p class="title">交易笔数(笔)</p>
+            </div>
+            <div class="item">
+                <p class="value">{$planList.repayCount}</p>
+                <p class="title">还款笔数(笔)</p>
+            </div>
+        </div>
+    </div>
+    <div class="newRepayDetailMain">
+        <volist name="planList.data" id="vo">
+            <div class="repayTabItem">
+                <div class="repHead">
+                    <eq name="planList.status" value="1">
+                      <div class="repStatusFt fl" style="background-color: #ca2e26">终止<!--等待 成功  终止--></div>
+                        <else/>
+                      <div class="repStatusFt fl">正常</div>
+                    </eq>
+
+
+                    <div class="repHeadFT fl mt30" style="width: 70%">还款时间：<span class="repHeadZIDUAN repDateTime">{$vo.day}</span>
+                    </div>
+                    <div class="repHeadFT fl mt15">还款金额：<span class="repHeadZIDUAN repAmountSu">{$vo.repay}</span></div>
+                    <div class="repHeadFT fl mt15 ml35">消费金额：<span class="repHeadZIDUAN repAmountSu">{$vo.pay}</span></div>
+                </div>
+                <div class="line"></div>
+                <ul class="newtableHead">
+                    <li class="newWd90px">次数</li>
+                    <li class="newWd150px">金额</li>
+                    <li class="newWd150px">类型</li>
+                    <li class="newWd150px">时间</li>
+                    <li class="newWd150px">状态</li>
+                </ul>
+                <div class="line"></div>
+                <volist name="vo.data" id="v" key="k">
+                    <ul class="newtableRows">
+                        <li class="newWd90px">
+                            <i class="oneIRow grey">{$k}</i>
+                        </li>
+                        <li class="newWd150px">
+                            <i class="oneIRow">{$v.total}</i>
+                        </li>
+                        <li class="newWd150px">
+                            <i class="oneIRow">
+                                <eq name="v.type" value="repay">
+                                    <span style="color: green">还款</span>
+                                    <else/>
+                                    <span style="color:red;">消费</span>
+                                </eq>
+                            </i>
+                        </li>
+                        <li class="newWd150px">
+                            <i class="oneIRow">{$v.time}</i>
+                        </li>
+                        <li class="newWd150px">
+                            <i class="oneIRow grey">
+                                <switch name="v.api_status">
+                                    <case value="1"><span style="color: green">成功</span></case>
+                                    <case value="2"><span style="color:#b12626;">失败</span></case>
+                                    <default />
+                                    <eq name="v.status" value="1">
+                                        <span style="color:red;">终止</span>
+                                        <else/>
+                                        等待
+                                    </eq>
+                                </switch>
+                            </i>
+                        </li>
+                    </ul>
+                </volist>
+                <div class="line"></div>
+            </div>
+        </volist>
+    </div>
+
+    <eq name="planList.repayError.status" value="1">
+        <eq name="planList.IsRepayError" value="0">
+        <p><div class="confirmPlan" id="handRepay" style="border: 1px solid #ff5757;background-color: #ff5757;color: #fff">手动还款已消费金额{$planList.repayError.total}元</div></p>
+        </eq>
+    </eq>
+    <div class="confirmPlan" id="callBackUrl" style="width: 40%;float: left;border: 1px solid #436ed2;background-color: #FFF;color: #436ed2">返回首页</div>
+    <neq name="planList.status" value="0">
+        <div class="confirmPlan PlanReload" style="width: 40%;float: right">重设还款计划</div>
+    <else/>
+        <div class="confirmPlan PlanEnd" style="width: 40%;float: right;background-color: #bb4e9a;">终止还款计划</div>
+    </neq>
+
+
+    <!--<div class="agreeMain">我同意 <span class="planProtocol">《代还信用卡服务协议》</span></div>-->
+</div>
+<!--错误提示层-->
+<div class="toast"></div>
+<div class="tip_dialog2 hide">
+    <p class="tip_title2">确定要终止吗？</p>
+    <p class="tip_content2">终止后此订单将不再进行代还</p>
+    <ul class="tip_btns2">
+        <li class="toBack2">继续代还</li>
+        <li></li>
+        <li class="toNextPay">终止</li>
+    </ul>
+</div>
+<div id="fullbg"></div>
+<!--错误提示层-->
+<div class="toast"></div>
+</body>
+<script type="text/javascript" src="/Source/jquery.min.js"></script>
+<script type="text/javascript" src="/Source/layer/layer.js"></script>
+<script type="text/javascript" src="/Source/ydui/js/ydui.js"></script>
+<script>
+
+    //终止还款计划点击事件
+    $(".PlanEnd").bind("click", function () {
+        $("html,body").animate({scrollTop:0},1000);
+        showBg();
+        $('.tip_dialog2').show();
+    });
+
+    $(".toBack2").bind("click",function(){
+        $(".tip_dialog2,#fullbg").hide();
+    });
+
+    $(".toNextPay").bind("click",function(){
+        stopRepay();
+    });
+
+    $(".PlanReload").bind("click", function () {
+        window.location.href='{$planList.reloadUrl}';
+    });
+
+    $('#callBackUrl').on('click',function () {
+        window.location.href="{:U('Mch/Index/index')}";
+    });
+    //手动还款
+    $('#handRepay').on('click',function () {
+        //提交数据
+        var opts={
+            url:"/Mch/Repay/handRepay?Debug=1",
+            data:{
+                data:'{$planList.planData}'
+            },
+            succ: function (data) {
+                if(data.status==1){
+                    $('#handRepay').hide();
+                    YDUI.dialog.alert(data.info, function(){
+                        window.location.reload();
+                    });
+                }else{
+                    show(data.info);
+                }
+            }
+        };
+        window.sendAJAX(opts)
+    });
+
+
+    function stopRepay() {
+        //提交数据
+        var opts={
+            url:"/Mch/Repay/PlanEnd?Debug=1",
+            data:{
+                data:'{$planList.planData}'
+            },
+            succ: function (data) {
+                if(data.status==1){
+                    YDUI.dialog.alert(data.info, function(){
+                        window.location.reload();
+                    });
+                }else{
+                    show(data.msg);
+                }
+            }
+        };
+        window.sendAJAX(opts)
+    }
+
+    //发送AJAX请求
+    window.sendAJAX = function (opts) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            data: opts.data,
+            url: opts.url,
+            success: opts.succ || function () {
+            },
+            error: opts.error || function () {
+                show("请求失败，请稍后重试");
+            }
+        })
+    };
+    function show(data) {
+        YDUI.dialog.toast(data, 'none', 2000);
+    }
+    //显示弹出背景
+    function showBg(){
+        var wh = $(window).height();
+        var bh=$("body").height();
+        var bw = $("body").width();
+        $("#fullbg").css({
+            height:wh>bh?wh:bh,
+            width:bw,
+            display:"block",
+            opacity:0.8
+        });
+    }
+
+</script>
+</html>

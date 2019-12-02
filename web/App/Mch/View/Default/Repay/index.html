@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0">
+    <title>智能还款</title>
+    <script type="text/javascript" src="/Source/Css/new_pay/js/fiex.js"></script>
+    <link href="/Source/Css/new_pay/css/base_style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Source/Css/new_pay/css/quick_payment.css">
+    <link rel="stylesheet" type="text/css" href="/Source/ydui/css/new_ydui.css">
+    <style>
+        .bank_card_list_page .bank_card_list .card_info{
+            height: 2.866667rem;
+            background:url('/Source/repay/image/card_bg.png') no-repeat 100% 100%,linear-gradient(#5b8aff,#4690ff);
+            background-size: 100% auto;
+            box-shadow: 0 2px 5px 0 #325fc4;
+        }
+        .bank_card_list_page .bank_card_list .card_info .card_num{margin-top: -1rem;    font-size: 0.35rem;}
+        .tipsMain {
+            font-size: 0.373333rem;
+            color: rgba(255, 255, 255, 0.71);
+            margin: 0.6rem 0;
+            width: 8.4rem;
+            border-top:1px solid rgba(255, 255, 255, 0.39) ;
+            padding-top: 10px;
+        }
+        .bank_card_list_page .bank_card_list .card_info .stop{border: 1px solid red;color:red;padding: 2px 5px;border-radius: 5px}
+        .bank_card_list_page .bank_card_list .card_info .default{border: 1px solid #fff;padding: 2px 5px;border-radius: 5px}
+        .bank_card_list_page .bank_card_list .card_info .success{border: 1px solid #64f764;color:#64f764;padding: 2px 5px;border-radius: 5px}
+        .bank_card_list_page .bank_card_list .card_info .repaySuccess{border: 1px solid #fff;color:#fff;padding: 2px 5px;border-radius: 5px}
+
+    </style>
+</head>
+<body class="bank_card_list_page ">
+<section class="no_card ">
+    <img src="/Source/Css/new_pay/images/no_card_icon.png">
+    <p>您还未添加银行卡</p>
+    <p>绑卡后即可使用智能代还功能</p>
+    <div class="add_card_btn">
+        <ul  onclick='toAddBankCard()'>
+            <li></li>
+            <li>添加银行卡</li>
+        </ul>
+    </div>
+</section>
+<section class="bank_card_list hide">
+    <div class="bank_card_list_box">
+    </div>
+
+    <div class="add_card_btn"  onclick='toAddBankCard()'>
+        <ul>
+            <li></li>
+            <li>添加银行卡</li>
+        </ul>
+    </div>
+</section>
+<div class="toast"></div>
+<div id="fullbg"></div>
+<section class="unbind hide">
+    <ul class="tip">
+        <li>点击进入计划列表</li>
+        <li id="unbind_btn">定制还款计划</li>
+        <li id="submitCode" class="hide">提交安全码和有效期</li>
+    </ul>
+    <div class="cancel_btn">取消</div>
+</section>
+</body>
+<script type="text/javascript" src="/Source/jquery.min.js"></script>
+<script type="text/javascript" src="/Source/layer/layer.js"></script>
+<script type="text/javascript" src="/Source/ydui/js/ydui.js"></script>
+<script type="text/javascript">
+    $(function(){
+        // 获取已绑定的银行卡列表
+        getBindBankCard();
+    });
+    // 获取已绑定的银行卡列表
+    function getBindBankCard(){
+        YDUI.dialog.loading.open('加载中');
+        $.ajax({
+            url:"{:U('cardList')}",
+            dataType:'json',
+            success:getBindBankCardSuc,
+            error:getBindBankCardFail
+        })
+    }
+    function getBindBankCardSuc(res){
+        YDUI.dialog.loading.close();
+        if(res.status==1){
+            var repay_txt='',footer_txt='no',footer_txt_data='',repay_status=11;
+            $(".bank_card_list_box").html("");
+            $(".no_card").addClass('hide');
+            $(".bank_card_list").removeClass('hide');
+            var dataArr=res.info,html='',style='default';
+            for(var i=0;i<dataArr.length;i++){
+                    switch (dataArr[i].status){
+                        case 1:
+                            repay_txt='查看计划';
+                            style='success';
+                            break;
+                        case 2:
+                            repay_txt='计划终止';
+                            style='stop';
+                            break;
+                        case 3:
+                            repay_txt='还款完成';
+                            style='repaySuccess';
+                            break;
+                        default:
+                            repay_txt='去设置';
+                            style='default';
+                            break;
+                    }
+                html+='<div class="card_info" card_status="'+dataArr[i].status+'" card_url="'+dataArr[i].zzUrl+'" bind_id="'+dataArr[i].id+'"><div class="card_type"><div class="img_box"><img style="height: 25px;width: 25px;padding: 9px" src="'+dataArr[i].bank_logo+'"></div><p><span>'+dataArr[i].bank_name.replace('信用卡', "")+'</span><br>信用卡(尾号'+dataArr[i].card+')</p></div><p class="card_num"><span class="'+style+'">'+repay_txt+'</span></p><div class="tipsMain fl"><span class="repayTips">'+dataArr[i].text+'</span></div></div>';
+            }
+            $(".bank_card_list_box").html(html);
+            $(".card_info").on("click",openRepayData)
+        }else{
+            $(".no_card").removeClass('hide');
+            $(".bank_card_list").addClass('hide');
+        }
+    }
+    function getBindBankCardFail(){
+        YDUI.dialog.loading.close();
+        show('请求失败，请稍后重试');
+    }
+    // 到添加银行卡页面
+    function toAddBankCard(){
+        window.location.href='/Mch/Index/add_bank_card/quick_data/repay';
+    }
+    $('.card_info').on("click",openRepayData);
+    function openRepayData(e) {
+        var bind_id=$(this).attr('bind_id');
+        var status=$(this).attr('card_status');
+        if(status!=0){
+            window.location.href=$(this).attr('card_url');
+        }else {
+            //点击之后查询当前银行卡是否银联绑定
+            var data = {"bind_id": bind_id};
+            YDUI.dialog.loading.open('加载中');
+            $.ajax({
+                url: "/Mch/Repay/cardBindRepay?Debug=1",
+                dataType: "json",
+                type: 'POST',
+                data: data,
+                success: toBindRepaySuc,
+                error: toUnBindFail
+            });
+        }
+    }
+    function toBindRepaySuc(res) {
+        YDUI.dialog.loading.close();
+        if(res.code == 1){ //已绑定
+          window.location.href=res.url;
+        }else if(res.code==3){ //未绑定 进入绑定界面
+                if(res.data.type=='form'){
+                    Xun_submitForm(res.data.action, res.data.v_data);
+                }else if(res.data.type=='html'){
+                    document.write(data.info.data);
+                }else{
+                    window.location.href=data.url;
+                }
+        }else{
+            show(res.msg);
+        }
+    }
+    function toUnBindFail(){
+        getBindBankCardFail();
+    }
+
+    function show(data) {
+        YDUI.dialog.loading.close();
+        YDUI.dialog.toast(data, 'none', 2000);
+    }
+
+    function Xun_submitForm(action, params) {
+        var data = params;
+        var form = $("<form></form>");
+        form.attr('action', action);
+        form.attr('method', 'post');
+        for(var i=0 ; i < data.length;i ++){
+            var input1 = $("<input type='hidden' name='"+data[i].name+"' />");
+            input1.attr('value', data[i].val);
+            form.append(input1);
+        }
+        form.appendTo("body");
+        form.css('display', 'none');
+        form.submit();
+    }
+</script>
+</html>
