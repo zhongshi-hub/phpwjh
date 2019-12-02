@@ -1,0 +1,1749 @@
+[ 2019-09-21T00:13:16+08:00 ] 59.36.119.227 /Admins
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000328s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000383s ]
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 45 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000053s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000105s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006055s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006114s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000144s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000226s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000413s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000319s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000351s ]
+
+[ 2019-09-21T00:23:07+08:00 ] 101.68.68.234 /console/Merchant/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000401s ]
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1298 行.
+NOTIC: [8] Undefined index: search_val /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1301 行.
+NOTIC: [8] Undefined index: bus_type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1305 行.
+NOTIC: [8] Undefined index: auth_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1308 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1315 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1317 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1320 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1322 行.
+NOTIC: [2] Missing argument 1 for domain_id(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php on line 1334 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3626 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3628 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000135s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000188s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026882s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026938s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000234s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000466s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000750s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000388s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000420s ]
+
+[ 2019-09-21T09:29:12+08:00 ] 101.68.68.234 /Admins
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000334s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000316s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000359s ]
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 45 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000057s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000102s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006065s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006104s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000156s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000255s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000367s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000403s ]
+
+[ 2019-09-21T09:29:12+08:00 ] 101.68.68.234 /console/Login/load_verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000320s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 45 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000381s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000431s ]
+
+[ 2019-09-21T09:29:33+08:00 ] 101.68.68.234 /Admins
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000297s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000283s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000317s ]
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 45 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+
+[ 2019-09-21T09:29:36+08:00 ] 101.68.68.234 /console/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000251s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000325s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000361s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000141s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000199s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017897s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017950s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000137s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000508s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000702s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000354s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000384s ]
+
+[ 2019-09-21T09:29:41+08:00 ] 101.68.68.234 /console/Extends/qrcode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000244s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000377s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000413s ]
+NOTIC: [8] Undefined index: codes /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 265 行.
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 266 行.
+NOTIC: [8] Undefined index: mid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 270 行.
+NOTIC: [8] Undefined index: store_id /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 274 行.
+NOTIC: [8] Undefined index: bind /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 278 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 287 行.
+NOTIC: [8] Undefined index: agent_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 297 行.
+NOTIC: [8] Undefined index: page_data /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 307 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000129s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000182s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035291s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035348s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000213s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000482s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000746s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000703s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000740s ]
+
+[ 2019-09-21T09:39:16+08:00 ] 101.68.68.234 /console/Agent/lists
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000284s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000374s ]
+NOTIC: [8] Undefined index: search_val /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 62 行.
+NOTIC: [8] Undefined index: sprovince /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 66 行.
+NOTIC: [8] Undefined index: scity /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 70 行.
+NOTIC: [8] Undefined index: sdistrict /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 74 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 78 行.
+NOTIC: [8] Undefined index: auth_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 94 行.
+NOTIC: [8] Undefined index: pid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 108 行.
+NOTIC: [8] Undefined variable: DoData /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 141 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000182s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000238s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027411s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027454s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000146s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000562s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000753s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000347s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000377s ]
+
+[ 2019-09-21T14:14:22+08:00 ] 101.68.68.234 /Admins
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000275s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000347s ]
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 45 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000053s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000098s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005933s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005978s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000121s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000232s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000393s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000334s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000363s ]
+
+[ 2019-09-21T14:14:22+08:00 ] 101.68.68.234 /console/Login/load_verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000261s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 45 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000598s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000674s ]
+
+[ 2019-09-21T14:14:36+08:00 ] 101.68.68.234 /Admins
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000292s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000338s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000377s ]
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 45 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+
+[ 2019-09-21T14:14:39+08:00 ] 101.68.68.234 /console/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000133s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000188s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017601s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017653s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000165s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000467s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000703s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000388s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000424s ]
+
+[ 2019-09-21T14:16:36+08:00 ] 101.68.68.234 /console/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000344s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000135s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000187s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018503s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018561s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000149s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000395s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000589s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000335s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000371s ]
+
+[ 2019-09-21T14:16:49+08:00 ] 101.68.68.234 /console/Merchant/Auditing
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000368s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000336s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000377s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000115s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000164s ]
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/1bc1b789fdf3443e7e86474e0b077b04.php 第 182 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/1bc1b789fdf3443e7e86474e0b077b04.php 第 183 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/1bc1b789fdf3443e7e86474e0b077b04.php 第 184 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016604s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016672s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000224s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000467s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000754s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000483s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000520s ]
+
+[ 2019-09-21T14:16:53+08:00 ] 223.93.177.203 /Admins
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000336s ]
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 45 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000045s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000111s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005427s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005465s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000135s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000216s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000393s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000337s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000382s ]
+
+[ 2019-09-21T14:16:53+08:00 ] 223.93.177.203 /console/Login/load_verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000353s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000328s ]
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 45 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000351s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000399s ]
+
+[ 2019-09-21T14:16:55+08:00 ] 101.68.68.234 /console/Merchant/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000330s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000376s ]
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1298 行.
+NOTIC: [8] Undefined index: search_val /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1301 行.
+NOTIC: [8] Undefined index: bus_type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1305 行.
+NOTIC: [8] Undefined index: auth_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1308 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1315 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1317 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1320 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1322 行.
+NOTIC: [2] Missing argument 1 for domain_id(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php on line 1334 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3626 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3628 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000117s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000165s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025874s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025956s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000209s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000526s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000778s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000371s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000407s ]
+
+[ 2019-09-21T14:17:00+08:00 ] 101.68.68.234 /console/Merchant/Auth_Fee
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+NOTIC: [8] Undefined index: codes /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 233 行.
+NOTIC: [8] Undefined index: out_trade_no /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 236 行.
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 239 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000129s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000185s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013436s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013490s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000149s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000372s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000566s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000347s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000377s ]
+
+[ 2019-09-21T14:17:15+08:00 ] 101.68.68.234 /console/Orders/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000324s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000376s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000418s ]
+NOTIC: [8] Undefined index: trade_no /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/OrdersController.class.php 第 149 行.
+NOTIC: [8] Undefined index: mid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/OrdersController.class.php 第 153 行.
+NOTIC: [8] Undefined index: store_id /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/OrdersController.class.php 第 157 行.
+NOTIC: [8] Undefined index: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/OrdersController.class.php 第 161 行.
+NOTIC: [8] Undefined index: s_time /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/OrdersController.class.php 第 166 行.
+NOTIC: [8] Undefined index: e_time /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/OrdersController.class.php 第 167 行.
+NOTIC: [8] Undefined index: alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/OrdersController.class.php 第 184 行.
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/OrdersController.class.php 第 187 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000187s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000264s ]
+NOTIC: [8] Undefined index: trade_no /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/2878378be1b14b5b1dc82c53c1c030bb.php 第 201 行.
+NOTIC: [8] Undefined index: paytype /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/2878378be1b14b5b1dc82c53c1c030bb.php 第 230 行.
+NOTIC: [8] Undefined index: paytype /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/2878378be1b14b5b1dc82c53c1c030bb.php 第 231 行.
+NOTIC: [8] Undefined index: paytype /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/2878378be1b14b5b1dc82c53c1c030bb.php 第 232 行.
+NOTIC: [8] Undefined index: paytype /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/2878378be1b14b5b1dc82c53c1c030bb.php 第 233 行.
+NOTIC: [8] Undefined index: paytype /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/2878378be1b14b5b1dc82c53c1c030bb.php 第 234 行.
+NOTIC: [8] Undefined index: s_time /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/2878378be1b14b5b1dc82c53c1c030bb.php 第 246 行.
+NOTIC: [8] Undefined index: e_time /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/2878378be1b14b5b1dc82c53c1c030bb.php 第 248 行.
+NOTIC: [8] Undefined index: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/2878378be1b14b5b1dc82c53c1c030bb.php 第 262 行.
+NOTIC: [8] Undefined index: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/2878378be1b14b5b1dc82c53c1c030bb.php 第 263 行.
+NOTIC: [8] Undefined index: alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/2878378be1b14b5b1dc82c53c1c030bb.php 第 272 行.
+NOTIC: [8] Undefined index: alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/2878378be1b14b5b1dc82c53c1c030bb.php 第 272 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.137464s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.137521s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000163s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000431s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000641s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000355s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000385s ]
+
+[ 2019-09-21T14:17:17+08:00 ] 223.93.177.203 /Admins
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 45 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+
+[ 2019-09-21T14:17:20+08:00 ] 223.93.177.203 /console/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000330s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000121s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000175s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018014s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018075s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000155s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000450s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000663s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000318s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000349s ]
+
+[ 2019-09-21T14:17:23+08:00 ] 101.68.68.234 /console/Agent/lists
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000231s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000320s ]
+NOTIC: [8] Undefined index: search_val /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 62 行.
+NOTIC: [8] Undefined index: sprovince /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 66 行.
+NOTIC: [8] Undefined index: scity /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 70 行.
+NOTIC: [8] Undefined index: sdistrict /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 74 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 78 行.
+NOTIC: [8] Undefined index: auth_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 94 行.
+NOTIC: [8] Undefined index: pid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 108 行.
+NOTIC: [8] Undefined variable: DoData /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 141 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000131s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000183s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020757s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020801s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000141s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000570s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000755s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000339s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000378s ]
+
+[ 2019-09-21T14:17:40+08:00 ] 223.93.177.203 /console/Merchant/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1298 行.
+NOTIC: [8] Undefined index: search_val /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1301 行.
+NOTIC: [8] Undefined index: bus_type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1305 行.
+NOTIC: [8] Undefined index: auth_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1308 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1315 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1317 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1320 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1322 行.
+NOTIC: [2] Missing argument 1 for domain_id(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php on line 1334 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3626 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3628 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000137s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000192s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026402s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026457s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000211s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000471s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000726s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000344s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000372s ]
+
+[ 2019-09-21T14:17:43+08:00 ] 101.68.68.234 /console/Agent/benefit_count
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+NOTIC: [8] Undefined index: mon /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 305 行.
+NOTIC: [8] Undefined index: mon /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 307 行.
+NOTIC: [8] Undefined index: day /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 308 行.
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 310 行.
+NOTIC: [8] Undefined index: pid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 311 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 314 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000115s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000160s ]
+NOTIC: [8] Undefined index: mon /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/5d340f1e1219b49c5a35f3eee9d9d1eb.php 第 200 行.
+NOTIC: [8] Undefined index: day /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/5d340f1e1219b49c5a35f3eee9d9d1eb.php 第 206 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016245s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016280s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000158s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000337s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000537s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000488s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000532s ]
+
+[ 2019-09-21T14:17:50+08:00 ] 223.93.177.203 /console/Merchant/mp_login/id/4088
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000314s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000350s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000087s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000164s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006359s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006424s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000123s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000226s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000404s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000364s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000436s ]
+
+[ 2019-09-21T14:17:53+08:00 ] 183.192.164.56 /console/Login/load_verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 45 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000340s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000384s ]
+
+[ 2019-09-21T14:17:53+08:00 ] 183.192.164.214 /Admins
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000406s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000451s ]
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 45 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+NOTIC: [8] Undefined index: user /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Controller/AdminBaseController.class.php 第 79 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000081s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005144s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005176s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000102s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000233s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000379s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000302s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000327s ]
+
+[ 2019-09-21T14:18:06+08:00 ] 101.68.68.234 /console/Extends/qrcode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000240s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+NOTIC: [8] Undefined index: codes /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 265 行.
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 266 行.
+NOTIC: [8] Undefined index: mid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 270 行.
+NOTIC: [8] Undefined index: store_id /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 274 行.
+NOTIC: [8] Undefined index: bind /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 278 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 287 行.
+NOTIC: [8] Undefined index: agent_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 297 行.
+NOTIC: [8] Undefined index: page_data /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 307 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000123s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000173s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034541s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034594s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000208s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000504s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000770s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000655s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000685s ]
+
+[ 2019-09-21T14:18:15+08:00 ] 101.68.68.234 /console/Extends/weixin_list
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000359s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000121s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000167s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014566s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014620s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000164s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000274s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000485s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000341s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000370s ]
+
+[ 2019-09-21T14:18:42+08:00 ] 120.204.17.68 /console/Merchant/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000219s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000330s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000070s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000142s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006707s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006765s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000127s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000293s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000478s ]
+
+[ 2019-09-21T14:18:50+08:00 ] 183.192.164.56 /console/Merchant/mp_login/id/4088
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000320s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000093s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004276s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004317s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000104s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000198s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000342s ]
+
+[ 2019-09-21T14:19:14+08:00 ] 223.93.177.203 /console/Merchant/mp_login/id/4087
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000254s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000352s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000060s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000120s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005074s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005169s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000105s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000191s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000337s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000369s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000396s ]
+
+[ 2019-09-21T14:19:20+08:00 ] 101.68.68.234 /console/Agent/lists
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000320s ]
+NOTIC: [8] Undefined index: search_val /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 62 行.
+NOTIC: [8] Undefined index: sprovince /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 66 行.
+NOTIC: [8] Undefined index: scity /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 70 行.
+NOTIC: [8] Undefined index: sdistrict /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 74 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 78 行.
+NOTIC: [8] Undefined index: auth_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 94 行.
+NOTIC: [8] Undefined index: pid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 108 行.
+NOTIC: [8] Undefined variable: DoData /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 141 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000139s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000540s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021433s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021480s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000185s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000689s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000920s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000352s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000382s ]
+
+[ 2019-09-21T14:19:31+08:00 ] 101.68.68.234 /console/Agent/agent_login/id/597
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000348s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000381s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000089s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004391s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004432s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000101s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000194s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000331s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000310s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000347s ]
+
+[ 2019-09-21T14:19:39+08:00 ] 223.93.177.203 /console/Merchant/store/id/4087
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000309s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000378s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000416s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000119s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000180s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021674s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021746s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000154s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000464s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000673s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000435s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000474s ]
+
+[ 2019-09-21T14:20:09+08:00 ] 223.93.177.203 /console/Merchant/store_set
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000256s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000358s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+
+[ 2019-09-21T14:20:13+08:00 ] 223.93.177.203 /console/Merchant/store/id/4087
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000260s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000321s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000152s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000231s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023536s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023597s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000188s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000361s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000590s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000337s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000365s ]
+
+[ 2019-09-21T14:20:14+08:00 ] 120.204.17.73 /console/Merchant/mp_login/id/4087
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000344s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000050s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000101s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004445s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004484s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000112s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000266s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000430s ]
+
+[ 2019-09-21T14:20:40+08:00 ] 121.51.32.144 /console/Merchant/store/id/4087
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000221s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000305s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000056s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000113s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005078s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005125s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000134s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000321s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000517s ]
+
+[ 2019-09-21T14:23:29+08:00 ] 223.93.177.203 /console/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000339s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000131s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000186s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019401s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019460s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000140s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000391s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000573s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000354s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000383s ]
+
+[ 2019-09-21T14:23:43+08:00 ] 223.93.177.203 /console/WxPay/xwList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000378s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000471s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000140s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000206s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024653s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024724s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000204s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000457s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000708s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000373s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000403s ]
+
+[ 2019-09-21T14:24:07+08:00 ] 223.93.177.203 /console/Merchant/Auditing
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000331s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000372s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000153s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000235s ]
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/1bc1b789fdf3443e7e86474e0b077b04.php 第 182 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/1bc1b789fdf3443e7e86474e0b077b04.php 第 183 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/1bc1b789fdf3443e7e86474e0b077b04.php 第 184 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020502s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020558s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000135s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000336s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000519s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000371s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000406s ]
+
+[ 2019-09-21T14:24:10+08:00 ] 223.93.177.203 /console/Merchant/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000258s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000316s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000352s ]
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1298 行.
+NOTIC: [8] Undefined index: search_val /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1301 行.
+NOTIC: [8] Undefined index: bus_type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1305 行.
+NOTIC: [8] Undefined index: auth_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1308 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1315 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1317 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1320 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1322 行.
+NOTIC: [2] Missing argument 1 for domain_id(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php on line 1334 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3626 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3628 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000163s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000237s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031160s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031240s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000216s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000512s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000795s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000390s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000433s ]
+
+[ 2019-09-21T14:24:21+08:00 ] 223.93.177.203 /console/Merchant/Auth_Fee
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000221s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000325s ]
+NOTIC: [8] Undefined index: codes /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 233 行.
+NOTIC: [8] Undefined index: out_trade_no /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 236 行.
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 239 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000141s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000292s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015382s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015434s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000146s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000347s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000536s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000331s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000359s ]
+
+[ 2019-09-21T14:24:24+08:00 ] 223.93.177.203 /console/Merchant/alter_log
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000294s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000331s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000370s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000122s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000202s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017013s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017080s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000165s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000332s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000554s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000444s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000475s ]
+
+[ 2019-09-21T14:24:27+08:00 ] 223.93.177.203 /console/Merchant/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000300s ]
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1298 行.
+NOTIC: [8] Undefined index: search_val /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1301 行.
+NOTIC: [8] Undefined index: bus_type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1305 行.
+NOTIC: [8] Undefined index: auth_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1308 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1315 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1317 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1320 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1322 行.
+NOTIC: [2] Missing argument 1 for domain_id(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php on line 1334 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3626 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3628 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000183s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028157s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028223s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000186s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000448s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000678s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000364s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000399s ]
+
+[ 2019-09-21T14:24:29+08:00 ] 120.204.17.70 /console/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000210s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000293s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000052s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000100s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004312s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004350s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000126s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000198s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000367s ]
+
+[ 2019-09-21T14:24:44+08:00 ] 223.93.177.203 /console/Merchant/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000343s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000306s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000357s ]
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1298 行.
+NOTIC: [8] Undefined index: search_val /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1301 行.
+NOTIC: [8] Undefined index: bus_type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1305 行.
+NOTIC: [8] Undefined index: auth_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1308 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1315 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1317 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1320 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1322 行.
+NOTIC: [2] Missing argument 1 for domain_id(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php on line 1334 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3626 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3628 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000139s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000197s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028404s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028462s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000203s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000477s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000729s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000360s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000390s ]
+
+[ 2019-09-21T14:24:55+08:00 ] 223.93.177.203 /console/Agent/lists
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000336s ]
+NOTIC: [8] Undefined index: search_val /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 62 行.
+NOTIC: [8] Undefined index: sprovince /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 66 行.
+NOTIC: [8] Undefined index: scity /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 70 行.
+NOTIC: [8] Undefined index: sdistrict /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 74 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 78 行.
+NOTIC: [8] Undefined index: auth_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 94 行.
+NOTIC: [8] Undefined index: pid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 108 行.
+NOTIC: [8] Undefined variable: DoData /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/AgentController.class.php 第 141 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000171s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000237s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022730s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022778s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000163s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000532s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000738s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000720s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000796s ]
+
+[ 2019-09-21T14:25:06+08:00 ] 223.93.177.203 /console/Merchant/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000275s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000380s ]
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1298 行.
+NOTIC: [8] Undefined index: search_val /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1301 行.
+NOTIC: [8] Undefined index: bus_type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1305 行.
+NOTIC: [8] Undefined index: auth_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1308 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1315 行.
+NOTIC: [8] Undefined index: wx_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1317 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1320 行.
+NOTIC: [8] Undefined index: ali_alleys /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php 第 1322 行.
+NOTIC: [2] Missing argument 1 for domain_id(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/MerchantController.class.php on line 1334 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3626 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 3628 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000173s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000245s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030377s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030439s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000224s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000515s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000794s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000424s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000467s ]
+
+[ 2019-09-21T14:25:17+08:00 ] 223.93.177.203 /console/Merchant/mp_login/id/4087
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000370s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000048s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000091s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004630s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004670s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000097s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000232s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000366s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000313s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000342s ]
+
+[ 2019-09-21T14:25:28+08:00 ] 101.68.68.234 /console/Extends/AdData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000101s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000168s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015666s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015719s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000169s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000481s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000707s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000385s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000431s ]
+
+[ 2019-09-21T14:25:33+08:00 ] 101.68.68.234 /console/Extends/AdDataAdd/id/10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000327s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000115s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000171s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013493s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013537s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000160s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000392s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000599s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000344s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000378s ]
+
+[ 2019-09-21T14:25:36+08:00 ] 223.93.177.203 /console/Merchant/mp_login/id/4087
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000246s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000329s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000053s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000109s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004634s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004676s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000097s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000186s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000319s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000326s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000353s ]
+
+[ 2019-09-21T14:25:40+08:00 ] 101.68.68.234 /console/Extends/AdData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000301s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000081s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000131s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016119s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016178s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000167s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000392s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000606s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000310s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000340s ]
+
+[ 2019-09-21T14:25:44+08:00 ] 101.68.68.234 /console/Extends/AdDataAdd/id/9
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000107s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000168s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014287s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014335s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000157s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000350s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000551s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000325s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000353s ]
+
+[ 2019-09-21T14:25:46+08:00 ] 101.68.68.234 /console/Extends/weixin_list
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000268s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000297s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000147s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014227s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014276s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000146s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000249s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000437s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000332s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000376s ]
+
+[ 2019-09-21T14:25:48+08:00 ] 101.68.68.234 /console/Extends/AdData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000255s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000283s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000078s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000128s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016658s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016718s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000178s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000355s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000667s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000577s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000623s ]
+
+[ 2019-09-21T14:25:51+08:00 ] 101.68.68.234 /console/Extends/wxQwAdData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000145s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016461s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016518s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000167s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000372s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000581s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000316s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000346s ]
+
+[ 2019-09-21T14:25:53+08:00 ] 101.68.68.234 /console/Extends/wxQwAdDataSet/id/5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000325s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000088s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000138s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013131s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013173s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000141s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000339s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000527s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000320s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000350s ]
+
+[ 2019-09-21T14:26:04+08:00 ] 101.68.68.234 /console/Extends/qrcode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000313s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+NOTIC: [8] Undefined index: codes /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 265 行.
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 266 行.
+NOTIC: [8] Undefined index: mid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 270 行.
+NOTIC: [8] Undefined index: store_id /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 274 行.
+NOTIC: [8] Undefined index: bind /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 278 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 287 行.
+NOTIC: [8] Undefined index: agent_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 297 行.
+NOTIC: [8] Undefined index: page_data /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 307 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000120s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000171s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033296s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033352s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000210s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000474s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000737s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000826s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000859s ]
+
+[ 2019-09-21T14:26:35+08:00 ] 101.68.68.234 /console/Extends/qrcode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000257s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+NOTIC: [8] Undefined index: codes /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 265 行.
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 266 行.
+NOTIC: [8] Undefined index: mid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 270 行.
+NOTIC: [8] Undefined index: store_id /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 274 行.
+NOTIC: [8] Undefined index: bind /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 278 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 287 行.
+NOTIC: [8] Undefined index: agent_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 297 行.
+NOTIC: [8] Undefined index: page_data /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 307 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000135s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000202s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035936s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000228s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000574s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000861s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000733s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000764s ]
+
+[ 2019-09-21T17:39:51+08:00 ] 101.68.68.234 /console/Extends/qrcode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000363s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+NOTIC: [8] Undefined index: codes /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 265 行.
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 266 行.
+NOTIC: [8] Undefined index: mid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 270 行.
+NOTIC: [8] Undefined index: store_id /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 274 行.
+NOTIC: [8] Undefined index: bind /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 278 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 287 行.
+NOTIC: [8] Undefined index: agent_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 297 行.
+NOTIC: [8] Undefined index: page_data /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 307 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000172s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000231s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.040501s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040561s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000194s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000522s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000771s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000723s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000754s ]
+
+[ 2019-09-21T18:00:30+08:00 ] 101.68.68.234 /console/Extends/qrcode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000378s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000416s ]
+NOTIC: [8] Undefined index: codes /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 265 行.
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 266 行.
+NOTIC: [8] Undefined index: mid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 270 行.
+NOTIC: [8] Undefined index: store_id /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 274 行.
+NOTIC: [8] Undefined index: bind /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 278 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 287 行.
+NOTIC: [8] Undefined index: agent_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 297 行.
+NOTIC: [8] Undefined index: page_data /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 307 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000155s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000219s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036525s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036596s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000218s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000596s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000872s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000698s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000736s ]
+
+[ 2019-09-21T18:00:47+08:00 ] 101.68.68.234 /console/Extends/adds
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000289s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000330s ]
+NOTIC: [2] Missing argument 2 for RandStr(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 125 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2092 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2094 行.
+NOTIC: [2] Missing argument 1 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for RandStr(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 125 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2092 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2094 行.
+NOTIC: [2] Missing argument 1 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for RandStr(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 125 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2092 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2094 行.
+NOTIC: [2] Missing argument 1 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for RandStr(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 125 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2092 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2094 行.
+NOTIC: [2] Missing argument 1 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for RandStr(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 125 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2092 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2094 行.
+NOTIC: [2] Missing argument 1 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for RandStr(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 125 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2092 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2094 行.
+NOTIC: [2] Missing argument 1 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for RandStr(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 125 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2092 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2094 行.
+NOTIC: [2] Missing argument 1 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for RandStr(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 125 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2092 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2094 行.
+NOTIC: [2] Missing argument 1 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for RandStr(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 125 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2092 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2094 行.
+NOTIC: [2] Missing argument 1 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for RandStr(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 125 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2092 行.
+NOTIC: [8] Undefined variable: type /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Common/Common/function.php 第 2094 行.
+NOTIC: [2] Missing argument 1 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+NOTIC: [2] Missing argument 2 for XunCode::__construct(), called in /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Tasks/Controller/QrCodeController.class.php on line 69 and defined /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Vendor/XunCode.php 第 9 行.
+
+[ 2019-09-21T18:00:52+08:00 ] 101.68.68.234 /console/Extends/qrcode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000234s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000309s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000347s ]
+NOTIC: [8] Undefined index: codes /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 265 行.
+NOTIC: [8] Undefined index: aid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 266 行.
+NOTIC: [8] Undefined index: mid /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 270 行.
+NOTIC: [8] Undefined index: store_id /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 274 行.
+NOTIC: [8] Undefined index: bind /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 278 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 287 行.
+NOTIC: [8] Undefined index: agent_status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 297 行.
+NOTIC: [8] Undefined index: page_data /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Admin/Controller/ExtendsController.class.php 第 307 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000125s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000186s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:1.512530s ]
+INFO: [ view_parse ] --END-- [ RunTime:1.512588s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000219s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000472s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000737s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000959s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000990s ]
+
+[ 2019-09-21T18:01:18+08:00 ] 101.68.68.234 /console/Merchant/Auditing
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000363s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset: 1 /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/ThinkPHP/Library/Think/Template.class.php 第 527 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000143s ]
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/1bc1b789fdf3443e7e86474e0b077b04.php 第 182 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/1bc1b789fdf3443e7e86474e0b077b04.php 第 183 行.
+NOTIC: [8] Undefined index: status /home/wwwroot/pay/domain/hzf.xiaohouzhi.com/web/App/Runtime/Cache/Admin/1bc1b789fdf3443e7e86474e0b077b04.php 第 184 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016066s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016110s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000136s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000361s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000539s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000335s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000363s ]
+
+[ 2019-09-21T18:01:25+08:00 ] 101.68.68.234 /console/Merchant/Auditing_detail/id/4091
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000289s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000325s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000156s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000212s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036274s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036344s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000270s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000422s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000738s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000359s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000402s ]
+
+[ 2019-09-21T18:02:25+08:00 ] 61.151.207.186 /console/merchant/auditing_detail/id/4091
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000339s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000083s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000173s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005910s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005965s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000132s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000212s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000389s ]
+
+[ 2019-09-21T21:31:13+08:00 ] 101.68.68.234 /console/Merchant/Auditing_detail/id/4091
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000261s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000331s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000155s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000206s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035960s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036021s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000207s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000437s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000696s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000363s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000392s ]
+
