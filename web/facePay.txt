@@ -1,0 +1,24 @@
+array (
+  'appid' => 'wx3eb31580bd3c35db',
+  'attach' => 
+  array (
+  ),
+  'bank_type' => 'CFT',
+  'cash_fee' => '1',
+  'cash_fee_type' => 'CNY',
+  'fee_type' => 'CNY',
+  'mch_id' => '1485058202',
+  'nonce_str' => 'bYLO6nCNdsEMCZZm',
+  'openid' => 'oLbJSxK7Fnp-YA16yl78nAasGQQw',
+  'out_trade_no' => '191022416966590672886',
+  'promotion_detail' => '{}',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => '86649FCDA76BA8F3A34008E69D38DBF4',
+  'sub_mch_id' => '1491813322',
+  'time_end' => '20191022181913',
+  'total_fee' => '1',
+  'trade_type' => 'FACEPAY',
+  'transaction_id' => '4200000412201910229397615259',
+)

@@ -1,0 +1,49 @@
+array (
+  'status' => 1,
+  'msg' => '接口通信正常',
+  'data' => 
+  array (
+    'code' => '10000',
+    'msg' => 'Success',
+    'buyer_logon_id' => 'yum***@163.com',
+    'buyer_user_id' => '2088002792362320',
+    'fund_change' => 'Y',
+    'gmt_refund_pay' => '2019-10-23 17:08:55',
+    'out_trade_no' => '191023424436142702959',
+    'refund_detail_item_list' => 
+    array (
+      0 => 
+      array (
+        'amount' => '0.20',
+        'fund_channel' => 'PCREDIT',
+      ),
+    ),
+    'refund_fee' => '0.20',
+    'send_back_fee' => '0.20',
+    'trade_no' => '2019102322001462325705772101',
+  ),
+)array (
+  'status' => 1,
+  'msg' => '接口通信正常',
+  'data' => 
+  array (
+    'code' => '10000',
+    'msg' => 'Success',
+    'buyer_logon_id' => 'yum***@163.com',
+    'buyer_user_id' => '2088002792362320',
+    'fund_change' => 'Y',
+    'gmt_refund_pay' => '2019-10-23 17:10:51',
+    'out_trade_no' => '191023424556181347217',
+    'refund_detail_item_list' => 
+    array (
+      0 => 
+      array (
+        'amount' => '0.30',
+        'fund_channel' => 'PCREDIT',
+      ),
+    ),
+    'refund_fee' => '0.30',
+    'send_back_fee' => '0.30',
+    'trade_no' => '2019102322001462325705673432',
+  ),
+)

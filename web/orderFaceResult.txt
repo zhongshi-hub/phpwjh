@@ -1,0 +1,36 @@
+array (
+  0 => 
+  array (
+    'code' => 100,
+    'msg' => '查询成功',
+    'data' => 
+    array (
+      'status' => 1,
+      'api_status' => 1,
+      'msg' => '支付成功',
+      'appid' => 'wx3eb31580bd3c35db',
+      'mch_id' => '1485058202',
+      'sub_mch_id' => '1491813322',
+      'total_fee' => '1',
+      'transaction_id' => '4200000412201910229397615259',
+      'out_trade_no' => '191022416966590672886',
+      'time_end' => '20191022181913',
+    ),
+  ),
+  1 => 
+  array (
+    'code' => 100,
+    'msg' => '成功',
+    'data' => 
+    array (
+      'appid' => 'wx3eb31580bd3c35db',
+      'mch_id' => '1485058202',
+      'sub_mch_id' => '1491813322',
+      'total_fee' => '1',
+      'transaction_id' => '4200000412201910229397615259',
+      'out_trade_no' => '191022416966590672886',
+      'time_end' => '20191022181913',
+      'status' => 1,
+    ),
+  ),
+)

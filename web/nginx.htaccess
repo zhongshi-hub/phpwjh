@@ -1,0 +1,8 @@
+location / {  
+        if (!-e $request_filename) {  
+           rewrite  ^(.*)/Pay/auth?([A-Za-z0-9]+)$ $1/Pays/Auth/code_auth/$2 last;
+           rewrite  ^(.*)/MP_verify_([A-Za-z0-9]+)\.txt$ $1/Pays/Index/mp_verify/data/$2 last;
+           rewrite  ^(.*)/([A-Za-z0-9]+)\.html$ $1/Home/Index/$2 last;
+           rewrite  ^/(.*)$  /index.php?s=/$1  last;  
+        }  
+}

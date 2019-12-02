@@ -1,0 +1,1250 @@
+array (
+  'time' => '2019-10-23 00:12:41',
+  'post' => 
+  array (
+    'appid' => '5980873969',
+    'method' => 'mch_orderList',
+    'sign' => 'CA2363EDCCFEAB5098405E4023F69AF2',
+    'data' => 
+    array (
+      'sdate' => '20191023000000',
+      'nonce_str' => '314997024740024388433213976',
+      'edate' => '20191023235959',
+      'status' => '4',
+      'page' => '1',
+      'limit' => '20000',
+      'store_id' => '4486',
+    ),
+  ),
+  'data' => '{"code":100,"msg":"无交易流水"}',
+)array (
+  'time' => '2019-10-23 00:12:41',
+  'post' => 
+  array (
+    'appid' => '5980873969',
+    'method' => 'mch_orderCount',
+    'sign' => '6CA574E2B59AA0893F7DCC6DBB6A7952',
+    'data' => 
+    array (
+      'store_id' => '4486',
+      'status' => '4',
+      'sdate' => '20191023',
+      'edate' => '20191023',
+      'nonce_str' => '314997024740024388433213976',
+    ),
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-10-23 00:00:00","etime":"2019-10-24 00:00:00","count":0,"total":0,"re_total":0,"suc_total":0,"wx_count":0,"wx_total":0,"wx_re_total":0,"wx_suc_total":0,"ali_count":0,"ali_total":0,"ali_re_total":0,"ali_suc_total":0,"nonce_str":"Face5daf2a79a8529"},"sign":"0AAF55C44672BE0FCADDD2BC51099ECF"}',
+)array (
+  'time' => '2019-10-23 00:12:49',
+  'post' => 
+  array (
+    'appid' => '5980873969',
+    'method' => 'mch_orderCount',
+    'sign' => 'DFAA0B9FC84C0B2E473FBD3A6F82E51F',
+    'data' => 
+    array (
+      'store_id' => '4486',
+      'status' => '4',
+      'sdate' => '20191022',
+      'edate' => '20191022',
+      'nonce_str' => '486611259601737954890578',
+    ),
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-10-22 00:00:00","etime":"2019-10-23 00:00:00","count":"39","total":67450,"re_total":0,"suc_total":67450,"wx_count":0,"wx_total":0,"wx_re_total":0,"wx_suc_total":0,"ali_count":"39","ali_total":67450,"ali_re_total":0,"ali_suc_total":67450,"nonce_str":"Face5daf2a81d8482"},"sign":"72A502B7F5EC5CA6C4D36339422236D6"}',
+)array (
+  'time' => '2019-10-23 00:16:50',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 1400,
+      'authCode' => '284171927471184338',
+      'nonce_str' => 'hr5cga2qogw',
+    ),
+    'appid' => '5980873969',
+    'sign' => '3A5633069F8EBFCF17B4358D3CD1A02E',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:14.00元","data":{"out_trade_no":"19102342666100685784","transaction_id":"2019102322001434895704679073","status":1,"payType":"ali","payTime":"2019-10-23 00:16:50","total":1400,"nonce_str":"Face5daf2b72d679c"},"sign":"64EB138EF6DAAA8D5107B804D88E2C11"}',
+)array (
+  'time' => '2019-10-23 00:19:16',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 1350,
+      'authCode' => '282973432186964518',
+      'nonce_str' => 'tc0qgki0f2o',
+    ),
+    'appid' => '5980873969',
+    'sign' => '365DCB8FC05A75AB9AFD64909155DE96',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:13.50元","data":{"out_trade_no":"19102342860115302349","transaction_id":"2019102322001473525703106570","status":1,"payType":"ali","payTime":"2019-10-23 00:19:16","total":1350,"nonce_str":"Face5daf2c04b0b15"},"sign":"78D293B8396FC5FDE4A42B4906085DB7"}',
+)array (
+  'time' => '2019-10-23 07:21:02',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 700,
+      'authCode' => '281435446520810926',
+      'nonce_str' => 'cs36o0j3z4m',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'C2D0ABC5AEF8F00DCD7680EF30FF90B4',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:7.00元","data":{"out_trade_no":"191023421832645921296","transaction_id":"2019102322001443265703908571","status":1,"payType":"ali","payTime":"2019-10-23 07:21:02","total":700,"nonce_str":"Face5daf8edec58de"},"sign":"871D81831A7ACFA97DE041492EA9A8C0"}',
+)array (
+  'time' => '2019-10-23 07:43:18',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 1500,
+      'authCode' => '282253011696992608',
+      'nonce_str' => 'iextr92nue',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'D096916F801F3839C60F5ACDDAF35341',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:15.00元","data":{"out_trade_no":"191023428932779631266","transaction_id":"2019102322001430115704114866","status":1,"payType":"ali","payTime":"2019-10-23 07:43:18","total":1500,"nonce_str":"Face5daf9416a70d8"},"sign":"44732418D5C364A01EB459F7B48CE7CE"}',
+)array (
+  'time' => '2019-10-23 08:28:43',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 650,
+      'authCode' => '288601253593537735',
+      'nonce_str' => 'z77snhjhpoi',
+    ),
+    'appid' => '5980873969',
+    'sign' => '2D841C68AD988C18E28BD4025C17DC0F',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:6.50元","data":{"out_trade_no":"191023427733052085503","transaction_id":"2019102322001468665705494566","status":1,"payType":"ali","payTime":"2019-10-23 08:28:43","total":650,"nonce_str":"Face5daf9ebbf0796"},"sign":"636CC63243FFD9AEB400A03E52FB5B57"}',
+)array (
+  'time' => '2019-10-23 08:39:02',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 400,
+      'authCode' => '285775211639244138',
+      'nonce_str' => 'gr8czcuhmek',
+    ),
+    'appid' => '5980873969',
+    'sign' => '5B3941A53B67039F973982675EF4CBBD',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:4.00元","data":{"out_trade_no":"191023421753113898990","transaction_id":"2019102322001404675703942637","status":1,"payType":"ali","payTime":"2019-10-23 08:39:02","total":400,"nonce_str":"Face5dafa1268aa3d"},"sign":"7ED8F570F0179934BAED0911B11B13AC"}',
+)array (
+  'time' => '2019-10-23 08:46:41',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 350,
+      'authCode' => '289421209080619535',
+      'nonce_str' => 'miw9lhv897c',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'E6D8CC0BB2C09168C0EC50BD8A8D1D54',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:3.50元","data":{"out_trade_no":"191023422333159856442","transaction_id":"2019102322001485775702581737","status":1,"payType":"ali","payTime":"2019-10-23 08:46:41","total":350,"nonce_str":"Face5dafa2f1f059b"},"sign":"0409B0C3979EE6F97E3265B9231DD134"}',
+)array (
+  'time' => '2019-10-23 08:50:41',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 2400,
+      'authCode' => '283266362917093885',
+      'nonce_str' => '28nryx2wsh8',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'D5234551BD2F32E448F35B2C913EF0AB',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:24.00元","data":{"out_trade_no":"191023421433183892475","transaction_id":"2019102322001497045704165721","status":1,"payType":"ali","payTime":"2019-10-23 08:50:41","total":2400,"nonce_str":"Face5dafa3e179b65"},"sign":"84E704BBC31C2CF5F7178CD4F8CF4158"}',
+)array (
+  'time' => '2019-10-23 08:51:43',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 500,
+      'authCode' => '281868583511853279',
+      'nonce_str' => '1vvmrjidd1m',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'F87643D9A29B4859A5196EE2C894EF07',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:5.00元","data":{"out_trade_no":"191023425583190093142","transaction_id":"2019102322001497045704229228","status":1,"payType":"ali","payTime":"2019-10-23 08:51:43","total":500,"nonce_str":"Face5dafa41f3ce25"},"sign":"95CBFF100EBDF2D1A3FF99A9EB7AF697"}',
+)array (
+  'time' => '2019-10-23 09:02:56',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 1000,
+      'authCode' => '284576829107124645',
+      'nonce_str' => 'hzkl65rjybu',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'C6AA381AE7C898078A1734BF53172FEE',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:10.00元","data":{"out_trade_no":"191023426593257201496","transaction_id":"2019102322001473785702678342","status":1,"payType":"ali","payTime":"2019-10-23 09:02:56","total":1000,"nonce_str":"Face5dafa6c04201e"},"sign":"5422A5A98C7A9D93FFBEE726F67B870A"}',
+)array (
+  'time' => '2019-10-23 09:04:15',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 1500,
+      'authCode' => '280560604392723215',
+      'nonce_str' => 'pmm7yu1d3pb',
+    ),
+    'appid' => '5980873969',
+    'sign' => '11BB3F26D107284DDB1BC74FD7C7C3EF',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:15.00元","data":{"out_trade_no":"191023423453265278932","transaction_id":"2019102322001400385703982549","status":1,"payType":"ali","payTime":"2019-10-23 09:04:15","total":1500,"nonce_str":"Face5dafa70fd3761"},"sign":"6C6AE9B7F8A7E16767401ED4684F856E"}',
+)array (
+  'time' => '2019-10-23 09:24:45',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 2000,
+      'authCode' => '282527671797929936',
+      'nonce_str' => 'jbq64h5pl3k',
+    ),
+    'appid' => '5980873969',
+    'sign' => '6298E2DCF853357DF4A4DD92F3CB645B',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:20.00元","data":{"out_trade_no":"191023428613388266132","transaction_id":"2019102322001454501403754387","status":1,"payType":"ali","payTime":"2019-10-23 09:24:45","total":2000,"nonce_str":"Face5dafabdd5554a"},"sign":"A536AB8F8B2E0C1A54E813DC2C2BA26A"}',
+)array (
+  'time' => '2019-10-23 09:48:04',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 1300,
+      'authCode' => '285428948322219808',
+      'nonce_str' => 'vmnbuzkrpu',
+    ),
+    'appid' => '5980873969',
+    'sign' => '1234290948428D2F8D152EE7C2B8C3E1',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:13.00元","data":{"out_trade_no":"191023423383528091578","transaction_id":"2019102322001482695702615946","status":1,"payType":"ali","payTime":"2019-10-23 09:48:04","total":1300,"nonce_str":"Face5dafb1542f3d4"},"sign":"B7351695B62498B57A250C313A7578A2"}',
+)array (
+  'time' => '2019-10-23 10:13:13',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4246,
+      'total' => 6000,
+      'authCode' => '284989645249165717',
+      'nonce_str' => 'y5z9camksvk',
+    ),
+    'appid' => '3779958356',
+    'sign' => '28A2473524CC12E10CA99421EA80142E',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:60.00元","data":{"out_trade_no":"191023420783679162051","transaction_id":"2019102322001486875704427102","status":1,"payType":"ali","payTime":"2019-10-23 10:13:13","total":6000,"nonce_str":"Face5dafb739c1507"},"sign":"53585101B84A7BBAE290496B1DCFF4E0"}',
+)array (
+  'time' => '2019-10-23 10:21:34',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 1100,
+      'authCode' => '287259132908492275',
+      'nonce_str' => 'q779czwatlj',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'D80AE15815046ED3729C19BE11904487',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:11.00元","data":{"out_trade_no":"191023427323729129401","transaction_id":"2019102322001408045704164688","status":1,"payType":"ali","payTime":"2019-10-23 10:21:34","total":1100,"nonce_str":"Face5dafb92e5c4b7"},"sign":"437983F156730F61CA912A6BDEFECE6B"}',
+)array (
+  'time' => '2019-10-23 11:33:15',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 250,
+      'authCode' => '286948650933361817',
+      'nonce_str' => 'c57jte2mnzv',
+    ),
+    'appid' => '5980873969',
+    'sign' => '5D06D03A2DD092780113C97E34977B4D',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:2.50元","data":{"out_trade_no":"191023426554159242234","transaction_id":"2019102322001475965704751408","status":1,"payType":"ali","payTime":"2019-10-23 11:33:15","total":250,"nonce_str":"Face5dafc9fb53b78"},"sign":"E9D0994C791BF78311837A741EFD369D"}',
+)array (
+  'time' => '2019-10-23 11:59:21',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 1000,
+      'authCode' => '283654844648032329',
+      'nonce_str' => 'jwzamelzr5',
+    ),
+    'appid' => '5980873969',
+    'sign' => '10968FF76D366A3ED95E7E351B79FA01',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:10.00元","data":{"out_trade_no":"191023420094315912710","transaction_id":"2019102322001475965704084183","status":1,"payType":"ali","payTime":"2019-10-23 11:59:21","total":1000,"nonce_str":"Face5dafd019c4faf"},"sign":"EB636AA84CE82281B61E06B54BE368E2"}',
+)array (
+  'time' => '2019-10-23 12:01:40',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 1000,
+      'authCode' => '283156336221082825',
+      'nonce_str' => '3oqjspyrn3d',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'A44973484A6887E575DC60CE05E8EE5A',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:10.00元","data":{"out_trade_no":"191023420644329716730","transaction_id":"2019102322001479201404651844","status":1,"payType":"ali","payTime":"2019-10-23 12:01:40","total":1000,"nonce_str":"Face5dafd0a409c5f"},"sign":"5C9311DDC09C8AAEFDDE4A1CA72824F0"}',
+)array (
+  'time' => '2019-10-23 12:08:13',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4484,
+      'total' => 100,
+      'authCode' => '283246820362091809',
+      'nonce_str' => 'fldtoezv31',
+    ),
+    'appid' => '2379571552',
+    'sign' => 'F31A39425DA65F93070D7533B6B97D59',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:1.00元","data":{"out_trade_no":"191023420674369166945","transaction_id":"2019102322001462251404111491","status":1,"payType":"ali","payTime":"2019-10-23 12:08:13","total":100,"nonce_str":"Face5dafd22d03e60"},"sign":"C2D114C8796ED2B90F6A911665734277"}',
+)array (
+  'time' => '2019-10-23 12:59:40',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 1100,
+      'authCode' => '284435452104110587',
+      'nonce_str' => 's4143us3jb',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'D4716A5C6BE8AF660525AD505D66A5FB',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:11.00元","data":{"out_trade_no":"191023422944677712907","transaction_id":"2019102322001467001405281986","status":1,"payType":"ali","payTime":"2019-10-23 12:59:40","total":1100,"nonce_str":"Face5dafde3c017a2"},"sign":"C796CBC22CA38A7E2D54B2D62781D7E1"}',
+)array (
+  'time' => '2019-10-23 14:38:14',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 2950,
+      'authCode' => '287482989218415897',
+      'nonce_str' => 'w473pitdnma',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'E0E7BC007DDAAD749CA874254663519E',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:29.50元","data":{"out_trade_no":"191023422145269175996","transaction_id":"2019102322001400385703956719","status":1,"payType":"ali","payTime":"2019-10-23 14:38:14","total":2950,"nonce_str":"Face5daff5568e67b"},"sign":"F8CD6CA9A564680BC68ED3075B2EA54E"}',
+)array (
+  'time' => '2019-10-23 15:01:53',
+  'post' => 
+  array (
+    'appid' => '3396909283',
+    'method' => 'mch_orderCount',
+    'data' => 
+    array (
+      'store_id' => 4230,
+      'status' => 4,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'nonce_str' => '5d10f3e6195b1',
+    ),
+    'sign' => '1CB591510B726428BBA69A3D4C2374EF',
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-10-23 00:00:00","etime":"2019-10-24 00:00:00","count":0,"total":0,"re_total":0,"suc_total":0,"wx_count":0,"wx_total":0,"wx_re_total":0,"wx_suc_total":0,"ali_count":0,"ali_total":0,"ali_re_total":0,"ali_suc_total":0,"nonce_str":"Face5daffae1d39c4"},"sign":"AE31D972722945ED7B09D0C9471B8A37"}',
+)array (
+  'time' => '2019-10-23 15:02:04',
+  'post' => 
+  array (
+    'appid' => '3396909283',
+    'method' => 'mch_adData',
+    'data' => 
+    array (
+      'store_id' => 4230,
+      'type' => 'wx',
+      'nonce_str' => '5d0b360f1ceee',
+    ),
+    'sign' => '4C1E9C99CC091EF09BA8EF50677D63C6',
+  ),
+  'data' => '{"code":100,"msg":"广告资料获取成功","data":{"image1":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-18/QUT78CJ6MMXNDWHUQ3JS.jpg","image2":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-18/MMOO7E9AMGGU1VIGVQM2.jpg","image3":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-09/HCSLM6HUR2XM9G2NOAVK.jpg","image4":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-09/9CXEU9CGCOQLXIBDCQMG.jpg","image5":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-09/IGITSNMBLN1M30IQDKMB.jpg","store_id":4230,"type":"wx","test":["/Upload/attachment/2019-09-18/QUT78CJ6MMXNDWHUQ3JS.jpg","/Upload/attachment/2019-09-18/MMOO7E9AMGGU1VIGVQM2.jpg","/Upload/attachment/2019-09-09/HCSLM6HUR2XM9G2NOAVK.jpg","/Upload/attachment/2019-09-09/9CXEU9CGCOQLXIBDCQMG.jpg","/Upload/attachment/2019-09-09/IGITSNMBLN1M30IQDKMB.jpg"],"nonce_str":"Face5daffaec042b2"},"sign":"04129C9B11A0D9037E7076D6D925748B"}',
+)array (
+  'time' => '2019-10-23 15:03:05',
+  'post' => 
+  array (
+    'appid' => '3396909283',
+    'method' => 'mch_adData',
+    'data' => 
+    array (
+      'store_id' => 4230,
+      'type' => 'wx',
+      'nonce_str' => '5d0b360f1ceee',
+    ),
+    'sign' => '4C1E9C99CC091EF09BA8EF50677D63C6',
+  ),
+  'data' => '{"code":100,"msg":"广告资料获取成功","data":{"image1":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-18/QUT78CJ6MMXNDWHUQ3JS.jpg","image2":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-18/MMOO7E9AMGGU1VIGVQM2.jpg","image3":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-09/HCSLM6HUR2XM9G2NOAVK.jpg","image4":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-09/9CXEU9CGCOQLXIBDCQMG.jpg","image5":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-09/IGITSNMBLN1M30IQDKMB.jpg","store_id":4230,"type":"wx","test":["/Upload/attachment/2019-09-18/QUT78CJ6MMXNDWHUQ3JS.jpg","/Upload/attachment/2019-09-18/MMOO7E9AMGGU1VIGVQM2.jpg","/Upload/attachment/2019-09-09/HCSLM6HUR2XM9G2NOAVK.jpg","/Upload/attachment/2019-09-09/9CXEU9CGCOQLXIBDCQMG.jpg","/Upload/attachment/2019-09-09/IGITSNMBLN1M30IQDKMB.jpg"],"nonce_str":"Face5daffb2968d45"},"sign":"EAB428C1B1835FA1BA359D1659446E33"}',
+)array (
+  'time' => '2019-10-23 15:10:28',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4254,
+      'total' => 1,
+      'authCode' => '283901086970067019',
+      'nonce_str' => '3drjfacwf53',
+    ),
+    'appid' => '0565780795',
+    'sign' => 'C22C02EC7D53BFB7B72C6323B11F6611',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:0.01元","data":{"out_trade_no":"191023427915462698032","transaction_id":"2019102322001400901403479024","status":1,"payType":"ali","payTime":"2019-10-23 15:10:28","total":1,"nonce_str":"Face5daffce4c6923"},"sign":"EDF239EC439BD0A27408AE7DB2A8EDB3"}',
+)array (
+  'time' => '2019-10-23 15:11:35',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4254,
+      'total' => 1,
+      'authCode' => '286108692854387109',
+      'nonce_str' => 'wpgi77ebjge',
+    ),
+    'appid' => '0565780795',
+    'sign' => '22E57025F76FC9DF6CA4FBC9E8E94F13',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:0.01元","data":{"out_trade_no":"191023422355469387919","transaction_id":"2019102322001419045704758475","status":1,"payType":"ali","payTime":"2019-10-23 15:11:35","total":1,"nonce_str":"Face5daffd27a73a5"},"sign":"75D5DABFF786E0C306FC1617449D961C"}',
+)array (
+  'time' => '2019-10-23 15:30:59',
+  'post' => 
+  array (
+    'appid' => '5980873969',
+    'method' => 'mch_orderList',
+    'sign' => '15CB769573A1EBA878E9BE140FBA917F',
+    'data' => 
+    array (
+      'sdate' => '20191023000000',
+      'nonce_str' => '3306175142952866302725085421',
+      'edate' => '20191023235959',
+      'status' => '4',
+      'page' => '1',
+      'limit' => '20000',
+      'store_id' => '4486',
+    ),
+  ),
+  'data' => '{"code":100,"msg":"查询交易流水成功","data":{"counts":19,"amount":22450,"count":19,"order_data":[{"out_trade_no":"191023422145269175996","transaction_id":"2019102322001400385703956719","create_time":"2019-10-23 14:38:14","status":1,"pay_status":1,"time_end":"2019-10-23 14:38:13","total_fee":2950,"store_id":"4486","service":"ali"},{"out_trade_no":"191023422944677712907","transaction_id":"2019102322001467001405281986","create_time":"2019-10-23 12:59:39","status":1,"pay_status":1,"time_end":"2019-10-23 12:59:38","total_fee":1100,"store_id":"4486","service":"ali"},{"out_trade_no":"191023420644329716730","transaction_id":"2019102322001479201404651844","create_time":"2019-10-23 12:01:39","status":1,"pay_status":1,"time_end":"2019-10-23 12:01:38","total_fee":1000,"store_id":"4486","service":"ali"},{"out_trade_no":"191023420094315912710","transaction_id":"2019102322001475965704084183","create_time":"2019-10-23 11:59:21","status":1,"pay_status":1,"time_end":"2019-10-23 11:59:20","total_fee":1000,"store_id":"4486","service":"ali"},{"out_trade_no":"191023426554159242234","transaction_id":"2019102322001475965704751408","create_time":"2019-10-23 11:33:14","status":1,"pay_status":1,"time_end":"2019-10-23 11:33:13","total_fee":250,"store_id":"4486","service":"ali"},{"out_trade_no":"191023427323729129401","transaction_id":"2019102322001408045704164688","create_time":"2019-10-23 10:21:33","status":1,"pay_status":1,"time_end":"2019-10-23 10:21:33","total_fee":1100,"store_id":"4486","service":"ali"},{"out_trade_no":"191023423383528091578","transaction_id":"2019102322001482695702615946","create_time":"2019-10-23 09:48:03","status":1,"pay_status":1,"time_end":"2019-10-23 09:48:02","total_fee":1300,"store_id":"4486","service":"ali"},{"out_trade_no":"191023428613388266132","transaction_id":"2019102322001454501403754387","create_time":"2019-10-23 09:24:44","status":1,"pay_status":1,"time_end":"2019-10-23 09:24:44","total_fee":2000,"store_id":"4486","service":"ali"},{"out_trade_no":"191023423453265278932","transaction_id":"2019102322001400385703982549","create_time":"2019-10-23 09:04:15","status":1,"pay_status":1,"time_end":"2019-10-23 09:04:14","total_fee":1500,"store_id":"4486","service":"ali"},{"out_trade_no":"191023426593257201496","transaction_id":"2019102322001473785702678342","create_time":"2019-10-23 09:02:55","status":1,"pay_status":1,"time_end":"2019-10-23 09:02:54","total_fee":1000,"store_id":"4486","service":"ali"},{"out_trade_no":"191023425583190093142","transaction_id":"2019102322001497045704229228","create_time":"2019-10-23 08:51:42","status":1,"pay_status":1,"time_end":"2019-10-23 08:51:42","total_fee":500,"store_id":"4486","service":"ali"},{"out_trade_no":"191023421433183892475","transaction_id":"2019102322001497045704165721","create_time":"2019-10-23 08:50:40","status":1,"pay_status":1,"time_end":"2019-10-23 08:50:40","total_fee":2400,"store_id":"4486","service":"ali"},{"out_trade_no":"191023422333159856442","transaction_id":"2019102322001485775702581737","create_time":"2019-10-23 08:46:41","status":1,"pay_status":1,"time_end":"2019-10-23 08:46:40","total_fee":350,"store_id":"4486","service":"ali"},{"out_trade_no":"191023421753113898990","transaction_id":"2019102322001404675703942637","create_time":"2019-10-23 08:39:02","status":1,"pay_status":1,"time_end":"2019-10-23 08:39:01","total_fee":400,"store_id":"4486","service":"ali"},{"out_trade_no":"191023427733052085503","transaction_id":"2019102322001468665705494566","create_time":"2019-10-23 08:28:43","status":1,"pay_status":1,"time_end":"2019-10-23 08:28:42","total_fee":650,"store_id":"4486","service":"ali"},{"out_trade_no":"191023428932779631266","transaction_id":"2019102322001430115704114866","create_time":"2019-10-23 07:43:18","status":1,"pay_status":1,"time_end":"2019-10-23 07:43:17","total_fee":1500,"store_id":"4486","service":"ali"},{"out_trade_no":"191023421832645921296","transaction_id":"2019102322001443265703908571","create_time":"2019-10-23 07:21:01","status":1,"pay_status":1,"time_end":"2019-10-23 07:21:01","total_fee":700,"store_id":"4486","service":"ali"},{"out_trade_no":"19102342860115302349","transaction_id":"2019102322001473525703106570","create_time":"2019-10-23 00:19:16","status":1,"pay_status":1,"time_end":"2019-10-23 00:19:15","total_fee":1350,"store_id":"4486","service":"ali"},{"out_trade_no":"19102342666100685784","transaction_id":"2019102322001434895704679073","create_time":"2019-10-23 00:16:50","status":1,"pay_status":1,"time_end":"2019-10-23 00:16:49","total_fee":1400,"store_id":"4486","service":"ali"}],"nonce_str":"Face5db001b307790"},"sign":"D541669746113A7BBD65B5C643E7C42B"}',
+)array (
+  'time' => '2019-10-23 15:30:59',
+  'post' => 
+  array (
+    'appid' => '5980873969',
+    'method' => 'mch_orderCount',
+    'sign' => 'F89AE0C855BE1FFD6F2D56A97C49E032',
+    'data' => 
+    array (
+      'store_id' => '4486',
+      'status' => '4',
+      'sdate' => '20191023',
+      'edate' => '20191023',
+      'nonce_str' => '3306175142952866302725085421',
+    ),
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-10-23 00:00:00","etime":"2019-10-24 00:00:00","count":"19","total":22450,"re_total":0,"suc_total":22450,"wx_count":0,"wx_total":0,"wx_re_total":0,"wx_suc_total":0,"ali_count":"19","ali_total":22450,"ali_re_total":0,"ali_suc_total":22450,"nonce_str":"Face5db001b323a03"},"sign":"72E8955A2A86DE68FA8485DBD0D7E41B"}',
+)array (
+  'time' => '2019-10-23 15:37:15',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4254,
+      'total' => 1,
+      'authCode' => '288795976766546627',
+      'nonce_str' => '3urhh8zellr',
+    ),
+    'appid' => '0565780795',
+    'sign' => '26708C57E3B0C6878DAB59ADA76F0551',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:0.01元","data":{"out_trade_no":"191023421585623396788","transaction_id":"2019102322001400901403705209","status":1,"payType":"ali","payTime":"2019-10-23 15:37:15","total":1,"nonce_str":"Face5db0032b6ff09"},"sign":"3AD5B04902676E4A873F32CD14A92F5D"}',
+)array (
+  'time' => '2019-10-23 15:49:02',
+  'post' => 
+  array (
+    'method' => 'mch_orderList',
+    'data' => 
+    array (
+      'store_id' => 4254,
+      'page' => 1,
+      'limit' => 20,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'status' => 4,
+      'nonce_str' => '2m6cdr0s6zr',
+    ),
+    'appid' => '0565780795',
+    'sign' => '19F8FBCBAFEC3A12095BD692FE961279',
+  ),
+  'data' => '{"code":100,"msg":"查询交易流水成功","data":{"counts":3,"amount":3,"count":3,"order_data":[{"out_trade_no":"191023421585623396788","transaction_id":"2019102322001400901403705209","create_time":"2019-10-23 15:37:15","status":1,"pay_status":1,"time_end":"2019-10-23 15:37:15","total_fee":1,"store_id":"4254","service":"ali"},{"out_trade_no":"191023422355469387919","transaction_id":"2019102322001419045704758475","create_time":"2019-10-23 15:11:35","status":1,"pay_status":1,"time_end":"2019-10-23 15:11:35","total_fee":1,"store_id":"4254","service":"ali"},{"out_trade_no":"191023427915462698032","transaction_id":"2019102322001400901403479024","create_time":"2019-10-23 15:10:28","status":1,"pay_status":1,"time_end":"2019-10-23 15:10:28","total_fee":1,"store_id":"4254","service":"ali"}],"nonce_str":"Face5db005ee2c355"},"sign":"855CD29EF0DFD74AED65EBC54DA23F25"}',
+)array (
+  'time' => '2019-10-23 15:49:43',
+  'post' => 
+  array (
+    'method' => 'mch_orderCount',
+    'data' => 
+    array (
+      'store_id' => 4254,
+      'sdate' => '20191023',
+      'edate' => '20191023',
+      'status' => 4,
+      'nonce_str' => 'yoe310o90x',
+    ),
+    'appid' => '0565780795',
+    'sign' => '08A39F68CC4419FC2DC7C2F52BC326D4',
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-10-23 00:00:00","etime":"2019-10-24 00:00:00","count":"3","total":3,"re_total":0,"suc_total":3,"wx_count":0,"wx_total":0,"wx_re_total":0,"wx_suc_total":0,"ali_count":"3","ali_total":3,"ali_re_total":0,"ali_suc_total":3,"nonce_str":"Face5db00617188a3"},"sign":"E4CD2E9C9D68C5C5BF7FB413C2319600"}',
+)array (
+  'time' => '2019-10-23 15:50:09',
+  'post' => 
+  array (
+    'method' => 'mch_orderCount',
+    'data' => 
+    array (
+      'store_id' => 4254,
+      'sdate' => '20191023',
+      'edate' => '20191023',
+      'status' => 4,
+      'nonce_str' => '3d2e4ckkfuw',
+    ),
+    'appid' => '0565780795',
+    'sign' => 'CC6758136A7956C5B1F72C76CEC89A1D',
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-10-23 00:00:00","etime":"2019-10-24 00:00:00","count":"3","total":3,"re_total":0,"suc_total":3,"wx_count":0,"wx_total":0,"wx_re_total":0,"wx_suc_total":0,"ali_count":"3","ali_total":3,"ali_re_total":0,"ali_suc_total":3,"nonce_str":"Face5db00631a82ce"},"sign":"2A709BC4B3B0FD93B7EC9F224DC0057F"}',
+)array (
+  'time' => '2019-10-23 16:07:40',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 600,
+      'authCode' => '284037324923170718',
+      'nonce_str' => 's9yhpmbka5f',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'D0D4F4ED595C5C90DFB1591BA0E33E68',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:6.00元","data":{"out_trade_no":"191023426275805731723","transaction_id":"2019102322001468665705591039","status":1,"payType":"ali","payTime":"2019-10-23 16:07:40","total":600,"nonce_str":"Face5db00a4c8d8b9"},"sign":"EFF6D746DC50636339EBF9DE3EBE4D43"}',
+)array (
+  'time' => '2019-10-23 16:25:35',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 2600,
+      'authCode' => '282754947640942438',
+      'nonce_str' => 'ltau5wkkdmb',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'B4630C140C8FCB4C0974E78DA439D681',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:26.00元","data":{"out_trade_no":"191023428465913227133","transaction_id":"2019102322001468665705525957","status":1,"payType":"ali","payTime":"2019-10-23 16:25:35","total":2600,"nonce_str":"Face5db00e7f1407b"},"sign":"756035917C1BE384D2C3306E9FC464C1"}',
+)array (
+  'time' => '2019-10-23 16:54:57',
+  'post' => 
+  array (
+    'method' => 'mch_orderList',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'page' => 1,
+      'limit' => 20,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'status' => 4,
+      'nonce_str' => '9qy4rm14jf7',
+    ),
+    'appid' => '0580315677',
+    'sign' => '7C7838409DBDC042D9BC8926E76FDE2A',
+  ),
+  'data' => '{"code":100,"msg":"无交易流水"}',
+)array (
+  'time' => '2019-10-23 16:55:05',
+  'post' => 
+  array (
+    'method' => 'mch_orderList',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'page' => 1,
+      'limit' => 20,
+      'sdate' => '2019-10-15',
+      'edate' => '2019-10-15',
+      'status' => 4,
+      'nonce_str' => 'qfaiql1rhd9',
+    ),
+    'appid' => '0580315677',
+    'sign' => '53194DA783AA7A207F2346DBC01562C5',
+  ),
+  'data' => '{"code":100,"msg":"无交易流水"}',
+)array (
+  'time' => '2019-10-23 16:55:47',
+  'post' => 
+  array (
+    'method' => 'mch_orderCount',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'sdate' => '20191023',
+      'edate' => '20191023',
+      'status' => 4,
+      'nonce_str' => 'mulvou70i2g',
+    ),
+    'appid' => '0580315677',
+    'sign' => 'AA97410514FC66B00F51295557639A4A',
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-10-23 00:00:00","etime":"2019-10-24 00:00:00","count":0,"total":0,"re_total":0,"suc_total":0,"wx_count":0,"wx_total":0,"wx_re_total":0,"wx_suc_total":0,"ali_count":0,"ali_total":0,"ali_re_total":0,"ali_suc_total":0,"nonce_str":"Face5db015934ccb2"},"sign":"9B605411C4063CFEDE0AFA6D4CB4D10B"}',
+)array (
+  'time' => '2019-10-23 16:56:03',
+  'post' => 
+  array (
+    'method' => 'mch_orderCount',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'sdate' => '20191018',
+      'edate' => '20191019',
+      'status' => 4,
+      'nonce_str' => 'siibvtngav',
+    ),
+    'appid' => '0580315677',
+    'sign' => '080ADA85D1A0D4CB039FB859DCEEEEC6',
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-10-18 00:00:00","etime":"2019-10-19 00:00:00","count":"16","total":1050105,"re_total":1050001,"suc_total":-599896,"wx_count":"9","wx_total":750001,"wx_re_total":750000,"wx_suc_total":-299999,"ali_count":"7","ali_total":300104,"ali_re_total":300001,"ali_suc_total":-299897,"nonce_str":"Face5db015a37b6b4"},"sign":"9CA2ED30D5E0C3528F35ECA26F975BAF"}',
+)array (
+  'time' => '2019-10-23 16:56:17',
+  'post' => 
+  array (
+    'method' => 'mch_orderList',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'page' => 1,
+      'limit' => 20,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'status' => 4,
+      'nonce_str' => 'wig7c3ht5yr',
+    ),
+    'appid' => '0580315677',
+    'sign' => '3260DE13B3008F50A6198BC03EFAEBAF',
+  ),
+  'data' => '{"code":100,"msg":"无交易流水"}',
+)array (
+  'time' => '2019-10-23 17:00:48',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4484,
+      'total' => 100,
+      'authCode' => '287158405264482337',
+      'nonce_str' => 'pm87kktjh89',
+    ),
+    'appid' => '2379571552',
+    'sign' => 'E0DEB1B389AA5B2CB26501C394F268DC',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:1.00元","data":{"out_trade_no":"191023425366124645489","transaction_id":"2019102322001493225706977543","status":1,"payType":"ali","payTime":"2019-10-23 17:00:48","total":100,"nonce_str":"Face5db016c022b65"},"sign":"47B3C1A4C653172C3D6975210CB57063"}',
+)array (
+  'time' => '2019-10-23 17:02:18',
+  'post' => 
+  array (
+    'method' => 'mch_orderList',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'page' => 1,
+      'limit' => 20,
+      'sdate' => '2019-10-22',
+      'edate' => '2019-10-22',
+      'status' => 4,
+      'nonce_str' => '7cnbtd52awo',
+    ),
+    'appid' => '0580315677',
+    'sign' => '1DF67C2CF653856375C0E306A5FA6806',
+  ),
+  'data' => '{"code":100,"msg":"无交易流水"}',
+)array (
+  'time' => '2019-10-23 17:02:21',
+  'post' => 
+  array (
+    'method' => 'mch_orderList',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'page' => 1,
+      'limit' => 20,
+      'sdate' => '2019-10-22',
+      'edate' => '2019-10-22',
+      'status' => 4,
+      'nonce_str' => 'i6td7t36nf',
+    ),
+    'appid' => '0580315677',
+    'sign' => '3C7D864F8819B1E6D9C8EBEC1D7FE033',
+  ),
+  'data' => '{"code":100,"msg":"无交易流水"}',
+)array (
+  'time' => '2019-10-23 17:02:31',
+  'post' => 
+  array (
+    'method' => 'mch_orderList',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'page' => 1,
+      'limit' => 20,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'status' => 4,
+      'nonce_str' => '8ndj5r4wqyd',
+    ),
+    'appid' => '0580315677',
+    'sign' => '91E118F42CECEE3A5CDB678D4377FAC1',
+  ),
+  'data' => '{"code":100,"msg":"无交易流水"}',
+)array (
+  'time' => '2019-10-23 17:03:14',
+  'post' => 
+  array (
+    'method' => 'member_user',
+    'data' => 
+    array (
+      'user_id' => '2088002792362320',
+      'nonce_str' => '8m0f6j5duaw',
+    ),
+    'appid' => '0580315677',
+    'sign' => '75230288BDA374E54E99D59D982E753D',
+  ),
+  'data' => '{"code":100,"msg":"获取会员信息成功","data":{"is_member":1,"number":"19102039008453877780","phone":"13336021205","name":null,"total":0,"user_id":"2088002792362320","mch_id":"4087","mch_name":"顿顿奶茶店","reg_store_id":"4234","reg_store_name":"顿顿奶茶店","nonce_str":"Face5db01752c4aca"},"sign":"2F33EB3C87E45D027F59D2103769EE10"}',
+)array (
+  'time' => '2019-10-23 17:03:49',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'total' => 20,
+      'authCode' => '289867759675653116',
+      'nonce_str' => '0e9qyo9s682',
+    ),
+    'appid' => '0580315677',
+    'sign' => '13B26052758D6066F3FD8AEC410EEF32',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:0.20元","data":{"out_trade_no":"191023424436142702959","transaction_id":"2019102322001462325705772101","status":1,"payType":"ali","payTime":"2019-10-23 17:03:49","total":20,"nonce_str":"Face5db0177522998"},"sign":"58B31A56A739EE422F8A6E423CFD4226"}',
+)array (
+  'time' => '2019-10-23 17:04:03',
+  'post' => 
+  array (
+    'method' => 'mch_orderList',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'page' => 1,
+      'limit' => 20,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'status' => 4,
+      'nonce_str' => 'r6f5oxjgz8',
+    ),
+    'appid' => '0580315677',
+    'sign' => '5BA793856671088FECCCC367124199CA',
+  ),
+  'data' => '{"code":100,"msg":"查询交易流水成功","data":{"counts":1,"amount":20,"count":1,"order_data":[{"out_trade_no":"191023424436142702959","transaction_id":"2019102322001462325705772101","create_time":"2019-10-23 17:03:48","status":1,"pay_status":1,"time_end":"2019-10-23 17:03:48","total_fee":20,"store_id":"4234","service":"ali"}],"nonce_str":"Face5db017834093e"},"sign":"3678BCD387E0CF403CAAF50AA5F0733E"}',
+)array (
+  'time' => '2019-10-23 17:04:57',
+  'post' => 
+  array (
+    'method' => 'mch_orderCount',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'sdate' => '20191018',
+      'edate' => '20191019',
+      'status' => 4,
+      'nonce_str' => 'kxjgpm3g8yf',
+    ),
+    'appid' => '0580315677',
+    'sign' => '9F41CD98524B5A24BCD255810DF128FE',
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-10-18 00:00:00","etime":"2019-10-19 00:00:00","count":"16","total":1050105,"re_total":1050001,"suc_total":-599896,"wx_count":"9","wx_total":750001,"wx_re_total":750000,"wx_suc_total":-299999,"ali_count":"7","ali_total":300104,"ali_re_total":300001,"ali_suc_total":-299897,"nonce_str":"Face5db017b9e4b39"},"sign":"8A44356ECA24DE548E739D41C02D3AB4"}',
+)array (
+  'time' => '2019-10-23 17:05:12',
+  'post' => 
+  array (
+    'method' => 'mch_orderCount',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'sdate' => '20191023',
+      'edate' => '20191019',
+      'status' => '2',
+      'nonce_str' => 'ndiatj5sasa',
+    ),
+    'appid' => '0580315677',
+    'sign' => '53656886340DB2695E7B8812D2876782',
+  ),
+  'data' => '{"code":400,"msg":"结束时间不能小于开始时间"}',
+)array (
+  'time' => '2019-10-23 17:05:26',
+  'post' => 
+  array (
+    'method' => 'mch_orderCount',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'sdate' => '20191023',
+      'edate' => '20191023',
+      'status' => '4',
+      'nonce_str' => 'y3gyltp5dus',
+    ),
+    'appid' => '0580315677',
+    'sign' => 'FB7E07824CFBC288F301F6FDFE4543B6',
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-10-23 00:00:00","etime":"2019-10-24 00:00:00","count":"1","total":20,"re_total":0,"suc_total":20,"wx_count":0,"wx_total":0,"wx_re_total":0,"wx_suc_total":0,"ali_count":"1","ali_total":20,"ali_re_total":0,"ali_suc_total":20,"nonce_str":"Face5db017d666bad"},"sign":"44850E0DF2C30E2D06F40E8C4FCB8ACD"}',
+)array (
+  'time' => '2019-10-23 17:05:43',
+  'post' => 
+  array (
+    'method' => 'mch_orderList',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'page' => 1,
+      'limit' => 20,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'status' => 4,
+      'nonce_str' => 'wmuc3ucr87a',
+    ),
+    'appid' => '0580315677',
+    'sign' => '39FBC6B7D3A8FD947402C288755F9359',
+  ),
+  'data' => '{"code":100,"msg":"查询交易流水成功","data":{"counts":1,"amount":20,"count":1,"order_data":[{"out_trade_no":"191023424436142702959","transaction_id":"2019102322001462325705772101","create_time":"2019-10-23 17:03:48","status":1,"pay_status":1,"time_end":"2019-10-23 17:03:48","total_fee":20,"store_id":"4234","service":"ali"}],"nonce_str":"Face5db017e79e524"},"sign":"1B09A9F73AEC70B96C734F1244ABACA4"}',
+)array (
+  'time' => '2019-10-23 17:08:47',
+  'post' => 
+  array (
+    'method' => 'mch_orderList',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'page' => 1,
+      'limit' => 20,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'status' => 4,
+      'nonce_str' => 'gzdaxgojg26',
+    ),
+    'appid' => '0580315677',
+    'sign' => '5F7B3BEA93345D54199390A83E72F02B',
+  ),
+  'data' => '{"code":100,"msg":"查询交易流水成功","data":{"counts":1,"amount":20,"count":1,"order_data":[{"out_trade_no":"191023424436142702959","transaction_id":"2019102322001462325705772101","create_time":"2019-10-23 17:03:48","status":1,"pay_status":1,"time_end":"2019-10-23 17:03:48","total_fee":20,"store_id":"4234","service":"ali"}],"nonce_str":"Face5db0189f3c94e"},"sign":"82EA3E829214AB1F0204CAB5422B29DB"}',
+)array (
+  'time' => '2019-10-23 17:08:55',
+  'post' => 
+  array (
+    'method' => 'auto_orderRefund',
+    'data' => 
+    array (
+      'refund_desc' => '商家退款',
+      'out_trade_no' => '191023424436142702959',
+      'nonce_str' => 'zd5epirrcpk',
+    ),
+    'appid' => '0580315677',
+    'sign' => 'E49C63100FCEC5B4EB18E6A0773C20B0',
+  ),
+  'data' => '{"code":100,"msg":"退款申请提交成功","data":{"out_trade_no":"191023424436142702959","refund_total":20,"pay_type":"ali","nonce_str":"Face5db018a7b1f5e"},"sign":"51B2B81D81B2EC5390C46333E629376C"}',
+)array (
+  'time' => '2019-10-23 17:08:57',
+  'post' => 
+  array (
+    'method' => 'mch_orderList',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'page' => 1,
+      'limit' => 20,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'status' => 4,
+      'nonce_str' => 'tahjb62iche',
+    ),
+    'appid' => '0580315677',
+    'sign' => '757DDA4AE098F6A34AB6530DE20007EF',
+  ),
+  'data' => '{"code":100,"msg":"查询交易流水成功","data":{"counts":2,"amount":20,"count":2,"order_data":[{"out_trade_no":"T191023426726173427798","transaction_id":"2019102322001462325705772101","create_time":"2019-10-23 17:08:55","status":1,"pay_status":2,"time_end":"2019-10-23 17:08:55","total_fee":20,"store_id":"4234","service":"ali"},{"out_trade_no":"191023424436142702959","transaction_id":"2019102322001462325705772101","create_time":"2019-10-23 17:03:48","status":1,"pay_status":1,"time_end":"2019-10-23 17:03:48","total_fee":20,"store_id":"4234","service":"ali"}],"nonce_str":"Face5db018a9c8711"},"sign":"497A749FCCE40C5C9A1FE41333D70558"}',
+)array (
+  'time' => '2019-10-23 17:09:08',
+  'post' => 
+  array (
+    'method' => 'auto_orderRefund',
+    'data' => 
+    array (
+      'refund_desc' => '商家退款',
+      'out_trade_no' => '191023424436142702959',
+      'nonce_str' => 'kuzkal82jre',
+    ),
+    'appid' => '0580315677',
+    'sign' => '74063BF251C60CE93A2D567D0CDC0FDE',
+  ),
+  'data' => '{"code":400,"msg":"无可退款金额"}',
+)array (
+  'time' => '2019-10-23 17:09:13',
+  'post' => 
+  array (
+    'method' => 'auto_orderRefund',
+    'data' => 
+    array (
+      'refund_desc' => '商家退款',
+      'out_trade_no' => 'T191023426726173427798',
+      'nonce_str' => 'xw8le2exg7',
+    ),
+    'appid' => '0580315677',
+    'sign' => '2FD82BBD70609CD6CE8A639690FF3AC9',
+  ),
+  'data' => '{"code":400,"msg":"订单号非交易订单"}',
+)array (
+  'time' => '2019-10-23 17:10:15',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'total' => 30,
+      'authCode' => '284560276377123387',
+      'nonce_str' => '6lf0486evxs',
+    ),
+    'appid' => '0580315677',
+    'sign' => '7B70D5F30A275DFFE5D7EBAD5D1D0EFF',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:0.30元","data":{"out_trade_no":"191023424556181347217","transaction_id":"2019102322001462325705673432","status":1,"payType":"ali","payTime":"2019-10-23 17:10:15","total":30,"nonce_str":"Face5db018f753dbf"},"sign":"5AF8F1067CAD7B23EF47B1703AD8D6F8"}',
+)array (
+  'time' => '2019-10-23 17:10:44',
+  'post' => 
+  array (
+    'method' => 'mch_orderList',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'page' => 1,
+      'limit' => 20,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'status' => 4,
+      'nonce_str' => 'ts74sdfoldo',
+    ),
+    'appid' => '0580315677',
+    'sign' => '954F2348680B2E1E206FF055A811B20B',
+  ),
+  'data' => '{"code":100,"msg":"查询交易流水成功","data":{"counts":3,"amount":50,"count":3,"order_data":[{"out_trade_no":"191023424556181347217","transaction_id":"2019102322001462325705673432","create_time":"2019-10-23 17:10:14","status":1,"pay_status":1,"time_end":"2019-10-23 17:10:14","total_fee":30,"store_id":"4234","service":"ali"},{"out_trade_no":"T191023426726173427798","transaction_id":"2019102322001462325705772101","create_time":"2019-10-23 17:08:55","status":1,"pay_status":2,"time_end":"2019-10-23 17:08:55","total_fee":20,"store_id":"4234","service":"ali"},{"out_trade_no":"191023424436142702959","transaction_id":"2019102322001462325705772101","create_time":"2019-10-23 17:03:48","status":1,"pay_status":1,"time_end":"2019-10-23 17:03:48","total_fee":20,"store_id":"4234","service":"ali"}],"nonce_str":"Face5db019142275a"},"sign":"84E1782DE8C8FF5C9CC70651F52EDD1B"}',
+)array (
+  'time' => '2019-10-23 17:10:52',
+  'post' => 
+  array (
+    'method' => 'auto_orderRefund',
+    'data' => 
+    array (
+      'refund_desc' => '商家退款',
+      'out_trade_no' => '191023424556181347217',
+      'nonce_str' => 'tqrqd12oxr',
+    ),
+    'appid' => '0580315677',
+    'sign' => '4AAA63EAC0A3C32D5E3C6C3361965DBB',
+  ),
+  'data' => '{"code":100,"msg":"退款申请提交成功","data":{"out_trade_no":"191023424556181347217","refund_total":30,"pay_type":"ali","nonce_str":"Face5db0191c636c5"},"sign":"A3BD914993871FA5E6C5DB8448758324"}',
+)array (
+  'time' => '2019-10-23 17:10:54',
+  'post' => 
+  array (
+    'method' => 'mch_orderList',
+    'data' => 
+    array (
+      'store_id' => 4234,
+      'page' => 1,
+      'limit' => 20,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'status' => 4,
+      'nonce_str' => 'bil4h0fn0u',
+    ),
+    'appid' => '0580315677',
+    'sign' => '13EBE98117CDFAFE0C9DE537F51AD47C',
+  ),
+  'data' => '{"code":100,"msg":"查询交易流水成功","data":{"counts":4,"amount":50,"count":4,"order_data":[{"out_trade_no":"T191023426166185117779","transaction_id":"2019102322001462325705673432","create_time":"2019-10-23 17:10:52","status":1,"pay_status":2,"time_end":"2019-10-23 17:10:51","total_fee":30,"store_id":"4234","service":"ali"},{"out_trade_no":"191023424556181347217","transaction_id":"2019102322001462325705673432","create_time":"2019-10-23 17:10:14","status":1,"pay_status":1,"time_end":"2019-10-23 17:10:14","total_fee":30,"store_id":"4234","service":"ali"},{"out_trade_no":"T191023426726173427798","transaction_id":"2019102322001462325705772101","create_time":"2019-10-23 17:08:55","status":1,"pay_status":2,"time_end":"2019-10-23 17:08:55","total_fee":20,"store_id":"4234","service":"ali"},{"out_trade_no":"191023424436142702959","transaction_id":"2019102322001462325705772101","create_time":"2019-10-23 17:03:48","status":1,"pay_status":1,"time_end":"2019-10-23 17:03:48","total_fee":20,"store_id":"4234","service":"ali"}],"nonce_str":"Face5db0191e92294"},"sign":"29BC84E09853DBC033024AB7AB83A2C6"}',
+)array (
+  'time' => '2019-10-23 17:28:23',
+  'post' => 
+  array (
+    'method' => 'auto_orderRefund',
+    'data' => 
+    array (
+      'refund_desc' => '商家退款',
+      'out_trade_no' => 'T191023426166185117779',
+      'nonce_str' => 'wnzkou8heq',
+    ),
+    'appid' => '0580315677',
+    'sign' => 'DAC16857806A493F6A63EDF8FBBB7655',
+  ),
+  'data' => '{"code":400,"msg":"订单号非交易订单"}',
+)array (
+  'time' => '2019-10-23 17:47:08',
+  'post' => 
+  array (
+    'appid' => '3396909283',
+    'method' => 'mch_orderCount',
+    'data' => 
+    array (
+      'store_id' => 4230,
+      'status' => 4,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'nonce_str' => '5d10f3e6195b1',
+    ),
+    'sign' => '1CB591510B726428BBA69A3D4C2374EF',
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-10-23 00:00:00","etime":"2019-10-24 00:00:00","count":0,"total":0,"re_total":0,"suc_total":0,"wx_count":0,"wx_total":0,"wx_re_total":0,"wx_suc_total":0,"ali_count":0,"ali_total":0,"ali_re_total":0,"ali_suc_total":0,"nonce_str":"Face5db0219c586a8"},"sign":"28004B3125E1E7931113C828DE68A8A7"}',
+)array (
+  'time' => '2019-10-23 17:47:13',
+  'post' => 
+  array (
+    'appid' => '3396909283',
+    'method' => 'mch_adData',
+    'data' => 
+    array (
+      'store_id' => 4230,
+      'type' => 'wx',
+      'nonce_str' => '5d0b360f1ceee',
+    ),
+    'sign' => '4C1E9C99CC091EF09BA8EF50677D63C6',
+  ),
+  'data' => '{"code":100,"msg":"广告资料获取成功","data":{"image1":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-18/QUT78CJ6MMXNDWHUQ3JS.jpg","image2":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-18/MMOO7E9AMGGU1VIGVQM2.jpg","image3":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-09/HCSLM6HUR2XM9G2NOAVK.jpg","image4":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-09/9CXEU9CGCOQLXIBDCQMG.jpg","image5":"http://hzfapis.xiaohouzhi.com//Upload/attachment/2019-09-09/IGITSNMBLN1M30IQDKMB.jpg","store_id":4230,"type":"wx","test":["/Upload/attachment/2019-09-18/QUT78CJ6MMXNDWHUQ3JS.jpg","/Upload/attachment/2019-09-18/MMOO7E9AMGGU1VIGVQM2.jpg","/Upload/attachment/2019-09-09/HCSLM6HUR2XM9G2NOAVK.jpg","/Upload/attachment/2019-09-09/9CXEU9CGCOQLXIBDCQMG.jpg","/Upload/attachment/2019-09-09/IGITSNMBLN1M30IQDKMB.jpg"],"nonce_str":"Face5db021a1b1e74"},"sign":"7FC3F984C17B42B16D0609423CECCD66"}',
+)array (
+  'time' => '2019-10-23 17:49:04',
+  'post' => 
+  array (
+    'appid' => '3396909283',
+    'method' => 'mch_orderCount',
+    'data' => 
+    array (
+      'store_id' => 4230,
+      'status' => 4,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'nonce_str' => '5d10f3e6195b1',
+    ),
+    'sign' => '1CB591510B726428BBA69A3D4C2374EF',
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-10-23 00:00:00","etime":"2019-10-24 00:00:00","count":0,"total":0,"re_total":0,"suc_total":0,"wx_count":0,"wx_total":0,"wx_re_total":0,"wx_suc_total":0,"ali_count":0,"ali_total":0,"ali_re_total":0,"ali_suc_total":0,"nonce_str":"Face5db022107bed6"},"sign":"88631B683C905AF83AF41FCC8201CF5D"}',
+)array (
+  'time' => '2019-10-23 18:10:33',
+  'post' => 
+  array (
+    'appid' => '3396909283',
+    'method' => 'mch_orderCount',
+    'data' => 
+    array (
+      'store_id' => 4230,
+      'status' => 4,
+      'sdate' => '2019-10-23',
+      'edate' => '2019-10-23',
+      'nonce_str' => '5d10f3e6195b1',
+    ),
+    'sign' => '1CB591510B726428BBA69A3D4C2374EF',
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-10-23 00:00:00","etime":"2019-10-24 00:00:00","count":0,"total":0,"re_total":0,"suc_total":0,"wx_count":0,"wx_total":0,"wx_re_total":0,"wx_suc_total":0,"ali_count":0,"ali_total":0,"ali_re_total":0,"ali_suc_total":0,"nonce_str":"Face5db02719427fa"},"sign":"2713C9137E4FA4E55D05D88C5A53927A"}',
+)array (
+  'time' => '2019-10-23 18:11:42',
+  'post' => 
+  array (
+    'appid' => '3396909283',
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4230,
+      'total' => 1,
+      'authCode' => '288833481452339702',
+      'nonce_str' => '5d103f27b0e2b',
+    ),
+    'sign' => '676F7EA25D80658F0C04E7927BC5BBCA',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:0.01元","data":{"out_trade_no":"191023428576549960662","transaction_id":"2019102322001482851404178244","status":1,"payType":"ali","payTime":"2019-10-23 18:11:42","total":1,"nonce_str":"Face5db0275e5e104"},"sign":"7712C09C87D3ED82C4BFEE847A402B27"}',
+)array (
+  'time' => '2019-10-23 18:12:40',
+  'post' => 
+  array (
+    'appid' => '3396909283',
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4230,
+      'total' => 1,
+      'authCode' => '289581282100404582',
+      'nonce_str' => '5d103f27b0e2b',
+    ),
+    'sign' => 'AF3EE6CB5376C52526DE7CEF489BFA78',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:0.01元","data":{"out_trade_no":"191023422606555830235","transaction_id":"2019102322001482851404185804","status":1,"payType":"ali","payTime":"2019-10-23 18:12:40","total":1,"nonce_str":"Face5db02798a06c7"},"sign":"A3402C0A480DF153AE042C6CADB816DB"}',
+)array (
+  'time' => '2019-10-23 18:23:05',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 1550,
+      'authCode' => '281856032872852679',
+      'nonce_str' => 'ydv3cffdoaq',
+    ),
+    'appid' => '5980873969',
+    'sign' => '273C0871715D46F000C38BFB39D4A4FD',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:15.50元","data":{"out_trade_no":"191023420536618285198","transaction_id":"2019102322001438951404079611","status":1,"payType":"ali","payTime":"2019-10-23 18:23:05","total":1550,"nonce_str":"Face5db02a09e81be"},"sign":"731885C18A461F52B2694FC3DC83CD44"}',
+)array (
+  'time' => '2019-10-23 18:24:22',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 300,
+      'authCode' => '286199098848386985',
+      'nonce_str' => '1m2xqx57vbpi',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'B7874DC2170BDE476BC78F09A697C5A9',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:3.00元","data":{"out_trade_no":"191023420696626040645","transaction_id":"2019102322001497045706031484","status":1,"payType":"ali","payTime":"2019-10-23 18:24:22","total":300,"nonce_str":"Face5db02a569a14a"},"sign":"04CAB76CD7A6CC6076CF1135258FE43D"}',
+)array (
+  'time' => '2019-10-23 19:14:58',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 600,
+      'authCode' => '284741353413141545',
+      'nonce_str' => 'vh4ha9u4tne',
+    ),
+    'appid' => '5980873969',
+    'sign' => 'A2E99367234F48DBC3A9461C0F699B69',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:6.00元","data":{"out_trade_no":"191023424816929589722","transaction_id":"2019102322001424001405851315","status":1,"payType":"ali","payTime":"2019-10-23 19:14:58","total":600,"nonce_str":"Face5db036329aa80"},"sign":"55E20E2BFCE29F0DEA779DDCA9AE175F"}',
+)array (
+  'time' => '2019-10-23 19:17:07',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4483,
+      'total' => 1,
+      'authCode' => '289176997557684516',
+      'nonce_str' => 'mnxjcqfos2j',
+    ),
+    'appid' => '3138319888',
+    'sign' => '8D9D57E6574E4E72B28D95D96C336F9E',
+  ),
+  'data' => '{"code":400,"msg":"支付失败，本商户没有权限使用该产品，请联系管理员处理，建议顾客使用其他方式付款。[ACCESS_FORBIDDEN]"}',
+)array (
+  'time' => '2019-10-23 19:30:16',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 1600,
+      'authCode' => '281330109843800229',
+      'nonce_str' => 'kuf7wr991l',
+    ),
+    'appid' => '5980873969',
+    'sign' => '2D42B3E63B89BA30E0DAFBED12A723F2',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:16.00元","data":{"out_trade_no":"191023420687021397933","transaction_id":"2019102322001453425703368673","status":1,"payType":"ali","payTime":"2019-10-23 19:30:16","total":1600,"nonce_str":"Face5db039c8dd412"},"sign":"E4BECF7DE89A4C02AFFE6FC72A319BAB"}',
+)array (
+  'time' => '2019-10-23 20:38:44',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 4486,
+      'total' => 1100,
+      'authCode' => '289767466956643508',
+      'nonce_str' => 'cpy65da1hj',
+    ),
+    'appid' => '5980873969',
+    'sign' => '12DC9B01FD390CD10BA2BDFE0DCB67E1',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:11.00元","data":{"out_trade_no":"191023429237432107788","transaction_id":"2019102322001483565702604123","status":1,"payType":"ali","payTime":"2019-10-23 20:38:44","total":1100,"nonce_str":"Face5db049d435b2c"},"sign":"34FC869C384F0457C16FC83861539897"}',
+)

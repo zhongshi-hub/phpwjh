@@ -1,0 +1,347 @@
+array (
+  'time' => '2019-11-08 16:29:38',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'total' => 10,
+      'authCode' => '288547703812521995',
+      'nonce_str' => 'bzxitb6coic',
+    ),
+    'appid' => '0022131261',
+    'sign' => '05B01935E5426D82EFCCA1CAF260061E',
+  ),
+  'data' => '{"code":400,"msg":"验签出错，建议检查签名字符串或签名私钥与应用公钥是否匹配，网关生成的验签字符串为：alipay_sdk=alipay-sdk-php-20180705&amp;app_auth_token=201910BB6772ed63a4054b4cb3cc345b6237aX24&amp;app_id=2019101368390165&amp;biz_content={&quot;out_trade_no&quot;:&quot;191108277875937782545&quot;,&quot;scene&quot;:&quot;bar_code&quot;,&quot;auth_code&quot;:&quot;288547703812521995&quot;,&quot;total_amount&quot;:0.1,&quot;subject&quot;:&quot;张家便利店&quot;,&quot;body&quot;:&quot;移动支付&quot;,&quot;product_code&quot;:&quot;FACE_TO_FACE_PAYMENT&quot;,&quot;extend_params&quot;:{&quot;sys_service_provider_id&quot;:&quot;2088631523363835&quot;}}&amp;charset=UTF-8&amp;format=json&amp;method=alipay.trade.pay&amp;notify_url=http://slpay.shunzhiapp.com/Pays/FaceAuto/aliNotify&amp;sign_type=RSA2&amp;timestamp=2019-11-08 16:29:37&amp;version=1.0"}',
+)array (
+  'time' => '2019-11-08 16:30:00',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'total' => 10,
+      'authCode' => '281186893455885288',
+      'nonce_str' => 's0wriogvaol',
+    ),
+    'appid' => '0022131261',
+    'sign' => 'A26D4DD81DDE78CB14A77C39AC1F75FB',
+  ),
+  'data' => '{"code":400,"msg":"验签出错，建议检查签名字符串或签名私钥与应用公钥是否匹配，网关生成的验签字符串为：alipay_sdk=alipay-sdk-php-20180705&amp;app_auth_token=201910BB6772ed63a4054b4cb3cc345b6237aX24&amp;app_id=2019101368390165&amp;biz_content={&quot;out_trade_no&quot;:&quot;191108270065940072210&quot;,&quot;scene&quot;:&quot;bar_code&quot;,&quot;auth_code&quot;:&quot;281186893455885288&quot;,&quot;total_amount&quot;:0.1,&quot;subject&quot;:&quot;张家便利店&quot;,&quot;body&quot;:&quot;移动支付&quot;,&quot;product_code&quot;:&quot;FACE_TO_FACE_PAYMENT&quot;,&quot;extend_params&quot;:{&quot;sys_service_provider_id&quot;:&quot;2088631523363835&quot;}}&amp;charset=UTF-8&amp;format=json&amp;method=alipay.trade.pay&amp;notify_url=http://slpay.shunzhiapp.com/Pays/FaceAuto/aliNotify&amp;sign_type=RSA2&amp;timestamp=2019-11-08 16:30:00&amp;version=1.0"}',
+)array (
+  'time' => '2019-11-08 16:30:13',
+  'post' => 
+  array (
+    'appid' => '0022131261',
+    'method' => 'mch_orderCount',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'status' => 4,
+      'sdate' => '2019-11-08',
+      'edate' => '2019-11-08',
+      'nonce_str' => '5d10f3e6195b1',
+    ),
+    'sign' => '490D306B9B7BD32E3A24BDC70CC2C3DD',
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-11-08 00:00:00","etime":"2019-11-09 00:00:00","count":0,"total":0,"re_total":0,"suc_total":0,"wx_count":0,"wx_total":0,"wx_re_total":0,"wx_suc_total":0,"ali_count":0,"ali_total":0,"ali_re_total":0,"ali_suc_total":0,"nonce_str":"Face5dc52795d9cbe"},"sign":"4F1DDB48E4A6E6E3063389340C0BF90F"}',
+)array (
+  'time' => '2019-11-08 16:30:15',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'total' => 1,
+      'authCode' => '281781829000845665',
+      'nonce_str' => '4brhxbhi6fg',
+    ),
+    'appid' => '0022131261',
+    'sign' => '32CAF7277CBF79E8210735C4C5EE3028',
+  ),
+  'data' => '{"code":400,"msg":"验签出错，建议检查签名字符串或签名私钥与应用公钥是否匹配，网关生成的验签字符串为：alipay_sdk=alipay-sdk-php-20180705&amp;app_auth_token=201910BB6772ed63a4054b4cb3cc345b6237aX24&amp;app_id=2019101368390165&amp;biz_content={&quot;out_trade_no&quot;:&quot;191108272815941521956&quot;,&quot;scene&quot;:&quot;bar_code&quot;,&quot;auth_code&quot;:&quot;281781829000845665&quot;,&quot;total_amount&quot;:0.01,&quot;subject&quot;:&quot;张家便利店&quot;,&quot;body&quot;:&quot;移动支付&quot;,&quot;product_code&quot;:&quot;FACE_TO_FACE_PAYMENT&quot;,&quot;extend_params&quot;:{&quot;sys_service_provider_id&quot;:&quot;2088631523363835&quot;}}&amp;charset=UTF-8&amp;format=json&amp;method=alipay.trade.pay&amp;notify_url=http://slpay.shunzhiapp.com/Pays/FaceAuto/aliNotify&amp;sign_type=RSA2&amp;timestamp=2019-11-08 16:30:15&amp;version=1.0"}',
+)array (
+  'time' => '2019-11-08 16:30:18',
+  'post' => 
+  array (
+    'appid' => '0022131261',
+    'method' => 'mch_adData',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'type' => 'wx',
+      'nonce_str' => '5d0b360f1ceee',
+    ),
+    'sign' => '7FB010BE890DB1F7EEDFEF0468D1C0D9',
+  ),
+  'data' => '{"code":100,"msg":"广告资料获取成功","data":{"store_id":3,"type":"wx","test":[],"nonce_str":"Face5dc5279a844e0"},"sign":"D7A6F7124D7A4A8D69B6E521977156A1"}',
+)array (
+  'time' => '2019-11-08 16:30:19',
+  'post' => 
+  array (
+    'appid' => '0022131261',
+    'method' => 'wx_faceAuthInfo',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'rawdata' => 'piapGF2AiCrqTXWqWidpoPfGYqgnQ6kcyngWuBjb4EzkUlPNqRr12m4zTP6B3sXU+Mf7UDvUEVmEuy6NNOE3vu0ulTxyDxf7jNneozvvVbNbyceeEbk4+hqO5VYuYW2JjDKJMDNabJnmwSdzlqjRyqM5OweWI0zVP/y7HOLPpRPrr6NOfFDt4uTarWnoe6dl2K79V/W7VclwDbTbAu+4iTn38xXGFHlmGnvxbh/PlITjuolzodKYjaq6T4bhQ19yRbpgDoqfs++XEcAplli4B1kOeF3pmMyNSMYdH1pR3NSIwK118IPPZ4ybaR8+WzvtVo3+EifYtp5nHgrKbhed01GvWGbfU/IPKpmDjrHncBfwC8jz1nBQLxddTRV/JPrQ7bRedQcJNAFQ/wQDv5XkSGgDIYALnmtdJxm8KTU0v1NcBykoUrQXmkvG8t0S69mdC02yXc4mAB5YDfWtGxSwKt5+J9hgOWRSkkYDaYF/NHcx7bSq22EdYbYs4ZHHz7z8lVlcBAuiF47EMtpTBv8j6asycgVyLNGueRm4JFB51vgXPnxSN9YdYlaANhNTiTnX364F+grbo10WfpsQsK4YcYW/zlzzXloi2Nfap4Aqt6Rwl6shj7b8xNB9CiKP9tEHKdbkiEoXfn90XhFtkp5R9HyW/Hmm6t49OFfAVYfRDOO1qXYWak+uSdRicTTgBdsyQu0MHAPQXv41KOF3cv7G+NpOEwc9I0NUScLhY4NE+OqB3JwWqbj5w2hbsuPlTOsc3KCmAY4Lka15HcbYOKUbdr4mC9yT/HNe7s/bpPYsP0lQ9aIMvba+JdzzH/EQPaopDIiOLm8=',
+      'nonce_str' => '5d0b360f1ceee',
+    ),
+    'sign' => '26DCF720F19311FB87B5D00AFA015246',
+  ),
+  'data' => '{"code":400,"msg":"请检查商户号，appid是否正确(SYSTEMERROR)"}',
+)array (
+  'time' => '2019-11-08 16:30:24',
+  'post' => 
+  array (
+    'appid' => '0022131261',
+    'method' => 'wx_faceAuthInfo',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'rawdata' => 'piapGF2AiCrqTXWqWidpoPfGYqgnQ6kcyngWuBjb4EzkUlPNqRr12m4zTP6B3sXU+Mf7UDvUEVmEuy6NNOE3vu0ulTxyDxf7jNneozvvVbNbyceeEbk4+hqO5VYuYW2JjDKJMDNabJnmwSdzlqjRyqM5OweWI0zVP/y7HOLPpRPrr6NOfFDt4uTarWnoe6dl2K79V/W7VclwDbTbAu+4iTn38xXGFHlmGnvxbh/PlITjuolzodKYjaq6T4bhQ19yRbpgDoqfs++XEcAplli4B1kOeF3pmMyNSMYdH1pR3NSIwK118IPPZ4ybaR8+WzvtVo3+EifYtp5nHgrKbhed01GvWGbfU/IPKpmDjrHncBfwC8jz1nBQLxddTRV/JPrQ7bRedQcJNAFQ/wQDv5XkSGgDIYALnmtdJxm8KTU0v1NcBykoUrQXmkvG8t0S69mdC02yXc4mAB5YDfWtGxSwKt5+J9hgOWRSkkYDaYF/NHcx7bSq22EdYbYs4ZHHz7z8lVlcBAuiF47EMtpTBv8j6asycgVyLNGueRm4JFB51vgXPnxSN9YdYlaANhNTiTnX364F+grbo10WfpsQsK4YcYW/zlzzXloi2Nfap4Aqt6Rwl6shj7b8xNB9CiKP9tEHKdbkiEoXfn90XhFtkp5R9HyW/Hmm6t49OFfAVYfRDOO1qXYWak+uSdRicTTgBdsyQu0MHAPQXv41KOF3cv7G+NpOEwc9I0NUScLhY4NE+OqB3JwWqbj5w2hbsuPlTOsc3KCmAY4Lka15HcbYOKUbdr4mC9yT/HNe7s/bpPYsP0lQ9aIMvba+JdzzH/EQPaopDIiOLm8=',
+      'nonce_str' => '5d0b360f1ceee',
+    ),
+    'sign' => '26DCF720F19311FB87B5D00AFA015246',
+  ),
+  'data' => '{"code":400,"msg":"请检查商户号，appid是否正确(SYSTEMERROR)"}',
+)array (
+  'time' => '2019-11-08 16:31:06',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'total' => 1,
+      'authCode' => '287553961876422296',
+      'nonce_str' => 'mnvw7xh0gnj',
+    ),
+    'appid' => '0022131261',
+    'sign' => '9ED2B6B98BEF5F83CF82A5D483395BE8',
+  ),
+  'data' => '{"code":400,"msg":"验签出错，建议检查签名字符串或签名私钥与应用公钥是否匹配，网关生成的验签字符串为：alipay_sdk=alipay-sdk-php-20180705&amp;app_auth_token=201910BB6772ed63a4054b4cb3cc345b6237aX24&amp;app_id=2019101368390165&amp;biz_content={&quot;out_trade_no&quot;:&quot;191108270445946607094&quot;,&quot;scene&quot;:&quot;bar_code&quot;,&quot;auth_code&quot;:&quot;287553961876422296&quot;,&quot;total_amount&quot;:0.01,&quot;subject&quot;:&quot;张家便利店&quot;,&quot;body&quot;:&quot;移动支付&quot;,&quot;product_code&quot;:&quot;FACE_TO_FACE_PAYMENT&quot;,&quot;extend_params&quot;:{&quot;sys_service_provider_id&quot;:&quot;2088631523363835&quot;}}&amp;charset=UTF-8&amp;format=json&amp;method=alipay.trade.pay&amp;notify_url=http://slpay.shunzhiapp.com/Pays/FaceAuto/aliNotify&amp;sign_type=RSA2&amp;timestamp=2019-11-08 16:31:06&amp;version=1.0"}',
+)array (
+  'time' => '2019-11-08 16:31:59',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'total' => 1,
+      'authCode' => '286206512520397658',
+      'nonce_str' => '467dd03wqsm',
+    ),
+    'appid' => '0022131261',
+    'sign' => '2336FB3EDCA277960D1B45689DC2E688',
+  ),
+  'data' => '{"code":400,"msg":"验签出错，建议检查签名字符串或签名私钥与应用公钥是否匹配，网关生成的验签字符串为：alipay_sdk=alipay-sdk-php-20180705&amp;app_auth_token=201910BB6772ed63a4054b4cb3cc345b6237aX24&amp;app_id=2019101368390165&amp;biz_content={&quot;out_trade_no&quot;:&quot;191108277155951939874&quot;,&quot;scene&quot;:&quot;bar_code&quot;,&quot;auth_code&quot;:&quot;286206512520397658&quot;,&quot;total_amount&quot;:0.01,&quot;subject&quot;:&quot;张家便利店&quot;,&quot;body&quot;:&quot;移动支付&quot;,&quot;product_code&quot;:&quot;FACE_TO_FACE_PAYMENT&quot;,&quot;extend_params&quot;:{&quot;sys_service_provider_id&quot;:&quot;2088631523363835&quot;}}&amp;charset=UTF-8&amp;format=json&amp;method=alipay.trade.pay&amp;notify_url=http://slpay.shunzhiapp.com/Pays/FaceAuto/aliNotify&amp;sign_type=RSA2&amp;timestamp=2019-11-08 16:31:59&amp;version=1.0"}',
+)array (
+  'time' => '2019-11-08 18:00:37',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'total' => 1,
+      'authCode' => '289389491603605969',
+      'nonce_str' => 'v2trjphc1t',
+    ),
+    'appid' => '0022131261',
+    'sign' => 'F6B07C81D2E9ABAAA661B8FEA26B2CF4',
+  ),
+  'data' => '{"code":400,"msg":"验签出错，建议检查签名字符串或签名私钥与应用公钥是否匹配，网关生成的验签字符串为：alipay_sdk=alipay-sdk-php-20180705&amp;app_auth_token=201910BB6772ed63a4054b4cb3cc345b6237aX24&amp;app_id=2019101368390165&amp;biz_content={&quot;out_trade_no&quot;:&quot;191108278706483733952&quot;,&quot;scene&quot;:&quot;bar_code&quot;,&quot;auth_code&quot;:&quot;289389491603605969&quot;,&quot;total_amount&quot;:0.01,&quot;subject&quot;:&quot;张家便利店&quot;,&quot;body&quot;:&quot;移动支付&quot;,&quot;product_code&quot;:&quot;FACE_TO_FACE_PAYMENT&quot;,&quot;extend_params&quot;:{&quot;sys_service_provider_id&quot;:&quot;2088631523363835&quot;}}&amp;charset=UTF-8&amp;format=json&amp;method=alipay.trade.pay&amp;notify_url=http://slpay.shunzhiapp.com/Pays/FaceAuto/aliNotify&amp;sign_type=RSA2&amp;timestamp=2019-11-08 18:00:37&amp;version=1.0"}',
+)array (
+  'time' => '2019-11-08 18:01:48',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'total' => 1,
+      'authCode' => '288881507107555316',
+      'nonce_str' => 'zp2dlqaroal',
+    ),
+    'appid' => '0022131261',
+    'sign' => 'D37E43B1D395ED4997FDFB39227165B2',
+  ),
+  'data' => '{"code":400,"msg":"验签出错，建议检查签名字符串或签名私钥与应用公钥是否匹配，网关生成的验签字符串为：alipay_sdk=alipay-sdk-php-20180705&amp;app_auth_token=201910BB6772ed63a4054b4cb3cc345b6237aX24&amp;app_id=2019101368390165&amp;biz_content={&quot;out_trade_no&quot;:&quot;191108270346490785276&quot;,&quot;scene&quot;:&quot;bar_code&quot;,&quot;auth_code&quot;:&quot;288881507107555316&quot;,&quot;total_amount&quot;:0.01,&quot;subject&quot;:&quot;张家便利店&quot;,&quot;body&quot;:&quot;移动支付&quot;,&quot;product_code&quot;:&quot;FACE_TO_FACE_PAYMENT&quot;,&quot;extend_params&quot;:{&quot;sys_service_provider_id&quot;:&quot;2088631523363835&quot;}}&amp;charset=UTF-8&amp;format=json&amp;method=alipay.trade.pay&amp;notify_url=http://slpay.shunzhiapp.com/Pays/FaceAuto/aliNotify&amp;sign_type=RSA2&amp;timestamp=2019-11-08 18:01:47&amp;version=1.0"}',
+)array (
+  'time' => '2019-11-08 18:17:00',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'total' => 200,
+      'authCode' => '280017541003778976',
+      'nonce_str' => '9u0qi4a6qgu',
+    ),
+    'appid' => '0022131261',
+    'sign' => '1C7ADB8EED7C213A8974FFE40C9AF58A',
+  ),
+  'data' => '{"code":400,"msg":"验签出错，建议检查签名字符串或签名私钥与应用公钥是否匹配，网关生成的验签字符串为：alipay_sdk=alipay-sdk-php-20180705&amp;app_auth_token=201910BB6772ed63a4054b4cb3cc345b6237aX24&amp;app_id=2019101368390165&amp;biz_content={&quot;out_trade_no&quot;:&quot;191108273196581982525&quot;,&quot;scene&quot;:&quot;bar_code&quot;,&quot;auth_code&quot;:&quot;280017541003778976&quot;,&quot;total_amount&quot;:2,&quot;subject&quot;:&quot;张家便利店&quot;,&quot;body&quot;:&quot;移动支付&quot;,&quot;product_code&quot;:&quot;FACE_TO_FACE_PAYMENT&quot;,&quot;extend_params&quot;:{&quot;sys_service_provider_id&quot;:&quot;2088631523363835&quot;}}&amp;charset=UTF-8&amp;format=json&amp;method=alipay.trade.pay&amp;notify_url=http://slpay.shunzhiapp.com/Pays/FaceAuto/aliNotify&amp;sign_type=RSA2&amp;timestamp=2019-11-08 18:16:59&amp;version=1.0"}',
+)array (
+  'time' => '2019-11-08 18:17:39',
+  'post' => 
+  array (
+    'appid' => '0022131261',
+    'method' => 'wx_faceAuthInfo',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'rawdata' => 'iSSp1Js7k4ZzgZeu6b70WHcW8LL9eXYFqnLeMNXlCB26Ak+fBQgVb3DPkf38q6LYHQvTjr/ATc4kcBga7Txx6E5135IFiyCxZ48haXUocZdg+pSLmhg36ihjIKoJ+TOMAp0NEd6SriUo1NQOy7hJXQjLAO71nwiPmiFaasXTHuUOxuBouJ1H3QNBpKzer46eiu/DgTgBna7iIDfBG30cqMSMvf2YLz2PefN4cBgQiddXT1GEmsYfDHjTsdMkBYD9ZGU2YxlZAuO3iJQRLXBOT6KQR2uWUv6aBQWassLzX9vWbrMZJE9p+m/OuXRgI61A331OpzwiFHJMFDG07o4HiY7fyOpGfQji4ZwYO/lyzuLcuaj1hr1oIL5bc7l1BQ/9DHq62Ub3gZzIhmdGHLjy/dGry4BD/23GB1bsEGOf5TzKzBDwpb2YQ351Liu6li67Ck+X9Q+Q6x23XWId6UbZ3TbmgnVwBlpK4rZ4JcH9EJT+Dw17kOwz8Cr3Og4lHzATCzR0BUnZZU9LVyh0GSzMEOd5S9hNuw6cjFkrYv2zIwnqlb9tQr2g/6cDvE3Vy3TNOaRQsmAYL02xty6xEXHQJ0JFGOqa1ymZTcPTidN9h4PqwUXCCxEhMRUORuOKgx9ElzFFsTI2iVAOUnt+yTV/b4kv2FyyM5C44PPWK5PeswajdIeJY9ERO0hRIj/JzQZcCJ5O7M6Cldc4YUpWm9WA9LYQYw+mI9IAxVLBoHy1LNIDZrUs0wsmPMWeGxesQaG75p1Zatu7g2ETUtxIZpzhYUpzJOHsbiGXZgUYq011e+FrxoVHyGm/9PWwrEASJqNpuMiHQh4=',
+      'nonce_str' => '5d0b360f1ceee',
+    ),
+    'sign' => '4FBEB37CF22671C0D1BB77EA06B5D0DA',
+  ),
+  'data' => '{"code":400,"msg":"请检查商户号，appid是否正确(SYSTEMERROR)"}',
+)array (
+  'time' => '2019-11-08 18:18:44',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'total' => 10,
+      'authCode' => '289148345324681215',
+      'nonce_str' => 'f0f0uoifgct',
+    ),
+    'appid' => '0022131261',
+    'sign' => '172D8EDF39649587EDD0958D7F9C9121',
+  ),
+  'data' => '{"code":400,"msg":"验签出错，建议检查签名字符串或签名私钥与应用公钥是否匹配，网关生成的验签字符串为：alipay_sdk=alipay-sdk-php-20180705&amp;app_auth_token=201910BB6772ed63a4054b4cb3cc345b6237aX24&amp;app_id=2019101368390165&amp;biz_content={&quot;out_trade_no&quot;:&quot;191108272106592468170&quot;,&quot;scene&quot;:&quot;bar_code&quot;,&quot;auth_code&quot;:&quot;289148345324681215&quot;,&quot;total_amount&quot;:0.1,&quot;subject&quot;:&quot;张家便利店&quot;,&quot;body&quot;:&quot;移动支付&quot;,&quot;product_code&quot;:&quot;FACE_TO_FACE_PAYMENT&quot;,&quot;extend_params&quot;:{&quot;sys_service_provider_id&quot;:&quot;2088631523363835&quot;}}&amp;charset=UTF-8&amp;format=json&amp;method=alipay.trade.pay&amp;notify_url=http://slpay.shunzhiapp.com/Pays/FaceAuto/aliNotify&amp;sign_type=RSA2&amp;timestamp=2019-11-08 18:18:44&amp;version=1.0"}',
+)array (
+  'time' => '2019-11-08 18:41:02',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'total' => 1,
+      'authCode' => '281185084403885946',
+      'nonce_str' => 'vaef29xd4',
+    ),
+    'appid' => '0022131261',
+    'sign' => '7C6ECB51C585E128C3E72DDD6E2A1E5C',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:0.01元","data":{"out_trade_no":"191108276986726076549","transaction_id":"2019110822001482851412253953","status":1,"payType":"ali","payTime":"2019-11-08 18:41:02","total":1,"nonce_str":"Face5dc5463e7cf7e"},"sign":"539C3DDD316F05969C935C2DDF469D5D"}',
+)array (
+  'time' => '2019-11-08 18:42:47',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'total' => 10,
+      'authCode' => '285410969782218927',
+      'nonce_str' => '0d0arcmq6k7e',
+    ),
+    'appid' => '0022131261',
+    'sign' => '579E92AE43EC6164D398676B3FDC77E1',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:0.10元","data":{"out_trade_no":"191108273816736661481","transaction_id":"2019110822001499805704736702","status":1,"payType":"ali","payTime":"2019-11-08 18:42:47","total":10,"nonce_str":"Face5dc546a7b0e1f"},"sign":"E87D12DF19B32A89C8ADD2D058492A54"}',
+)array (
+  'time' => '2019-11-08 18:42:50',
+  'post' => 
+  array (
+    'method' => 'auto_pay',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'total' => 1,
+      'authCode' => '284587651804125079',
+      'nonce_str' => 'k5pobtwdkqe',
+    ),
+    'appid' => '0022131261',
+    'sign' => 'E3BFA53628808F9D50217CBC75469D83',
+  ),
+  'data' => '{"code":100,"msg":"支付成功 金额:0.01元","data":{"out_trade_no":"191108279706736894750","transaction_id":"2019110822001482851412035523","status":1,"payType":"ali","payTime":"2019-11-08 18:42:50","total":1,"nonce_str":"Face5dc546aaace82"},"sign":"23F9E408CEBB0B78EB5E28385B172619"}',
+)array (
+  'time' => '2019-11-08 18:44:34',
+  'post' => 
+  array (
+    'appid' => '0022131261',
+    'method' => 'mch_orderCount',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'status' => 4,
+      'sdate' => '2019-11-08',
+      'edate' => '2019-11-08',
+      'nonce_str' => '5d10f3e6195b1',
+    ),
+    'sign' => '490D306B9B7BD32E3A24BDC70CC2C3DD',
+  ),
+  'data' => '{"code":100,"msg":"汇总数据成功","data":{"stime":"2019-11-08 00:00:00","etime":"2019-11-09 00:00:00","count":"3","total":12,"re_total":0,"suc_total":12,"wx_count":0,"wx_total":0,"wx_re_total":0,"wx_suc_total":0,"ali_count":"3","ali_total":12,"ali_re_total":0,"ali_suc_total":12,"nonce_str":"Face5dc5471270537"},"sign":"83DD5720EF4F0714E7690544FFD00A86"}',
+)array (
+  'time' => '2019-11-08 18:44:38',
+  'post' => 
+  array (
+    'appid' => '0022131261',
+    'method' => 'mch_adData',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'type' => 'wx',
+      'nonce_str' => '5d0b360f1ceee',
+    ),
+    'sign' => '7FB010BE890DB1F7EEDFEF0468D1C0D9',
+  ),
+  'data' => '{"code":100,"msg":"广告资料获取成功","data":{"store_id":3,"type":"wx","test":[],"nonce_str":"Face5dc54716df276"},"sign":"146276FD8763827BB541279AB6E2F4AD"}',
+)array (
+  'time' => '2019-11-08 18:44:43',
+  'post' => 
+  array (
+    'appid' => '0022131261',
+    'method' => 'wx_faceAuthInfo',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'rawdata' => 'H83H5VSihtvv/OlDUrlgXGrVSAEbC2n9s6h22+sUjQ5c2EBjEnBEc8fSWeX7UJ4nnUpOgtHYeJZl+Fyr9p3mInnoeScv0BuSk27pj0IHdApohHWZEkPS91W/b0B5nC3HJ3YUPv0FcX0tENxqvAGtGiqRAk6OETpXPUhWSPn9XQBxGnVT1NwHAhUUUZsVDoTGncNpv0AkIp3oKVHGimvtTFhgy1aa/IHHmYsAlL2qjXPCygSoG92pmPHDb5Orj+ZPCVnaplKe34ODqT/NRLU1kCVupmw5an5RlhZewilKJd1M+EiLGT9el89frWfYwVElxYJEshRLyvz4H+K+5FxZCnrvd+HNAf0n7YkIUCQReh4e8chzYa5lDMQNEefgcCYkxrXJZRoKjmfCfJ0uEMvmu2uyMGMZaLvw61PHW8eS6acwV0cF6B62G8u63D7F7U3D8QNocY+/TcsgssYrVrzfUr8VqpAWBPzBvjTv285OOZ95f4A/ZdKmId1sy3ifXn14lvVA9CV4dy8GsHsoaRS/RLqbn9oTRR3PopHgu3J1yfTWJ0cmfKFhr/OT8PrBIVqvcaWA2heNZpHGkj6FQDP5GP/dA6M+U+csLPS8h9CckxWmehNRMGeoxNgdTPvkAesItINwn9BxAADbXh0V6uyFesWFjfM0g/tgLGT92q1IMiz9qs5D3umwurA+ntrOZmSFLUswTJdH2R+c7OMoiMvjK9XFaWvi1gBLXvrf1gsg04FP/CtgytEjBHv+9kAWODlqJ0FpbMbWXWZ40IwlTiBVj8W4uVP8IPlqCTcLkAbtXG2dgvlz1IaFXzCTbn5w/xiuK0ykAX0=',
+      'nonce_str' => '5d0b360f1ceee',
+    ),
+    'sign' => 'EF798B58A6F90EB56FB7601DEC9A1434',
+  ),
+  'data' => '{"code":400,"msg":"请检查商户号，appid是否正确(SYSTEMERROR)"}',
+)array (
+  'time' => '2019-11-08 18:44:46',
+  'post' => 
+  array (
+    'appid' => '0022131261',
+    'method' => 'wx_faceAuthInfo',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'rawdata' => 'H83H5VSihtvv/OlDUrlgXGrVSAEbC2n9s6h22+sUjQ5c2EBjEnBEc8fSWeX7UJ4nnUpOgtHYeJZl+Fyr9p3mInnoeScv0BuSk27pj0IHdApohHWZEkPS91W/b0B5nC3HJ3YUPv0FcX0tENxqvAGtGiqRAk6OETpXPUhWSPn9XQBxGnVT1NwHAhUUUZsVDoTGncNpv0AkIp3oKVHGimvtTFhgy1aa/IHHmYsAlL2qjXPCygSoG92pmPHDb5Orj+ZPCVnaplKe34ODqT/NRLU1kCVupmw5an5RlhZewilKJd1M+EiLGT9el89frWfYwVElxYJEshRLyvz4H+K+5FxZCnrvd+HNAf0n7YkIUCQReh4e8chzYa5lDMQNEefgcCYkxrXJZRoKjmfCfJ0uEMvmu2uyMGMZaLvw61PHW8eS6acwV0cF6B62G8u63D7F7U3D8QNocY+/TcsgssYrVrzfUr8VqpAWBPzBvjTv285OOZ95f4A/ZdKmId1sy3ifXn14lvVA9CV4dy8GsHsoaRS/RLqbn9oTRR3PopHgu3J1yfTWJ0cmfKFhr/OT8PrBIVqvcaWA2heNZpHGkj6FQDP5GP/dA6M+U+csLPS8h9CckxWmehNRMGeoxNgdTPvkAesItINwn9BxAADbXh0V6uyFesWFjfM0g/tgLGT92q1IMiz9qs5D3umwurA+ntrOZmSFLUswTJdH2R+c7OMoiMvjK9XFaWvi1gBLXvrf1gsg04FP/CtgytEjBHv+9kAWODlqJ0FpbMbWXWZ40IwlTiBVj8W4uVP8IPlqCTcLkAbtXG2dgvlz1IaFXzCTbn5w/xiuK0ykAX0=',
+      'nonce_str' => '5d0b360f1ceee',
+    ),
+    'sign' => 'EF798B58A6F90EB56FB7601DEC9A1434',
+  ),
+  'data' => '{"code":400,"msg":"请检查商户号，appid是否正确(SYSTEMERROR)"}',
+)array (
+  'time' => '2019-11-08 18:44:48',
+  'post' => 
+  array (
+    'appid' => '0022131261',
+    'method' => 'wx_faceAuthInfo',
+    'data' => 
+    array (
+      'store_id' => 3,
+      'rawdata' => 'H83H5VSihtvv/OlDUrlgXGrVSAEbC2n9s6h22+sUjQ5c2EBjEnBEc8fSWeX7UJ4nnUpOgtHYeJZl+Fyr9p3mInnoeScv0BuSk27pj0IHdApohHWZEkPS91W/b0B5nC3HJ3YUPv0FcX0tENxqvAGtGiqRAk6OETpXPUhWSPn9XQBxGnVT1NwHAhUUUZsVDoTGncNpv0AkIp3oKVHGimvtTFhgy1aa/IHHmYsAlL2qjXPCygSoG92pmPHDb5Orj+ZPCVnaplKe34ODqT/NRLU1kCVupmw5an5RlhZewilKJd1M+EiLGT9el89frWfYwVElxYJEshRLyvz4H+K+5FxZCnrvd+HNAf0n7YkIUCQReh4e8chzYa5lDMQNEefgcCYkxrXJZRoKjmfCfJ0uEMvmu2uyMGMZaLvw61PHW8eS6acwV0cF6B62G8u63D7F7U3D8QNocY+/TcsgssYrVrzfUr8VqpAWBPzBvjTv285OOZ95f4A/ZdKmId1sy3ifXn14lvVA9CV4dy8GsHsoaRS/RLqbn9oTRR3PopHgu3J1yfTWJ0cmfKFhr/OT8PrBIVqvcaWA2heNZpHGkj6FQDP5GP/dA6M+U+csLPS8h9CckxWmehNRMGeoxNgdTPvkAesItINwn9BxAADbXh0V6uyFesWFjfM0g/tgLGT92q1IMiz9qs5D3umwurA+ntrOZmSFLUswTJdH2R+c7OMoiMvjK9XFaWvi1gBLXvrf1gsg04FP/CtgytEjBHv+9kAWODlqJ0FpbMbWXWZ40IwlTiBVj8W4uVP8IPlqCTcLkAbtXG2dgvlz1IaFXzCTbn5w/xiuK0ykAX0=',
+      'nonce_str' => '5d0b360f1ceee',
+    ),
+    'sign' => 'EF798B58A6F90EB56FB7601DEC9A1434',
+  ),
+  'data' => '{"code":400,"msg":"请检查商户号，appid是否正确(SYSTEMERROR)"}',
+)
