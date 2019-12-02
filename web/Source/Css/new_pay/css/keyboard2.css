@@ -1,0 +1,92 @@
+#keyboard {
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:0 auto;
+    width:100%;
+    height:6.4rem;
+    background-color:#fff;
+    border-collapse:collapse;
+    display:none
+}
+#keyboard td {
+    width:25%;
+    text-align:center;
+    height:1.6rem;
+    line-height:1.6rem;
+    font-size:.61333rem;
+    color:#585858
+}
+#keyboard td.num {
+    background-image:url(http://pic1.yeahka.com/img/pay/border_img.png), url(http://pic1.yeahka.com/img/pay/border_img2.png);
+    background-repeat:repeat-x, repeat-y;
+    background-position:0 top, right top;
+    background-size:100% 1px, 1px 1.6rem
+}
+#keyboard td.del {
+    background-image:url(http://pic1.yeahka.com/img/pay/border_img.png), url(http://pic1.yeahka.com/img/pay/delete.png);
+    background-repeat:repeat-x, no-repeat;
+    background-position:0 top, center center;
+    background-size:100% 1px, .66667rem .53333rem
+}
+#keyboard td.key {
+    background-image:url(http://pic1.yeahka.com/img/pay/border_img.png), url(http://pic1.yeahka.com/img/pay/border_img2.png), url(http://pic1.yeahka.com/img/pay/key.png);
+    background-repeat:repeat-x, repeat-y, no-repeat;
+    background-position:0 top, right top, center center;
+    background-size:100% 1px, 1px 100%, .66667rem .6rem
+}
+#keyboard td.complete {
+    background-image:url(http://pic1.yeahka.com/img/pay/border_img.png);
+    background-repeat:repeat-x;
+    background-position:0 top;
+    background-size:100% 1px;
+    background-color:#4270d2;
+    color:rgba(255, 255, 255, 0.3);
+    font-size:.53333rem
+}
+#keyboard td.input {
+    color:#fff
+}
+.trink{
+    color:#4270d3;
+    position: absolute;
+    /* top: 0; */
+    bottom: -12px;
+    animation:trinking 1s infinite ease-in-out;
+    -webkit-animation:trinking 1s infinite ease-in-out;
+    -moz-animation:trinking 1s infinite ease-in-out;
+    -o-animation:trinking 1s infinite ease-in-out;
+}
+@keyframes trinking {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100;
+    }
+}
+@-webkit-keyframes trinking {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100;
+    }
+}
+@-moz-keyframes trinking {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100;
+    }
+}
+@-o-keyframes trinking {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100;
+    }
+}

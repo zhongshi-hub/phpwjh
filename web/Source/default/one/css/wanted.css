@@ -1,0 +1,265 @@
+@charset "utf-8";
+/* CSS Document */
+
+ul,
+li,
+img,
+p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h3 {
+  margin: 0;
+}
+
+.max-center {
+  width: 1000px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*中部内容*/
+
+.wanted-bg {
+  width: 100%;
+  min-width: 1000px;
+  background-image: url("../imgs/wantedbg.png");
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+
+.wanted-con {
+  max-width: 630px;
+  height: 620px;
+  margin: auto;
+  padding-top: 60px;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.wanted-left {
+  width: 70px;
+  height: 390px;
+  float: left;
+  margin-top: 15px;
+  border-left: 16px solid #333333;
+  border-top: 16px solid #333333;
+  border-bottom: 16px solid #333333;
+}
+
+.wanted-right {
+  width: 70px;
+  height: 390px;
+  float: left;
+  margin-top: 15px;
+  margin-left: 15px;
+  border-right: 16px solid #333333;
+  border-top: 16px solid #333333;
+  border-bottom: 16px solid #333333;
+}
+
+.wanted-word {
+  max-width: 450px;
+  float: left;
+  margin-left: 20px;
+}
+
+.wanted-word > h3 {
+  font-size: 74px;
+  color: #333333;
+  margin-top: 3px;
+}
+
+.font-normal {
+  font-weight: normal;
+  display: block;
+}
+
+.font-size {
+  font-size: 90px;
+  font-weight: bold;
+  background-image: url("../imgs/wanted-point.png");
+  background-repeat: no-repeat;
+  background-position: 370px 43px;
+  display: block;
+  width: 410px;
+  margin-top: -90px;
+  padding-bottom: 15px;
+}
+
+.wanted-send {
+  width: 395px;
+  height: 55px;
+  background-color: #333333;
+  border-radius: 3px;
+  color: #faf56b;
+  line-height: 55px;
+  text-align: center;
+  margin-left: 5px;
+  font-size: 18px;
+}
+
+.wanted-p {
+  font-size: 20px;
+  color: #333333;
+  line-height: 38px;
+  margin-top: 13px;
+  margin-left: 5px;
+}
+
+/*职位列表*/
+
+.wanted-ul {
+  position: relative;
+}
+
+.wanted-ul > ul {
+  padding-bottom: 130px;
+  margin-left: -43px;
+  overflow: hidden;
+}
+
+.wanted-ul > ul > li {
+  width: 163px;
+  height: 188px;
+  float: left;
+  text-align: center;
+  border: 1px solid #333333;
+  border-radius: 2px;
+  margin-left: 43px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  /* Firefox 4 */
+
+  -webkit-transition-duration: 0.5s;
+  /* Safari 和 Chrome */
+
+  -o-transition-duration: 0.5s;
+  /* Opera */
+}
+
+.wanted-ul > ul > li:hover {
+  background-color: #333333;
+}
+
+/*背景色过渡效果*/
+
+.wanted-ul > ul > li > img {
+  padding: 26px 0;
+}
+
+.wanted-li {
+  width: 162px;
+  height: 46px;
+  border-top: 1px solid #333333;
+  line-height: 46px;
+  font-size: 15px;
+  color: #333333;
+}
+
+/*花*/
+
+.flower1 {
+  width: 337px;
+  height: 197px;
+  background-image: url("../imgs/wanted-f1.png");
+  position: absolute;
+  left: -232px;
+  top: 177px;
+}
+
+.flower2 {
+  width: 337px;
+  height: 197px;
+  background-image: url("../imgs/wanted-f2.png");
+  position: absolute;
+  left: 539px;
+  top: 122px;
+}
+
+/*模态框调整*/
+
+.modal-header > .close {
+  width: 17px;
+  height: 18px;
+  margin-top: 19px;
+  margin-right: 5px;
+  *margin-top: 6px;
+  background: url("../imgs/times.png") no-repeat;
+  opacity: 1;
+}
+
+.modal-title ul {
+  margin-top: 10px;
+  *margin-top: 10px;
+}
+
+.modal-title ul li {
+  font-size: 24px;
+}
+
+.modal-content {
+  width: 750px;
+  height: auto;
+}
+
+.md-titlebig {
+  font-size: 18px;
+}
+
+.md-titlebig > span {
+  color: #f74747;
+}
+
+.md-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.md-con {
+  font-size: 14px;
+  color: #333333;
+  line-height: 30px;
+}
+
+.md-dis {
+  display: none;
+}
+
+#myModal {
+  position: absolute \9;
+  top: 50% \9;
+  left: 50% \9;
+  margin-top: -290px \9;
+  margin-left: -375px \9;
+  margin-left: -375px \9;
+}
+
+.wantedbtn {
+  width: 190px;
+  height: 42px;
+  display: block;
+  border-radius: 3px;
+  background-color: #333333;
+  color: #FFF;
+  text-align: center;
+  line-height: 42px;
+  font-size: 18px;
+  margin: auto;
+}
+
+.wantedbtn:hover,
+.wantedbtn:focus {
+  color: #FFF;
+  background-color: #000;
+  text-decoration: none;
+  *color: #FFF;
+  *background-color: #000;
+  *text-decoration: none;
+  outline: none;
+}

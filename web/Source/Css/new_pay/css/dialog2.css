@@ -1,0 +1,40 @@
+
+		/*//dialog*/
+		#fullbg {
+			background-color:#000;
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:10
+		}
+		.dialog {
+			margin:.4rem;
+			position:absolute;
+			border:1px solid #ccc;
+			border-radius:15px;
+			top:.26667rem;
+			z-index:20;
+			background-color:#fff;
+			width:90%
+		}
+		.dialog .dialog_close {
+			text-align:right;
+			position:absolute;
+			right:.13333rem;
+			top:.13333rem
+		}
+		.dialog .dialog_detail {
+			color:#70767d;
+			max-width:90%;
+			margin:0 auto
+		}
+		.apply_btn_2 {
+			background:none;
+			height:1.17333rem;
+			width:100%;
+			color:#4270d2;
+			font-size:.42667rem;
+			border-radius:4px;
+			border:0;
+			padding:0
+		}

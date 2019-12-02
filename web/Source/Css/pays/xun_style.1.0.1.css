@@ -1,0 +1,616 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+q,
+s,
+samp,
+small,
+strike,
+sub,
+sup,
+tt,
+var,
+dd,
+dl,
+dt,
+li,
+ol,
+ul,
+fieldset,
+form,
+div,
+span,
+label,
+legend,
+button,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+div,
+input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 100%;
+  font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+html,
+body {
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+ol,
+ul {
+  list-style: none;
+}
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+  content: "";
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid #1d1d1d;
+}
+button {
+  outline: none;
+}
+input::-ms-clear {
+  display: none;
+}
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+a:focus {
+  outline: none 0;
+}
+a:hover,
+a:active {
+  outline: none 0;
+  background-color: transparent !important \0;
+}
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+  -o-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+audio:not([controls]) {
+  display: none;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+button,
+input {
+  line-height: normal;
+  *overflow: visible;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+.flex-box-column {
+  flex-direction: column;
+}
+.flexBox {
+  display: box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  text-align: center;
+}
+div,
+p,
+span {
+  word-break: break-all;
+}
+.clear {
+  width: 0 !important;
+  height: 0 !important;
+  clear: both;
+}
+.none {
+  display: none;
+}
+/* 透明 input*/
+.input-sky {
+  position: relative;
+}
+.input-sky input::-webkit-input-placeholder {
+  color: #aab2d2 !important;
+}
+.input-sky input:-moz-placeholder {
+  color: #aab2d2 !important;
+}
+.input-sky input::-moz-placeholder {
+  color: #aab2d2 !important;
+}
+.input-sky input:-ms-input-placeholder {
+  color: #aab2d2 !important;
+}
+.input-sky input {
+  width: 100%;
+  font-size: 16px;
+  color: #111111;
+  border: 0;
+  background-color: transparent;
+}
+input:focus {
+  border: none;
+}
+@keyframes cursor {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes cursor {
+  /* Safari 与 Chrome */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#collection,
+#xun_pay,
+#xun_pays {
+  width: 100%;
+  height: 100%;
+  background-color: #f4f5f8;
+}
+#collection .space,
+#xun_pay .space,
+#xun_pays .space {
+  width: 100%;
+  height: auto;
+  background-color: #FFF;
+  padding: 20px 15px;
+}
+#collection .space .prompt,
+#xun_pay .space .prompt,
+#xun_pays .space .prompt {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  font-size: 18px;
+  color: #4b526d;
+}
+#collection .space .prompt span,
+#xun_pay .space .prompt span,
+#xun_pays .space .prompt span {
+  display: inline-block;
+  margin-right: 7px;
+  transform: translate3d(0, 3px, 0);
+  width: 20px;
+  height: 20px;
+}
+
+#collection .space .prompt span.collection,
+#xun_pay .space .prompt span.collection,
+#xun_pays .space .prompt span.collection {
+  background: url("../assets/money.png") no-repeat center;
+  background-size: 20px 20px;
+}
+#collection .space .prompt .word,
+#xun_pay .space .prompt .word,
+#xun_pays .space .prompt .word {
+  display: inline-block;
+  float: right;
+  font-size: 12px;
+  color: #a6abc3;
+}
+#collection .space .key-ipt,
+#xun_pay .space .key-ipt,
+#xun_pays .space .key-ipt {
+  position: relative;
+  width: 100%;
+  height: 75px;
+  border: 1px solid #108ee9;
+  border-radius: 5px;
+}
+#collection .space .key-ipt .key-title,
+#xun_pay .space .key-ipt .key-title,
+#xun_pays .space .key-ipt .key-title {
+  display: inline-block;
+  float: left;
+  height: 73px;
+  line-height: 73px;
+  font-size: 16px;
+  color: #a6abc3;
+  margin-left: 15px;
+}
+#collection .space .key-ipt .key-icon,
+#xun_pay .space .key-ipt .key-icon,
+#xun_pays .space .key-ipt .key-icon {
+  display: inline-block;
+  float: right;
+  height: 70px;
+  line-height: 70px;
+  transform: translate3d(0, 3px, 0);
+  font-size: 45px;
+  font-weight: bold;
+  color: #a6abc3;
+  margin-right: 5px;
+}
+#collection .space .key-ipt .key-span,
+#xun_pay .space .key-ipt .key-span,
+#xun_pays .space .key-ipt .key-span {
+  display: inline-block;
+  float: right;
+  height: 73px;
+  line-height: 73px;
+  font-size: 45px;
+  color: #4b526d;
+  margin-right: 5px;
+}
+#collection .space .key-ipt .key-cursor,
+#xun_pay .space .key-ipt .key-cursor,
+#xun_pays .space .key-ipt .key-cursor {
+  display: inline-block;
+  float: right;
+  width: 2px;
+  height: 41px;
+  margin-top: 16px;
+  background-color: #5a5d6b;
+  margin-right: 10px;
+}
+#collection .space .key-ipt .key-cursor.animate,
+#xun_pay .space .key-ipt .key-cursor.animate,
+#xun_pays .space .key-ipt .key-cursor.animate {
+  transition: cursor 0.7s;
+  -webkit-animation: cursor 0.7s;
+  animation-direction: alternate;
+  -webkit-animation-direction: alternate;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+#collection .space .remark,
+#xun_pay .space .remark,
+#xun_pays .space .remark {
+  height: 40px;
+  line-height: 54px;
+  font-size: 12px;
+  color: #a6abc3;
+  text-align: right;
+  float: right;
+}
+#collection .keyboard,
+#xun_pay .keyboard,
+#xun_pays .keyboard {
+  width: 100%;
+  height: 310px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+#collection .keyboard .copyright,
+#xun_pay .keyboard .copyright,
+#xun_pays .keyboard .copyright {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 15px;
+  border-bottom: 1px solid #e8eaf3;
+}
+#collection .keyboard .copyright .word,
+#xun_pay .keyboard .copyright .word,
+#xun_pays .keyboard .copyright .word {
+  display: inline-block;
+  font-size: 12px;
+  color: #a6abc3;
+  padding: 0 15px;
+}
+#collection .keyboard .copyright .line,
+#xun_pay .keyboard .copyright .line,
+#xun_pays .keyboard .copyright .line {
+  display: inline-block;
+  box-flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 1px;
+  margin-top: 14px;
+  background-color: #dddfe8;
+}
+#collection .keyboard .keys,
+#xun_pay .keyboard .keys,
+#xun_pays .keyboard .keys {
+  width: 100%;
+  height: 280px;
+  background-color: #FFF;
+}
+#collection .keyboard .keys .left,
+#xun_pay .keyboard .keys .left,
+#xun_pays .keyboard .keys .left {
+  width: 75%;
+  float: left;
+}
+#collection .keyboard .keys .left .key,
+#xun_pay .keyboard .keys .left .key,
+#xun_pays .keyboard .keys .left .key {
+  width: 33.33%;
+  height: 70px;
+  font-size: 20px;
+  color: #5a5d6b;
+  float: left;
+  text-align: center;
+  line-height: 70px;
+  border-bottom: 1px solid #e8eaf3;
+  border-right: 1px solid #e8eaf3;
+}
+#collection .keyboard .keys .left .key.gray,
+#xun_pay .keyboard .keys .left .key.gray,
+#xun_pays .keyboard .keys .left .key.gray {
+  background-color: #f4f5f8;
+}
+#collection .keyboard .keys .delete,
+#xun_pay .keyboard .keys .delete,
+#xun_pays .keyboard .keys .delete {
+  width: 100%;
+  height: 69px;
+  overflow: hidden;
+  background: url("../assets/del.png") no-repeat center;
+  background-size: 27px 20px;
+}
+#collection .keyboard .keys .qr,
+#xun_pay .keyboard .keys .qr,
+#xun_pays .keyboard .keys .qr {
+  float: left;
+  width: 25%;
+}
+#collection .keyboard .keys .qr .word,
+#xun_pay .keyboard .keys .qr .word,
+#xun_pays .keyboard .keys .qr .word {
+  width: 100%;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  font-size: 12px;
+  color: #FFF;
+}
+#collection .keyboard .keys .qr .word.big,
+#xun_pay .keyboard .keys .qr .word.big,
+#xun_pays .keyboard .keys .qr .word.big {
+  line-height: 211px;
+  font-size: 26px;
+}
+#collection .keyboard .keys .qr .all-pay,
+#xun_pay .keyboard .keys .qr .all-pay,
+#xun_pays .keyboard .keys .qr .all-pay {
+  width: 100%;
+  height: 211px;
+  overflow: hidden;
+  background-color: #108ee9;
+}
+#collection .keyboard .keys .qr .quick,
+#xun_pay .keyboard .keys .qr .quick,
+#xun_pays .keyboard .keys .qr .quick {
+  width: 100%;
+  height: 70px;
+  overflow: hidden;
+  background-color: #ffae44;
+}
+#collection .keyboard .keys .qr .quick .logo,
+#xun_pay .keyboard .keys .qr .quick .logo,
+#xun_pays .keyboard .keys .qr .quick .logo {
+  width: 26px;
+  height: 20px;
+  margin: 15px auto 0;
+  background: url("../assets/card-white.png") no-repeat center;
+  background-size: 26px 20px;
+}
+#collection .keyboard .keys .qr .quick .date,
+#xun_pay .keyboard .keys .qr .quick .date,
+#xun_pays .keyboard .keys .qr .quick .date {
+  font-size: 10px;
+  color: #fff;
+  margin-top: -6px;
+}
+#collection .keyboard .keys .qr .wx-pay,
+#xun_pay .keyboard .keys .qr .wx-pay,
+#xun_pays .keyboard .keys .qr .wx-pay {
+  width: 100%;
+  height: 70px;
+  overflow: hidden;
+  background-color: #108ee9;
+}
+#collection .keyboard .keys .qr .wx-pay .wx-logo,
+#xun_pay .keyboard .keys .qr .wx-pay .wx-logo,
+#xun_pays .keyboard .keys .qr .wx-pay .wx-logo {
+  width: 26px;
+  height: 26px;
+  margin: 9px auto 4px;
+  background: url("../assets/wxb.png") no-repeat center;
+  background-size: 26px 26px;
+}
+#collection .keyboard .keys .qr .wx-pay .date,
+#xun_pay .keyboard .keys .qr .wx-pay .date,
+#xun_pays .keyboard .keys .qr .wx-pay .date {
+  font-size: 10px;
+  color: #fff;
+  margin-top: -6px;
+}
+#collection .keyboard .keys .qr .ali-pay,
+#xun_pay .keyboard .keys .qr .ali-pay,
+#xun_pays .keyboard .keys .qr .ali-pay {
+  width: 100%;
+  height: 71px;
+  overflow: hidden;
+  background-color: #4e9bf9;
+}
+#collection .keyboard .keys .qr .ali-pay .ali-logo,
+#xun_pay .keyboard .keys .qr .ali-pay .ali-logo,
+#xun_pays .keyboard .keys .qr .ali-pay .ali-logo {
+  width: 26px;
+  height: 26px;
+  margin: 9px auto 4px;
+  background: url("../assets/zfbb.png") no-repeat center;
+  background-size: 26px 26px;
+}
+#collection .keyboard .keys .qr .ali-pay .date,
+#xun_pay .keyboard .keys .qr .ali-pay .date,
+#xun_pays .keyboard .keys .qr .ali-pay .date {
+  font-size: 10px;
+  color: #fff;
+  margin-top: -6px;
+}
+#collection .keyboard .keys .wx,
+#xun_pay .keyboard .keys .wx,
+#xun_pays .keyboard .keys .wx {
+  float: left;
+  width: 25%;
+}
+#collection .keyboard .keys .wx .pay,
+#xun_pay .keyboard .keys .wx .pay,
+#xun_pays .keyboard .keys .wx .pay {
+  height: 210px;
+  line-height: 210px;
+  font-size: 16px;
+  color: #FFF;
+  background-color: #5fd68c;
+}
+#collection .keyboard .keys .zfb,
+#xun_pay .keyboard .keys .zfb,
+#xun_pays .keyboard .keys .zfb {
+  float: left;
+  width: 25%;
+}
+#collection .keyboard .keys .zfb .pay,
+#xun_pay .keyboard .keys .zfb .pay,
+#xun_pays .keyboard .keys .zfb .pay {
+  height: 210px;
+  line-height: 210px;
+  font-size: 16px;
+  color: #FFF;
+  background-color: #4e9bf9;
+}
+
+
+
+.down{background-color: #f4f5f8!important;}
+.od{background-color:rgba(16, 142, 233, 0.48)!important;}

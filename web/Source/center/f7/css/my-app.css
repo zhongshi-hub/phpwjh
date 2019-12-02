@@ -1,0 +1,31 @@
+.with-bottom{
+    position: fixed;
+    left: 0;
+    width: 100%;
+}
+.with-line {
+    width:260px;
+    font-size: 13px;
+    color: #C3C3C3;
+    margin: 0 auto;
+    position: relative;
+    text-align: center
+}
+.with-line:before {
+    content: "";
+    border-top: 1px solid #C3C3C3;
+    display: block;
+    position: absolute;
+    width: 60px;
+    top: 9px;
+    left: 0
+}
+.with-line:after {
+    content: "";
+    border-top: 1px solid #C3C3C3;
+    display: block;
+    position: absolute;
+    width: 60px;
+    top: 9px;
+    right: 0
+}

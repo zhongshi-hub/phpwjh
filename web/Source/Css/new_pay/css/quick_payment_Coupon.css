@@ -1,0 +1,371 @@
+﻿.paymentPage .coupon_list {
+  height: 4.533333333333333rem;
+  width: 100%;
+  left: 0;
+  background-color: #eeeeee;
+  position: absolute;
+  bottom: 0;
+  z-index: 99;
+  font-size: 0.4266666666666667rem;
+  color: #000;
+  overflow: hidden;
+}
+
+.paymentPage .coupon_list .list_head {
+  height: 1.2rem;
+  background-color: #eee;
+  overflow: hidden;
+  background-image: linear-gradient(0deg,#e2e2e2,#e2e2e2 50%,transparent );
+  background-position: 100% 100%;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+}
+
+.paymentPage .coupon_list .list_head li {
+  line-height:1.2rem;
+  height: 1.2rem;
+  float: right;
+  padding: 0 .4rem;
+  color: #979797;
+  font-size: 0.4266666666666667rem;
+}
+
+.paymentPage .coupon_list .cou_lists {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 3.333333333333333rem;
+  padding-top:0.4666666666666667rem;
+}
+
+.paymentPage .coupon_list .cou_lists li {
+  text-align: center;
+  background: url("../images/couponbg.png") no-repeat;
+  background-size: 100% 100%;
+  width:9.2rem;
+  /*height:2.546666666666667rem;*/
+  clear: both;
+  overflow: auto;
+  margin:0 .4rem .4rem .4rem;
+  list-style-type: none;
+  /*background: -webkit-linear-gradient(0, #f2f2f2, #f2f2f2 50%, transparent 0) 100% 100%/100% 1px no-repeat;*/
+  /*background: linear-gradient(0, #f2f2f2, #f2f2f2 50%, transparent 0) 100% 100%/100% 1px no-repeat*/
+}
+
+.paymentPage .coupon_list .cou_lists li div {
+  /*display: inline-block;*/
+  color: #cce8ff;
+}
+.couponContains{
+  width:7.4rem;
+  margin-left:0.4266666666666667rem;
+  margin-top:0.2533333333333333rem;
+  text-align: left;
+}
+.couponName {
+  font-size:0.4266666666666667rem;
+  margin-bottom:0.24rem;
+  width:93%;
+}
+.couponTime{
+  font-size:0.32rem;
+  color: #8acaff;
+  margin-bottom:0.3733333333333333rem;
+}
+.couponYesTime{
+  color: #cce8ff;
+}
+.couponPrice{
+  font-size:0.4266666666666667rem;
+  margin-bottom:0.24rem;
+  height:0.64rem;
+  line-height:0.64rem;
+}
+.couponJine{
+  font-size:0.8rem;
+}
+.getHuiCopuon{
+  background: url("../images/cou-lvgou-hui.png") no-repeat;
+  background-size: 100% 100%;
+  width:0.7466666666666667rem;
+  height:0.7466666666666667rem;
+  /*margin-left:1.666666666666667rem;*/
+  margin-top:1.0933333333333333rem;
+}
+.getCopuon{
+  background: url("../images/cou-lvgou.png") no-repeat;
+  background-size: 100% 100%;
+}
+.paymentPage .coupon_list .add_card_tip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  line-height: 1.46667rem;
+  height: 1.46667rem;
+  text-align: center;
+  font-size: .4rem
+}
+#item_Coupon{
+  color: #fa6e6e!important;;
+  font-size:0.4266666666666667rem;
+  width: 7.26667rem;
+}
+#item_Coupon::-webkit-input-placeholder{
+  color: #fa6e6e!important;;
+  font-size:0.4266666666666667rem;
+}
+
+
+/*tips_dialog2*/
+.tip_dialog2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  z-index: 11;
+  height: 4.533333333333333rem;
+  width: 8.933333333333333rem;
+  background-color: #fff;
+  border-radius: 8px;
+  padding-top: 0.88rem;
+  text-align: center;
+  color: #333
+}
+
+.tip_dialog2 .tip_title2 {
+  line-height: 0.5066666666666667rem;
+  height: 0.5066666666666667rem;
+  font-size: 0.5333333333333333rem;
+  color:#000;
+}
+
+.tip_dialog2 .tip_content2 {
+  margin: .4rem auto 0;
+  width: 90%;
+  line-height: .61333rem;
+  font-size: 0.3733333333333333rem
+}
+
+.tip_dialog2 .tip_btns2 {
+  line-height: 1.333333333333333rem;
+  height: 1.333333333333333rem;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  color:#0070ff;
+  font-size:0.48rem;
+}
+
+.tip_dialog2 .tip_btns2:before {
+  content: "";
+  pointer-events: none;
+  box-sizing: border-box;
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  left: 0;
+  top: 0;
+  border-top: 1px solid #e6e9e8;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0
+}
+
+.tip_dialog2 .tip_btns2 li {
+  float: left;
+  width: 50%;
+  height: 100%;
+  font-size: .48rem
+}
+
+.tip_dialog2 .tip_btns2 li:nth-of-type(2) {
+  margin-left: -1px;
+  width: 0;
+  border-right: 1px solid #e6e9e8;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5)
+}
+
+.tip_dialog2 .tip_btns2 li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #333;
+  text-decoration: none
+}
+
+
+/*tips_dialog2*/
+.tip_dialog2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  z-index: 11;
+  height: 4.533333333333333rem;
+  width: 8.933333333333333rem;
+  background-color: #fff;
+  border-radius: 8px;
+  padding-top: 0.88rem;
+  text-align: center;
+  color: #333
+}
+
+.tip_dialog2 .tip_title2 {
+  line-height: 0.5066666666666667rem;
+  height: 0.5066666666666667rem;
+  font-size: 0.5333333333333333rem;
+  color:#000;
+}
+
+.tip_dialog2 .tip_content2 {
+  margin: .4rem auto 0;
+  width: 90%;
+  line-height: .61333rem;
+  font-size: 0.3733333333333333rem
+}
+
+.tip_dialog2 .tip_btns2 {
+  line-height: 1.333333333333333rem;
+  height: 1.333333333333333rem;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  color:#0070ff;
+  font-size:0.48rem;
+}
+
+.tip_dialog2 .tip_btns2:before {
+  content: "";
+  pointer-events: none;
+  box-sizing: border-box;
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  left: 0;
+  top: 0;
+  border-top: 1px solid #e6e9e8;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0
+}
+
+.tip_dialog2 .tip_btns2 li {
+  float: left;
+  width: 50%;
+  height: 100%;
+  font-size: .48rem
+}
+
+.tip_dialog2 .tip_btns2 li:nth-of-type(2) {
+  margin-left: -1px;
+  width: 0;
+  border-right: 1px solid #e6e9e8;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5)
+}
+
+.tip_dialog2 .tip_btns2 li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #333;
+  text-decoration: none
+}
+
+
+
+
+
+
+/*tips_dialog3*/
+.tip_dialog3 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  z-index: 11;
+  height: 4.533333333333333rem;
+  width: 8.933333333333333rem;
+  background-color: #fff;
+  border-radius: 8px;
+  padding-top: 0.88rem;
+  text-align: center;
+  color: #333
+}
+
+.tip_dialog3 .tip_title3 {
+  line-height: 0.5066666666666667rem;
+  height: 0.5066666666666667rem;
+  font-size: 0.5333333333333333rem;
+  color:#000;
+}
+
+.tip_dialog3 .tip_content3 {
+  margin: 1rem auto 0;
+  width: 90%;
+  line-height: .61333rem;
+  font-size: 0.3733333333333333rem
+}
+
+.tip_dialog3 .tip_btns3 {
+  line-height: 1.333333333333333rem;
+  height: 1.333333333333333rem;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  color:#0070ff;
+  font-size:0.48rem;
+}
+
+.tip_dialog3 .tip_btns3:before {
+  content: "";
+  pointer-events: none;
+  box-sizing: border-box;
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  left: 0;
+  top: 0;
+  border-top: 1px solid #e6e9e8;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0
+}
+
+.tip_dialog3 .tip_btns3 li {
+  float: left;
+  width: 50%;
+  height: 100%;
+  font-size: .48rem
+}
+
+.tip_dialog3 .tip_btns3 li:nth-of-type(2) {
+  margin-left: -1px;
+  width: 0;
+  border-right: 1px solid #e6e9e8;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5)
+}
+
+.tip_dialog3 .tip_btns3 li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #333;
+  text-decoration: none
+}

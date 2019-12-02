@@ -1,0 +1,18 @@
+.upload_border{
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    text-align: center;
+    color: #999999;
+    height: 110px;
+    border-radius: 5px;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
+}
+.upload_border i{color: #dbdbdb;font-size: 30px;margin-top: 20px;}
+.list-block{margin-bottom: 10px!important;}
+.picker-item span{font-size: 15px!important;}
+::-webkit-input-placeholder {
+    font-size:15px;
+}
+.xun_footer{text-align: center;}
